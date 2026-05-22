@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>L's 趣味英文课堂 🎯</title>
+<style>
+  :root {
+    --bg: #f0f2f5;
+    --card: #ffffff;
+    --primary: #ff4757;
+    --secondary: #2ed573;
+    --accent: #ffa502;
+    --text: #1e272e;
+    --text2: #57606f;
+    --border: #ced6e0;
+    --radius: 14px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body {
+    font-family: -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  body { padding: 14px; }
+
+  .container { max-width: 780px; margin: 0 auto; }
+
+  /* ========== HEADER ========== */
+  .header {
+    background: linear-gradient(135deg, #ff4757 0%, #ff6348 50%, #ff7f50 100%);
+    border-radius: var(--radius);
+    padding: 24px 24px 18px;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .header h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
+  .header .icons { font-size: 22px; }
+  .header .sub { font-size: 13px; opacity: 0.85; }
+  .header .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 3px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+
+  /* ========== SCORE BAR ========== */
+  .score-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card);
+    padding: 10px 18px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 14px;
+  }
+  .score-left { display: flex; gap: 20px; }
+  .score-item { display: flex; align-items: center; gap: 6px; }
+  .score-item .num { font-weight: 700; font-size: 20px; color: var(--primary); }
+  .score-item .label { font-size: 13px; color: var(--text2); }
+  .btn-sm {
+    border: 1.5px solid var(--border);
+    background: var(--card);
+    padding: 5px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--text2);
+    transition: all 0.2s;
+  }
+  .btn-sm:hover { border-color: var(--primary); color: var(--primary); }
+
+  /* ========== TABS ========== */
+  .tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+  .tab {
+    flex-shrink: 0;
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: var(--card);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab:hover { border-color: var(--secondary); }
+  .tab.active {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: #fff;
+  }
+
+  /* ========== SECTION ========== */
+  .section {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title .emoji { font-size: 22px; }
+  .section-title .badge {
+    background: var(--secondary);
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 10px;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  /* ========== WORD BANK ========== */
+  .word-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 8px;
+  }
+  .word-card {
+    background: #f8f9fa;
+    border: 1.5px solid transparent;
+    border-radius: 10px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .word-card:hover {
+    border-color: var(--secondary);
+    transform: translateY(-1px);
+  }
+  .word-card .w-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .word-card .w-word { font-weight: 700; font-size: 15px; }
+  .word-card .w-phonetic { font-size: 12px; color: var(--text2); margin: 1px 0 3px; }
+  .word-card .w-meaning { font-size: 13px; color: var(--primary); font-weight: 500; }
+  .word-card .w-example {
+    font-size: 12px;
+    color: var(--text2);
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border);
+    display: none;
+    line-height: 1.5;
+  }
+  .word-card.expanded .w-example { display: block; }
+
+  .pronounce-btn {
+    background: none;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+    padding: 2px;
+    line-height: 1;
+  }
+  .pronounce-btn:hover { opacity: 1; }
+  .pronounce-btn.top-right { position: absolute; top: 4px; right: 4px; }
+
+  /* ========== READING PASSAGE ========== */
+  .passage-wrap {
+    border: 1.5px solid var(--accent);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .passage-toolbar {
+    background: #fff7e6;
+    padding: 8px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ffe0b2;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .passage-toolbar button {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 4px 14px;
+    border-radius: 14px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .passage-toolbar button:hover { filter: brightness(1.1); }
+  .passage-body { padding: 16px; }
+  .passage-body .en {
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 12px;
+    word-break: break-word;
+  }
+  .passage-body .cn {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text2);
+    border-top: 1px dashed var(--border);
+    padding-top: 12px;
+  }
+  .passage-body .hl {
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2px dotted var(--secondary);
+    transition: all 0.15s;
+    padding: 0 2px;
+  }
+  .passage-body .hl:hover { background: #fff3cd; border-radius: 3px; }
+
+  /* ========== QUESTIONS ========== */
+  .q-box {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--secondary);
+  }
+  .q-box .q-text { font-weight: 600; font-size: 14px; margin-bottom: 10px; }
+  .q-opts { display: flex; flex-direction: column; gap: 5px; }
+  .q-opt {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.15s;
+  }
+  .q-opt:hover { border-color: var(--secondary); background: #e8fdf5; }
+  .q-opt .ind {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+    font-weight: 600;
+  }
+  .q-opt.correct { border-color: #2ed573; background: #d4f5e9; }
+  .q-opt.correct .ind { background: #2ed573; color: #fff; border-color: #2ed573; }
+  .q-opt.wrong { border-color: var(--primary); background: #ffebee; }
+  .q-opt.wrong .ind { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .q-feedback {
+    display: none;
+    margin-top: 6px;
+    padding: 6px 10px;
+    background: #dfe6e9;
+    border-radius: 6px;
+    font-size: 13px;
+  }
+  .q-feedback.show { display: block; }
+
+  /* ========== GUIDE ========== */
+  .guide-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 14px;
+    transition: all 0.2s;
+    width: 100%;
+    text-align: left;
+  }
+  .guide-toggle:hover { filter: brightness(0.95); }
+  .guide-toggle .arrow { margin-left: auto; transition: transform 0.25s; font-size: 12px; }
+  .guide-toggle.open .arrow { transform: rotate(180deg); }
+  .guide-content { display: none; }
+  .guide-content.open { display: block; }
+  .guide-content > div {
+    background: #e8f4fd;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    border-left: 3px solid #339af0;
+  }
+  .guide-content .g-label { font-weight: 700; color: #1c7ed6; font-size: 13px; margin-bottom: 3px; }
+  .guide-content p { font-size: 14px; line-height: 1.7; color: var(--text); }
+
+  /* ========== DIALOGUE ========== */
+  .dialogue-box {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .d-line {
+    padding: 8px 10px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid var(--border);
+  }
+  .d-line .speaker { font-weight: 700; font-size: 13px; margin-bottom: 2px; }
+  .d-line .cn-t { color: var(--text2); font-size: 13px; margin-top: 2px; }
+
+  /* ========== MATCHING ========== */
+  .match-area {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .match-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 130px;
+  }
+  .match-item {
+    padding: 9px 16px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { border-color: var(--secondary); }
+  .match-item.sel { border-color: var(--primary); background: #fff3cd; }
+  .match-item.ok { border-color: #2ed573; background: #d4f5e9; cursor: default; }
+  .match-item.ng { border-color: var(--primary); background: #ffebee; animation: shake 0.25s; }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 600px) {
+    body { padding: 10px; }
+    .header { padding: 18px 16px 14px; }
+    .header h1 { font-size: 20px; }
+    .section { padding: 14px 14px; }
+    .word-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+    .word-card { padding: 10px; }
+    .match-area { gap: 12px; }
+    .match-col { min-width: 100px; }
+    .passage-body { padding: 12px; }
+    .passage-body .en { font-size: 14px; }
+    .score-left { gap: 12px; }
+    .score-item .num { font-size: 17px; }
+  }
+  @media (max-width: 380px) {
+    .word-grid { grid-template-columns: 1fr 1fr; gap: 5px; }
+    .tab { font-size: 12px; padding: 5px 11px; }
+    .match-col { min-width: 80px; }
+  }
+
+  @keyframes pop { 0%{transform:scale(0.8)} 70%{transform:scale(1.12)} 100%{transform:scale(1)} }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)} }
+  .animated { animation: pop 0.35s ease-out; }
+</style>
+</head>
+<body>
+<div class="container" id="app">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <h1>🎯 L's English</h1>
+        <div class="sub">趣味英文 · 互动练习 · 陪读解说</div>
+      </div>
+      <div class="icons">📚 ✏️ 💡</div>
+    </div>
+    <div class="date-badge" id="dateBadge"></div>
+  </div>
+
+  <!-- SCORE -->
+  <div class="score-bar">
+    <div class="score-left">
+      <div class="score-item"><span>⭐</span><span class="num" id="sc">0</span></div>
+      <div class="score-item"><span>🔥</span><span class="num" id="st">0</span><span class="label">天</span></div>
+    </div>
+    <button class="btn-sm" onclick="resetAll()">🔄 重置</button>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs" id="tabs">
+    <div class="tab active" data-d="mon" onclick="go('mon')">📧 周一 · 邮件</div>
+    <div class="tab" data-d="tue" onclick="go('tue')">📞 周二 · 电话</div>
+    <div class="tab" data-d="wed" onclick="go('wed')">🤝 周三 · 谈判</div>
+    <div class="tab" data-d="thu" onclick="go('thu')">💬 周四 · 售后</div>
+    <div class="tab" data-d="fri" onclick="go('fri')">🌍 周五 · 文化</div>
+  </div>
+
+  <!-- WORDS -->
+  <div class="section" id="secWords">
+    <div class="section-title"><span class="emoji">📝</span> 词汇银行 Word Bank <span class="badge">点卡片看例句 🔊</span></div>
+    <div class="word-grid" id="wordGrid"></div>
+  </div>
+
+  <!-- READING -->
+  <div class="section" id="secRead">
+    <div class="section-title"><span class="emoji">📖</span> 阅读理解 Reading <span class="badge">点高亮词学用法</span></div>
+    <div class="passage-wrap">
+      <div class="passage-toolbar">
+        <span>📄 中英对照</span>
+        <button onclick="readAloud()">🔊 朗读</button>
+      </div>
+      <div class="passage-body">
+        <div class="en" id="passageEN"></div>
+        <div class="cn" id="passageCN"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GUIDE -->
+  <button class="guide-toggle" id="guideBtn" onclick="toggleGuide()">
+    🎓 陪读解说模式 <span class="arrow">▼</span>
+  </button>
+  <div class="guide-content" id="guideBox"></div>
+
+  <!-- QUESTIONS -->
+  <div class="section" id="secQ">
+    <div class="section-title"><span class="emoji">❓</span> 理解练习 <span class="badge" id="qBadge">0 / 0</span></div>
+    <div id="qList"></div>
+  </div>
+
+  <!-- FUN -->
+  <div class="section" id="secFun">
+    <div class="section-title"><span class="emoji">🎮</span> 趣味练习 <span class="badge">试试看</span></div>
+    <div id="funBox"></div>
+  </div>
+
+</div>
+
+<script>
+// ====================== DATA ======================
+const DATA = {
+  mon: {
+    theme: '客户邮件',
+    words: [
+      { w:'inquiry', p:'/ɪnˈkwaɪri/', m:'询盘；询价', e:'Thank you for your inquiry about our products.' },
+      { w:'quotation', p:'/kwoʊˈteɪʃn/', m:'报价单', e:'We will send you a quotation by tomorrow.' },
+      { w:'lead time', p:'/liːd taɪm/', m:'交货期', e:'The lead time is 25 days after order confirmation.' },
+      { w:'MOQ', p:'/em oʊ kjuː/', m:'最小起订量', e:'Our MOQ is 500 units per style.' },
+      { w:'proforma invoice', p:'/prəˈfɔːrmə ˈɪnvɔɪs/', m:'形式发票', e:'We attach the proforma invoice for your reference.' },
+      { w:'bulk order', p:'/bʌlk ˈɔːrdər/', m:'批量订单', e:'Bulk orders over 500 sets get 5% off.' },
+      { w:'payment terms', p:'/ˈpeɪmənt tɜːrmz/', m:'付款条件', e:'Our payment terms are 30% deposit.' },
+      { w:'sample', p:'/ˈsæmpl/', m:'样品', e:'Samples can be shipped within 3 days.' },
+      { w:'shipment', p:'/ˈʃɪpmənt/', m:'装运', e:'The shipment arrives at the port next week.' },
+    ],
+    passage: `Dear Mr. Chen,
+
+Thank you for your <span class="hl" title="询盘">inquiry</span> about our ceramic dinnerware sets. We are pleased to provide our best <span class="hl" title="报价">quotation</span>.
+
+Our <span class="hl" title="最小起订量">MOQ</span> is 200 sets per design, and the <span class="hl" title="交货期">lead time</span> is about 25 days after order confirmation. For <span class="hl" title="批量订单">bulk orders</span> over 500 sets, we offer an extra 5% discount.
+
+Samples can be shipped within 3 working days.
+
+We look forward to your favorable reply.
+
+Best regards,
+Sarah Wang`,
+    passageCN: '感谢您对我们陶瓷餐具套装的询盘。我司每款最小起订量200套，交货期约25天。批量订单500套以上可享5%折扣。样品3个工作日内寄出。期待佳音。',
+    q: [
+      { q:'MOQ 是每款设计多少套？', o:['100套','200套','500套','25套'], c:1 },
+      { q:'确认订单后交货期多久？', o:['15天','20天','25天','30天'], c:2 },
+      { q:'批量订单500套以上折扣多少？', o:['3%','5%','8%','10%'], c:1 },
+      { q:'样品几天内可寄出？', o:['1天','3个工作日','5天','1周'], c:1 },
+    ],
+    guide: [
+      ['💡 句式亮点','"We are pleased to..." 是商务邮件中非常礼貌的表达，比 "We are happy to..." 更正式。适用于回复询盘、确认订单等场景。'],
+      ['🔑 Inquiry','动词形式是 inquire (about)。例: "We are writing to inquire about your pricing." 注意拼写，美式常用 inquiry，英式 enquiry。'],
+      ['🔑 MOQ','MOQ = Minimum Order Quantity（最小起订量）。跨境贸易常见缩写：FOB（离岸价）、CIF（到岸价含保险运费）。'],
+      ['🌏 文化贴士','国外客户邮件通常直入主题。收到询盘后 24 小时内回复能留下好印象。"Thank you for your inquiry" 比 "We received your email" 专业得多。'],
+    ],
+    fun: ['dialogue', [
+      ['👤 Buyer','Good morning. We received your quotation.','早上好，收到报价了。'],
+      ['👩‍💼 You','Great! I hope the pricing works for you.','太好了，希望价格合您意。'],
+      ['👤 Buyer','The price is fine, but the MOQ of 200 is high for us.','价格不错，但200套起订量有点高。'],
+      ['👩‍💼 You','Let me check — we can offer 150 as a trial order.','确认一下——可以给150套试单。'],
+      ['👤 Buyer','That\'s great. What\'s the lead time?','那太好了，交货期呢？'],
+      ['👩‍💼 You','25 days. We can prioritize yours.','25天，我们可以优先安排。'],
+    ]]
+  },
+  tue: {
+    theme: '商务电话',
+    words: [
+      { w:'conference call', p:'/ˈkɑːnfərəns kɔːl/', m:'电话会议', e:'Let\'s schedule a conference call for next Tuesday.' },
+      { w:'put through', p:'/pʊt θruː/', m:'转接电话', e:'Please put me through to Mr. Johnson.' },
+      { w:'speak up', p:'/spiːk ʌp/', m:'大声点说', e:'Could you speak up? The line is bad.' },
+      { w:'follow up', p:'/ˈfɑːloʊ ʌp/', m:'跟进', e:'I will follow up after the meeting.' },
+      { w:'clarify', p:'/ˈklærəfaɪ/', m:'澄清；说明', e:'Could you clarify the payment terms?' },
+      { w:'deadline', p:'/ˈdedlaɪn/', m:'截止日期', e:'The deadline is this Friday.' },
+      { w:'brief', p:'/briːf/', m:'简要汇报', e:'Let me briefly update you.' },
+      { w:'call back', p:'/kɔːl bæk/', m:'回电', e:'I\'ll call you back in 10 minutes.' },
+    ],
+    passage: `A: Hello, this is Tom from ABC Trading. May I <span class="hl" title="转接">put me through</span> to the purchasing manager?
+
+B: Speaking. How can I help you?
+
+A: I'm calling to <span class="hl" title="跟进">follow up</span> on the quotation we sent last week.
+
+B: Yes, I reviewed it. I'd like to <span class="hl" title="澄清">clarify</span> a few things about the payment terms. Could we set up a <span class="hl" title="电话会议">conference call</span> next week?
+
+A: Certainly. I'll send you the agenda and time slots.`,
+    passageCN: 'A: 你好，我是ABC贸易的Tom，请帮我转接采购经理。B: 我就是。A: 我来电跟进上周的报价。B: 看过了，想确认一下付款条件。下周能安排电话会议吗？A: 当然，我发议程和可用时间给您。',
+    q: [
+      { q:'Tom 打电话的主要目的是什么？', o:['介绍新品','跟进出价','投诉','取消订单'], c:1 },
+      { q:'买家想确认什么？', o:['产品规格','送货地址','付款条件','包装'], c:2 },
+      { q:'买家建议下周做什么？', o:['见面','电话会议','看工厂','发邮件'], c:1 },
+    ],
+    guide: [
+      ['💡 电话开场白','"May I speak to..." 是最标准的电话找人说法，比 "I want to talk to..." 礼貌得多。别人说 "Speaking" 意思是"我就是"。'],
+      ['🔑 信号不好怎么说','"The line is breaking up." / "You\'re cutting out." / "Could you repeat that?" 或直接说 "I didn\'t catch that."'],
+      ['🔑 电话常用词组','put through = 转接；hold the line = 别挂断；call back = 回电；get back to someone = 稍后回复。'],
+    ],
+    fun: ['dialogue', [
+      ['📞 You','Good morning, may I speak to Linda Chen in purchasing?','早上好，找采购部的陈琳达。'],
+      ['👤 Reception','One moment, I\'ll put you through.','稍等，我帮您转接。'],
+      ['👩‍💼 Linda','Hello, Linda Chen speaking.','您好，我是陈琳达。'],
+      ['📞 You','Hi Linda, just confirming if you received our samples.','琳达您好，确认一下您收到样品了吗？'],
+      ['👩‍💼 Linda','Yes, they look great! We\'d like a trial order.','收到了，很不错！想下试单。'],
+      ['📞 You','Wonderful! I\'ll send the order confirmation.','太好了，我马上发确认单。'],
+    ]]
+  },
+  wed: {
+    theme: '产品谈判',
+    words: [
+      { w:'negotiate', p:'/nɪˈɡoʊʃieɪt/', m:'谈判', e:'We are willing to negotiate the price.' },
+      { w:'margin', p:'/ˈmɑːrdʒɪn/', m:'利润空间', e:'Our margin is already very thin.' },
+      { w:'compromise', p:'/ˈkɑːmprəmaɪz/', m:'折中', e:'Let\'s compromise and meet in the middle.' },
+      { w:'volume discount', p:'/ˈvɑːljuːm ˈdɪskaʊnt/', m:'数量折扣', e:'We can offer a volume discount over 1,000 units.' },
+      { w:'win-win', p:'/wɪn wɪn/', m:'双赢', e:'We want a win-win solution.' },
+      { w:'flexible', p:'/ˈfleksəbl/', m:'灵活的', e:'We can be flexible on payment.' },
+    ],
+    passage: `"The price is higher than we expected," said the buyer.
+
+The seller replied: "I understand. But our quality is top-tier and our <span class="hl" title="利润">margin</span> is tight. What if we meet in the middle — a 5% <span class="hl" title="数量折扣">volume discount</span> on the first order?"
+
+"Reasonable. Let's <span class="hl" title="折中">compromise</span>. We'll accept, but we want exclusive rights in our region."
+
+It was a <span class="hl" title="双赢">win-win</span> negotiation.`,
+    passageCN: '"价格比预期高。"买家说。卖家回应:"我理解，但我们的利润空间已经很紧了。首单给5%数量折扣怎么样？""合理。折中一下，我接受价格，但要本区域的独家经销权。"这是一个双赢的谈判。',
+    q: [
+      { q:'买家主要对什么不满意？', o:['质量','交货时间','价格','包装'], c:2 },
+      { q:'卖家给了多少折扣？', o:['3%','5%','10%','免运费'], c:1 },
+      { q:'买家要求什么回报？', o:['长账期','免费样品','独家经销权','快速发货'], c:2 },
+    ],
+    guide: [
+      ['💡 谈判核心句式','"Let\'s meet in the middle." = 我们各退一步/折中。类似: "Let\'s split the difference."（分摊差额）。谈判中最常用的让步句式。'],
+      ['🔑 Margin','利润空间/利润率。搭配: profit margin（利润率）、tight margin（薄利）、healthy margin（利润可观）。"We can\'t go lower; our margin is already too thin."'],
+      ['🌏 双赢思维','谈判不是零和游戏。最好的结果是 win-win。找到双方都能接受的方案，才是长久合作的基础。'],
+    ],
+    fun: ['match', [['negotiate','margin','compromise','volume discount','exclusive'],['谈判','利润空间','折中','数量折扣','独家经销']]]
+  },
+  thu: {
+    theme: '售后处理',
+    words: [
+      { w:'defective', p:'/dɪˈfektɪv/', m:'有缺陷的', e:'We found 12 defective units in the batch.' },
+      { w:'refund', p:'/ˈriːfʌnd/', m:'退款', e:'We will process a full refund.' },
+      { w:'compensation', p:'/ˌkɑːmpenˈseɪʃn/', m:'赔偿', e:'We request compensation for the damage.' },
+      { w:'return policy', p:'/rɪˈtɜːrn ˈpɑːləsi/', m:'退货政策', e:'Our return policy allows 30-day returns.' },
+      { w:'inspect', p:'/ɪnˈspekt/', m:'检查', e:'Please inspect the goods upon arrival.' },
+      { w:'resolve', p:'/rɪˈzɑːlv/', m:'解决', e:'We will resolve this ASAP.' },
+      { w:'apologize', p:'/əˈpɑːlədʒaɪz/', m:'道歉', e:'We sincerely apologize for the issue.' },
+      { w:'replacement', p:'/rɪˈpleɪsmənt/', m:'换货', e:'We will send replacements today.' },
+    ],
+    passage: `Dear Customer Service,
+
+I'm writing to report an issue with order #ORD-889. Upon <span class="hl" title="检查">inspection</span>, 12 out of 50 units are <span class="hl" title="有缺陷的">defective</span> — the packaging is damaged and some have scratches.
+
+I'd like to request a <span class="hl" title="换货">replacement</span> or a partial <span class="hl" title="退款">refund</span>. Please advise your <span class="hl" title="退货政策">return policy</span> for defective goods.
+
+I look forward to your prompt <span class="hl" title="解决">resolution</span>.
+
+Best regards,
+Mike Johnson`,
+    passageCN: '我写信反映订单#ORD-889的问题。检查发现50件中有12件有缺陷——包装破损，部分有划痕。我希望换货或部分退款。请告知对缺陷商品的退换货政策。期待尽快解决。',
+    q: [
+      { q:'多少件有缺陷？', o:['50件','24件','12件','8件'], c:2 },
+      { q:'商品有什么问题？', o:['颜色不对','尺寸不对','包装破损有划痕','缺配件'], c:2 },
+      { q:'客户要求什么？', o:['全额退款','换货或部分退款','免运费','全部退货'], c:1 },
+    ],
+    guide: [
+      ['💡 处理投诉公式','Apologize + Acknowledge + Action。先道歉，再共情，然后给解决方案。例: "We apologize for the issue. We understand your frustration. We\'ll send replacements immediately."'],
+      ['🔑 退款类型','Full refund = 全额退款；Partial refund = 部分退款；Store credit = 店铺余额；Replacement = 换货。'],
+      ['🔑 Defective 相关词','Damage = 损坏；Malfunction = 故障；Flawed items = 瑕疵品；Substandard = 次品。描述问题要具体。'],
+    ],
+    fun: ['dialogue', [
+      ['📧 客户','I received the order but the color is different from the listing.','收到的货和listing颜色不一样。'],
+      ['👩‍💼 You','I sincerely apologize. Let me check the correct color in stock.','非常抱歉，我查一下正确颜色的库存。'],
+      ['📧 客户','I needed it as a gift this weekend.','我本来这周末送礼用的。'],
+      ['👩‍💼 You','I\'ll ship the correct one today with express, free of charge.','我今天就用快递把正确的寄出，不收费。'],
+      ['📧 客户','That\'s very helpful. Thank you!','太好了，非常感谢！'],
+    ]]
+  },
+  fri: {
+    theme: '跨文化沟通',
+    words: [
+      { w:'small talk', p:'/smɔːl tɔːk/', m:'闲聊', e:'Americans often start with small talk.' },
+      { w:'direct', p:'/dəˈrekt/', m:'直接的', e:'Germans are very direct in business.' },
+      { w:'hierarchy', p:'/ˈhaɪərɑːrki/', m:'等级制度', e:'Japanese companies have a strong hierarchy.' },
+      { w:'punctual', p:'/ˈpʌŋktʃuəl/', m:'守时的', e:'Being punctual is crucial in Germany.' },
+      { w:'culture shock', p:'/ˈkʌltʃər ʃɑːk/', m:'文化冲击', e:'New exporters often experience culture shock.' },
+      { w:'networking', p:'/ˈnetwɜːrkɪŋ/', m:'社交', e:'Networking is key in American business.' },
+    ],
+    passage: `Doing business internationally = understanding different cultures! Here are some fun facts:
+
+🇺🇸 <b>USA:</b> Americans are <span class="hl" title="直接的">direct</span>. <span class="hl" title="闲聊">Small talk</span> before meetings is common — sports, weather, weekend plans. Handshakes are firm.
+
+🇯🇵 <b>Japan:</b> Very formal. <span class="hl" title="守时">Punctuality</span> is crucial. Use titles (Mr./Ms. + last name). Bowing > handshakes. <span class="hl" title="等级制度">Hierarchy</span> means decisions take time.
+
+🇩🇪 <b>Germany:</b> Very <span class="hl" title="直接的">direct</span> and detail-oriented. Meetings start on time. Facts > feelings. Contracts = sacred.
+
+🇧🇷 <b>Brazil:</b> Relationships first. Personal chat before business. Stand close, use touch (handshakes, pats on back).`,
+    passageCN: '🇺🇸 美国：直接，会前闲聊很常见（体育、天气）。🇯🇵 日本：非常正式，守时至关重要，鞠躬比握手更受欢迎。🇩🇪 德国：直接且注重细节，事实先于感受。🇧🇷 巴西：先交朋友再谈生意，说话站得近。',
+    q: [
+      { q:'哪个国家守时特别重要？', o:['美国','日本','德国','全部都是'], c:1 },
+      { q:'哪个文化认为事实比感受重要？', o:['美国','日本','德国','巴西'], c:2 },
+      { q:'哪个文化先聊私事再谈公事？', o:['美国','日本','德国','巴西'], c:3 },
+    ],
+    guide: [
+      ['💡 跨文化第一课','不要假设别人的沟通方式和你一样。美国客户直接，日本客户需要耐心，德国客户要数据，巴西客户先做朋友。"When in Rome, do as the Romans do."'],
+      ['🔑 安全闲聊话题', '✅ 天气、旅行、食物、体育。❌ 政治、宗教、收入、年龄。最佳开场白: "How was your weekend?" "Did you travel for the holiday?"'],
+      ['🌏 邮件文化差异','美国：短、直接、叫名字。德国：正式、全称。日本：非常礼貌、固定句式。中国：先寒暄再谈正事。'],
+    ],
+    fun: ['match', [['USA','Japan','Germany','Brazil'],['直接闲聊 🗣️','正式鞠躬 🎌','严谨准时 ⏰','先交朋友 🤝']]]
+  }
+};
+
+// ====================== STATE ======================
+let cur = 'mon';
+let sc = +(localStorage.getItem('Lsc')||0);
+let st = +(localStorage.getItem('Lst')||0);
+let matchSel = null, qDone = {};
+
+// ====================== INIT ======================
+document.addEventListener('DOMContentLoaded', () => {
+  const now = new Date();
+  const ds = ['日','一','二','三','四','五','六'];
+  document.getElementById('dateBadge').textContent = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日 星期${ds[now.getDay()]}`;
+  const wd = now.getDay();
+  const map = {1:'mon',2:'tue',3:'wed',4:'thu',5:'fri'};
+  go(map[wd]||'mon');
+  renderScore();
+});
+
+function go(d) {
+  cur = d;
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.d===d));
+  const data = DATA[d];
+  if (!data) return;
+
+  // Words
+  document.getElementById('wordGrid').innerHTML = data.words.map(w => `
+    <div class="word-card" onclick="this.classList.toggle('expanded')">
+      <div class="w-top">
+        <div class="w-word">${w.w}</div>
+        <span class="pronounce-btn" onclick="event.stopPropagation();speak('${w.w}')">🔊</span>
+      </div>
+      <div class="w-phonetic">${w.p}</div>
+      <div class="w-meaning">${w.m}</div>
+      <div class="w-example">💡 ${w.e}</div>
+    </div>
+  `).join('');
+
+  // Passage
+  document.getElementById('passageEN').innerHTML = data.passage;
+  document.getElementById('passageCN').textContent = data.passageCN;
+
+  // Guide
+  document.getElementById('guideBox').innerHTML = data.guide.map(g =>
+    `<div><div class="g-label">${g[0]}</div><p>${g[1]}</p></div>`
+  ).join('');
+  document.getElementById('guideBtn').classList.remove('open');
+  document.getElementById('guideBox').classList.remove('open');
+
+  // Questions
+  qDone = {};
+  const qList = document.getElementById('qList');
+  qList.innerHTML = data.q.map((q,i) => `
+    <div class="q-box" data-idx="${i}">
+      <div class="q-text">${i+1}. ${q.q}</div>
+      <div class="q-opts">${q.o.map((t,j) => `
+        <div class="q-opt" data-oi="${j}" onclick="checkQ(${i},${j},${q.c})">
+          <span class="ind">${'ABCD'[j]}</span>${t}
+        </div>`).join('')}
+      </div>
+      <div class="q-feedback" id="qfb${i}"></div>
+    </div>
+  `).join('');
+  renderQ();
+
+  // Fun
+  const fun = data.fun;
+  const fb = document.getElementById('funBox');
+  if (fun[0]==='dialogue') {
+    fb.innerHTML = `<div class="dialogue-box">${fun[1].map(d =>
+      `<div class="d-line"><div class="speaker">${d[0]}</div><div>${d[1]}</div><div class="cn-t">${d[2]}</div></div>`
+    ).join('')}</div>
+    <div style="text-align:center;margin-top:8px"><button class="btn-sm" onclick="speakDialogue()">🔊 朗读对话</button></div>`;
+  } else {
+    const [left,right] = fun[1];
+    const rightShuffled = [...right].sort(()=>Math.random()-0.5);
+    matchSel = null;
+    fb.innerHTML = `<p style="font-size:13px;color:var(--text2);text-align:center;margin-bottom:10px">👆 点左边 → 再点右边 配对</p>
+      <div class="match-area">
+        <div class="match-col">${left.map((t,i) =>
+          `<div class="match-item" data-side="L" data-idx="${i}" onclick="mClick('L',${i})">${t}</div>`
+        ).join('')}</div>
+        <div class="match-col">${rightShuffled.map((t,i) =>
+          `<div class="match-item" data-side="R" data-idx="${i}" onclick="mClick('R',${i})">${t}</div>`
+        ).join('')}</div>
+      </div>
+      <div style="text-align:center;margin-top:8px">
+        <span id="mProg" style="font-size:13px;color:var(--text2)">0 / ${left.length}</span>
+        <button class="btn-sm" onclick="go(cur)" style="margin-left:8px">🔄 重排</button>
+      </div>`;
+  }
+}
+
+// ====================== WORD ======================
+function speak(t) {
+  if ('speechSynthesis' in window) {
+    const u = new SpeechSynthesisUtterance(t);
+    u.lang='en-US'; u.rate=0.9;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }
+}
+
+// ====================== READING ======================
+function readAloud() {
+  if ('speechSynthesis' in window) {
+    const t = document.getElementById('passageEN').textContent;
+    const u = new SpeechSynthesisUtterance(t);
+    u.lang='en-US'; u.rate=0.8;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }
+}
+
+// ====================== GUIDE ======================
+function toggleGuide() {
+  document.getElementById('guideBtn').classList.toggle('open');
+  document.getElementById('guideBox').classList.toggle('open');
+}
+
+// ====================== QUESTIONS ======================
+function checkQ(idx, sel, correct) {
+  const box = document.querySelector(`.q-box[data-idx="${idx}"]`);
+  if (!box || qDone[idx]) return;
+  const opts = box.querySelectorAll('.q-opt');
+  opts.forEach((o,i) => {
+    if (i===correct) o.classList.add('correct');
+    if (i===sel && sel!==correct) o.classList.add('wrong');
+  });
+  qDone[idx] = true;
+  const fb = document.getElementById(`qfb${idx}`);
+  if (sel===correct) {
+    fb.textContent = '✅ 答对了！';
+    fb.style.color = '#2ed573';
+    addScore(10);
+  } else {
+    fb.textContent = `❌ 正确答案是 ${'ABCD'[correct]}`;
+    fb.style.color = '#ff4757';
+  }
+  fb.classList.add('show');
+  renderQ();
+}
+
+function renderQ() {
+  const all = document.querySelectorAll('.q-box');
+  const done = Object.keys(qDone).length;
+  document.getElementById('qBadge').textContent = `${done} / ${all.length}`;
+}
+
+// ====================== MATCH ======================
+function mClick(side, idx) {
+  if (!matchSel) {
+    const el = document.querySelector(`.match-item[data-side="${side}"][data-idx="${idx}"]`);
+    if (!el || el.classList.contains('ok')) return;
+    el.classList.add('sel');
+    matchSel = {side, idx};
+  } else {
+    const first = matchSel;
+    const fel = document.querySelector(`.match-item[data-side="${first.side}"][data-idx="${first.idx}"]`);
+    const selEl = document.querySelector(`.match-item[data-side="${side}"][data-idx="${idx}"]`);
+    if (!selEl || selEl.classList.contains('ok')) { fel.classList.remove('sel'); matchSel=null; return; }
+    if (first.side!==side && first.idx===idx) {
+      fel.classList.remove('sel'); fel.classList.add('ok');
+      selEl.classList.add('ok');
+      addScore(15);
+      matchSel=null;
+      const all = document.querySelectorAll('.match-item.ok').length;
+      const total = document.querySelectorAll('.match-col .match-item').length;
+      document.getElementById('mProg').textContent = `${all/2} / ${total/2}`;
+      if (all===total) setTimeout(()=>alert('🎉 全部配对成功！'),200);
+    } else {
+      fel.classList.remove('sel');
+      selEl.classList.add('ng');
+      setTimeout(()=>selEl.classList.remove('ng'),350);
+      matchSel=null;
+    }
+  }
+}
+
+// ====================== DIALOGUE ======================
+function speakDialogue() {
+  if ('speechSynthesis' in window) {
+    const els = document.querySelectorAll('.dialogue-box .d-line > div:nth-child(2)');
+    const t = Array.from(els).map(e=>e.textContent).join('. ');
+    const u = new SpeechSynthesisUtterance(t);
+    u.lang='en-US'; u.rate=0.85;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }
+}
+
+// ====================== SCORE ======================
+function addScore(p) {
+  sc+=p;
+  localStorage.setItem('Lsc',sc);
+  renderScore();
+  const el = document.getElementById('sc');
+  el.classList.remove('animated');
+  void el.offsetWidth;
+  el.classList.add('animated');
+}
+
+function renderScore() {
+  document.getElementById('sc').textContent = sc;
+  document.getElementById('st').textContent = st;
+}
+
+function resetAll() {
+  if (!confirm('确定重置所有进度和分数？')) return;
+  sc=0; st=0; qDone={};
+  localStorage.setItem('Lsc','0'); localStorage.setItem('Lst','0');
+  renderScore(); renderQ();
+  go(cur);
+}
+</script>
+</body>
+</html>
