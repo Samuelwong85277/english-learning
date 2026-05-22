@@ -1,660 +1,580 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>L's 趣味英文课堂 🎯</title>
+<title>L's English Lab 🎯</title>
 <style>
   :root {
-    --bg: #f0f2f5;
-    --card: #ffffff;
-    --primary: #ff4757;
-    --secondary: #2ed573;
-    --accent: #ffa502;
-    --text: #1e272e;
-    --text2: #57606f;
-    --border: #ced6e0;
-    --radius: 14px;
-    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    --bg:#eef1f5; --card:#fff; --primary:#ff4757; --secondary:#2ed573;
+    --accent:#ffa502; --blue:#1e90ff; --purple:#a55eea;
+    --text:#1e272e; --text2:#57606f; --border:#dfe6e9;
+    --radius:14px; --shadow:0 2px 12px rgba(0,0,0,0.06);
   }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html, body {
-    font-family: -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-  }
-  body { padding: 14px; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+  body{padding:12px}
+  .container{max-width:820px;margin:0 auto}
 
-  .container { max-width: 780px; margin: 0 auto; }
+  /* Header */
+  .header{background:linear-gradient(135deg,#ff4757,#ff6348);border-radius:var(--radius);padding:20px 22px 16px;color:#fff;margin-bottom:14px}
+  .header h1{font-size:24px;font-weight:800;letter-spacing:-0.5px}
+  .header .sub{font-size:13px;opacity:.85;margin-top:2px}
+  .header .info{display:flex;gap:16px;margin-top:8px;font-size:12px;opacity:.8}
+  .header .info span{cursor:pointer}
 
-  /* ========== HEADER ========== */
-  .header {
-    background: linear-gradient(135deg, #ff4757 0%, #ff6348 50%, #ff7f50 100%);
-    border-radius: var(--radius);
-    padding: 24px 24px 18px;
-    color: #fff;
-    margin-bottom: 16px;
-  }
-  .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 6px;
-  }
-  .header h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
-  .header .icons { font-size: 22px; }
-  .header .sub { font-size: 13px; opacity: 0.85; }
-  .header .date-badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.2);
-    padding: 3px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    margin-top: 6px;
-  }
+  /* Score */
+  .score-bar{display:flex;justify-content:space-between;align-items:center;background:var(--card);padding:10px 18px;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:12px}
+  .sc-left{display:flex;gap:18px}
+  .sc-item{display:flex;align-items:center;gap:5px;font-size:13px}
+  .sc-item .num{font-weight:700;font-size:19px;color:var(--primary)}
+  .btn-sm{border:1.5px solid var(--border);background:var(--card);padding:5px 14px;border-radius:20px;cursor:pointer;font-size:12px;color:var(--text2);transition:.2s}
+  .btn-sm:hover{border-color:var(--primary);color:var(--primary)}
 
-  /* ========== SCORE BAR ========== */
-  .score-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--card);
-    padding: 10px 18px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    margin-bottom: 14px;
-  }
-  .score-left { display: flex; gap: 20px; }
-  .score-item { display: flex; align-items: center; gap: 6px; }
-  .score-item .num { font-weight: 700; font-size: 20px; color: var(--primary); }
-  .score-item .label { font-size: 13px; color: var(--text2); }
-  .btn-sm {
-    border: 1.5px solid var(--border);
-    background: var(--card);
-    padding: 5px 14px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 12px;
-    color: var(--text2);
-    transition: all 0.2s;
-  }
-  .btn-sm:hover { border-color: var(--primary); color: var(--primary); }
+  /* Tabs */
+  .tabs{display:flex;gap:5px;margin-bottom:12px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+  .tab{flex-shrink:0;padding:7px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);cursor:pointer;font-size:12px;font-weight:500;transition:.2s;white-space:nowrap}
+  .tab:hover{border-color:var(--secondary)}
+  .tab.active{border-color:var(--primary);background:var(--primary);color:#fff}
 
-  /* ========== TABS ========== */
-  .tabs {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 14px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 4px;
-  }
-  .tab {
-    flex-shrink: 0;
-    padding: 7px 16px;
-    border-radius: 20px;
-    border: 1.5px solid var(--border);
-    background: var(--card);
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 500;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-  .tab:hover { border-color: var(--secondary); }
-  .tab.active {
-    border-color: var(--primary);
-    background: var(--primary);
-    color: #fff;
-  }
+  /* Two-column layout for words */
+  .word-area{display:grid;grid-template-columns:1fr 280px;gap:12px;margin-bottom:14px}
+  @media(max-width:700px){.word-area{grid-template-columns:1fr}}
 
-  /* ========== SECTION ========== */
-  .section {
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 18px 20px;
-    margin-bottom: 14px;
-  }
-  .section-title {
-    font-size: 17px;
-    font-weight: 700;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .section-title .emoji { font-size: 22px; }
-  .section-title .badge {
-    background: var(--secondary);
-    color: #fff;
-    font-size: 11px;
-    padding: 2px 10px;
-    border-radius: 10px;
-    margin-left: auto;
-    white-space: nowrap;
-  }
+  /* Word Bank */
+  .section{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin-bottom:12px}
+  .section-title{font-size:16px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .section-title .emoji{font-size:20px}
+  .section-title .badge{background:var(--secondary);color:#fff;font-size:11px;padding:2px 10px;border-radius:10px;margin-left:auto;white-space:nowrap}
 
-  /* ========== WORD BANK ========== */
-  .word-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 8px;
-  }
-  .word-card {
-    background: #f8f9fa;
-    border: 1.5px solid transparent;
-    border-radius: 10px;
-    padding: 12px 14px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .word-card:hover {
-    border-color: var(--secondary);
-    transform: translateY(-1px);
-  }
-  .word-card .w-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  .word-card .w-word { font-weight: 700; font-size: 15px; }
-  .word-card .w-phonetic { font-size: 12px; color: var(--text2); margin: 1px 0 3px; }
-  .word-card .w-meaning { font-size: 13px; color: var(--primary); font-weight: 500; }
-  .word-card .w-example {
-    font-size: 12px;
-    color: var(--text2);
-    margin-top: 6px;
-    padding-top: 6px;
-    border-top: 1px dashed var(--border);
-    display: none;
-    line-height: 1.5;
-  }
-  .word-card.expanded .w-example { display: block; }
+  .word-list{display:flex;flex-direction:column;gap:6px}
+  .word-row{background:#f8f9fa;border:1.5px solid transparent;border-radius:10px;padding:10px 12px;cursor:pointer;transition:.2s}
+  .word-row:hover{border-color:var(--secondary)}
+  .word-row.expanded{border-color:var(--blue);background:#f0f8ff}
+  .wr-top{display:flex;justify-content:space-between;align-items:flex-start}
+  .wr-main{flex:1}
+  .wr-word{font-weight:700;font-size:15px}
+  .wr-word .vowel{color:var(--primary);font-weight:800}
+  .wr-phonetic{font-size:12px;color:var(--text2);margin:1px 0}
+  .wr-meaning{font-size:13px;color:var(--primary);font-weight:500}
 
-  .pronounce-btn {
-    background: none;
-    border: none;
-    font-size: 15px;
-    cursor: pointer;
-    opacity: 0.4;
-    transition: opacity 0.2s;
-    padding: 2px;
-    line-height: 1;
-  }
-  .pronounce-btn:hover { opacity: 1; }
-  .pronounce-btn.top-right { position: absolute; top: 4px; right: 4px; }
+  /* Phonics breakdown (shown on expand) */
+  .wr-phonics{display:none;margin-top:8px;padding-top:8px;border-top:1px dashed var(--border)}
+  .word-row.expanded .wr-phonics{display:block}
+  .ph-line{font-size:12px;color:var(--text2);margin:3px 0}
+  .ph-line b{color:var(--purple)}
+  .ph-line .v{color:var(--primary);font-weight:600}
+  .ph-syllable{display:inline-flex;gap:2px;margin:0 2px;padding:2px 6px;background:#fff;border-radius:4px;border:1px solid var(--border);font-size:13px}
+  .ph-syllable .v{color:var(--primary);font-weight:700}
 
-  /* ========== READING PASSAGE ========== */
-  .passage-wrap {
-    border: 1.5px solid var(--accent);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .passage-toolbar {
-    background: #fff7e6;
-    padding: 8px 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ffe0b2;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--accent);
-  }
-  .passage-toolbar button {
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    padding: 4px 14px;
-    border-radius: 14px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .passage-toolbar button:hover { filter: brightness(1.1); }
-  .passage-body { padding: 16px; }
-  .passage-body .en {
-    font-size: 15px;
-    line-height: 1.9;
-    margin-bottom: 12px;
-    word-break: break-word;
-  }
-  .passage-body .cn {
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--text2);
-    border-top: 1px dashed var(--border);
-    padding-top: 12px;
-  }
-  .passage-body .hl {
-    color: var(--primary);
-    font-weight: 600;
-    cursor: pointer;
-    border-bottom: 2px dotted var(--secondary);
-    transition: all 0.15s;
-    padding: 0 2px;
-  }
-  .passage-body .hl:hover { background: #fff3cd; border-radius: 3px; }
+  .pron-btn{background:none;border:none;font-size:14px;cursor:pointer;opacity:.4;transition:.2s;padding:2px}
+  .pron-btn:hover{opacity:1}
 
-  /* ========== QUESTIONS ========== */
-  .q-box {
-    background: #f8f9fa;
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 10px;
-    border-left: 3px solid var(--secondary);
-  }
-  .q-box .q-text { font-weight: 600; font-size: 14px; margin-bottom: 10px; }
-  .q-opts { display: flex; flex-direction: column; gap: 5px; }
-  .q-opt {
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1.5px solid var(--border);
-    cursor: pointer;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.15s;
-  }
-  .q-opt:hover { border-color: var(--secondary); background: #e8fdf5; }
-  .q-opt .ind {
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    border: 1.5px solid var(--border);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    flex-shrink: 0;
-    font-weight: 600;
-  }
-  .q-opt.correct { border-color: #2ed573; background: #d4f5e9; }
-  .q-opt.correct .ind { background: #2ed573; color: #fff; border-color: #2ed573; }
-  .q-opt.wrong { border-color: var(--primary); background: #ffebee; }
-  .q-opt.wrong .ind { background: var(--primary); color: #fff; border-color: var(--primary); }
-  .q-feedback {
-    display: none;
-    margin-top: 6px;
-    padding: 6px 10px;
-    background: #dfe6e9;
-    border-radius: 6px;
-    font-size: 13px;
-  }
-  .q-feedback.show { display: block; }
+  /* Phonics Guide Panel */
+  .phonics-guide{background:#f8f9fa;border-radius:var(--radius);padding:14px;border:1.5px solid var(--accent);position:sticky;top:12px}
+  .ph-guide-title{font-weight:700;font-size:14px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+  .ph-rule{margin-bottom:10px}
+  .ph-rule .label{font-weight:600;font-size:12px;color:var(--blue);margin-bottom:3px}
+  .ph-rule p{font-size:12px;line-height:1.6;color:var(--text2)}
+  .ph-rule .ex{color:var(--primary);font-weight:600}
+  .ph-rule .ex-v{color:var(--primary);font-size:14px}
 
-  /* ========== GUIDE ========== */
-  .guide-toggle {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    background: #fff3cd;
-    border: 1px solid #ffc107;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 14px;
-    transition: all 0.2s;
-    width: 100%;
-    text-align: left;
-  }
-  .guide-toggle:hover { filter: brightness(0.95); }
-  .guide-toggle .arrow { margin-left: auto; transition: transform 0.25s; font-size: 12px; }
-  .guide-toggle.open .arrow { transform: rotate(180deg); }
-  .guide-content { display: none; }
-  .guide-content.open { display: block; }
-  .guide-content > div {
-    background: #e8f4fd;
-    border-radius: 10px;
-    padding: 12px 14px;
-    margin-bottom: 8px;
-    border-left: 3px solid #339af0;
-  }
-  .guide-content .g-label { font-weight: 700; color: #1c7ed6; font-size: 13px; margin-bottom: 3px; }
-  .guide-content p { font-size: 14px; line-height: 1.7; color: var(--text); }
+  /* Reading */
+  .reading-box{border:1.5px solid var(--accent);border-radius:12px;overflow:hidden}
+  .reading-tb{background:#fff7e6;padding:8px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffe0b2;font-size:13px;font-weight:600;color:var(--accent)}
+  .reading-tb button{background:var(--accent);color:#fff;border:none;padding:4px 14px;border-radius:14px;font-size:12px;cursor:pointer;transition:.2s}
+  .reading-tb button:hover{filter:brightness(1.1)}
+  .reading-body{padding:14px}
+  .reading-body .en{font-size:15px;line-height:1.9;margin-bottom:10px}
+  .reading-body .cn{font-size:13px;line-height:1.7;color:var(--text2);border-top:1px dashed var(--border);padding-top:10px;display:none}
+  .reading-body.show-cn .cn{display:block}
+  .reading-body .hl{color:var(--primary);font-weight:600;cursor:pointer;border-bottom:2px dotted var(--secondary);transition:.15s;padding:0 2px}
+  .reading-body .hl:hover{background:#fff3cd;border-radius:3px}
 
-  /* ========== DIALOGUE ========== */
-  .dialogue-box {
-    background: #f8f9fa;
-    border-radius: 10px;
-    padding: 14px;
-  }
-  .d-line {
-    padding: 8px 10px;
-    margin-bottom: 4px;
-    border-radius: 8px;
-    font-size: 14px;
-    background: #fff;
-    border: 1px solid var(--border);
-  }
-  .d-line .speaker { font-weight: 700; font-size: 13px; margin-bottom: 2px; }
-  .d-line .cn-t { color: var(--text2); font-size: 13px; margin-top: 2px; }
+  /* TV Drama style tag */
+  .drama-tag{display:inline-block;background:var(--purple);color:#fff;font-size:10px;padding:2px 8px;border-radius:4px;margin-left:6px;vertical-align:middle}
 
-  /* ========== MATCHING ========== */
-  .match-area {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .match-col {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    min-width: 130px;
-  }
-  .match-item {
-    padding: 9px 16px;
-    border-radius: 8px;
-    border: 1.5px solid var(--border);
-    cursor: pointer;
-    text-align: center;
-    font-size: 14px;
-    transition: all 0.15s;
-    user-select: none;
-  }
-  .match-item:hover { border-color: var(--secondary); }
-  .match-item.sel { border-color: var(--primary); background: #fff3cd; }
-  .match-item.ok { border-color: #2ed573; background: #d4f5e9; cursor: default; }
-  .match-item.ng { border-color: var(--primary); background: #ffebee; animation: shake 0.25s; }
+  /* Questions */
+  .q-box{background:#f8f9fa;border-radius:10px;padding:12px 14px;margin-bottom:8px;border-left:3px solid var(--secondary)}
+  .q-box .qt{font-weight:600;font-size:14px;margin-bottom:8px}
+  .q-opts{display:flex;flex-direction:column;gap:4px}
+  .q-opt{padding:7px 11px;border-radius:7px;border:1.5px solid var(--border);cursor:pointer;font-size:13px;display:flex;align-items:center;gap:7px;transition:.15s}
+  .q-opt:hover{border-color:var(--secondary);background:#e8fdf5}
+  .q-opt .ind{width:19px;height:19px;border-radius:50%;border:1.5px solid var(--border);display:inline-flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;font-weight:600}
+  .q-opt.correct{border-color:#2ed573;background:#d4f5e9}
+  .q-opt.correct .ind{background:#2ed573;color:#fff;border-color:#2ed573}
+  .q-opt.wrong{border-color:var(--primary);background:#ffebee}
+  .q-opt.wrong .ind{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .q-fb{display:none;margin-top:5px;padding:5px 10px;background:#dfe6e9;border-radius:6px;font-size:12px}
+  .q-fb.show{display:block}
 
-  /* ========== RESPONSIVE ========== */
-  @media (max-width: 600px) {
-    body { padding: 10px; }
-    .header { padding: 18px 16px 14px; }
-    .header h1 { font-size: 20px; }
-    .section { padding: 14px 14px; }
-    .word-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
-    .word-card { padding: 10px; }
-    .match-area { gap: 12px; }
-    .match-col { min-width: 100px; }
-    .passage-body { padding: 12px; }
-    .passage-body .en { font-size: 14px; }
-    .score-left { gap: 12px; }
-    .score-item .num { font-size: 17px; }
-  }
-  @media (max-width: 380px) {
-    .word-grid { grid-template-columns: 1fr 1fr; gap: 5px; }
-    .tab { font-size: 12px; padding: 5px 11px; }
-    .match-col { min-width: 80px; }
-  }
+  /* Sentence practice */
+  .sent-ex{background:#f0f8ff;border-radius:8px;padding:10px 12px;margin-top:6px;border-left:3px solid var(--blue);font-size:13px;line-height:1.6}
+  .sent-ex .sen-en{font-weight:600}
+  .sent-ex .sen-cn{color:var(--text2);font-size:12px;margin-top:2px}
 
-  @keyframes pop { 0%{transform:scale(0.8)} 70%{transform:scale(1.12)} 100%{transform:scale(1)} }
-  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)} }
-  .animated { animation: pop 0.35s ease-out; }
+  /* Word combo practice */
+  .combo-area{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .combo-chip{padding:4px 10px;border-radius:14px;background:#e8fdf5;border:1px solid #b2dfdb;font-size:12px;cursor:pointer;transition:.2s}
+  .combo-chip:hover{background:#d4f5e9}
+  .combo-chip.used{opacity:.5;text-decoration:line-through}
+
+  /* Guide toggle */
+  .guide-btn{display:flex;align-items:center;gap:8px;padding:9px 14px;background:#fff3cd;border:1px solid #ffc107;border-radius:10px;cursor:pointer;font-weight:600;font-size:13px;margin-bottom:12px;transition:.2s;width:100%;text-align:left}
+  .guide-btn:hover{filter:brightness(0.95)}
+  .guide-btn .arrow{margin-left:auto;transition:transform .25s;font-size:11px}
+  .guide-btn.open .arrow{transform:rotate(180deg)}
+  .guide-cx{display:none}
+  .guide-cx.open{display:block}
+  .guide-cx>div{background:#e8f4fd;border-radius:10px;padding:10px 12px;margin-bottom:7px;border-left:3px solid #339af0}
+  .guide-cx .gl{font-weight:700;color:#1c7ed6;font-size:12px;margin-bottom:2px}
+  .guide-cx p{font-size:13px;line-height:1.7}
+
+  /* Dialogue */
+  .dl-box{background:#f8f9fa;border-radius:10px;padding:12px}
+  .dl-ln{padding:7px 10px;margin-bottom:4px;border-radius:7px;font-size:13px;background:#fff;border:1px solid var(--border)}
+  .dl-ln .sp{font-weight:700;font-size:12px;margin-bottom:1px}
+  .dl-ln .cn-t{color:var(--text2);font-size:12px;margin-top:1px}
+
+  /* Matching */
+  .ma{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .mc{display:flex;flex-direction:column;gap:5px;min-width:120px}
+  .mi{padding:8px 14px;border-radius:7px;border:1.5px solid var(--border);cursor:pointer;text-align:center;font-size:13px;transition:.15s;user-select:none}
+  .mi:hover{border-color:var(--secondary)}
+  .mi.sel{border-color:var(--primary);background:#fff3cd}
+  .mi.ok{border-color:#2ed573;background:#d4f5e9;cursor:default}
+  .mi.ng{border-color:var(--primary);background:#ffebee;animation:shake .25s}
+
+  /* Guide toggle for Chinese */
+  .cn-toggle{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2);cursor:pointer;user-select:none}
+  .cn-toggle input{width:16px;height:16px;cursor:pointer}
+
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+  @keyframes pop{0%{transform:scale(.8)}70%{transform:scale(1.12)}100%{transform:scale(1)}}
+  .animated{animation:pop .35s ease-out}
+
+  @media(max-width:600px){
+    body{padding:8px}
+    .header{padding:16px 14px}
+    .header h1{font-size:20px}
+    .section{padding:12px 12px}
+    .word-area{grid-template-columns:1fr}
+    .phonics-guide{position:static;margin-top:10px}
+    .q-box{padding:10px 10px}
+  }
 </style>
 </head>
 <body>
 <div class="container" id="app">
 
-  <!-- HEADER -->
   <div class="header">
-    <div class="header-top">
-      <div>
-        <h1>🎯 L's English</h1>
-        <div class="sub">趣味英文 · 互动练习 · 陪读解说</div>
-      </div>
-      <div class="icons">📚 ✏️ 💡</div>
+    <h1>🎯 L's English Lab</h1>
+    <div class="sub">Phonics · TV Drama · Interactive Practice</div>
+    <div class="info">
+      <span id="dateDisplay"></span>
+      <span class="cn-toggle" onclick="toggleCN()">🔤 <span id="cnLabel">中文</span></span>
     </div>
-    <div class="date-badge" id="dateBadge"></div>
   </div>
 
-  <!-- SCORE -->
   <div class="score-bar">
-    <div class="score-left">
-      <div class="score-item"><span>⭐</span><span class="num" id="sc">0</span></div>
-      <div class="score-item"><span>🔥</span><span class="num" id="st">0</span><span class="label">天</span></div>
+    <div class="sc-left">
+      <div class="sc-item">⭐ <span class="num" id="sc">0</span></div>
+      <div class="sc-item">🔥 <span class="num" id="st">0</span> day</div>
     </div>
-    <button class="btn-sm" onclick="resetAll()">🔄 重置</button>
+    <button class="btn-sm" onclick="resetAll()">↺ Reset</button>
   </div>
 
-  <!-- TABS -->
   <div class="tabs" id="tabs">
-    <div class="tab active" data-d="mon" onclick="go('mon')">📧 周一 · 邮件</div>
-    <div class="tab" data-d="tue" onclick="go('tue')">📞 周二 · 电话</div>
-    <div class="tab" data-d="wed" onclick="go('wed')">🤝 周三 · 谈判</div>
-    <div class="tab" data-d="thu" onclick="go('thu')">💬 周四 · 售后</div>
-    <div class="tab" data-d="fri" onclick="go('fri')">🌍 周五 · 文化</div>
+    <div class="tab active" data-d="mon" onclick="go('mon')">📧 Mon · Email</div>
+    <div class="tab" data-d="tue" onclick="go('tue')">📞 Tue · Phone</div>
+    <div class="tab" data-d="wed" onclick="go('wed')">🤝 Wed · Deal</div>
+    <div class="tab" data-d="thu" onclick="go('thu')">💬 Thu · Service</div>
+    <div class="tab" data-d="fri" onclick="go('fri')">📺 Fri · Drama</div>
   </div>
 
-  <!-- WORDS -->
-  <div class="section" id="secWords">
-    <div class="section-title"><span class="emoji">📝</span> 词汇银行 Word Bank <span class="badge">点卡片看例句 🔊</span></div>
-    <div class="word-grid" id="wordGrid"></div>
-  </div>
-
-  <!-- READING -->
-  <div class="section" id="secRead">
-    <div class="section-title"><span class="emoji">📖</span> 阅读理解 Reading <span class="badge">点高亮词学用法</span></div>
-    <div class="passage-wrap">
-      <div class="passage-toolbar">
-        <span>📄 中英对照</span>
-        <button onclick="readAloud()">🔊 朗读</button>
+  <!-- Words + Phonics Guide side by side -->
+  <div class="word-area">
+    <div class="section" style="margin-bottom:0">
+      <div class="section-title"><span class="emoji">📝</span> Word Bank <span class="badge">Tap to see phonics</span></div>
+      <div class="word-list" id="wordList"></div>
+    </div>
+    <div class="phonics-guide" id="phonicsGuide">
+      <div class="ph-guide-title">🔊 Phonics Guide</div>
+      <div class="ph-rule">
+        <div class="label">① Find the Vowels</div>
+        <p>Every syllable has a <span class="ex-v">vowel</span>. Look for <b>a, e, i, o, u</b> (and sometimes <b>y</b>).</p>
       </div>
-      <div class="passage-body">
+      <div class="ph-rule">
+        <div class="label">② Split the Word</div>
+        <p>Cut between consonants around each vowel:<br>
+        <span class="ex">in</span>|<span class="ex">qui</span>|<span class="ex">ry</span> → <b>in·qui·ry</b></p>
+      </div>
+      <div class="ph-rule">
+        <div class="label">③ Silent e Rule</div>
+        <p>When a word ends with <b>e</b>, the vowel before it says its name:<br>
+        <span class="ex">ta</span>|<span class="ex">ble</span> → /ˈteɪ·bəl/, <span class="ex">quo</span>|<span class="ex">ta</span>|<span class="ex">tion</span> → /kwoʊ·ˈteɪ·ʃən/</p>
+      </div>
+      <div class="ph-rule">
+        <div class="label">④ Vowel Pairs</div>
+        <p>Two vowels together → first one says its name:<br>
+        <span class="ex">lead</span> (ea→/iː/), <span class="ex">ship</span> (no pair, i→/ɪ/)</p>
+      </div>
+      <div class="ph-rule">
+        <div class="label">⑤ R-controlled</div>
+        <p>Vowel + <b>r</b> = special sound:<br>
+        <span class="ex">or</span>→/ɔːr/, <span class="ex">er</span>→/ɜːr/, <span class="ex">ir</span>→/ɜːr/</p>
+      </div>
+      <div class="ph-rule" style="margin-bottom:0">
+        <div class="label">💡 Tips</div>
+        <p>🔹 Tap a word card to see its phonics breakdown.<br>
+        🔹 <span class="ex-v">Red letters</span> = vowels.<br>
+        🔹 Say each syllable aloud one by one.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reading -->
+  <div class="section">
+    <div class="section-title"><span class="emoji">📖</span> Daily Read <span class="badge">Tap highlighted words</span></div>
+    <div class="reading-box">
+      <div class="reading-tb">
+        <span id="readTheme">📄</span>
+        <button onclick="readAloud()">🔊 Listen</button>
+      </div>
+      <div class="reading-body" id="readingBody">
         <div class="en" id="passageEN"></div>
         <div class="cn" id="passageCN"></div>
       </div>
     </div>
   </div>
 
-  <!-- GUIDE -->
-  <button class="guide-toggle" id="guideBtn" onclick="toggleGuide()">
-    🎓 陪读解说模式 <span class="arrow">▼</span>
+  <!-- Guide -->
+  <button class="guide-btn" id="guideBtn" onclick="toggleGuide()">
+    🎓 Guided Reading <span class="arrow">▼</span>
   </button>
-  <div class="guide-content" id="guideBox"></div>
+  <div class="guide-cx" id="guideBox"></div>
 
-  <!-- QUESTIONS -->
-  <div class="section" id="secQ">
-    <div class="section-title"><span class="emoji">❓</span> 理解练习 <span class="badge" id="qBadge">0 / 0</span></div>
+  <!-- Questions -->
+  <div class="section">
+    <div class="section-title"><span class="emoji">❓</span> Practice <span class="badge" id="qBadge">0 / 0</span></div>
     <div id="qList"></div>
+    <!-- Sentence building practice -->
+    <div id="sentencePractice" style="margin-top:10px;padding-top:10px;border-top:1px dashed var(--border)"></div>
   </div>
 
-  <!-- FUN -->
-  <div class="section" id="secFun">
-    <div class="section-title"><span class="emoji">🎮</span> 趣味练习 <span class="badge">试试看</span></div>
+  <!-- Fun -->
+  <div class="section">
+    <div class="section-title"><span class="emoji">🎮</span> Extra Practice <span class="badge">Have fun!</span></div>
     <div id="funBox"></div>
   </div>
-
 </div>
 
 <script>
+// ====================== PHONICS HELPER ======================
+function buildPhonics(word, syllables, vowelPattern) {
+  // Highlight vowels in the word
+  let highlighted = word.replace(/([aeiouy])/gi, '<span class="vowel">$1</span>');
+  // Syllable breakdown
+  let sylHtml = syllables.map(s => `<span class="ph-syllable">${s.replace(/([aeiouy])/gi, '<span class="v">$1</span>')}</span>`).join(' ');
+  return { highlighted, sylHtml, vowelPattern };
+}
+
+const PHONICS = {
+  inquiry: buildPhonics('inquiry', ['in','qui','ry'], 'i + ui + y'),
+  quotation: buildPhonics('quotation', ['quo','ta','tion'], 'uo + a + io'),
+  'lead time': buildPhonics('lead time', ['lead','time'], 'ea + i_e'),
+  MOQ: buildPhonics('MOQ', ['M','O','Q'], '-'),
+  'proforma invoice': buildPhonics('proforma invoice', ['pro','for','ma','in','voice'], 'o+o+a + i+oi'),
+  'bulk order': buildPhonics('bulk order', ['bulk','or','der'], 'u + o + e'),
+  'payment terms': buildPhonics('payment terms', ['pay','ment','terms'], 'ay + e + e'),
+  sample: buildPhonics('sample', ['sam','ple'], 'a + e(silent)'),
+  shipment: buildPhonics('shipment', ['ship','ment'], 'i + e'),
+  'conference call': buildPhonics('conference call', ['con','fer','ence','call'], 'o+e+e + a'),
+  'put through': buildPhonics('put through', ['put','through'], 'u + ou'),
+  'speak up': buildPhonics('speak up', ['speak','up'], 'ea + u'),
+  'follow up': buildPhonics('follow up', ['fol','low','up'], 'o+o + u'),
+  clarify: buildPhonics('clarify', ['clar','i','fy'], 'a + i + y'),
+  deadline: buildPhonics('deadline', ['dead','line'], 'ea + i_e'),
+  brief: buildPhonics('brief', ['brief'], 'ie'),
+  'call back': buildPhonics('call back', ['call','back'], 'a + a'),
+  negotiate: buildPhonics('negotiate', ['ne','go','ti','ate'], 'e+o+i+ate'),
+  margin: buildPhonics('margin', ['mar','gin'], 'a + i'),
+  compromise: buildPhonics('compromise', ['com','pro','mise'], 'o+o+i_e'),
+  'volume discount': buildPhonics('volume discount', ['vol','ume','dis','count'], 'o+u_e + i+ou'),
+  'win-win': buildPhonics('win-win', ['win','win'], 'i + i'),
+  flexible: buildPhonics('flexible', ['flex','i','ble'], 'e + i + e(silent)'),
+  defective: buildPhonics('defective', ['de','fec','tive'], 'e+e+i_e'),
+  refund: buildPhonics('refund', ['re','fund'], 'e + u'),
+  compensation: buildPhonics('compensation', ['com','pen','sa','tion'], 'o+e+a+io'),
+  'return policy': buildPhonics('return policy', ['re','turn','pol','i','cy'], 'e+u + o+i+y'),
+  inspect: buildPhonics('inspect', ['in','spect'], 'i + e'),
+  resolve: buildPhonics('resolve', ['re','solve'], 'e + o_e'),
+  apologize: buildPhonics('apologize', ['a','pol','o','gize'], 'a+o+o+i_e'),
+  replacement: buildPhonics('replacement', ['re','place','ment'], 'e+a_e+e'),
+  'small talk': buildPhonics('small talk', ['small','talk'], 'a + a'),
+  direct: buildPhonics('direct', ['di','rect'], 'i + e'),
+  hierarchy: buildPhonics('hierarchy', ['hi','er','ar','chy'], 'i+e+a+y'),
+  punctual: buildPhonics('punctual', ['punc','tu','al'], 'u+u+a'),
+  'culture shock': buildPhonics('culture shock', ['cul','ture','shock'], 'u+u_e + o'),
+  networking: buildPhonics('networking', ['net','work','ing'], 'e+o+i'),
+};
+
 // ====================== DATA ======================
 const DATA = {
   mon: {
-    theme: '客户邮件',
+    theme: '🎬 The Office · Email Scene',
+    drama: '📺The Office S2E3',
     words: [
-      { w:'inquiry', p:'/ɪnˈkwaɪri/', m:'询盘；询价', e:'Thank you for your inquiry about our products.' },
-      { w:'quotation', p:'/kwoʊˈteɪʃn/', m:'报价单', e:'We will send you a quotation by tomorrow.' },
-      { w:'lead time', p:'/liːd taɪm/', m:'交货期', e:'The lead time is 25 days after order confirmation.' },
-      { w:'MOQ', p:'/em oʊ kjuː/', m:'最小起订量', e:'Our MOQ is 500 units per style.' },
-      { w:'proforma invoice', p:'/prəˈfɔːrmə ˈɪnvɔɪs/', m:'形式发票', e:'We attach the proforma invoice for your reference.' },
-      { w:'bulk order', p:'/bʌlk ˈɔːrdər/', m:'批量订单', e:'Bulk orders over 500 sets get 5% off.' },
-      { w:'payment terms', p:'/ˈpeɪmənt tɜːrmz/', m:'付款条件', e:'Our payment terms are 30% deposit.' },
-      { w:'sample', p:'/ˈsæmpl/', m:'样品', e:'Samples can be shipped within 3 days.' },
-      { w:'shipment', p:'/ˈʃɪpmənt/', m:'装运', e:'The shipment arrives at the port next week.' },
+      {w:'inquiry',p:'/ɪnˈkwaɪri/',m:'询盘；问询',e:'Thank you for your inquiry about our products.'},
+      {w:'quotation',p:'/kwoʊˈteɪʃn/',m:'报价单',e:'We will send you a quotation by tomorrow.'},
+      {w:'lead time',p:'/liːd taɪm/',m:'交货期',e:'The lead time is 25 days.'},
+      {w:'MOQ',p:'/em oʊ kjuː/',m:'最小起订量',e:'Our MOQ is 500 units.'},
+      {w:'bulk order',p:'/bʌlk ˈɔːrdər/',m:'批量订单',e:'Bulk orders get a 5% discount.'},
+      {w:'sample',p:'/ˈsæmpl/',m:'样品',e:'Samples can be shipped within 3 days.'},
     ],
-    passage: `Dear Mr. Chen,
+    passage: `JIM: Hey, did you send that email to the client yet?
 
-Thank you for your <span class="hl" title="询盘">inquiry</span> about our ceramic dinnerware sets. We are pleased to provide our best <span class="hl" title="报价">quotation</span>.
+DWIGHT: Way ahead of you, Jim. I already sent a <span class="hl">quotation</span> and mentioned our minimum order.
 
-Our <span class="hl" title="最小起订量">MOQ</span> is 200 sets per design, and the <span class="hl" title="交货期">lead time</span> is about 25 days after order confirmation. For <span class="hl" title="批量订单">bulk orders</span> over 500 sets, we offer an extra 5% discount.
+JIM: You mean the <span class="hl">MOQ</span>? You should have waited — they sent an <span class="hl">inquiry</span> first, asking about samples.
 
-Samples can be shipped within 3 working days.
+DWIGHT: Samples? We don't have time for samples! This is a <span class="hl">bulk order</span> — 2,000 units!
 
-We look forward to your favorable reply.
+JIM: Dwight, they need to check the quality before placing a big order. And the <span class="hl">lead time</span> is 30 days, not 15 like you said.
 
-Best regards,
-Sarah Wang`,
-    passageCN: '感谢您对我们陶瓷餐具套装的询盘。我司每款最小起订量200套，交货期约25天。批量订单500套以上可享5%折扣。样品3个工作日内寄出。期待佳音。',
+DWIGHT: Details, details. I'll send a follow-up email.`,
+    passageCN: '吉姆: 嘿,你给客户发邮件了吗? 德怀特: 我早就发了。我已经报了价并且说明了最小起订量。吉姆: 你说MOQ? 你应该等等——他们先发了询盘,问样品的事。德怀特: 样品? 没时间搞样品! 这是2000件的大订单! 吉姆: 德怀特,下大单之前他们需要先检查质量。而且交货期是30天,不是你说的15天。',
     q: [
-      { q:'MOQ 是每款设计多少套？', o:['100套','200套','500套','25套'], c:1 },
-      { q:'确认订单后交货期多久？', o:['15天','20天','25天','30天'], c:2 },
-      { q:'批量订单500套以上折扣多少？', o:['3%','5%','8%','10%'], c:1 },
-      { q:'样品几天内可寄出？', o:['1天','3个工作日','5天','1周'], c:1 },
+      {q:'What did Dwight send to the client?', o:['An inquiry','A quotation','A sample','A complaint'], c:1},
+      {q:'Why did the client send an inquiry first?', o:['To ask about the price','To ask about samples','To cancel the order','To complain'], c:1},
+      {q:'How many units was the bulk order?', o:['500','1,000','2,000','5,000'], c:2},
+      {q:'What is the real lead time?', o:['15 days','25 days','30 days','45 days'], c:2},
     ],
+    sentences: [
+      {en:'Did you send that email to the client yet?', cn:'你给客户发邮件了吗?', use:'Use "yet" for things you expect to happen.'},
+      {en:'Way ahead of you!', cn:'我已经想到你前面了!', use:'Casual way to say "I already did it."'},
+      {en:'You should have waited.', cn:'你应该等一等的。', use:'"should have + done" = regret about the past.'},
+      {en:'We don\'t have time for samples!', cn:'我们没时间搞样品!', use:'Stress by putting "don\'t" strong.'},
+    ],
+    combos: [['send an email','send a quotation','send samples'],['place an order','place a bulk order'],['check the quality','check the price','check the lead time']],
     guide: [
-      ['💡 句式亮点','"We are pleased to..." 是商务邮件中非常礼貌的表达，比 "We are happy to..." 更正式。适用于回复询盘、确认订单等场景。'],
-      ['🔑 Inquiry','动词形式是 inquire (about)。例: "We are writing to inquire about your pricing." 注意拼写，美式常用 inquiry，英式 enquiry。'],
-      ['🔑 MOQ','MOQ = Minimum Order Quantity（最小起订量）。跨境贸易常见缩写：FOB（离岸价）、CIF（到岸价含保险运费）。'],
-      ['🌏 文化贴士','国外客户邮件通常直入主题。收到询盘后 24 小时内回复能留下好印象。"Thank you for your inquiry" 比 "We received your email" 专业得多。'],
+      ['💡 Key Phrase: "Way ahead of you"','This is a very common casual expression. It means "I already did that before you even thought of it." Other similar phrases: "I\'m on it." "Already done." "One step ahead."'],
+      ['💡 Grammar: "Should have"','"You should have waited" = 你本应该等。Structure: should have + past participle. Examples: "I should have called earlier." "We should have checked the price first."'],
+      ['🔤 Phonics: "Quotation" /kwoʊˈteɪʃn/','Syllables: quo·ta·tion. The "tion" ending is very common - it sounds like /ʃən/. Other words: action, motion, station, education.'],
     ],
     fun: ['dialogue', [
-      ['👤 Buyer','Good morning. We received your quotation.','早上好，收到报价了。'],
-      ['👩‍💼 You','Great! I hope the pricing works for you.','太好了，希望价格合您意。'],
-      ['👤 Buyer','The price is fine, but the MOQ of 200 is high for us.','价格不错，但200套起订量有点高。'],
-      ['👩‍💼 You','Let me check — we can offer 150 as a trial order.','确认一下——可以给150套试单。'],
-      ['👤 Buyer','That\'s great. What\'s the lead time?','那太好了，交货期呢？'],
-      ['👩‍💼 You','25 days. We can prioritize yours.','25天，我们可以优先安排。'],
+      ['👤 Boss','Have you replied to the client yet?','你回复客户了吗?'],
+      ['👩‍💼 You','Yes, I sent the quotation this morning.','回了,今早发了报价。'],
+      ['👤 Boss','Did you mention the MOQ?','你提了最小起订量吗?'],
+      ['👩‍💼 You','Yes, and I also told them about the lead time.','提了,还说了交货期。'],
+      ['👤 Boss','Great work! Follow up with samples next week.','做得好!下周跟进样品。'],
+      ['👩‍💼 You','Will do!','好的!'],
     ]]
   },
+
   tue: {
-    theme: '商务电话',
+    theme: '🎬 Suits · Phone Call',
+    drama: '📺Suits S1E4',
     words: [
-      { w:'conference call', p:'/ˈkɑːnfərəns kɔːl/', m:'电话会议', e:'Let\'s schedule a conference call for next Tuesday.' },
-      { w:'put through', p:'/pʊt θruː/', m:'转接电话', e:'Please put me through to Mr. Johnson.' },
-      { w:'speak up', p:'/spiːk ʌp/', m:'大声点说', e:'Could you speak up? The line is bad.' },
-      { w:'follow up', p:'/ˈfɑːloʊ ʌp/', m:'跟进', e:'I will follow up after the meeting.' },
-      { w:'clarify', p:'/ˈklærəfaɪ/', m:'澄清；说明', e:'Could you clarify the payment terms?' },
-      { w:'deadline', p:'/ˈdedlaɪn/', m:'截止日期', e:'The deadline is this Friday.' },
-      { w:'brief', p:'/briːf/', m:'简要汇报', e:'Let me briefly update you.' },
-      { w:'call back', p:'/kɔːl bæk/', m:'回电', e:'I\'ll call you back in 10 minutes.' },
+      {w:'put through',p:'/pʊt θruː/',m:'转接电话',e:'Please put me through to Mr. Specter.'},
+      {w:'speak up',p:'/spiːk ʌp/',m:'大声点',e:'Could you speak up? The line is bad.'},
+      {w:'follow up',p:'/ˈfɑːloʊ ʌp/',m:'跟进',e:'I will follow up after the meeting.'},
+      {w:'clarify',p:'/ˈklærəfaɪ/',m:'澄清',e:'Could you clarify the terms?'},
+      {w:'deadline',p:'/ˈdedlaɪn/',m:'截止日期',e:'The deadline is Friday.'},
+      {w:'call back',p:'/kɔːl bæk/',m:'回电',e:'I\'ll call you back in 10 minutes.'},
     ],
-    passage: `A: Hello, this is Tom from ABC Trading. May I <span class="hl" title="转接">put me through</span> to the purchasing manager?
+    passage: `HARVEY: Mike, I need you to call the client right now.
 
-B: Speaking. How can I help you?
+MIKE: What should I say?
 
-A: I'm calling to <span class="hl" title="跟进">follow up</span> on the quotation we sent last week.
+HARVEY: <span class="hl">Put them through</span> to me after you get the details. First, <span class="hl">clarify</span> the payment terms — did they agree or not?
 
-B: Yes, I reviewed it. I'd like to <span class="hl" title="澄清">clarify</span> a few things about the payment terms. Could we set up a <span class="hl" title="电话会议">conference call</span> next week?
+MIKE: Got it. And what about the deadline?
 
-A: Certainly. I'll send you the agenda and time slots.`,
-    passageCN: 'A: 你好，我是ABC贸易的Tom，请帮我转接采购经理。B: 我就是。A: 我来电跟进上周的报价。B: 看过了，想确认一下付款条件。下周能安排电话会议吗？A: 当然，我发议程和可用时间给您。',
+HARVEY: The <span class="hl">deadline</span> is tomorrow at 5 PM. No excuses. I'll <span class="hl">follow up</span> with an email after the call.
+
+MIKE: (on phone) Hello, this is Mike from Pearson Specter. I'm calling to <span class="hl">follow up</span> on the contract. Could you <span class="hl">clarify</span> your position on the payment terms?
+
+CLIENT: We agree to the terms, but we need more time.
+
+MIKE: I'll put you through to Mr. Specter. One moment, please.`,
+    passageCN: '哈维: 迈克,你现在就给客户打电话。迈克: 我该怎么说? 哈维: 问清楚细节后再转给我。先确认付款条件——他们同意还是不同意? 迈克: 明白了。截止日期呢? 哈维: 明天下午5点,没有借口。打完电话我会发邮件跟进。',
     q: [
-      { q:'Tom 打电话的主要目的是什么？', o:['介绍新品','跟进出价','投诉','取消订单'], c:1 },
-      { q:'买家想确认什么？', o:['产品规格','送货地址','付款条件','包装'], c:2 },
-      { q:'买家建议下周做什么？', o:['见面','电话会议','看工厂','发邮件'], c:1 },
+      {q:'What does Harvey ask Mike to do first?', o:['Send an email','Call the client','Visit the client','Prepare documents'], c:1},
+      {q:'What should Mike clarify?', o:['The price','The delivery date','The payment terms','The address'], c:2},
+      {q:'When is the deadline?', o:['Today at 3 PM','Tomorrow at 5 PM','Next Monday','Next Friday'], c:1},
+      {q:'What will Harvey do after the call?', o:['Send a follow-up email','Visit the client','Take a break','Call another client'], c:0},
     ],
+    sentences: [
+      {en:'I need you to call the client right now.', cn:'我需要你现在就给客户打电话。', use:'"I need you to + verb" = 我需要你做某事 (direct but professional).'},
+      {en:'Put them through to me.', cn:'把他们转接给我。', use:'Key phone phrase. "Put someone through" = 转接. Also: "I\'ll put you through."'},
+      {en:'No excuses.', cn:'没有借口。', use:'Very direct. Used by bosses. Softer: "I need this done by Friday."'},
+    ],
+    combos: [['call the client','call back','put through'],['clarify the terms','clarify the details','clarify the position'],['follow up with an email','follow up after the call']],
     guide: [
-      ['💡 电话开场白','"May I speak to..." 是最标准的电话找人说法，比 "I want to talk to..." 礼貌得多。别人说 "Speaking" 意思是"我就是"。'],
-      ['🔑 信号不好怎么说','"The line is breaking up." / "You\'re cutting out." / "Could you repeat that?" 或直接说 "I didn\'t catch that."'],
-      ['🔑 电话常用词组','put through = 转接；hold the line = 别挂断；call back = 回电；get back to someone = 稍后回复。'],
+      ['💡 Phone Call Basics','"Put someone through" = 转接。Hold the line = 别挂断。Speaking = 我就是。Who\'s calling? = 请问您是?'],
+      ['💡 "No excuses" culture','In American business, "no excuses" is common. It means: just get it done. Instead of giving excuses, say: "I\'ll handle it." "I\'ll get it done."'],
+      ['🔤 Phonics: "Clarify" /ˈklærəfaɪ/','Syllables: clar·i·fy. Words ending in -ify are verbs: clarify, simplify, classify, identify. Stress on the first syllable.'],
     ],
     fun: ['dialogue', [
-      ['📞 You','Good morning, may I speak to Linda Chen in purchasing?','早上好，找采购部的陈琳达。'],
-      ['👤 Reception','One moment, I\'ll put you through.','稍等，我帮您转接。'],
-      ['👩‍💼 Linda','Hello, Linda Chen speaking.','您好，我是陈琳达。'],
-      ['📞 You','Hi Linda, just confirming if you received our samples.','琳达您好，确认一下您收到样品了吗？'],
-      ['👩‍💼 Linda','Yes, they look great! We\'d like a trial order.','收到了，很不错！想下试单。'],
-      ['📞 You','Wonderful! I\'ll send the order confirmation.','太好了，我马上发确认单。'],
+      ['📞 You','Good morning, this is [Name] from [Company]. May I speak to Ms. Chen?','早上好,我是[公司]的[名字]。请问陈女士在吗?'],
+      ['👤 Secretary','One moment, I\'ll put you through.','稍等,我帮您转接。'],
+      ['👩‍💼 Ms. Chen','Hello, Linda Chen speaking.','您好,我是陈琳达。'],
+      ['📞 You','Hi Linda, I\'m calling to follow up on the quotation we sent.','琳达您好,我来电跟进上周发的报价。'],
+      ['👩‍💼 Ms. Chen','I\'ve reviewed it. Let\'s set up a call next week.','我看过了。下周约个电话会议吧。'],
     ]]
   },
+
   wed: {
-    theme: '产品谈判',
+    theme: '🎬 The Social Network · Negotiation',
+    drama: '📺The Social Network',
     words: [
-      { w:'negotiate', p:'/nɪˈɡoʊʃieɪt/', m:'谈判', e:'We are willing to negotiate the price.' },
-      { w:'margin', p:'/ˈmɑːrdʒɪn/', m:'利润空间', e:'Our margin is already very thin.' },
-      { w:'compromise', p:'/ˈkɑːmprəmaɪz/', m:'折中', e:'Let\'s compromise and meet in the middle.' },
-      { w:'volume discount', p:'/ˈvɑːljuːm ˈdɪskaʊnt/', m:'数量折扣', e:'We can offer a volume discount over 1,000 units.' },
-      { w:'win-win', p:'/wɪn wɪn/', m:'双赢', e:'We want a win-win solution.' },
-      { w:'flexible', p:'/ˈfleksəbl/', m:'灵活的', e:'We can be flexible on payment.' },
+      {w:'negotiate',p:'/nɪˈɡoʊʃieɪt/',m:'谈判',e:'We are willing to negotiate the price.'},
+      {w:'margin',p:'/ˈmɑːrdʒɪn/',m:'利润空间',e:'Our margin is already very thin.'},
+      {w:'compromise',p:'/ˈkɑːmprəmaɪz/',m:'折中',e:'Let\'s compromise and meet in the middle.'},
+      {w:'volume discount',p:'/ˈvɑːljuːm ˈdɪskaʊnt/',m:'数量折扣',e:'We offer a volume discount for large orders.'},
+      {w:'win-win',p:'/wɪn wɪn/',m:'双赢',e:'Let\'s find a win-win solution.'},
+      {w:'flexible',p:'/ˈfleksəbl/',m:'灵活的',e:'We can be flexible on the schedule.'},
     ],
-    passage: `"The price is higher than we expected," said the buyer.
+    passage: `MARK: One million dollars. That's my offer.
 
-The seller replied: "I understand. But our quality is top-tier and our <span class="hl" title="利润">margin</span> is tight. What if we meet in the middle — a 5% <span class="hl" title="数量折扣">volume discount</span> on the first order?"
+SEAN: Come on, Mark. You know this is worth more. My <span class="hl">margin</span> is tight, but I can be <span class="hl">flexible</span>.
 
-"Reasonable. Let's <span class="hl" title="折中">compromise</span>. We'll accept, but we want exclusive rights in our region."
+MARK: I'm not here to <span class="hl">negotiate</span>. Take it or leave it.
 
-It was a <span class="hl" title="双赢">win-win</span> negotiation.`,
-    passageCN: '"价格比预期高。"买家说。卖家回应:"我理解，但我们的利润空间已经很紧了。首单给5%数量折扣怎么样？""合理。折中一下，我接受价格，但要本区域的独家经销权。"这是一个双赢的谈判。',
+SEAN: That's not how business works. Let's find a <span class="hl">compromise</span>. You give me 15% equity, and I help you grow the platform.
+
+MARK: 10%, and you don't interfere with my decisions.
+
+SEAN: 12%, and I get a board seat. That's a <span class="hl">win-win</span>.
+
+MARK: Fine. 12%. But I don't like it.`,
+    passageCN: '马克: 一百万美元,这是我的报价。肖恩: 别这样马克,你知道这不止这个价。我利润空间不大,但可以灵活。马克: 我不是来谈判的,接受或者拉倒。肖恩: 生意不是这样做的。我们折中一下——你给我15%股权,我帮你做平台。马克: 10%,而且你不能干涉我的决定。肖恩: 12%,我要一个董事会席位。这是双赢。',
     q: [
-      { q:'买家主要对什么不满意？', o:['质量','交货时间','价格','包装'], c:2 },
-      { q:'卖家给了多少折扣？', o:['3%','5%','10%','免运费'], c:1 },
-      { q:'买家要求什么回报？', o:['长账期','免费样品','独家经销权','快速发货'], c:2 },
+      {q:'What is Mark\'s initial offer?', o:['$500,000','$1 million','$2 million','$5 million'], c:1},
+      {q:'What does Sean want besides money?', o:['A car','A board seat','An office','A vacation'], c:1},
+      {q:'What is the final deal?', o:['10% equity','12% equity','15% equity','20% equity'], c:1},
+      {q:'What does "Take it or leave it" mean?', o:['Think about it','Accept or reject','Send it back','Wait for later'], c:1},
     ],
+    sentences: [
+      {en:'You know this is worth more.', cn:'你知道这不止这个价。', use:'"Worth more/less" = 值更多/更少. Very useful in any negotiation.'},
+      {en:'I can be flexible.', cn:'我可以灵活处理。', use:'A polite way to say "I can change the terms." Opposite: "My hands are tied."'},
+      {en:'Take it or leave it.', cn:'接受或者拉倒。', use:'Very strong statement. Use carefully! Softer version: "That\'s the best I can do."'},
+      {en:'That\'s a win-win.', cn:'这是双赢。', use:'"Win-win" = both sides benefit. "Win-lose" = one side wins, one loses. Aim for win-win!'],
+    ],
+    combos: [['make an offer','accept an offer','reject an offer'],['negotiate the price','negotiate the terms'],['find a compromise','find a win-win solution']],
     guide: [
-      ['💡 谈判核心句式','"Let\'s meet in the middle." = 我们各退一步/折中。类似: "Let\'s split the difference."（分摊差额）。谈判中最常用的让步句式。'],
-      ['🔑 Margin','利润空间/利润率。搭配: profit margin（利润率）、tight margin（薄利）、healthy margin（利润可观）。"We can\'t go lower; our margin is already too thin."'],
-      ['🌏 双赢思维','谈判不是零和游戏。最好的结果是 win-win。找到双方都能接受的方案，才是长久合作的基础。'],
+      ['💡 Negotiation Key Phrases','"Take it or leave it" is very strong — it can end a negotiation. Softer alternatives: "That\'s my final offer." "I can\'t go any lower than this."'],
+      ['💡 Win-Win Thinking','The best deals are win-win. Both sides get something they want. In negotiation: 1. Know what you want. 2. Know what they want. 3. Find the overlap.'],
+      ['🔤 Phonics: "Negotiate" /nɪˈɡoʊʃieɪt/','Syllables: ne·go·ti·ate. The "ti" sounds like /ʃi/ (like "shh"). Other -tiate words: appreciate, initiate, differentiate.'],
     ],
-    fun: ['match', [['negotiate','margin','compromise','volume discount','exclusive'],['谈判','利润空间','折中','数量折扣','独家经销']]]
+    fun: ['match', [['negotiate','margin','compromise','volume discount','win-win','flexible'],['to discuss terms','profit space','meet in the middle','bulk price','both benefit','can change']]]
   },
+
   thu: {
-    theme: '售后处理',
+    theme: '🎬 The Bear · Customer Service',
+    drama: '📺The Bear S1E6',
     words: [
-      { w:'defective', p:'/dɪˈfektɪv/', m:'有缺陷的', e:'We found 12 defective units in the batch.' },
-      { w:'refund', p:'/ˈriːfʌnd/', m:'退款', e:'We will process a full refund.' },
-      { w:'compensation', p:'/ˌkɑːmpenˈseɪʃn/', m:'赔偿', e:'We request compensation for the damage.' },
-      { w:'return policy', p:'/rɪˈtɜːrn ˈpɑːləsi/', m:'退货政策', e:'Our return policy allows 30-day returns.' },
-      { w:'inspect', p:'/ɪnˈspekt/', m:'检查', e:'Please inspect the goods upon arrival.' },
-      { w:'resolve', p:'/rɪˈzɑːlv/', m:'解决', e:'We will resolve this ASAP.' },
-      { w:'apologize', p:'/əˈpɑːlədʒaɪz/', m:'道歉', e:'We sincerely apologize for the issue.' },
-      { w:'replacement', p:'/rɪˈpleɪsmənt/', m:'换货', e:'We will send replacements today.' },
+      {w:'defective',p:'/dɪˈfektɪv/',m:'有缺陷的',e:'We received a batch of defective items.'},
+      {w:'refund',p:'/ˈriːfʌnd/',m:'退款',e:'We will process a full refund.'},
+      {w:'compensation',p:'/ˌkɑːmpenˈseɪʃn/',m:'赔偿',e:'We request compensation for the damage.'},
+      {w:'inspect',p:'/ɪnˈspekt/',m:'检查',e:'Please inspect the goods upon arrival.'},
+      {w:'apologize',p:'/əˈpɑːlədʒaɪz/',m:'道歉',e:'We sincerely apologize for the inconvenience.'},
+      {w:'replacement',p:'/rɪˈpleɪsmənt/',m:'换货',e:'We will send a replacement right away.'},
     ],
-    passage: `Dear Customer Service,
+    passage: `RICHIE: (on phone) What do you mean the order is wrong? I sent 50 boxes!
 
-I'm writing to report an issue with order #ORD-889. Upon <span class="hl" title="检查">inspection</span>, 12 out of 50 units are <span class="hl" title="有缺陷的">defective</span> — the packaging is damaged and some have scratches.
+CARMEN: Richie, let me handle this. (takes phone) Hello sir, I understand you're frustrated. Please let me <span class="hl">inspect</span> what happened.
 
-I'd like to request a <span class="hl" title="换货">replacement</span> or a partial <span class="hl" title="退款">refund</span>. Please advise your <span class="hl" title="退货政策">return policy</span> for defective goods.
+CUSTOMER: The meat arrived warm! It's <span class="hl">defective</span> — I can't serve this to my customers!
 
-I look forward to your prompt <span class="hl" title="解决">resolution</span>.
+CARMEN: I completely understand. I <span class="hl">apologize</span> for this mistake. I'll send a <span class="hl">replacement</span> immediately with express delivery, free of charge. And we'll offer a full <span class="hl">refund</span> for the damaged batch.
 
-Best regards,
-Mike Johnson`,
-    passageCN: '我写信反映订单#ORD-889的问题。检查发现50件中有12件有缺陷——包装破损，部分有划痕。我希望换货或部分退款。请告知对缺陷商品的退换货政策。期待尽快解决。',
+CUSTOMER: What about <span class="hl">compensation</span> for my lost business?
+
+CARMEN: I'll include an extra 20% off your next order as <span class="hl">compensation</span>. Does that sound fair?
+
+CUSTOMER: ...Okay. Thank you.`,
+    passageCN: '里奇: (打电话)什么叫订单错了?我发了50箱! 卡门: 里奇,我来处理。(接过电话)先生您好,我理解您很失望。请让我检查一下发生了什么。客户: 肉送来是温的!有质量问题——我没法给客人上菜! 卡门: 我完全理解。我为这个错误道歉。我立刻用快递免费换货,并全额退款。客户: 那我生意损失怎么办? 卡门: 下次订单额外打8折作为补偿,这样公平吗?',
     q: [
-      { q:'多少件有缺陷？', o:['50件','24件','12件','8件'], c:2 },
-      { q:'商品有什么问题？', o:['颜色不对','尺寸不对','包装破损有划痕','缺配件'], c:2 },
-      { q:'客户要求什么？', o:['全额退款','换货或部分退款','免运费','全部退货'], c:1 },
+      {q:'Why is the customer angry?', o:['The order is late','The meat arrived warm','The price is wrong','The box is damaged'], c:1},
+      {q:'What does Carmen offer first?', o:['A discount','A replacement and refund','A free meal','An apology only'], c:1},
+      {q:'What extra compensation does Carmen offer?', o:['Free delivery','20% off next order','Free samples','A gift card'], c:1},
+      {q:'How does Carmen handle the situation?', o:['She argues with the customer','She apologizes and solves the problem','She blames Richie','She hangs up'], c:1},
     ],
+    sentences: [
+      {en:'I understand you\'re frustrated.', cn:'我理解您的失望。', use:'Best first sentence for complaints. Show empathy BEFORE solving the problem.'},
+      {en:'I apologize for this mistake.', cn:'我为这个错误道歉。', use:'Simple and sincere. Don\'t make excuses. "I apologize for..." is more formal than "I\'m sorry about..."'},
+      {en:'Does that sound fair?', cn:'这样听起来公平吗?', use:'Great way to end a solution. Shows you care about their satisfaction. If they say yes, the problem is solved.'],
+    ],
+    combos: [['apologize for the mistake','apologize for the delay','apologize for the inconvenience'],['send a replacement','offer a refund','provide compensation'],['inspect the goods','inspect the quality','inspect the packaging']],
     guide: [
-      ['💡 处理投诉公式','Apologize + Acknowledge + Action。先道歉，再共情，然后给解决方案。例: "We apologize for the issue. We understand your frustration. We\'ll send replacements immediately."'],
-      ['🔑 退款类型','Full refund = 全额退款；Partial refund = 部分退款；Store credit = 店铺余额；Replacement = 换货。'],
-      ['🔑 Defective 相关词','Damage = 损坏；Malfunction = 故障；Flawed items = 瑕疵品；Substandard = 次品。描述问题要具体。'],
+      ['💡 Complaint Handling Formula','1. Acknowledge: "I understand..." 2. Apologize: "I apologize..." 3. Solve: "I will..." 4. Compensate: "We\'ll offer..." 5. Confirm: "Does that sound fair?"'],
+      ['💡 "I understand" vs "I know"','"I understand" = 我理解你的感受(共情)。"I know" = 我知道(可能听起来傲慢)。Always use "I understand" with upset customers.'],
+      ['🔤 Phonics: "Apologize" /əˈpɑːlədʒaɪz/','Syllables: a·pol·o·gize. The "gize" sounds like /dʒaɪz/. Noun: apology /əˈpɑːlədʒi/. "I owe you an apology."'],
     ],
     fun: ['dialogue', [
-      ['📧 客户','I received the order but the color is different from the listing.','收到的货和listing颜色不一样。'],
-      ['👩‍💼 You','I sincerely apologize. Let me check the correct color in stock.','非常抱歉，我查一下正确颜色的库存。'],
-      ['📧 客户','I needed it as a gift this weekend.','我本来这周末送礼用的。'],
-      ['👩‍💼 You','I\'ll ship the correct one today with express, free of charge.','我今天就用快递把正确的寄出，不收费。'],
-      ['📧 客户','That\'s very helpful. Thank you!','太好了，非常感谢！'],
+      ['📧 Customer','The package arrived damaged.','包裹到了,破损了。'],
+      ['👩‍💼 You','I apologize for this. Let me check and solve it right away.','非常抱歉。我立刻查一下解决。'],
+      ['📧 Customer','I need it for an event this weekend.','我这周末活动要用的。'],
+      ['👩‍💼 You','I\'ll send a replacement today with express, free of charge, and a 15% discount on your next order.','我今天快递寄出换货,不收费,下次订单再打85折。'],
+      ['📧 Customer','That\'s very fair. Thank you for the quick response.','很合理。谢谢你的快速回复。'],
     ]]
   },
+
   fri: {
-    theme: '跨文化沟通',
+    theme: '🎬 Friends · Cultural Differences',
+    drama: '📺Friends S5E14',
     words: [
-      { w:'small talk', p:'/smɔːl tɔːk/', m:'闲聊', e:'Americans often start with small talk.' },
-      { w:'direct', p:'/dəˈrekt/', m:'直接的', e:'Germans are very direct in business.' },
-      { w:'hierarchy', p:'/ˈhaɪərɑːrki/', m:'等级制度', e:'Japanese companies have a strong hierarchy.' },
-      { w:'punctual', p:'/ˈpʌŋktʃuəl/', m:'守时的', e:'Being punctual is crucial in Germany.' },
-      { w:'culture shock', p:'/ˈkʌltʃər ʃɑːk/', m:'文化冲击', e:'New exporters often experience culture shock.' },
-      { w:'networking', p:'/ˈnetwɜːrkɪŋ/', m:'社交', e:'Networking is key in American business.' },
+      {w:'weird',p:'/wɪrd/',m:'奇怪的',e:'That\'s really weird.'},
+      {w:'embarrassing',p:'/ɪmˈbærəsɪŋ/',m:'尴尬的',e:'That was so embarrassing!'},
+      {w:'offer',p:'/ˈɔːfər/',m:'主动提供',e:'He offered to help me move.'},
+      {w:'polite',p:'/pəˈlaɪt/',m:'礼貌的',e:'It\'s polite to say thank you.'},
+      {w:'awkward',p:'/ˈɔːkwərd/',m:'尴尬的',e:'There was an awkward silence.'},
+      {w:'tip',p:'/tɪp/',m:'小费/建议',e:'Here\'s a tip: always arrive on time.'},
     ],
-    passage: `Doing business internationally = understanding different cultures! Here are some fun facts:
+    passage: `MONICA: (to Rachel) So I met this guy from Japan at the coffee shop.
 
-🇺🇸 <b>USA:</b> Americans are <span class="hl" title="直接的">direct</span>. <span class="hl" title="闲聊">Small talk</span> before meetings is common — sports, weather, weekend plans. Handshakes are firm.
+RACHEL: Ooh, was he cute?
 
-🇯🇵 <b>Japan:</b> Very formal. <span class="hl" title="守时">Punctuality</span> is crucial. Use titles (Mr./Ms. + last name). Bowing > handshakes. <span class="hl" title="等级制度">Hierarchy</span> means decisions take time.
+MONICA: That's not the point! He bowed when we shook hands. I didn't know what to do!
 
-🇩🇪 <b>Germany:</b> Very <span class="hl" title="直接的">direct</span> and detail-oriented. Meetings start on time. Facts > feelings. Contracts = sacred.
+PHOEBE: That's not <span class="hl">weird</span>, that's cultural! In Japan, bowing is <span class="hl">polite</span>.
 
-🇧🇷 <b>Brazil:</b> Relationships first. Personal chat before business. Stand close, use touch (handshakes, pats on back).`,
-    passageCN: '🇺🇸 美国：直接，会前闲聊很常见（体育、天气）。🇯🇵 日本：非常正式，守时至关重要，鞠躬比握手更受欢迎。🇩🇪 德国：直接且注重细节，事实先于感受。🇧🇷 巴西：先交朋友再谈生意，说话站得近。',
+MONICA: Well, I felt so <span class="hl">awkward</span>! I stood there with my hand out like an idiot.
+
+CHANDLER: Here's a <span class="hl">tip</span> — next time, just bow back. Or do what I do: nod and smile.
+
+RACHEL: That's what she did! And then she tried to <span class="hl">offer</span> him coffee, but he kept saying no because it's <span class="hl">polite</span> to refuse at first in Japan!
+
+PHOEBE: See? You learned something! It's not <span class="hl">embarrassing</span>, it's educational!
+
+MONICA: Easy for you to say. You weren't the one standing there like a confused tourist.`,
+    passageCN: '莫妮卡:(对瑞秋说)我在咖啡馆遇到一个日本男生。瑞秋:哦,帅吗? 莫妮卡:这不是重点!他握手的时候鞠躬了。我不知道该怎么做! 菲比:这不奇怪,这是文化差异!在日本,鞠躬是礼貌的。莫妮卡:我当时觉得好尴尬!我像个傻子一样伸着手站在那里。钱德勒:给你个建议——下次你也鞠回去。或者像我一样:点头微笑。',
     q: [
-      { q:'哪个国家守时特别重要？', o:['美国','日本','德国','全部都是'], c:1 },
-      { q:'哪个文化认为事实比感受重要？', o:['美国','日本','德国','巴西'], c:2 },
-      { q:'哪个文化先聊私事再谈公事？', o:['美国','日本','德国','巴西'], c:3 },
+      {q:'Why did Monica feel awkward?', o:['She spilled coffee','The Japanese man bowed while shaking hands','He didn\'t talk to her','She forgot her wallet'], c:1},
+      {q:'In Japan, refusing an offer at first is considered...', o:['Rude','Polite','Strange','Funny'], c:1},
+      {q:'What was Chandler\'s tip?', o:['Don\'t go to coffee shops','Bow back or nod and smile','Call ahead','Bring a gift'], c:1},
+      {q:'How did Phoebe describe the situation?', o:['Weird','Embarrassing','Educational','Terrible'], c:2},
     ],
+    sentences: [
+      {en:'That\'s not weird, that\'s cultural!', cn:'这不奇怪,这是文化差异!', use:'"Cultural" = related to culture. Very useful when traveling or working internationally.'},
+      {en:'I felt so awkward!', cn:'我觉得好尴尬!', use:'"Awkward" (adj) = uncomfortable situation. "Awkward silence" = 尴尬的沉默. Very common in casual English.'},
+      {en:'Here\'s a tip.', cn:'给你个建议。', use:'"Tip" has two meanings: 1) helpful advice, 2) extra money for service. "Travel tip" "Pro tip" "Money-saving tip."'],
+    ],
+    combos: [['feel awkward','feel embarrassed','feel weird'],['cultural difference','cultural tip','cultural shock'],['offer help','offer coffee','offer a tip']],
     guide: [
-      ['💡 跨文化第一课','不要假设别人的沟通方式和你一样。美国客户直接，日本客户需要耐心，德国客户要数据，巴西客户先做朋友。"When in Rome, do as the Romans do."'],
-      ['🔑 安全闲聊话题', '✅ 天气、旅行、食物、体育。❌ 政治、宗教、收入、年龄。最佳开场白: "How was your weekend?" "Did you travel for the holiday?"'],
-      ['🌏 邮件文化差异','美国：短、直接、叫名字。德国：正式、全称。日本：非常礼貌、固定句式。中国：先寒暄再谈正事。'],
+      ['💡 Cultural Tip: Bowing in Japan','In Japan, bowing is more common than handshakes. Deeper bow = more respect. When in doubt, a small nod and smile is safe. Business cards are exchanged with both hands.'],
+      ['💡 Saying "No" Politely','In many Asian cultures, saying "no" directly is rude. Instead: "I\'ll think about it." "Let me check." "Maybe next time." Americans prefer direct answers.'],
+      ['🔤 Phonics: "Awkward" /ˈɔːkwərd/','Syllables: awk·ward. The "awk" sounds like "ock" (嘴巴张大). The "ward" ends with a schwa /ərd/. Other -ward words: forward, backward, reward.'],
     ],
-    fun: ['match', [['USA','Japan','Germany','Brazil'],['直接闲聊 🗣️','正式鞠躬 🎌','严谨准时 ⏰','先交朋友 🤝']]]
+    fun: ['dialogue', [
+      ['👤 American Client','Great meeting! Let\'s discuss the contract over lunch.','很高兴见面!边吃午饭边聊合同吧。'],
+      ['🇯🇵 You (to Japanese colleague)','Should we accept the lunch invitation?','我们要答应午饭邀请吗?'],
+      ['🇯🇵 Colleague','In Japan, we usually politely refuse once first.','在日本我们通常会先礼貌拒绝一次。'],
+      ['🇯🇵 You','Thank you, but I wouldn\'t want to take up your time. (pause) Actually, if you insist, I\'d love to join!','谢谢,但不想耽误您时间。(停顿) 如果您坚持的话,我很乐意!'],
+      ['👤 American Client','(laughs) I insist! Let\'s go!','(笑) 我坚持!走吧!'],
+    ]]
   }
 };
 
@@ -662,211 +582,139 @@ Mike Johnson`,
 let cur = 'mon';
 let sc = +(localStorage.getItem('Lsc')||0);
 let st = +(localStorage.getItem('Lst')||0);
-let matchSel = null, qDone = {};
+let showCN = true;
+let qDone = {}, matchSel = null;
 
-// ====================== INIT ======================
-document.addEventListener('DOMContentLoaded', () => {
-  const now = new Date();
-  const ds = ['日','一','二','三','四','五','六'];
-  document.getElementById('dateBadge').textContent = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日 星期${ds[now.getDay()]}`;
-  const wd = now.getDay();
-  const map = {1:'mon',2:'tue',3:'wed',4:'thu',5:'fri'};
-  go(map[wd]||'mon');
+document.addEventListener('DOMContentLoaded',()=>{
+  const n=new Date();
+  const ds=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  document.getElementById('dateDisplay').textContent=`${ds[n.getDay()]} ${n.getDate()} ${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][n.getMonth()]} ${n.getFullYear()}`;
+  const dm={1:'mon',2:'tue',3:'wed',4:'thu',5:'fri'};
+  go(dm[n.getDay()]||'mon');
   renderScore();
 });
 
-function go(d) {
-  cur = d;
-  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.d===d));
-  const data = DATA[d];
-  if (!data) return;
+function go(d){
+  cur=d;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.d===d));
+  const dt=DATA[d];
+  if(!dt)return;
 
-  // Words
-  document.getElementById('wordGrid').innerHTML = data.words.map(w => `
-    <div class="word-card" onclick="this.classList.toggle('expanded')">
-      <div class="w-top">
-        <div class="w-word">${w.w}</div>
-        <span class="pronounce-btn" onclick="event.stopPropagation();speak('${w.w}')">🔊</span>
+  // Words with phonics
+  document.getElementById('wordList').innerHTML=dt.words.map(w=>{
+    const ph=PHONICS[w.w];
+    return `<div class="word-row" onclick="this.classList.toggle('expanded')">
+      <div class="wr-top">
+        <div class="wr-main">
+          <div class="wr-word">${ph?ph.highlighted:w.w}</div>
+          <div class="wr-phonetic">${w.p}</div>
+          <div class="wr-meaning">${w.m}</div>
+        </div>
+        <span class="pron-btn" onclick="event.stopPropagation();speak('${w.w}')">🔊</span>
       </div>
-      <div class="w-phonetic">${w.p}</div>
-      <div class="w-meaning">${w.m}</div>
-      <div class="w-example">💡 ${w.e}</div>
-    </div>
-  `).join('');
+      ${ph?`<div class="wr-phonics">
+        <div class="ph-line"><b>🔪 Syllables:</b> ${ph.sylHtml}</div>
+        <div class="ph-line"><b>🔤 Vowel pattern:</b> ${ph.vowelPattern}</div>
+        <div class="ph-line"><b>💡 Try:</b> Say each syllable slowly, then speed up!</div>
+      </div>`:''}
+      <div class="sent-ex">
+        <div class="sen-en">${w.e}</div>
+        <div class="sen-cn${showCN?'':' hidden'}">${w.m}</div>
+      </div>
+    </div>`
+  }).join('');
+
+  // Theme
+  document.getElementById('readTheme').textContent=`${dt.theme} ${dt.drama||''}`;
 
   // Passage
-  document.getElementById('passageEN').innerHTML = data.passage;
-  document.getElementById('passageCN').textContent = data.passageCN;
+  document.getElementById('passageEN').innerHTML=dt.passage;
+  document.getElementById('passageCN').textContent=dt.passageCN;
+  document.getElementById('readingBody').classList.toggle('show-cn',showCN);
 
   // Guide
-  document.getElementById('guideBox').innerHTML = data.guide.map(g =>
-    `<div><div class="g-label">${g[0]}</div><p>${g[1]}</p></div>`
-  ).join('');
+  document.getElementById('guideBox').innerHTML=dt.guide.map(g=>`<div><div class="gl">${g[0]}</div><p>${g[1]}</p></div>`).join('');
   document.getElementById('guideBtn').classList.remove('open');
   document.getElementById('guideBox').classList.remove('open');
 
   // Questions
-  qDone = {};
-  const qList = document.getElementById('qList');
-  qList.innerHTML = data.q.map((q,i) => `
+  qDone={};
+  document.getElementById('qList').innerHTML=dt.q.map((q,i)=>`
     <div class="q-box" data-idx="${i}">
-      <div class="q-text">${i+1}. ${q.q}</div>
-      <div class="q-opts">${q.o.map((t,j) => `
-        <div class="q-opt" data-oi="${j}" onclick="checkQ(${i},${j},${q.c})">
-          <span class="ind">${'ABCD'[j]}</span>${t}
-        </div>`).join('')}
-      </div>
-      <div class="q-feedback" id="qfb${i}"></div>
+      <div class="qt">${i+1}. ${q.q}</div>
+      <div class="q-opts">${q.o.map((t,j)=>`<div class="q-opt" data-oi="${j}" onclick="checkQ(${i},${j},${q.c})"><span class="ind">${'ABCD'[j]}</span>${t}</div>`).join('')}</div>
+      <div class="q-fb" id="qfb${i}"></div>
     </div>
   `).join('');
   renderQ();
 
-  // Fun
-  const fun = data.fun;
-  const fb = document.getElementById('funBox');
-  if (fun[0]==='dialogue') {
-    fb.innerHTML = `<div class="dialogue-box">${fun[1].map(d =>
-      `<div class="d-line"><div class="speaker">${d[0]}</div><div>${d[1]}</div><div class="cn-t">${d[2]}</div></div>`
-    ).join('')}</div>
-    <div style="text-align:center;margin-top:8px"><button class="btn-sm" onclick="speakDialogue()">🔊 朗读对话</button></div>`;
-  } else {
-    const [left,right] = fun[1];
-    const rightShuffled = [...right].sort(()=>Math.random()-0.5);
-    matchSel = null;
-    fb.innerHTML = `<p style="font-size:13px;color:var(--text2);text-align:center;margin-bottom:10px">👆 点左边 → 再点右边 配对</p>
-      <div class="match-area">
-        <div class="match-col">${left.map((t,i) =>
-          `<div class="match-item" data-side="L" data-idx="${i}" onclick="mClick('L',${i})">${t}</div>`
-        ).join('')}</div>
-        <div class="match-col">${rightShuffled.map((t,i) =>
-          `<div class="match-item" data-side="R" data-idx="${i}" onclick="mClick('R',${i})">${t}</div>`
-        ).join('')}</div>
+  // Sentence Practice
+  document.getElementById('sentencePractice').innerHTML=`
+    <div style="font-weight:600;font-size:14px;margin-bottom:8px">📝 Sentence Builder</div>
+    ${dt.sentences.map(s=>`
+      <div class="sent-ex" style="cursor:pointer" onclick="speak('${s.en.replace(/'/g,"\\'")}')">
+        <div class="sen-en">${s.en}</div>
+        <div class="sen-cn${showCN?'':' hidden'}">${s.cn}</div>
+        <div style="font-size:11px;color:var(--blue);margin-top:2px">${s.use}</div>
       </div>
-      <div style="text-align:center;margin-top:8px">
-        <span id="mProg" style="font-size:13px;color:var(--text2)">0 / ${left.length}</span>
-        <button class="btn-sm" onclick="go(cur)" style="margin-left:8px">🔄 重排</button>
-      </div>`;
+    `).join('')}
+    <div style="font-weight:600;font-size:13px;margin:10px 0 6px">🔗 Word Combos · Click to check</div>
+    <div class="combo-area">${dt.combos.map(group=>group.map(w=>`<span class="combo-chip" onclick="this.classList.toggle('used');speak('${w.replace(/'/g,"\\'")}')">${w}</span>`).join('')).join('')}</div>
+  `;
+
+  // Fun
+  const fun=dt.fun;
+  const fb=document.getElementById('funBox');
+  if(fun[0]==='dialogue'){
+    fb.innerHTML=`<div class="dl-box">${fun[1].map(d=>`<div class="dl-ln"><div class="sp">${d[0]}</div><div>${d[1]}</div><div class="cn-t">${d[2]}</div></div>`).join('')}</div>
+    <div style="text-align:center;margin-top:8px"><button class="btn-sm" onclick="speakDialogue()">🔊 Listen</button></div>`;
+  }else if(fun[0]==='match'){
+    const [left,right]=fun[1];
+    const rs=[...right].sort(()=>Math.random()-.5);
+    matchSel=null;
+    fb.innerHTML=`<p style="font-size:12px;color:var(--text2);text-align:center;margin-bottom:8px">👆 Match left → right</p>
+      <div class="ma"><div class="mc">${left.map((t,i)=>`<div class="mi" data-s="L" data-idx="${i}" onclick="mClick('L',${i})">${t}</div>`).join('')}</div>
+      <div class="mc">${rs.map((t,i)=>`<div class="mi" data-s="R" data-idx="${i}" onclick="mClick('R',${i})">${t}</div>`).join('')}</div></div>
+      <div style="text-align:center;margin-top:6px"><span id="mP" style="font-size:12px;color:var(--text2)">0/${left.length}</span>
+      <button class="btn-sm" onclick="go(cur)" style="margin-left:8px">↺ Shuffle</button></div>`;
   }
 }
 
-// ====================== WORD ======================
-function speak(t) {
-  if ('speechSynthesis' in window) {
-    const u = new SpeechSynthesisUtterance(t);
-    u.lang='en-US'; u.rate=0.9;
-    speechSynthesis.cancel(); speechSynthesis.speak(u);
-  }
+// ====================== ACTIONS ======================
+function speak(t){if('speechSynthesis'in window){const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}}
+function readAloud(){if('speechSynthesis'in window){const t=document.getElementById('passageEN').textContent;const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.8;speechSynthesis.cancel();speechSynthesis.speak(u)}}
+function toggleGuide(){document.getElementById('guideBtn').classList.toggle('open');document.getElementById('guideBox').classList.toggle('open')}
+function toggleCN(){showCN=!showCN;document.getElementById('cnLabel').textContent=showCN?'中文':'English';document.getElementById('readingBody').classList.toggle('show-cn',showCN);go(cur)}
+
+function checkQ(idx,sel,corr){
+  const box=document.querySelector(`.q-box[data-idx="${idx}"]`);if(!box||qDone[idx])return;
+  const opts=box.querySelectorAll('.q-opt');
+  opts.forEach((o,i)=>{if(i===corr)o.classList.add('correct');if(i===sel&&sel!==corr)o.classList.add('wrong')});
+  qDone[idx]=true;
+  const fb=document.getElementById(`qfb${idx}`);
+  if(sel===corr){fb.textContent='✅ Correct! +10';fb.style.color='#2ed573';addScore(10)}
+  else{fb.textContent=`❌ Answer: ${'ABCD'[corr]}. ${DATA[cur].q[idx].o[corr]}`;fb.style.color='#ff4757'}
+  fb.classList.add('show');renderQ()
 }
 
-// ====================== READING ======================
-function readAloud() {
-  if ('speechSynthesis' in window) {
-    const t = document.getElementById('passageEN').textContent;
-    const u = new SpeechSynthesisUtterance(t);
-    u.lang='en-US'; u.rate=0.8;
-    speechSynthesis.cancel(); speechSynthesis.speak(u);
-  }
+function renderQ(){const a=document.querySelectorAll('.q-box');document.getElementById('qBadge').textContent=`${Object.keys(qDone).length}/${a.length}`}
+
+function mClick(s,idx){
+  if(!matchSel){const el=document.querySelector(`.mi[data-s="${s}"][data-idx="${idx}"]`);if(!el||el.classList.contains('ok'))return;el.classList.add('sel');matchSel={s,idx};return}
+  const f=matchSel;const fel=document.querySelector(`.mi[data-s="${f.s}"][data-idx="${f.idx}"]`);
+  const sel=document.querySelector(`.mi[data-s="${s}"][data-idx="${idx}"]`);
+  if(!sel||sel.classList.contains('ok')){fel.classList.remove('sel');matchSel=null;return}
+  if(f.s!==s&&f.idx===idx){fel.classList.remove('sel');fel.classList.add('ok');sel.classList.add('ok');addScore(15);matchSel=null;
+    const all=document.querySelectorAll('.mi.ok').length;const tot=document.querySelectorAll('.mc .mi').length;document.getElementById('mP').textContent=`${all/2}/${tot/2}`;
+    if(all===tot)setTimeout(()=>alert('🎉 All matched!'),200)}
+  else{fel.classList.remove('sel');sel.classList.add('ng');setTimeout(()=>sel.classList.remove('ng'),350);matchSel=null}
 }
 
-// ====================== GUIDE ======================
-function toggleGuide() {
-  document.getElementById('guideBtn').classList.toggle('open');
-  document.getElementById('guideBox').classList.toggle('open');
-}
+function speakDialogue(){if('speechSynthesis'in window){const el=document.querySelectorAll('.dl-box .dl-ln>div:nth-child(2)');const t=Array.from(el).map(e=>e.textContent).join('. ');const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}}
 
-// ====================== QUESTIONS ======================
-function checkQ(idx, sel, correct) {
-  const box = document.querySelector(`.q-box[data-idx="${idx}"]`);
-  if (!box || qDone[idx]) return;
-  const opts = box.querySelectorAll('.q-opt');
-  opts.forEach((o,i) => {
-    if (i===correct) o.classList.add('correct');
-    if (i===sel && sel!==correct) o.classList.add('wrong');
-  });
-  qDone[idx] = true;
-  const fb = document.getElementById(`qfb${idx}`);
-  if (sel===correct) {
-    fb.textContent = '✅ 答对了！';
-    fb.style.color = '#2ed573';
-    addScore(10);
-  } else {
-    fb.textContent = `❌ 正确答案是 ${'ABCD'[correct]}`;
-    fb.style.color = '#ff4757';
-  }
-  fb.classList.add('show');
-  renderQ();
-}
-
-function renderQ() {
-  const all = document.querySelectorAll('.q-box');
-  const done = Object.keys(qDone).length;
-  document.getElementById('qBadge').textContent = `${done} / ${all.length}`;
-}
-
-// ====================== MATCH ======================
-function mClick(side, idx) {
-  if (!matchSel) {
-    const el = document.querySelector(`.match-item[data-side="${side}"][data-idx="${idx}"]`);
-    if (!el || el.classList.contains('ok')) return;
-    el.classList.add('sel');
-    matchSel = {side, idx};
-  } else {
-    const first = matchSel;
-    const fel = document.querySelector(`.match-item[data-side="${first.side}"][data-idx="${first.idx}"]`);
-    const selEl = document.querySelector(`.match-item[data-side="${side}"][data-idx="${idx}"]`);
-    if (!selEl || selEl.classList.contains('ok')) { fel.classList.remove('sel'); matchSel=null; return; }
-    if (first.side!==side && first.idx===idx) {
-      fel.classList.remove('sel'); fel.classList.add('ok');
-      selEl.classList.add('ok');
-      addScore(15);
-      matchSel=null;
-      const all = document.querySelectorAll('.match-item.ok').length;
-      const total = document.querySelectorAll('.match-col .match-item').length;
-      document.getElementById('mProg').textContent = `${all/2} / ${total/2}`;
-      if (all===total) setTimeout(()=>alert('🎉 全部配对成功！'),200);
-    } else {
-      fel.classList.remove('sel');
-      selEl.classList.add('ng');
-      setTimeout(()=>selEl.classList.remove('ng'),350);
-      matchSel=null;
-    }
-  }
-}
-
-// ====================== DIALOGUE ======================
-function speakDialogue() {
-  if ('speechSynthesis' in window) {
-    const els = document.querySelectorAll('.dialogue-box .d-line > div:nth-child(2)');
-    const t = Array.from(els).map(e=>e.textContent).join('. ');
-    const u = new SpeechSynthesisUtterance(t);
-    u.lang='en-US'; u.rate=0.85;
-    speechSynthesis.cancel(); speechSynthesis.speak(u);
-  }
-}
-
-// ====================== SCORE ======================
-function addScore(p) {
-  sc+=p;
-  localStorage.setItem('Lsc',sc);
-  renderScore();
-  const el = document.getElementById('sc');
-  el.classList.remove('animated');
-  void el.offsetWidth;
-  el.classList.add('animated');
-}
-
-function renderScore() {
-  document.getElementById('sc').textContent = sc;
-  document.getElementById('st').textContent = st;
-}
-
-function resetAll() {
-  if (!confirm('确定重置所有进度和分数？')) return;
-  sc=0; st=0; qDone={};
-  localStorage.setItem('Lsc','0'); localStorage.setItem('Lst','0');
-  renderScore(); renderQ();
-  go(cur);
-}
+function addScore(p){sc+=p;localStorage.setItem('Lsc',sc);renderScore();const el=document.getElementById('sc');el.classList.remove('animated');void el.offsetWidth;el.classList.add('animated')}
+function renderScore(){document.getElementById('sc').textContent=sc;document.getElementById('st').textContent=st}
+function resetAll(){if(!confirm('Reset all progress?'))return;sc=0;st=0;qDone={};localStorage.setItem('Lsc','0');localStorage.setItem('Lst','0');renderScore();renderQ();go(cur)}
 </script>
 </body>
 </html>
