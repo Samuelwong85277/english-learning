@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Lab</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#f0f2f5;color:#333;padding:12px}
+.container{max-width:820px;margin:0 auto}
+.header{background:linear-gradient(135deg,#6c5ce7,#a29bfe);border-radius:10px;padding:16px;color:#fff;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.header h1{font-size:20px}
+.btn{background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:4px 12px;border-radius:16px;cursor:pointer;font-size:11px}
+.tabs{display:flex;gap:3px;margin-bottom:10px;overflow-x:auto}
+.tab{padding:5px 10px;border-radius:6px 6px 0 0;cursor:pointer;font-size:11px;font-weight:600;background:#dfe6e9;color:#636e72;white-space:nowrap}
+.tab.active{background:#6c5ce7;color:#fff}
+.grid{display:grid;grid-template-columns:1fr 220px;gap:10px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:8px;padding:12px;margin-bottom:10px;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
+.card-title{font-size:14px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.badge{background:#6c5ce7;color:#fff;font-size:10px;padding:1px 8px;border-radius:8px;margin-left:auto;white-space:nowrap}
+.badge.g{background:#00b894}
+.badge.o{background:#e17055}
+.badge.p{background:#fd79a8}
+.grammar{border:1px solid #fd79a8;border-radius:6px;padding:10px;margin-bottom:10px;background:#fff0f5;font-size:12px}
+.grammar .t{font-weight:700;color:#fd79a8;margin-bottom:3px}
+.ph-panel{background:#fff;border-radius:8px;padding:12px;margin-bottom:10px;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
+.ph-panel .t{font-weight:700;font-size:13px;margin-bottom:6px}
+.ph-step{margin-bottom:5px;padding:5px 8px;background:#f8f9fa;border-radius:4px;border-left:2px solid #6c5ce7;font-size:11px;color:#636e72}
+.ph-step b{color:#6c5ce7}
+.word-list{display:flex;flex-direction:column;gap:4px}
+.word-item{background:#f8f9fa;border:1px solid transparent;border-radius:6px;padding:6px 8px;cursor:pointer;font-size:12px}
+.word-item:hover{border-color:#6c5ce7}
+.word-item .w{font-weight:700}
+.word-item .w .v{color:#e17055}
+.word-item .sub{color:#636e72;font-size:11px}
+.word-item .ph{display:none;margin-top:3px;padding:3px 5px;background:#f0ebff;border-radius:3px;font-size:10px;color:#6c5ce7}
+.word-item.open .ph{display:block}
+.rbox{border:1px solid #00b894;border-radius:6px;overflow:hidden}
+.rtb{background:#e8faf0;padding:6px 10px;display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:600;border-bottom:1px solid #b2dfdb}
+.rtb button{background:#00b894;color:#fff;border:none;padding:2px 10px;border-radius:3px;cursor:pointer;font-size:10px}
+.rbody{padding:10px}
+.rbody .en{font-size:13px;line-height:1.8;margin-bottom:6px;white-space:pre-line}
+.rbody .cn{font-size:11px;color:#636e72;border-top:1px dashed #dfe6e9;padding-top:5px}
+.qbox{background:#f8f9fa;border-radius:6px;padding:8px 10px;margin-bottom:6px;border-left:2px solid #6c5ce7}
+.qbox .qt{font-weight:600;font-size:12px;margin-bottom:5px}
+.qopts{display:flex;flex-direction:column;gap:3px}
+.qopt{padding:4px 8px;border-radius:4px;border:1px solid #dfe6e9;cursor:pointer;font-size:11px;display:flex;align-items:center;gap:5px}
+.qopt:hover{border-color:#6c5ce7;background:#f0ebff}
+.qopt.ok{border-color:#00b894;background:#d4f5e9}
+.qopt.bad{border-color:#e17055;background:#ffebee}
+.qopt .ind{width:14px;height:14px;border-radius:50%;border:1px solid #dfe6e9;display:inline-flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0}
+.qopt.ok .ind{background:#00b894;color:#fff}
+.qfb{display:none;margin-top:2px;font-size:10px;padding:2px 6px;background:#dfe6e9;border-radius:3px}
+.qfb.show{display:block}
+.sbox{border:1px dashed #6c5ce7;border-radius:6px;padding:10px}
+.sbox .t{font-weight:600;font-size:12px;margin-bottom:5px}
+.sbtns{display:flex;gap:5px}
+.sbtns button{background:#6c5ce7;color:#fff;border:none;padding:4px 12px;border-radius:4px;cursor:pointer;font-size:11px}
+.sbtns button:last-child{background:#dfe6e9;color:#333}
+.sstat{margin-top:3px;font-size:10px;color:#636e72}
+.sres{display:none;text-align:center;padding:6px}
+.sres .l{font-size:10px;color:#636e72}
+.sres .t{font-size:13px;font-weight:600;margin:3px 0}
+.sent-row{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px}
+.sent-chip{padding:2px 8px;border:1px solid #dfe6e9;border-radius:10px;cursor:pointer;font-size:10px;background:#fff}
+.save-area{text-align:center;padding:8px 0}
+.btn-save{background:#6c5ce7;color:#fff;border:none;padding:6px 24px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600}
+.archive{background:#fff;border-radius:8px;padding:14px;margin-bottom:10px;display:none;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
+.archive.show{display:block}
+.archive .t{font-size:14px;font-weight:700;margin-bottom:8px;display:flex;justify-content:space-between}
+.arch-item{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:#f8f9fa;border-radius:4px;border-left:2px solid #6c5ce7;font-size:11px;margin-bottom:3px}
+.arch-item .del{background:none;border:none;color:#e17055;cursor:pointer;font-size:10px}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<div><h1>English Lab</h1></div>
+<button class="btn" onclick="toggleArchive()">Archive</button>
+</div>
+<div class="tabs" id="tabBar">
+<div class="tab active" data-d="mon" onclick="go('mon')">Mon</div>
+<div class="tab" data-d="tue" onclick="go('tue')">Tue</div>
+<div class="tab" data-d="wed" onclick="go('wed')">Wed</div>
+<div class="tab" data-d="thu" onclick="go('thu')">Thu</div>
+<div class="tab" data-d="fri" onclick="go('fri')">Fri</div>
+</div>
+<div class="grid">
+<div>
+<div class="grammar" id="grammarBox"><div class="t">Grammar: <span id="gTitle">Simple Present</span></div><div id="gRule">Facts, habits, truths.</div><div id="gEx">"I send" / "He sends"</div></div>
+<div class="card"><div class="card-title">Words <span class="badge">Tap</span></div><div class="word-list" id="wordList"></div></div>
+<div class="card"><div class="card-title">Reading <span class="badge g" id="themeBadge">Office</span></div>
+<div class="rbox"><div class="rtb"><span id="themeLabel"></span><button onclick="readAloud()">Listen</button></div><div class="rbody"><div class="en" id="passageEN"></div><div class="cn" id="passageCN"></div></div></div></div>
+<div class="card"><div class="card-title">Questions <span class="badge o">Test</span></div><div id="qList"></div></div>
+</div>
+<div>
+<div class="ph-panel"><div class="t">Phonics Guide</div>
+<div class="ph-step"><b>Step 1:</b> Find vowels A,E,I,O,U</div>
+<div class="ph-step"><b>Step 2:</b> VCCV=cut between consonants: <b>sam.ple</b><br>VCV=consonant with 2nd vowel: <b>o.pen</b></div>
+<div class="ph-step"><b>Step 3:</b> Say each syllable, then blend</div>
+<div class="ph-step"><b>Rules:</b> Silent e | Vowel pairs | R-controlled</div>
+</div>
+<div class="card"><div class="card-title">Speak <span class="badge p">Say it!</span></div>
+<div class="sbox"><div class="t" id="targetSentence">Tap a sentence</div>
+<div class="sbtns"><button onclick="startRec()" id="recBtn">Record</button><button onclick="listenTarget()">Listen</button></div>
+<div class="sstat" id="recStatus"></div>
+<div class="sres" id="recResult"><div class="l">You said:</div><div class="t" id="userSpeech"></div><div class="l" id="matchResult"></div><button onclick="resetRec()" style="margin-top:3px;background:transparent;border:1px solid #dfe6e9;padding:2px 12px;border-radius:4px;cursor:pointer;font-size:10px">Again</button></div></div>
+<div class="sent-row" id="sentList"></div>
+</div>
+<div class="save-area"><button class="btn-save" onclick="saveWorksheet()">Save</button></div>
+</div>
+</div>
+<div class="archive" id="archive"><div class="t"><span>Saved</span><button class="btn" onclick="toggleArchive()">Close</button></div><div id="archiveList"><div style="text-align:center;padding:12px;color:#636e72;font-size:12px">No worksheets saved.</div></div></div>
+</div>
+<script>
+var G={mon:{t:'Simple Present',r:'Facts, habits, truths.',e:'"I send" / "He sends"'},tue:{t:'Present Continuous',r:'Actions happening NOW.',e:'"I am calling"'},wed:{t:'Simple Past',r:'Completed. Add -ed.',e:'"I sent" / "He called"'},thu:{t:'Present Perfect',r:'have/has + past participle.',e:'"I have sent"'},fri:{t:'Future with Will',r:'Decisions, promises.',e:'"I will send"'}};
+var P={inquiry:{s:'in.qui.ry',b:'VCCV: cut n,q'},quotation:{s:'quo.ta.tion',b:'tion=/shun/'},'lead time':{s:'lead time',b:'ea=/ee/'},MOQ:{s:'M-O-Q',b:'Letters'},sample:{s:'sam.ple',b:'Silent e: a=/ay/'},'put through':{s:'put through',b:'ough=/oo/'},clarify:{s:'clar.i.fy',b:'-ify=verb'},deadline:{s:'dead.line',b:'ea=/eh/,silent e'},'follow up':{s:'fol.low up',b:'double L=short O'},'call back':{s:'call back',b:'all=/awl/'},negotiate:{s:'ne.go.ti.ate',b:'4 syllables'},margin:{s:'mar.gin',b:'ar=/ar/'},compromise:{s:'com.pro.mise',b:'Silent e'},'win-win':{s:'win-win',b:'short I'},flexible:{s:'flex.i.ble',b:'-ble=/bul/'},defective:{s:'de.fec.tive',b:'-tive common'},refund:{s:'re.fund',b:'re=again'},apologize:{s:'a.pol.o.gize',b:'4 syllables'},replacement:{s:'re.place.ment',b:'-ment=noun'},inspect:{s:'in.spect',b:'spect=look'},resolve:{s:'re.solve',b:'Silent e: O long'},awkward:{s:'awk.ward',b:'-ward common'},polite:{s:'po.lite',b:'Silent e: I says name'},offer:{s:'of.fer',b:'double F=short O'},tip:{s:'tip',b:'short I'},weird:{s:'weird',b:'ei=/ee/'}};
+var D={mon:{t:'Office',w:['inquiry','quotation','lead time','MOQ','sample'],d:{inquiry:'a question',quotation:'price offer','lead time':'time to delivery',MOQ:'minimum order',sample:'test piece'},e:{inquiry:'Thanks for your inquiry.',quotation:'We sent the quotation.','lead time':'25 days.',MOQ:'500 units.',sample:'Free samples.'},p:'JIM: Send that email?\\nDWIGHT: Way ahead. I sent the quotation.\\nJIM: They sent an inquiry! Want samples.\\nDWIGHT: 2000 units!\\nJIM: Lead time 30 days, MOQ 500.',pc:'Jim: 发邮件了吗? Dwight: 报了价。Jim: 他们询盘想看样品! Dwight: 2000件的大单!Jim: 30天交货。',q:[{q:'Who sent the quotation?',o:['Jim','Dwight','Client'],a:1},{q:'Client wants?',o:['Price','Samples','Contract'],a:1},{q:'Lead time?',o:['15d','25d','30d'],a:2}],s:['Did you send that email?','Way ahead of you!','Lead time is 30 days.','He sends the quotation.']},tue:{t:'Suits',w:['put through','clarify','deadline','follow up','call back'],d:{'put through':'connect call',clarify:'make clear',deadline:'final time','follow up':'check again','call back':'return call'},e:{'put through':'Put me through.',clarify:'Clarify terms.',deadline:'Deadline Friday.','follow up':'I will follow up.','call back':'Call back soon.'},p:'HARVEY: Call client. Clarify payment.\\nMIKE: Deadline?\\nHARVEY: Tomorrow 5PM.\\nMIKE: (on phone) I am calling to follow up.\\nCLIENT: We agree. Put me through.',pc:'Harvey: 打电话确认付款。Mike: 截止日? Harvey: 明5点。Mike: 我来电跟进。客户: 同意。请转接。',q:[{q:'What to clarify?',o:['Price','Payment','Address'],a:1},{q:'Deadline?',o:['Today','Tomorrow 5PM','Friday'],a:1},{q:'Client says?',o:['No','Agree','Later'],a:1}],s:['I am calling the client.','He is following up.','Deadline is tomorrow.','They are waiting.']},wed:{t:'Social Network',w:['negotiate','margin','compromise','win-win','flexible'],d:{negotiate:'discuss deal',margin:'profit space',compromise:'meet middle','win-win':'both benefit',flexible:'can change'},e:{negotiate:'We negotiate.',margin:'Thin margin.',compromise:'Let us compromise.','win-win':'Win-win.',flexible:'Flexible price.'},p:'MARK: One million. Take or leave.\\nSEAN: Margin tight. I can be flexible.\\nMARK: 10% equity.\\nSEAN: 12% board seat. Win-win.\\nMARK: Fine. 12%.',pc:'Mark: 100万。Sean: 利润薄但灵活。Mark: 10%股权。Sean: 12%加席位。双赢。Mark: 行。',q:[{q:'Initial offer?',o:['500k','1M','2M'],a:1},{q:'Final equity?',o:['10%','12%','15%'],a:1},{q:'Win-win?',o:['One wins','Both benefit','No deal'],a:1}],s:['I sent the quotation.','He called the client.','They agreed on price.','We compromised.']},thu:{t:'The Bear',w:['defective','refund','apologize','replacement','inspect'],d:{defective:'broken/damaged',refund:'money back',apologize:'say sorry',replacement:'new one',inspect:'check'},e:{defective:'Defective items.',refund:'Full refund.',apologize:'I apologize.',replacement:'Send replacement.',inspect:'Inspect goods.'},p:'RICHIE: Wrong order?\\nCARMEN: I apologize. Inspect.\\nCUSTOMER: Meat warm! Defective!\\nCARMEN: I have sent replacement. Full refund.\\nCUSTOMER: Compensation?\\nCARMEN: 20% off next order.',pc:'Richie: 订单错了? Carmen: 道歉检查。客户: 肉是温的! Carmen: 已寄换货并全额退款。客户: 赔偿? Carmen: 下次8折。',q:[{q:'Why upset?',o:['Late','Wrong','Warm meat'],a:2},{q:'Carmen did?',o:['Discounted','Sent replacement','Apologized'],a:1},{q:'Extra offered?',o:['Free delivery','20% off','Gift'],a:1}],s:['I have sent the replacement.','He has already called.','They agreed on the deal.','We offered a refund.']},fri:{t:'Friends',w:['awkward','polite','offer','tip','weird'],d:{awkward:'uncomfortable',polite:'good manners',offer:'give chance',tip:'helpful advice',weird:'strange'},e:{awkward:'So awkward.',polite:'Polite to say thanks.',offer:'He offered help.',tip:'Here is a tip.',weird:'That is weird.'},p:'MONICA: He bowed when we shook hands!\\nPHOEBE: Cultural! Bowing is polite.\\nMONICA: Felt awkward!\\nCHANDLER: Tip - bow back.\\nRACHEL: Offered coffee, he said no!\\nPHOEBE: In Japan, refuse first is polite!',pc:'Monica: 握手时他鞠躬了! Phoebe: 文化差异!鞠躬是礼貌的。Monica: 好尴尬! Chandler: 建议鞠躬回去。Rachel: 请咖啡他一直拒绝! Phoebe: 在日本先拒绝是礼貌。',q:[{q:'Why bow?',o:['Shy','Cultural','Mistake'],a:1},{q:'Monica felt?',o:['Happy','Angry','Awkward'],a:2},{q:'Chandler tip?',o:['Don\'t bow','Bow back','Leave'],a:1}],s:['I will send samples.','He will call back.','They will love it.','We will offer a deal.']}};
+var cd='mon',rec=null,qd={},ts='';
+function go(d){cd=d;document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('active',t.dataset.d===d)});var dt=D[d];if(!dt)return;var g=G[d];document.getElementById('gTitle').textContent=g.t;document.getElementById('gRule').textContent=g.r;document.getElementById('gEx').textContent=g.e;document.getElementById('themeBadge').textContent=dt.t;var wl=document.getElementById('wordList');wl.innerHTML='';for(var i=0;i<dt.w.length;i++){var w=dt.w[i];var ph=P[w]||{s:w,b:''};var h=w.replace(/([aeiouy])/gi,'<span class="v">$1</span>');var d2=document.createElement('div');d2.className='word-item';d2.onclick=function(){this.classList.toggle('open')};d2.innerHTML='<div class="w">'+h+'<span style="float:right;cursor:pointer;opacity:.4" onclick="event.stopPropagation();speak(\''+w.replace(/'/g,"\\'")+'\')">SPK</span></div><div class="sub">'+dt.d[w]+'</div><div class="ph"><b>'+ph.s+'</b><br>'+ph.b+'</div>';wl.appendChild(d2)}document.getElementById('passageEN').textContent=dt.p;document.getElementById('passageCN').textContent=dt.pc;document.getElementById('themeLabel').textContent=dt.t;qd={};var ql=document.getElementById('qList');ql.innerHTML='';for(var i=0;i<dt.q.length;i++){var q=dt.q[i];var d3=document.createElement('div');d3.className='qbox';var h2='<div class="qt">'+(i+1)+'. '+q.q+'</div><div class="qopts">';for(var j=0;j<q.o.length;j++){h2+='<div class="qopt" onclick="checkQ('+i+','+j+','+q.a+')"><span class="ind">'+String.fromCharCode(65+j)+'</span>'+q.o[j]+'</div>'}h2+='</div><div class="qfb" id="qfb'+i+'"></div>';d3.innerHTML=h2;ql.appendChild(d3)}var sl=document.getElementById('sentList');sl.innerHTML='';for(var i=0;i<dt.s.length;i++){(function(s){var c=document.createElement('span');c.className='sent-chip';c.textContent=s;c.onclick=function(){ts=s;document.getElementById('targetSentence').textContent=s;document.getElementById('recResult').style.display='none'};sl.appendChild(c)})(dt.s[i])}if(dt.s.length>0){ts=dt.s[0];document.getElementById('targetSentence').textContent=dt.s[0]}}
+function checkQ(qi,oi,ans){if(qd[qi])return;var q=document.querySelectorAll('.qbox')[qi];if(!q)return;var os=q.querySelectorAll('.qopt');for(var i=0;i<os.length;i++){if(i===ans)os[i].classList.add('ok');if(i===oi&&oi!==ans)os[i].classList.add('bad')}qd[qi]=true;var fb=document.getElementById('qfb'+qi);if(fb){if(oi===ans){fb.textContent='Correct!';fb.className='qfb show';fb.style.color='#00b894'}else{fb.textContent='Answer: '+String.fromCharCode(65+ans);fb.className='qfb show';fb.style.color='#e17055'}}}
+function speak(t){if('speechSynthesis'in window){var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}}
+function readAloud(){if('speechSynthesis'in window){var u=new SpeechSynthesisUtterance(document.getElementById('passageEN').textContent);u.lang='en-US';u.rate=.8;speechSynthesis.cancel();speechSynthesis.speak(u)}}
+function listenTarget(){if('speechSynthesis'in window&&ts){var u=new SpeechSynthesisUtterance(ts);u.lang='en-US';u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}}
+function startRec(){var s=document.getElementById('recStatus');var b=document.getElementById('recBtn');if(!('webkitSpeechRecognition'in window||'SpeechRecognition'in window)){s.textContent='Chrome only.';return}if(rec&&rec.recognizing){rec.stop();b.textContent='Record';s.textContent='';return}var SR=window.SpeechRecognition||window.webkitSpeechRecognition;rec=new SR();rec.lang='en-US';rec.recognizing=true;b.textContent='Stop';s.textContent='Listening...';rec.onresult=function(e){var said=e.results[0][0].transcript;var conf=Math.round(e.results[0][0].confidence*100);var tn=ts.toLowerCase().replace(/[^a-z\\s]/g,'').trim();var un=said.toLowerCase().replace(/[^a-z\\s]/g,'').trim();var tw=tn.split(/\\s+/);var uw=un.split(/\\s+/);var m=0;for(var i=0;i<tw.length;i++){for(var j=0;j<uw.length;j++){if(tw[i]===uw[j]){m++;break}}}var r=Math.round(m/tw.length*100);document.getElementById('recResult').style.display='block';document.getElementById('userSpeech').textContent=said;var fb=r>=90?'Excellent! '+r+'%':r>=70?'Good '+r+'%':r>=50?'Going '+r+'%':'Try '+r+'%';document.getElementById('matchResult').textContent=fb+' (c:'+conf+'%)';b.textContent='Record';rec.recognizing=false};rec.onerror=function(){s.textContent='Err.';b.textContent='Record';rec.recognizing=false};rec.onend=function(){if(b.textContent==='Stop'){b.textContent='Record';rec.recognizing=false}};try{rec.start()}catch(e){}}
+function resetRec(){document.getElementById('recResult').style.display='none'}
+function saveWorksheet(){var n=new Date();var ds=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];var d2=ds[n.getDay()]+' '+n.getDate()+' '+n.toLocaleString('en-US',{month:'short'});var dt=D[cd];var d=0;for(var k in qd)if(qd.hasOwnProperty(k))d++;var e={id:Date.now(),date:d2,day:cd,title:dt.t,score:d+'/'+dt.q.length,grammar:G[cd].t};var sv=JSON.parse(localStorage.getItem('LW')||'[]');sv.unshift(e);if(sv.length>50)sv=sv.slice(0,50);localStorage.setItem('LW',JSON.stringify(sv));var btn=document.querySelector('.btn-save');btn.textContent='Saved!';setTimeout(function(){btn.textContent='Save'},1200);loadArchive()}
+function toggleArchive(){var a=document.getElementById('archive');a.classList.toggle('show');loadArchive()}
+function loadArchive(){var list=document.getElementById('archiveList');var sv=JSON.parse(localStorage.getItem('LW')||'[]');if(sv.length===0){list.innerHTML='<div style="text-align:center;padding:12px;color:#636e72;font-size:12px">No worksheets saved.</div>';return}list.innerHTML='';for(var i=0;i<sv.length;i++){var e=sv[i];var d=document.createElement('div');d.className='arch-item';d.innerHTML='<div><b>'+e.date+'</b> - '+e.title+'<br><span style="font-size:10px;color:#636e72">'+e.score+' | '+e.grammar+'</span></div><button class="del" onclick="deleteEntry('+e.id+')">x</button>';list.appendChild(d)}}
+function deleteEntry(id){var sv=JSON.parse(localStorage.getItem('LW')||'[]');sv=sv.filter(function(e){return e.id!==id});localStorage.setItem('LW',JSON.stringify(sv));loadArchive()}
+document.addEventListener('DOMContentLoaded',function(){var m={1:'mon',2:'tue',3:'wed',4:'thu',5:'fri'};go(m[(new Date()).getDay()]||'mon')});
+</script>
+</body>
+</html>
