@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>English Lab 鉁?/title>
+<title>English Lab ✨</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e0e0e0;padding:12px;min-height:100vh}
@@ -56,7 +56,7 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 .split-demo .sd-word .cons{color:#81ecec}
 .split-demo .sd-word .cut{display:inline-block;color:#ffeaa7;font-weight:700;position:relative;animation:cutPop .4s ease-out}
 @keyframes cutPop{0%{opacity:0;transform:scale(2)}100%{opacity:1;transform:scale(1)}}
-.split-demo .sd-word .cut::after{content:'鉁傦笍';position:absolute;left:50%;top:-18px;transform:translateX(-50%);font-size:12px;animation:scissorDrop .4s ease-out}
+.split-demo .sd-word .cut::after{content:'✂️';position:absolute;left:50%;top:-18px;transform:translateX(-50%);font-size:12px;animation:scissorDrop .4s ease-out}
 @keyframes scissorDrop{0%{opacity:0;transform:translateX(-50%) translateY(5px)}100%{opacity:1;transform:translateX(-50%) translateY(0)}}
 .split-demo .sd-result{text-align:center;margin-top:5px}
 .split-demo .sd-result .syl{display:inline-block;background:#6c5ce7;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;margin:2px;animation:sylPop .3s ease-out}
@@ -152,15 +152,15 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 <body>
 <div class="container">
 <div class="header">
-<div><h1>鉁?English Lab 鉁?/h1><div class="sub">phonics 路 grammar 路 speaking 路 reading</div></div>
-<button class="btn" onclick="toggleArchive()">馃搧 Archive</button>
+<div><h1>✦ English Lab ✦</h1><div class="sub">phonics · grammar · speaking · reading</div></div>
+<button class="btn" onclick="toggleArchive()">📁 Archive</button>
 </div>
 <div class="tabs" id="tabBar">
-<div class="tab active" data-d="mon" onclick="go('mon')">馃摟 Mon</div>
-<div class="tab" data-d="tue" onclick="go('tue')">馃憯 Tue</div>
-<div class="tab" data-d="wed" onclick="go('wed')">馃捇 Wed</div>
-<div class="tab" data-d="thu" onclick="go('thu')">馃敧 Thu</div>
-<div class="tab" data-d="fri" onclick="go('fri')">鈽?Fri</div>
+<div class="tab active" data-d="mon" onclick="go('mon')">📧 Mon</div>
+<div class="tab" data-d="tue" onclick="go('tue')">👔 Tue</div>
+<div class="tab" data-d="wed" onclick="go('wed')">💻 Wed</div>
+<div class="tab" data-d="thu" onclick="go('thu')">🔪 Thu</div>
+<div class="tab" data-d="fri" onclick="go('fri')">☕ Fri</div>
 </div>
 <div class="grid">
 <div>
@@ -169,46 +169,46 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 
 <div class="grammar" id="grammarBox"><div class="t">Grammar: <span id="gTitle">Simple Present</span></div><div id="gRule">Facts, habits, truths.</div><div id="gEx">"I send" / "He sends"</div></div>
 
-<div class="card"><div class="card-title">馃摉 Words <span class="badge">Tap for split</span></div><div class="word-list" id="wordList"></div></div>
+<div class="card"><div class="card-title">📖 Words <span class="badge">Tap for split</span></div><div class="word-list" id="wordList"></div></div>
 
-<div class="card"><div class="card-title">馃摎 Reading <span class="badge g" id="themeBadge">Office</span></div>
-<div class="rbox"><div class="rtb"><span id="themeLabel"></span><button onclick="readAloud()">馃攰 Listen</button></div><div class="rbody"><div class="en" id="passageEN"></div><div class="cn" id="passageCN"></div></div></div></div>
+<div class="card"><div class="card-title">📚 Reading <span class="badge g" id="themeBadge">Office</span></div>
+<div class="rbox"><div class="rtb"><span id="themeLabel"></span><button onclick="readAloud()">🔊 Listen</button></div><div class="rbody"><div class="en" id="passageEN"></div><div class="cn" id="passageCN"></div></div></div></div>
 
-<div class="card"><div class="card-title">鉂?Questions <span class="badge o">Test</span></div><div id="qList"></div></div>
+<div class="card"><div class="card-title">❓ Questions <span class="badge o">Test</span></div><div id="qList"></div></div>
 </div>
 <div>
 <!-- PHONICS TUTORIAL PANEL -->
 <div class="ph-panel" id="phonicsPanel">
-<div class="t"><span class="emo">鉁傦笍</span> Syllable Splitter</div>
+<div class="t"><span class="emo">✂️</span> Syllable Splitter</div>
 
-<div class="tut-prompt" id="tutPrompt">馃憢 <b>Tap any word</b> below to see how it splits! Then try the rules 鈫?/div>
+<div class="tut-prompt" id="tutPrompt">👋 <b>Tap any word</b> below to see how it splits! Then try the rules →</div>
 
 <div class="rule-cards" id="ruleCards">
 <div class="rule-card vccv active" onclick="showRule('vccv')">
-<div class="rc-title"><span class="rc-icon">鈻?/span> VCCV 鈥?Vowel-Consonant-Consonant-Vowel</div>
+<div class="rc-title"><span class="rc-icon">▌</span> VCCV — Vowel-Consonant-Consonant-Vowel</div>
 <div class="rc-desc"><b>Cut between</b> the two consonants</div>
-<div class="rc-example">hap<span style="color:#ffeaa7">|</span>pen 鈫?hap路pen</div>
+<div class="rc-example">hap<span style="color:#ffeaa7">|</span>pen → hap·pen</div>
 </div>
 <div class="rule-card vcv" onclick="showRule('vcv')">
-<div class="rc-title"><span class="rc-icon">鈻?/span> VCV 鈥?Vowel-Consonant-Vowel</div>
+<div class="rc-title"><span class="rc-icon">▌</span> VCV — Vowel-Consonant-Vowel</div>
 <div class="rc-desc">Usually cut <b>before</b> the consonant</div>
-<div class="rc-example">o<span style="color:#ffeaa7">|</span>pen 鈫?o路pen</div>
+<div class="rc-example">o<span style="color:#ffeaa7">|</span>pen → o·pen</div>
 </div>
 <div class="rule-card other" onclick="showRule('other')">
-<div class="rc-title"><span class="rc-icon">鈻?/span> More Rules</div>
-<div class="rc-desc">馃攪 Silent e 路 馃懌 Vowel pairs 路 馃叞锔?R-controlled</div>
-<div class="rc-example">sam<span style="color:#ffeaa7">|</span>ple 路 b<span style="color:#ffeaa7">oa</span>t 路 f<span style="color:#ffeaa7">ar</span>m</div>
+<div class="rc-title"><span class="rc-icon">▌</span> More Rules</div>
+<div class="rc-desc">🔇 Silent e · 👫 Vowel pairs · 🅰️ R-controlled</div>
+<div class="rc-example">sam<span style="color:#ffeaa7">|</span>ple · b<span style="color:#ffeaa7">oa</span>t · f<span style="color:#ffeaa7">ar</span>m</div>
 </div>
 </div>
 
 <!-- Demo split box -->
 <div class="split-demo" id="splitDemo">
-<div class="sd-title">鉁傦笍 Watch it split</div>
+<div class="sd-title">✂️ Watch it split</div>
 <div class="sd-word" id="sdWord">sam<span style="color:#ffeaa7;">|</span>ple</div>
 <div class="sd-result" id="sdResult">
 <span class="syl">sam</span><span class="syl">ple</span>
 </div>
-<div class="sd-hint" id="sdHint">VCCV: cut between m and p 鉁傦笍</div>
+<div class="sd-hint" id="sdHint">VCCV: cut between m and p ✂️</div>
 </div>
 
 <div class="tut-steps" id="tutSteps">
@@ -218,33 +218,33 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 </div>
 </div>
 
-<div class="card"><div class="card-title">馃帳 Speak <span class="badge p">Say it!</span></div>
+<div class="card"><div class="card-title">🎤 Speak <span class="badge p">Say it!</span></div>
 <div class="sbox"><div class="t" id="targetSentence">Tap a sentence</div>
-<div class="sbtns"><button onclick="startRec()" id="recBtn">馃敶 Record</button><button onclick="listenTarget()">馃攰 Listen</button></div>
+<div class="sbtns"><button onclick="startRec()" id="recBtn">🔴 Record</button><button onclick="listenTarget()">🔊 Listen</button></div>
 <div class="sstat" id="recStatus"></div>
-<div class="sres" id="recResult"><div class="l">You said:</div><div class="t" id="userSpeech"></div><div class="l" id="matchResult"></div><button onclick="resetRec()" style="margin-top:3px;background:transparent;border:1px solid #3a3a60;padding:2px 12px;border-radius:4px;cursor:pointer;font-size:10px;color:#636e72">鈫?Again</button></div></div>
+<div class="sres" id="recResult"><div class="l">You said:</div><div class="t" id="userSpeech"></div><div class="l" id="matchResult"></div><button onclick="resetRec()" style="margin-top:3px;background:transparent;border:1px solid #3a3a60;padding:2px 12px;border-radius:4px;cursor:pointer;font-size:10px;color:#636e72">↻ Again</button></div></div>
 <div class="sent-row" id="sentList"></div>
 </div>
-<div class="save-area"><button class="btn-save" onclick="saveWorksheet()">馃捑 Save Progress</button></div>
+<div class="save-area"><button class="btn-save" onclick="saveWorksheet()">💾 Save Progress</button></div>
 </div>
 </div>
-<div class="archive" id="archive"><div class="t"><span>馃搧 Saved Worksheets</span><button class="btn" onclick="toggleArchive()">鉁?Close</button></div><div id="archiveList"><div style="text-align:center;padding:12px;color:#636e72;font-size:12px">No worksheets saved yet.</div></div></div>
+<div class="archive" id="archive"><div class="t"><span>📁 Saved Worksheets</span><button class="btn" onclick="toggleArchive()">✕ Close</button></div><div id="archiveList"><div style="text-align:center;padding:12px;color:#636e72;font-size:12px">No worksheets saved yet.</div></div></div>
 </div>
 
 <script>
 // ===== SCENE ILLUSTRATIONS (emoji art for each day) =====
 var SCENES={
-mon:['馃捈','馃摟','馃摓','馃搳','馃搵','馃搸','鉁夛笍','馃摤'],
-tue:['馃憯','鈿栵笍','馃摫','馃搵','馃梻锔?,'馃攼','鉁嶏笍','馃搼'],
-wed:['馃捇','馃寪','馃搱','馃','馃枼锔?,'馃敆','馃挼','馃搳'],
-thu:['馃敧','馃嵆','馃ォ','馃殮','馃摝','馃敟','馃挃','馃攧'],
-fri:['鈽?,'馃泲锔?,'馃槀','馃','馃幐','馃崟','馃挕','馃幁']};
+mon:['💼','📧','📞','📊','📋','📎','✉️','📬'],
+tue:['👔','⚖️','📱','📋','🗂️','🔐','✍️','📑'],
+wed:['💻','🌐','📈','🤝','🖥️','🔗','💵','📊'],
+thu:['🔪','🍳','🥩','🚚','📦','🔥','💔','🔄'],
+fri:['☕','🛋️','😂','🤝','🎸','🍕','💡','🎭']};
 var SCENE_TEXTS={
-mon:'Office 路 Inquiry to Order',
-tue:'Suits 路 The Call',
-wed:'Social Network 路 The Deal',
-thu:'The Bear 路 Kitchen Crisis',
-fri:'Friends 路 Awkward Encounter'};
+mon:'Office · Inquiry to Order',
+tue:'Suits · The Call',
+wed:'Social Network · The Deal',
+thu:'The Bear · Kitchen Crisis',
+fri:'Friends · Awkward Encounter'};
 
 // ===== GRAMMAR =====
 var G={mon:{t:'Simple Present',r:'Facts, habits, truths.',e:'"I send" / "He sends"'},
@@ -254,67 +254,67 @@ thu:{t:'Present Perfect',r:'have/has + past participle.',e:'"I have sent"'},
 fri:{t:'Future with Will',r:'Decisions, promises, plans.',e:'"I will send"'}};
 
 // ===== PHONICS DATA (syllable split + rule per word) =====
-var P={inquiry:{s:'in路qui路ry',b:'VCCV 鉁傦笍 cut between n,q',r:'vccv',c:'in<span class="sep">|</span>qui<span class="sep">|</span>ry'},
-quotation:{s:'quo路ta路tion',b:'tion = /蕛蓹n/ 馃憛',r:'vcv',c:'quo<span class="sep">|</span>ta<span class="sep">|</span>tion'},
-'lead time':{s:'lead time',b:'ea = /i藧/ (long E)',r:'other',c:'lead time'},
-MOQ:{s:'M路O路Q',b:'Say each letter',r:'other',c:'M<span class="sep">|</span>O<span class="sep">|</span>Q'},
-sample:{s:'sam路ple',b:'VCCV + silent e 鉁傦笍',r:'vccv',c:'sam<span class="sep">|</span>ple'},
-'put through':{s:'put through',b:'ough = /u藧/',r:'other',c:'put through'},
-clarify:{s:'clar路i路fy',b:'VCV + -ify = verb',r:'vcv',c:'clar<span class="sep">|</span>i<span class="sep">|</span>fy'},
-deadline:{s:'dead路line',b:'VCCV + silent e',r:'vccv',c:'dead<span class="sep">|</span>line'},
-'follow up':{s:'fol路low up',b:'double L = short O',r:'vccv',c:'fol<span class="sep">|</span>low up'},
-'call back':{s:'call back',b:'all = /蓴藧l/',r:'other',c:'call back'},
-negotiate:{s:'ne路go路ti路ate',b:'VCV pattern x3',r:'vcv',c:'ne<span class="sep">|</span>go<span class="sep">|</span>ti<span class="sep">|</span>ate'},
-margin:{s:'mar路gin',b:'VCCV cut between r,g',r:'vccv',c:'mar<span class="sep">|</span>gin'},
-compromise:{s:'com路pro路mise',b:'VCV + silent e',r:'vcv',c:'com<span class="sep">|</span>pro<span class="sep">|</span>mise'},
+var P={inquiry:{s:'in·qui·ry',b:'VCCV ✂️ cut between n,q',r:'vccv',c:'in<span class="sep">|</span>qui<span class="sep">|</span>ry'},
+quotation:{s:'quo·ta·tion',b:'tion = /ʃən/ 👅',r:'vcv',c:'quo<span class="sep">|</span>ta<span class="sep">|</span>tion'},
+'lead time':{s:'lead time',b:'ea = /iː/ (long E)',r:'other',c:'lead time'},
+MOQ:{s:'M·O·Q',b:'Say each letter',r:'other',c:'M<span class="sep">|</span>O<span class="sep">|</span>Q'},
+sample:{s:'sam·ple',b:'VCCV + silent e ✂️',r:'vccv',c:'sam<span class="sep">|</span>ple'},
+'put through':{s:'put through',b:'ough = /uː/',r:'other',c:'put through'},
+clarify:{s:'clar·i·fy',b:'VCV + -ify = verb',r:'vcv',c:'clar<span class="sep">|</span>i<span class="sep">|</span>fy'},
+deadline:{s:'dead·line',b:'VCCV + silent e',r:'vccv',c:'dead<span class="sep">|</span>line'},
+'follow up':{s:'fol·low up',b:'double L = short O',r:'vccv',c:'fol<span class="sep">|</span>low up'},
+'call back':{s:'call back',b:'all = /ɔːl/',r:'other',c:'call back'},
+negotiate:{s:'ne·go·ti·ate',b:'VCV pattern x3',r:'vcv',c:'ne<span class="sep">|</span>go<span class="sep">|</span>ti<span class="sep">|</span>ate'},
+margin:{s:'mar·gin',b:'VCCV cut between r,g',r:'vccv',c:'mar<span class="sep">|</span>gin'},
+compromise:{s:'com·pro·mise',b:'VCV + silent e',r:'vcv',c:'com<span class="sep">|</span>pro<span class="sep">|</span>mise'},
 'win-win':{s:'win-win',b:'short I x2',r:'other',c:'win<span class="sep">|</span>win'},
-flexible:{s:'flex路i路ble',b:'VCCV + -ble',r:'vccv',c:'flex<span class="sep">|</span>i<span class="sep">|</span>ble'},
-defective:{s:'de路fec路tive',b:'VCV + VCCV',r:'vcv',c:'de<span class="sep">|</span>fec<span class="sep">|</span>tive'},
-refund:{s:'re路fund',b:'VCV: re- prefix',r:'vcv',c:'re<span class="sep">|</span>fund'},
-apologize:{s:'a路pol路o路gize',b:'4 syllables 鉁傦笍 VCV x3',r:'vcv',c:'a<span class="sep">|</span>pol<span class="sep">|</span>o<span class="sep">|</span>gize'},
-replacement:{s:'re路place路ment',b:'VCV + silent e + -ment',r:'vcv',c:'re<span class="sep">|</span>place<span class="sep">|</span>ment'},
-inspect:{s:'in路spect',b:'VCCV: spect = look',r:'vccv',c:'in<span class="sep">|</span>spect'},
-resolve:{s:'re路solve',b:'VCV + silent e',r:'vcv',c:'re<span class="sep">|</span>solve'},
-awkward:{s:'awk路ward',b:'VCCV: -ward common',r:'vccv',c:'awk<span class="sep">|</span>ward'},
-polite:{s:'po路lite',b:'VCV: silent e = long I',r:'vcv',c:'po<span class="sep">|</span>lite'},
-offer:{s:'of路fer',b:'VCCV: double F',r:'vccv',c:'of<span class="sep">|</span>fer'},
-tip:{s:'tip',b:'short I 鈥?one syllable',r:'other',c:'tip'},
-weird:{s:'weird',b:'ei = /瑟蓹/ (ear sound)',r:'other',c:'weird'}};
+flexible:{s:'flex·i·ble',b:'VCCV + -ble',r:'vccv',c:'flex<span class="sep">|</span>i<span class="sep">|</span>ble'},
+defective:{s:'de·fec·tive',b:'VCV + VCCV',r:'vcv',c:'de<span class="sep">|</span>fec<span class="sep">|</span>tive'},
+refund:{s:'re·fund',b:'VCV: re- prefix',r:'vcv',c:'re<span class="sep">|</span>fund'},
+apologize:{s:'a·pol·o·gize',b:'4 syllables ✂️ VCV x3',r:'vcv',c:'a<span class="sep">|</span>pol<span class="sep">|</span>o<span class="sep">|</span>gize'},
+replacement:{s:'re·place·ment',b:'VCV + silent e + -ment',r:'vcv',c:'re<span class="sep">|</span>place<span class="sep">|</span>ment'},
+inspect:{s:'in·spect',b:'VCCV: spect = look',r:'vccv',c:'in<span class="sep">|</span>spect'},
+resolve:{s:'re·solve',b:'VCV + silent e',r:'vcv',c:'re<span class="sep">|</span>solve'},
+awkward:{s:'awk·ward',b:'VCCV: -ward common',r:'vccv',c:'awk<span class="sep">|</span>ward'},
+polite:{s:'po·lite',b:'VCV: silent e = long I',r:'vcv',c:'po<span class="sep">|</span>lite'},
+offer:{s:'of·fer',b:'VCCV: double F',r:'vccv',c:'of<span class="sep">|</span>fer'},
+tip:{s:'tip',b:'short I — one syllable',r:'other',c:'tip'},
+weird:{s:'weird',b:'ei = /ɪə/ (ear sound)',r:'other',c:'weird'}};
 
 // ===== DAY CONTENT =====
 var D={mon:{t:'Office',w:['inquiry','quotation','lead time','MOQ','sample'],
 d:{inquiry:'a question',quotation:'price offer','lead time':'time to delivery',MOQ:'minimum order',sample:'test piece'},
 e:{inquiry:'Thanks for your inquiry.',quotation:'We sent the quotation.','lead time':'25 days.',MOQ:'500 units.',sample:'Free samples.'},
 p:'JIM: Send that email?\\nDWIGHT: Way ahead. I sent the quotation.\\nJIM: They sent an inquiry! Want samples.\\nDWIGHT: 2000 units!\\nJIM: Lead time 30 days, MOQ 500.',
-pc:'Jim: 鍙戦偖浠朵簡鍚? Dwight: 鎶ヤ簡浠枫€侸im: 浠栦滑璇㈢洏鎯崇湅鏍峰搧! Dwight: 2000浠剁殑澶у崟!Jim: 30澶╀氦璐с€?,
+pc:'Jim: 发邮件了吗? Dwight: 报了价。Jim: 他们询盘想看样品! Dwight: 2000件的大单!Jim: 30天交货。',
 q:[{q:'Who sent the quotation?',o:['Jim','Dwight','Client'],a:1},{q:'Client wants?',o:['Price','Samples','Contract'],a:1},{q:'Lead time?',o:['15d','25d','30d'],a:2}],
 s:['Did you send that email?','Way ahead of you!','Lead time is 30 days.','He sends the quotation.']},
 tue:{t:'Suits',w:['put through','clarify','deadline','follow up','call back'],
 d:{'put through':'connect call',clarify:'make clear',deadline:'final time','follow up':'check again','call back':'return call'},
 e:{'put through':'Put me through.',clarify:'Clarify terms.',deadline:'Deadline Friday.','follow up':'I will follow up.','call back':'Call back soon.'},
 p:'HARVEY: Call client. Clarify payment.\\nMIKE: Deadline?\\nHARVEY: Tomorrow 5PM.\\nMIKE: (on phone) I am calling to follow up.\\nCLIENT: We agree. Put me through.',
-pc:'Harvey: 鎵撶數璇濈‘璁や粯娆俱€侻ike: 鎴鏃? Harvey: 鏄?鐐广€侻ike: 鎴戞潵鐢佃窡杩涖€傚鎴? 鍚屾剰銆傝杞帴銆?,
+pc:'Harvey: 打电话确认付款。Mike: 截止日? Harvey: 明5点。Mike: 我来电跟进。客户: 同意。请转接。',
 q:[{q:'What to clarify?',o:['Price','Payment','Address'],a:1},{q:'Deadline?',o:['Today','Tomorrow 5PM','Friday'],a:1},{q:'Client says?',o:['No','Agree','Later'],a:1}],
 s:['I am calling the client.','He is following up.','Deadline is tomorrow.','They are waiting.']},
 wed:{t:'Social Network',w:['negotiate','margin','compromise','win-win','flexible'],
 d:{negotiate:'discuss deal',margin:'profit space',compromise:'meet middle','win-win':'both benefit',flexible:'can change'},
 e:{negotiate:'We negotiate.',margin:'Thin margin.',compromise:'Let us compromise.','win-win':'Win-win.',flexible:'Flexible price.'},
 p:'MARK: One million. Take or leave.\\nSEAN: Margin tight. I can be flexible.\\nMARK: 10% equity.\\nSEAN: 12% board seat. Win-win.\\nMARK: Fine. 12%.',
-pc:'Mark: 100涓囥€係ean: 鍒╂鼎钖勪絾鐏垫椿銆侻ark: 10%鑲℃潈銆係ean: 12%鍔犲腑浣嶃€傚弻璧€侻ark: 琛屻€?,
+pc:'Mark: 100万。Sean: 利润薄但灵活。Mark: 10%股权。Sean: 12%加席位。双赢。Mark: 行。',
 q:[{q:'Initial offer?',o:['500k','1M','2M'],a:1},{q:'Final equity?',o:['10%','12%','15%'],a:1},{q:'Win-win?',o:['One wins','Both benefit','No deal'],a:1}],
 s:['I sent the quotation.','He called the client.','They agreed on price.','We compromised.']},
 thu:{t:'The Bear',w:['defective','refund','apologize','replacement','inspect'],
 d:{defective:'broken/damaged',refund:'money back',apologize:'say sorry',replacement:'new one',inspect:'check'},
 e:{defective:'Defective items.',refund:'Full refund.',apologize:'I apologize.',replacement:'Send replacement.',inspect:'Inspect goods.'},
 p:'RICHIE: Wrong order?\\nCARMEN: I apologize. Inspect.\\nCUSTOMER: Meat warm! Defective!\\nCARMEN: I have sent replacement. Full refund.\\nCUSTOMER: Compensation?\\nCARMEN: 20% off next order.',
-pc:'Richie: 璁㈠崟閿欎簡? Carmen: 閬撴瓑妫€鏌ャ€傚鎴? 鑲夋槸娓╃殑! Carmen: 宸插瘎鎹㈣揣骞跺叏棰濋€€娆俱€傚鎴? 璧斿伩? Carmen: 涓嬫8鎶樸€?,
+pc:'Richie: 订单错了? Carmen: 道歉检查。客户: 肉是温的! Carmen: 已寄换货并全额退款。客户: 赔偿? Carmen: 下次8折。',
 q:[{q:'Why upset?',o:['Late','Wrong','Warm meat'],a:2},{q:'Carmen did?',o:['Discounted','Sent replacement','Apologized'],a:1},{q:'Extra offered?',o:['Free delivery','20% off','Gift'],a:1}],
 s:['I have sent the replacement.','He has already called.','They agreed on the deal.','We offered a refund.']},
 fri:{t:'Friends',w:['awkward','polite','offer','tip','weird'],
 d:{awkward:'uncomfortable',polite:'good manners',offer:'give chance',tip:'helpful advice',weird:'strange'},
 e:{awkward:'So awkward.',polite:'Polite to say thanks.',offer:'He offered help.',tip:'Here is a tip.',weird:'That is weird.'},
 p:'MONICA: He bowed when we shook hands!\\nPHOEBE: Cultural! Bowing is polite.\\nMONICA: Felt awkward!\\nCHANDLER: Tip - bow back.\\nRACHEL: Offered coffee, he said no!\\nPHOEBE: In Japan, refuse first is polite!',
-pc:'Monica: 鎻℃墜鏃朵粬闉犺含浜? Phoebe: 鏂囧寲宸紓!闉犺含鏄ぜ璨岀殑銆侻onica: 濂藉按灏? Chandler: 寤鸿闉犺含鍥炲幓銆俁achel: 璇峰挅鍟′粬涓€鐩存嫆缁? Phoebe: 鍦ㄦ棩鏈厛鎷掔粷鏄ぜ璨屻€?,
+pc:'Monica: 握手时他鞠躬了! Phoebe: 文化差异!鞠躬是礼貌的。Monica: 好尴尬! Chandler: 建议鞠躬回去。Rachel: 请咖啡他一直拒绝! Phoebe: 在日本先拒绝是礼貌。',
 q:[{q:'Why bow?',o:['Shy','Cultural','Mistake'],a:1},{q:'Monica felt?',o:['Happy','Angry','Awkward'],a:2},{q:'Chandler tip?',o:['Don\'t bow','Bow back','Leave'],a:1}],
 s:['I will send samples.','He will call back.','They will love it.','We will offer a deal.']}};
 
@@ -322,14 +322,14 @@ var cd='mon',rec=null,qd={},ts='',tutIdx=0;
 
 // ===== TUTORIAL PROMPTS =====
 var TUT_PROMPTS=[
-'馃憖 <b>Step 1:</b> Look at the word. Find the vowels <span style="color:#fd79a8">A E I O U</span>. They\'re the heart of each syllable!',
-'馃攳 <b>Step 2:</b> Look at the letters between vowels. <span style="color:#a29bfe">VCCV</span> = cut between consonants. <span style="color:#00b894">VCV</span> = cut before the consonant.',
-'鉁傦笍 <b>Step 3:</b> Cut at the right spot, then say each syllable one by one. Blend them together fast! 馃幆'
+'👀 <b>Step 1:</b> Look at the word. Find the vowels <span style="color:#fd79a8">A E I O U</span>. They\'re the heart of each syllable!',
+'🔍 <b>Step 2:</b> Look at the letters between vowels. <span style="color:#a29bfe">VCCV</span> = cut between consonants. <span style="color:#00b894">VCV</span> = cut before the consonant.',
+'✂️ <b>Step 3:</b> Cut at the right spot, then say each syllable one by one. Blend them together fast! 🎯'
 ];
 
 // ===== UPDATE SCENE ILLUSTRATION =====
 function updateScene(day){
-var emojis=SCENES[day]||['馃摎'];
+var emojis=SCENES[day]||['📚'];
 // Scramble positions slightly
 var art=document.getElementById('sceneArt');
 var html='';
@@ -360,7 +360,7 @@ else colored+='<span class="cons">'+ch+'</span>';
 var sdWord=document.getElementById('sdWord');
 sdWord.innerHTML=colored;
 // Build split display
-var parts=ph.s.split('路');
+var parts=ph.s.split('·');
 var resultHtml=parts.map(function(p){return '<span class="syl">'+p+'</span>'}).join('');
 document.getElementById('sdResult').innerHTML=resultHtml;
 document.getElementById('sdHint').textContent='Rule: '+ph.b;
@@ -371,7 +371,7 @@ function showRule(rule){
 document.querySelectorAll('.rule-card').forEach(function(c){c.classList.remove('active')});
 document.querySelector('.rule-card.'+rule).classList.add('active');
 // Update demo example
-var examples={vccv:{w:'sample',d:'VCCV: cut between <b>m</b> and <b>p</b> 鉁傦笍'},vcv:{w:'polite',d:'VCV: cut before consonant <b>l</b> 鉁傦笍'},other:{w:'weird',d:'ei = /瑟蓹/ 鈥?vowel pair, no cut.'}};
+var examples={vccv:{w:'sample',d:'VCCV: cut between <b>m</b> and <b>p</b> ✂️'},vcv:{w:'polite',d:'VCV: cut before consonant <b>l</b> ✂️'},other:{w:'weird',d:'ei = /ɪə/ — vowel pair, no cut.'}};
 var ex=examples[rule];
 if(ex) displaySplitDemo(ex.w,ex.d);
 }
@@ -389,7 +389,7 @@ if('aeiou'.indexOf(ch.toLowerCase())>=0) colored+='<span class="vowel">'+ch+'</s
 else colored+='<span class="cons">'+ch+'</span>';
 }
 sdWord.innerHTML=colored;
-var parts=ph.s.split('路');
+var parts=ph.s.split('·');
 var resultHtml=parts.map(function(p){return '<span class="syl">'+p+'</span>'}).join('');
 document.getElementById('sdResult').innerHTML=resultHtml;
 document.getElementById('sdHint').textContent=(hint||'Rule: '+ph.b);
@@ -437,7 +437,7 @@ if('aeiou'.indexOf(ch.toLowerCase())>=0) colored+='<span class="vowel">'+ch+'</s
 else colored+='<span class="cons">'+ch+'</span>';
 }
 var d2=document.createElement('div');d2.className='word-item';
-d2.innerHTML='<div class="w">'+colored+'<span class="spk-btn" onclick="event.stopPropagation();speak(\''+w.replace(/'/g,"\\'")+'\')">馃攰</span></div><div class="sub">'+dt.d[w]+'</div><div class="ph"><div class="ph-split">'+ph.c+'</div><div>'+ph.b+'</div></div>';
+d2.innerHTML='<div class="w">'+colored+'<span class="spk-btn" onclick="event.stopPropagation();speak(\''+w.replace(/'/g,"\\'")+'\')">🔊</span></div><div class="sub">'+dt.d[w]+'</div><div class="ph"><div class="ph-split">'+ph.c+'</div><div>'+ph.b+'</div></div>';
 d2.onclick=function(w2,ph2){return function(){
 this.classList.toggle('open');
 if(this.classList.contains('open')){
@@ -496,8 +496,8 @@ if(i===oi&&oi!==ans) os[i].classList.add('bad');
 qd[qi]=true;
 var fb=document.getElementById('qfb'+qi);
 if(fb){
-if(oi===ans){fb.textContent='鉁?Correct!';fb.className='qfb show correct';}
-else{fb.textContent='鉂?Answer: '+String.fromCharCode(65+ans);fb.className='qfb show wrong';}
+if(oi===ans){fb.textContent='✅ Correct!';fb.className='qfb show correct';}
+else{fb.textContent='❌ Answer: '+String.fromCharCode(65+ans);fb.className='qfb show wrong';}
 }
 }
 
@@ -523,9 +523,9 @@ speechSynthesis.cancel();speechSynthesis.speak(u);
 function startRec(){
 var s=document.getElementById('recStatus');var b=document.getElementById('recBtn');
 if(!('webkitSpeechRecognition'in window||'SpeechRecognition'in window)){s.textContent='Chrome only.';return;}
-if(rec&&rec.recognizing){rec.stop();b.textContent='馃敶 Record';s.textContent='';return;}
+if(rec&&rec.recognizing){rec.stop();b.textContent='🔴 Record';s.textContent='';return;}
 var SR=window.SpeechRecognition||window.webkitSpeechRecognition;rec=new SR();
-rec.lang='en-US';rec.recognizing=true;b.textContent='鈴?Stop';s.textContent='馃帳 Listening...';
+rec.lang='en-US';rec.recognizing=true;b.textContent='⏹ Stop';s.textContent='🎤 Listening...';
 rec.onresult=function(e){
 var said=e.results[0][0].transcript;var conf=Math.round(e.results[0][0].confidence*100);
 var tn=ts.toLowerCase().replace(/[^a-z\\s]/g,'').trim();
@@ -535,12 +535,12 @@ var m=0;for(var i=0;i<tw.length;i++){for(var j=0;j<uw.length;j++){if(tw[i]===uw[
 var r=Math.round(m/tw.length*100);
 document.getElementById('recResult').style.display='block';
 document.getElementById('userSpeech').textContent=said;
-var fb=r>=90?'馃帀 Excellent! '+r+'%':r>=70?'馃憤 Good '+r+'%':r>=50?'馃挭 Getting there '+r+'%':'馃攧 Try again '+r+'%';
+var fb=r>=90?'🎉 Excellent! '+r+'%':r>=70?'👍 Good '+r+'%':r>=50?'💪 Getting there '+r+'%':'🔄 Try again '+r+'%';
 document.getElementById('matchResult').textContent=fb+' (c:'+conf+'%)';
-b.textContent='馃敶 Record';rec.recognizing=false;
+b.textContent='🔴 Record';rec.recognizing=false;
 };
-rec.onerror=function(){s.textContent='Err.';b.textContent='馃敶 Record';rec.recognizing=false;};
-rec.onend=function(){if(b.textContent==='鈴?Stop'){b.textContent='馃敶 Record';rec.recognizing=false;}};
+rec.onerror=function(){s.textContent='Err.';b.textContent='🔴 Record';rec.recognizing=false;};
+rec.onend=function(){if(b.textContent==='⏹ Stop'){b.textContent='🔴 Record';rec.recognizing=false;}};
 try{rec.start();}catch(e){}
 }
 function resetRec(){document.getElementById('recResult').style.display='none';}
@@ -556,8 +556,8 @@ var e={id:Date.now(),date:d2,day:cd,title:dt.t,score:d+'/'+dt.q.length,grammar:G
 var sv=JSON.parse(localStorage.getItem('LW')||'[]');sv.unshift(e);
 if(sv.length>50)sv=sv.slice(0,50);
 localStorage.setItem('LW',JSON.stringify(sv));
-var btn=document.querySelector('.btn-save');btn.textContent='鉁?Saved!';
-setTimeout(function(){btn.textContent='馃捑 Save Progress'},1200);
+var btn=document.querySelector('.btn-save');btn.textContent='✅ Saved!';
+setTimeout(function(){btn.textContent='💾 Save Progress'},1200);
 loadArchive();
 }
 function toggleArchive(){var a=document.getElementById('archive');a.classList.toggle('show');loadArchive();}
@@ -568,7 +568,7 @@ if(sv.length===0){list.innerHTML='<div style="text-align:center;padding:12px;col
 list.innerHTML='';
 for(var i=0;i<sv.length;i++){var e=sv[i];
 var d=document.createElement('div');d.className='arch-item';
-d.innerHTML='<div><b>'+e.date+'</b> 鈥?'+e.title+'<br><span style="font-size:10px;color:#636e72">'+e.score+' 路 '+e.grammar+'</span></div><button class="del" onclick="deleteEntry('+e.id+')">鉁?/button>';
+d.innerHTML='<div><b>'+e.date+'</b> — '+e.title+'<br><span style="font-size:10px;color:#636e72">'+e.score+' · '+e.grammar+'</span></div><button class="del" onclick="deleteEntry('+e.id+')">✕</button>';
 list.appendChild(d);}
 }
 function deleteEntry(id){
@@ -583,7 +583,7 @@ var m={1:'mon',2:'tue',3:'wed',4:'thu',5:'fri'};
 var today=m[(new Date()).getDay()]||'mon';
 go(today);
 // Default split demo
-displaySplitDemo('sample','VCCV: cut between <b>m</b> and <b>p</b> 鉁傦笍');
+displaySplitDemo('sample','VCCV: cut between <b>m</b> and <b>p</b> ✂️');
 });
 </script>
 </body>
