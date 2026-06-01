@@ -82,13 +82,12 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 .word-item.open .ph{display:block}
 .word-item.open{border-color:#6c5ce7;background:#222250}
 
-/* Reading passage */
 .rbox{border:1px solid #00b894;border-radius:8px;overflow:hidden}
 .rtb{background:rgba(0,184,148,.12);padding:6px 10px;display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:600;border-bottom:1px solid rgba(0,184,148,.2)}
 .rtb button{background:#00b894;color:#fff;border:none;padding:3px 10px;border-radius:4px;cursor:pointer;font-size:10px;transition:.2s}
 .rtb button:hover{background:#00a381}
-.rbody{padding:10px;max-height:320px;overflow-y:auto}
-.rbody .en{font-size:12px;line-height:1.9;margin-bottom:6px;white-space:pre-line;color:#e0e0e0}
+.rbody{padding:10px;max-height:350px;overflow-y:auto}
+.rbody .en{font-size:11px;line-height:2;margin-bottom:6px;white-space:pre-line;color:#e0e0e0}
 .rbody .cn{font-size:11px;color:#636e72;border-top:1px dashed #2a2a50;padding-top:5px}
 .key{color:#ff6b6b;font-weight:700;border-bottom:2px solid #ff6b6b;padding:0 2px;cursor:help}
 
@@ -107,7 +106,6 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 .qfb.correct{background:rgba(0,184,148,.1);color:#00b894}
 .qfb.wrong{background:rgba(225,112,85,.1);color:#e17055}
 
-/* Speaking */
 .sbox{border:1px dashed #6c5ce7;border-radius:8px;padding:10px;background:#1a1a35}
 .sbox .t{font-weight:600;font-size:12px;margin-bottom:5px;color:#a29bfe}
 .sbtns{display:flex;gap:5px}
@@ -123,11 +121,8 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 .sent-chip{padding:3px 10px;border:1px solid #3a3a60;border-radius:12px;cursor:pointer;font-size:10px;background:#1a1a35;transition:.2s}
 .sent-chip:hover{background:#2a2a50;border-color:#6c5ce7}
 
-/* Spelling */
 .spell-box{padding:8px}
-.spell-word{font-size:24px;text-align:center;padding:8px 0;display:none}
-.spell-word.show{display:block;animation:spellIn .3s ease}
-@keyframes spellIn{0%{opacity:0;transform:scale(.8)}100%{opacity:1;transform:scale(1)}}
+.spell-word{font-size:24px;text-align:center;padding:8px 0}
 .spell-word .hint-mean{display:block;font-size:11px;color:#636e72;font-weight:400}
 .spell-input-wrap{display:flex;gap:6px;margin-top:8px;justify-content:center}
 .spell-input{border:2px solid #3a3a60;border-radius:6px;padding:6px 10px;font-size:16px;background:#1a1a35;color:#fff;outline:none;width:160px;text-align:center;transition:.2s;font-family:monospace}
@@ -143,17 +138,16 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 .spell-dot.active{background:#6c5ce7;border-color:#6c5ce7;color:#fff}
 .spell-dot.done{background:rgba(0,184,148,.2);border-color:#00b894;color:#00b894}
 
-/* Cloze */
 .cloze-box{padding:8px}
 .cloze-sent{font-size:12px;line-height:1.8;margin-bottom:6px;color:#e0e0e0}
-.cloze-blank{display:inline-block;border-bottom:2px solid #6c5ce7;min-width:60px;padding:0 4px;color:#a29bfe;font-weight:700;cursor:pointer}
-.cloze-input{display:inline-block;border:none;border-bottom:2px solid #6c5ce7;background:transparent;color:#fff;font-size:12px;padding:0 4px;min-width:60px;outline:none;font-family:inherit;text-align:center}
+.cloze-input{display:inline-block;border:none;border-bottom:2px solid #6c5ce7;background:transparent;color:#fff;font-size:12px;padding:0 4px;min-width:80px;outline:none;font-family:inherit;text-align:center}
 .cloze-input:focus{border-bottom-color:#a29bfe}
 .cloze-input.ok{border-bottom-color:#00b894;color:#00b894}
 .cloze-input.bad{border-bottom-color:#e17055;color:#e17055}
 .cloze-check-btn{display:block;margin:8px auto 0;background:#6c5ce7;color:#fff;border:none;padding:4px 18px;border-radius:6px;cursor:pointer;font-size:11px}
 .cloze-check-btn:hover{background:#7c6cf7}
 .cloze-score{text-align:center;font-size:10px;color:#636e72;margin-top:4px}
+.cloze-fb{font-size:10px;color:#ffeaa7;margin-left:4px}
 
 .save-area{text-align:center;padding:8px 0}
 .btn-save{background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:#fff;border:none;padding:7px 28px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;transition:.2s;letter-spacing:1px}
@@ -164,7 +158,6 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 .arch-item{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:#2a2a50;border-radius:6px;border-left:2px solid #6c5ce7;font-size:11px;margin-bottom:3px}
 .arch-item .del{background:none;border:none;color:#e17055;cursor:pointer;font-size:10px}
 
-/* Section tabs for exercises */
 .subtabs{display:flex;gap:2px;margin-bottom:6px}
 .subtab{padding:4px 10px;border-radius:6px 6px 0 0;cursor:pointer;font-size:10px;font-weight:600;background:transparent;color:#636e72;border:1px solid transparent;border-bottom:none;transition:.2s}
 .subtab.active{background:#2a2a50;color:#fff;border-color:#2a2a50}
@@ -175,7 +168,7 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 <body>
 <div class="container">
 <div class="header">
-<div><h1>English Lab</h1><div class="sub">phonics &middot; grammar &middot; reading &middot; spelling</div></div>
+<div><h1>English Lab</h1><div class="sub">phonics grammar reading spelling</div></div>
 <button class="btn" onclick="toggleArchive()">Archive</button>
 </div>
 <div class="tabs" id="tabBar">
@@ -189,13 +182,9 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 <div>
 <div class="scene-box" id="sceneBox"><div class="scene-bg"></div><div class="scene-art" id="sceneArt"></div><div class="scene-label" id="sceneLabel"></div></div>
 <div class="grammar" id="grammarBox"><div class="t">Grammar: <span id="gTitle">Simple Present</span></div><div id="gRule">Facts, habits, truths.</div><div id="gEx">"I send" / "He sends"</div></div>
-
 <div class="card"><div class="card-title">Words <span class="badge">Tap</span></div><div class="word-list" id="wordList"></div></div>
-
-<div class="card"><div class="card-title">Reading <span class="badge g" id="themeBadge">Office</span> <span class="badge y">Key sentences in red</span></div>
+<div class="card"><div class="card-title">Reading <span class="badge g" id="themeBadge">Office</span> <span class="badge y">Sentences in red</span></div>
 <div class="rbox"><div class="rtb"><span id="themeLabel"></span><button onclick="readAloud()">Listen</button></div><div class="rbody"><div class="en" id="passageEN"></div><div class="cn" id="passageCN"></div></div></div></div>
-
-<!-- Exercise Tabs -->
 <div class="card">
 <div class="card-title">Exercises <span class="badge o">Practice</span></div>
 <div class="subtabs" id="exerciseTabs">
@@ -205,9 +194,9 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 </div>
 <div class="subtab-panel active" id="panelSpell">
 <div class="spell-box">
-<div class="spell-word show" id="spellWord"><span id="spellCurrent">sample</span><span class="hint-mean" id="spellHint">test piece</span></div>
+<div class="spell-word"><span id="spellCurrent">sample</span><span class="hint-mean" id="spellHint">test piece</span></div>
 <div class="spell-input-wrap"><input class="spell-input" id="spellInput" placeholder="Type the word..." autocomplete="off" autocapitalize="off"><button class="spell-btn" onclick="checkSpelling()">Check</button></div>
-<div class="spell-status" id="spellStatus">Listen to the word, then type it</div>
+<div class="spell-status" id="spellStatus"></div>
 <div class="spell-nav" id="spellNav"></div>
 </div>
 </div>
@@ -231,22 +220,22 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 <div class="rule-card vccv active" onclick="showRule('vccv')">
 <div class="rc-title">VCCV - Vowel-Consonant-Consonant-Vowel</div>
 <div class="rc-desc"><b>Cut between</b> the two consonants</div>
-<div class="rc-example">hap|pen &rarr; hap&middot;pen</div>
+<div class="rc-example">hap|pen hap·pen</div>
 </div>
 <div class="rule-card vcv" onclick="showRule('vcv')">
 <div class="rc-title">VCV - Vowel-Consonant-Vowel</div>
 <div class="rc-desc">Usually cut <b>before</b> the consonant</div>
-<div class="rc-example">o|pen &rarr; o&middot;pen</div>
+<div class="rc-example">o|pen o·pen</div>
 </div>
 <div class="rule-card other" onclick="showRule('other')">
 <div class="rc-title">More Rules</div>
-<div class="rc-desc">Silent e &middot; Vowel pairs &middot; R-controlled</div>
-<div class="rc-example">sam|ple &middot; boat &middot; farm</div>
+<div class="rc-desc">Silent e Vowel pairs R-controlled</div>
+<div class="rc-example">sam|ple boat farm</div>
 </div>
 </div>
 <div class="split-demo" id="splitDemo">
 <div class="sd-title">Watch it split</div>
-<div class="sd-word" id="sdWord">sam<span>|</span>ple</div>
+<div class="sd-word" id="sdWord">sample</div>
 <div class="sd-result" id="sdResult"><span class="syl">sam</span><span class="syl">ple</span></div>
 <div class="sd-hint" id="sdHint">VCCV: cut between m and p</div>
 </div>
@@ -270,58 +259,58 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 </div>
 <script>
 var SCENES={mon:['💼','📧','📞','📊','📋','📎','✉️','📬'],tue:['👔','⚖️','📱','📋','🗂️','🔐','✍️','📑'],wed:['💻','🌐','📈','🤝','🖥️','🔗','💵','📊'],thu:['🔪','🍳','🥩','🚚','📦','🔥','💔','🔄'],fri:['☕','🛋️','😂','🤝','🎸','🍕','💡','🎭']};
-var SCENE_TEXTS={mon:'Office - Inquiry to Order',tue:'Suits - The Call',wed:'Social Network - The Deal',thu:'The Bear - Kitchen Crisis',fri:'Friends - Awkward Encounter'};
+var ST={mon:'Office - Inquiry to Order',tue:'Suits - The Call',wed:'Social Network - The Deal',thu:'The Bear - Kitchen Crisis',fri:'Friends - Awkward Encounter'};
 var G={mon:{t:'Simple Present',r:'Facts, habits, truths.',e:'"I send" / "He sends"'},tue:{t:'Present Continuous',r:'Actions happening NOW.',e:'"I am calling"'},wed:{t:'Simple Past',r:'Completed action. Add -ed.',e:'"I sent" / "He called"'},thu:{t:'Present Perfect',r:'have/has + past participle.',e:'"I have sent"'},fri:{t:'Future with Will',r:'Decisions, promises, plans.',e:'"I will send"'}};
 var P={inquiry:{s:'in·qui·ry',b:'VCCV cut between n,q',r:'vccv',c:'in|qui|ry'},quotation:{s:'quo·ta·tion',b:'tion=/shun/',r:'vcv',c:'quo|ta|tion'},'lead time':{s:'lead time',b:'ea=long E',r:'other',c:'lead time'},MOQ:{s:'M·O·Q',b:'Say each letter',r:'other',c:'M|O|Q'},sample:{s:'sam·ple',b:'VCCV + silent e',r:'vccv',c:'sam|ple'},'put through':{s:'put through',b:'ough=/oo/',r:'other',c:'put through'},clarify:{s:'clar·i·fy',b:'VCV + -ify=verb',r:'vcv',c:'clar|i|fy'},deadline:{s:'dead·line',b:'VCCV + silent e',r:'vccv',c:'dead|line'},'follow up':{s:'fol·low up',b:'double L=short O',r:'vccv',c:'fol|low up'},'call back':{s:'call back',b:'all=/awl/',r:'other',c:'call back'},negotiate:{s:'ne·go·ti·ate',b:'VCV pattern x3',r:'vcv',c:'ne|go|ti|ate'},margin:{s:'mar·gin',b:'VCCV cut r,g',r:'vccv',c:'mar|gin'},compromise:{s:'com·pro·mise',b:'VCV + silent e',r:'vcv',c:'com|pro|mise'},'win-win':{s:'win-win',b:'short I x2',r:'other',c:'win|win'},flexible:{s:'flex·i·ble',b:'VCCV + -ble',r:'vccv',c:'flex|i|ble'},defective:{s:'de·fec·tive',b:'VCV+VCCV',r:'vcv',c:'de|fec|tive'},refund:{s:'re·fund',b:'VCV: re- prefix',r:'vcv',c:'re|fund'},apologize:{s:'a·pol·o·gize',b:'4 syllables',r:'vcv',c:'a|pol|o|gize'},replacement:{s:'re·place·ment',b:'VCV+sound e+-ment',r:'vcv',c:'re|place|ment'},inspect:{s:'in·spect',b:'VCCV: spect=look',r:'vccv',c:'in|spect'},resolve:{s:'re·solve',b:'VCV + silent e',r:'vcv',c:'re|solve'},awkward:{s:'awk·ward',b:'VCCV: -ward common',r:'vccv',c:'awk|ward'},polite:{s:'po·lite',b:'VCV: silent e=I',r:'vcv',c:'po|lite'},offer:{s:'of·fer',b:'VCCV: double F',r:'vccv',c:'of|fer'},tip:{s:'tip',b:'short I',r:'other',c:'tip'},weird:{s:'weird',b:'ei=/ear/',r:'other',c:'weird'}};
 var D={mon:{t:'Office',w:['inquiry','quotation','lead time','MOQ','sample'],
 d:{inquiry:'a question',quotation:'price offer','lead time':'time to delivery',MOQ:'minimum order',sample:'test piece'},
 e:{inquiry:'Thanks for your inquiry.',quotation:'We sent the quotation.','lead time':'25 days.',MOQ:'500 units.',sample:'Free samples.'},
-p:'The office was busy on Monday morning. <span class="key">Dwight was already ahead of Jim</span> when it came to the new client inquiry. He had sent the quotation before Jim even asked about it. The client was a German company looking for office supplies. They wanted pricing on a bulk order of 2000 units. <span class="key">Jim checked the stock and confirmed they could handle the order.</span>\n\nThe lead time would be 30 days, and the MOQ was 500 units per item. Dwight prepared a sample package to ship the next day. "Quick response builds trust," he said with confidence. Jim agreed and reminded him to follow up next week. <span class="key">Good customer service means regular communication.</span> The client was impressed by their fast reply. Soon, more inquiries came in from other potential buyers. The team worked together smoothly. It was just another busy day at Dunder Mifflin. But for Dwight, every inquiry was a chance to prove himself. <span class="key">He sends the quotation quickly every time.</span> That is how business works.',
-pc:'周一早上办公室很忙。Dwight 在新客户询盘上已经领先了 Jim 一步。客户是一家德国的办公用品采购商，要询价 2000 件的大单。Jim 检查了库存确认可以接单。交货期 30 天，起订量 500件。Dwight 准备样品第二天发货。更多的询盘接着来了，团队配合得很顺畅。对 Dwight 来说，每次询盘都是证明自己的机会。',
-q:[{q:'Who sent the quotation?',o:['Jim','Dwight','Client'],a:1},{q:'What did the client want?',o:['Samples','Invoice','Contract'],a:0},{q:'Lead time?',o:['15d','25d','30d'],a:2}],
+p:'The office was buzzing early on Monday morning. It was a typical start to the week at Dunder Mifflin. <span class="key">Dwight was already ahead of Jim when it came to the new client inquiry.</span> The client was a medium-sized German company looking for office supplies in bulk. They had sent a detailed inquiry listing exactly what they needed across five product categories.\n\nDwight had prepared the pricing overnight, and he sent the quotation before Jim even walked through the door. Jim raised an eyebrow when he saw the email had been sent already. "You sent it already?" he asked. Dwight nodded proudly. "Way ahead of you." The order was for 2000 units. Jim checked the inventory on his computer. <span class="key">He confirmed they could handle the order without any problems.</span> The lead time would be 30 days, and the MOQ was 500 units per item.\n\nDwight also prepared a sample package to ship out the same day. "Quick response builds client trust," he said with his usual confidence. Jim agreed and reminded him to follow up the next week. <span class="key">Good customer service means regular communication and attention to detail.</span> The client replied within hours, impressed by the fast turnaround. More inquiries followed from other buyers. For Dwight, every inquiry was a chance to prove his value. <span class="key">He sends the quotation quickly every time without waiting to be asked.</span> That was how business worked at Dunder Mifflin. Speed and accuracy mattered, and a happy client always came back.',
+pc:'周一的早晨办公室非常忙碌。这是 Dunder Mifflin 典型的一周开始。德国客户发来了详细的询盘，Dwight 前一晚就准备好了报价，Jim 还没进门他就已经把报价发出去了。订单是 2000 件商品，交货期 30 天，起订量 500 件。Jim 检查了库存确认能接单。客户几小时内就回复了，被快速反应打动。对 Dwight 来说，每次询盘都是证明自己的机会。',
+q:[{q:'Who sent the quotation?',o:['Jim','Dwight','Client'],a:1},{q:'What did the client want?',o:['Samples','Contract','Refund'],a:0},{q:'What was the lead time?',o:['15 days','30 days','45 days'],a:1}],
 s:['Did you send that email?','Way ahead of you!','Lead time is 30 days.','He sends the quotation.'],
-cloze:[{s:'Dwight was already ___ of Jim.',a:'ahead'},{s:'The ___ time would be 30 days.',a:'lead'},{s:'The ___ was 500 units per item.',a:'MOQ'},{s:'Good customer service means ___ communication.',a:'regular'},{s:'He sends the ___ quickly every time.',a:'quotation'}]},
+cloze:[{s:'Dwight was already ___ of Jim.',a:'ahead'},{s:'The ___ time would be 30 days.',a:'lead'},{s:'The ___ was 500 units per item.',a:'MOQ'},{s:'Good service means regular ___.',a:'communication'},{s:'He sends the ___ quickly.',a:'quotation'}]},
 tue:{t:'Suits',w:['put through','clarify','deadline','follow up','call back'],
 d:{'put through':'connect call',clarify:'make clear',deadline:'final time','follow up':'check again','call back':'return call'},
 e:{'put through':'Put me through.',clarify:'Clarify terms.',deadline:'Deadline Friday.','follow up':'I will follow up.','call back':'Call back soon.'},
-p:'Harvey Specter walked into the office with a file in his hand. "Call the client," he said to Mike. <span class="key">We need to clarify the payment terms before the deadline.</span> Mike looked at the clock. The deadline was tomorrow at 5 PM. There was no time to waste. He picked up the phone and dialed the number.\n\n"Hello, this is Mike Ross from Pearson Specter. <span class="key">I am calling to follow up on our agreement.</span>" The client listened carefully. Mike explained the payment structure and the next steps. The client had a few questions but Mike answered them all with confidence. After a short pause, the client said, "We agree. Put me through to Harvey." <span class="key">He is building trust with every call.</span> Harvey smiled from his office door. "Good job, Mike. Now call back next week to confirm the signing." Mike nodded. This was how cases were won - one phone call at a time. <span class="key">They are working together as a real team now.</span>',
-pc:'Harvey Specter 拿着文件走进办公室。他说服客户先确认清楚付款条件再签。Mike 看了看时间，截止日是明下午 5 点。他打电话跟进，回答了客户的所有问题。客户最终同意了条款，要求转接 Harvey。Harvey 很满意，让他下周再回电确认签约。',
-q:[{q:'What needs clarifying?',o:['Price','Payment','Delivery'],a:1},{q:'Deadline?',o:['Today','Tomorrow 5PM','Friday'],a:1},{q:'Client says?',o:['No','Agree','Maybe'],a:1}],
+p:'Harvey Specter walked into the office with a file in his hand. "Call the client," he said to Mike. <span class="key">We need to clarify the payment terms before the deadline.</span> Mike looked at the clock on the wall. The deadline was tomorrow at 5 PM. There was no time to waste. He picked up the phone and dialed the number.\n\n"Hello, this is Mike Ross from Pearson Specter. <span class="key">I am calling to follow up on our agreement.</span>" The client listened carefully as Mike explained the payment structure and the next steps. The client had several questions about the contract details, but Mike answered every single one with confidence and patience.\n\nAfter a short pause, the client said, "We agree. Put me through to Harvey." Harvey smiled from the door of his office. <span class="key">He is building trust with every call he makes.</span> "Good job, Mike. Call back next week to confirm the signing." Mike nodded and made a note. This was how big cases were won, one phone call at a time. <span class="key">They are working together as a real team now, and their partnership was growing stronger.</span>',
+pc:'Harvey Specter 拿着文件走进办公室。他叫 Mike 打电话给客户确认付款条款，截止日是明天下午 5 点。Mike 立即打电话跟进，回答了客户关于合同的所有疑问。客户最终同意了条款。Harvey 很满意，让他下周回电确认签约。大案子就是靠一个一个电话打出来的。',
+q:[{q:'What needs clarifying?',o:['Price','Payment','Delivery'],a:1},{q:'Deadline for what?',o:['Signing','Payment','Meeting'],a:1},{q:'What should Mike do next week?',o:['Call back','Send invoice','Visit client'],a:0}],
 s:['I am calling the client.','He is following up.','Deadline is tomorrow.','They are waiting.'],
 cloze:[{s:'We need to ___ the payment terms.',a:'clarify'},{s:'The ___ was tomorrow at 5 PM.',a:'deadline'},{s:'I am calling to ___ up.',a:'follow'},{s:'Put me ___ to Harvey.',a:'through'},{s:'Call back next week to ___ the signing.',a:'confirm'}]},
 wed:{t:'Social Network',w:['negotiate','margin','compromise','win-win','flexible'],
 d:{negotiate:'discuss a deal',margin:'profit space',compromise:'meet in the middle','win-win':'both benefit',flexible:'can change'},
 e:{negotiate:'We negotiate.',margin:'Thin margin.',compromise:'Let us compromise.','win-win':'Win-win.',flexible:'Flexible price.'},
-p:'In a small conference room, Mark Zuckerberg sat across from Sean Parker. The Facebook office was buzzing with energy. "One million dollars," Mark said. "Take it or leave it." Sean smiled. <span class="key">He knew the margin was tight, but he could be flexible.</span> He leaned forward and countered.\n\n"Ten percent equity," Mark offered. Sean shook his head. "Twelve percent and a board seat. That is a win-win." Mark thought for a moment. The numbers made sense. <span class="key">They negotiated hard but found common ground.</span> "Fine," Mark said. "Twelve percent." They shook hands. <span class="key">A good compromise is better than no deal at all.</span> Sean walked out of the room. It was a fair deal for both sides. Neither got everything they wanted, but both got something valuable. That is the art of negotiation. <span class="key">They agreed on terms that worked for everyone.</span>',
-pc:'在一个小会议室里，Mark Zuckerberg 与 Sean Parker 面对面坐着。Mark 出价 100 万美元。Sean 知道利润空间有限，但他可以灵活处理。Mark 提出 10% 股权，Sean 还价 12% 加一个董事会席位。最终双方握手成交。一个好的妥协比谈崩了强。双方都得到了有价值的回报。',
-q:[{q:'Initial offer?',o:['500k','1M','2M'],a:1},{q:'Final equity?',o:['10%','12%','15%'],a:1},{q:'Win-win means?',o:['One wins','Both benefit','No deal'],a:1}],
+p:'In a small conference room at Facebook headquarters, Mark Zuckerberg sat across from Sean Parker. The room was buzzing with the energy of a startup that was changing the world. "One million dollars," Mark said firmly. "Take it or leave it." Sean smiled. <span class="key">He knew the margin was tight, but he could be flexible with his demands.</span> He leaned forward and prepared to counter.\n\n"Ten percent equity," Mark offered. Sean shook his head slowly. "Twelve percent and a board seat. That is a true win-win for both of us." Mark thought about it carefully. The numbers made sense if he looked at the long-term value. <span class="key">They negotiated hard but still found common ground and mutual respect.</span> "Fine," Mark finally said. "Twelve percent." They shook hands across the table.\n\n<span class="key">A good compromise is always better than having no deal at all.</span> Sean walked out of the room feeling satisfied. It was a fair deal. Neither side got everything they wanted, but both got something valuable. That was the real art of negotiation. <span class="key">They agreed on terms that worked well for everyone involved.</span> Both walked away with a deal they could believe in.',
+pc:'在 Facebook 总部的小会议室里，Mark Zuckerberg 和 Sean Parker 面对面坐着。Mark 出价 100 万美元。Sean 知道利润空间有限，但他可以灵活。Mark 提出 10% 股权，Sean 还价 12% 加一个董事会席位。Mark 思考后同意了。双方握手成交。好的妥协比没谈成强，双方都得到了有价值的回报。',
+q:[{q:'What was the initial offer?',o:['500k','1M','2M'],a:1},{q:'Final equity?',o:['10%','12%','15%'],a:1},{q:'Win-win means?',o:['One wins','Both benefit','No deal'],a:1}],
 s:['I sent the quotation.','He called the client.','They agreed on price.','We compromised.'],
-cloze:[{s:'The ___ was tight but he could be flexible.',a:'margin'},{s:'They ___ hard but found common ground.',a:'negotiated'},{s:'A good ___ is better than no deal.',a:'compromise'},{s:'It was a ___ for both sides.',a:'win-win'},{s:'They ___ on terms that worked for everyone.',a:'agreed'}]},
+cloze:[{s:'The ___ was tight but he could be flexible.',a:'margin'},{s:'They ___ hard but found common ground.',a:'negotiated'},{s:'A good ___ is better than no deal.',a:'compromise'},{s:'It was a ___ for both sides.',a:'win-win'},{s:'They ___ on terms that worked.',a:'agreed'}]},
 thu:{t:'The Bear',w:['defective','refund','apologize','replacement','inspect'],
 d:{defective:'broken/damaged',refund:'money back',apologize:'say sorry',replacement:'new item',inspect:'check carefully'},
 e:{defective:'Defective items.',refund:'Full refund.',apologize:'I apologize.',replacement:'Send replacement.',inspect:'Inspect goods.'},
-p:'The kitchen was loud and hot. A customer at table four looked upset. <span class="key">Richie noticed the customer was unhappy and went to check.</span> The steak was served warm instead of hot. The customer pushed the plate away. "This is not fresh!" he said loudly.\n\nCarmen rushed over. "I apologize," she said calmly. <span class="key">She immediately sent a replacement to the kitchen.</span> She also offered a full refund. But the customer was not satisfied yet. He wanted compensation. Carmen thought quickly. "Twenty percent off your next order," she offered. The customer finally nodded. "Fine." <span class="key">She has handled the situation professionally.</span> Richie watched and learned. In a busy restaurant, mistakes happen. But how you fix them makes all the difference. <span class="key">Good service means owning your mistakes and making things right.</span>',
-pc:'厨房里又吵又热。4 号桌的客人看起来很不高兴。牛扒是温的不是热的，客人把盘子推开了。Carmen 立刻道歉，让厨房重做，并全额退款。客人还不满意，Carmen 又给了下次 8 折的优惠。客人终于接受了。在繁忙的厨房里出错难免，但怎么补救才是关键。',
-q:[{q:'Why was the customer upset?',o:['Late service','Warm meat','Wrong order'],a:1},{q:'What did Carmen offer first?',o:['Discount','Free drink','Replacement and refund'],a:2},{q:'Extra compensation?',o:['Free delivery','20% off','Gift card'],a:1}],
+p:'The kitchen was loud and hot as usual. Steam rose from the pans and orders were being called out. Richie noticed that a customer at table four looked upset. <span class="key">Richie noticed the customer was unhappy and went over to check what was wrong.</span> The problem was clear. The steak had been served warm instead of hot and fresh. The customer pushed the plate away in frustration.\n\n"This is not fresh!" he said loudly. Carmen rushed over from the kitchen. "I apologize," she said calmly. <span class="key">She immediately sent a replacement order to the kitchen without any hesitation.</span> She also offered a full refund to make things right. But the customer was still not satisfied. He wanted more than just a refund.\n\nCarmen thought fast. "Twenty percent off your next order," she offered. The customer finally nodded. <span class="key">She has handled the entire situation professionally and calmly.</span> Richie watched and learned a valuable lesson. In a busy restaurant, mistakes would always happen. But how you fixed them was what really mattered. <span class="key">Good service means owning your mistakes and making things right for the customer.</span>',
+pc:'厨房里又吵又热。Richie 注意到 4 号桌的客人很不高兴。端上来的牛扒是温的，客人把盘子推开。Carmen 立刻道歉，让厨房重做一份，还全额退款。客人还不满意，Carmen 又给了下次 8 折的优惠，客人才接受了。忙乱中出错在所难免，但怎么补救才是真的考验。',
+q:[{q:'Why was the customer upset?',o:['Late','Warm meat','Wrong order'],a:1},{q:'What did Carmen offer first?',o:['Discount','Free drink','Replacement and refund'],a:2},{q:'Extra compensation?',o:['Free delivery','20% off','Gift'],a:1}],
 s:['I have sent the replacement.','He has already called.','They agreed on the deal.','We offered a refund.'],
-cloze:[{s:'The steak was ___ instead of hot.',a:'warm'},{s:'I ___ , she said calmly.',a:'apologize'},{s:'She sent a ___ to the kitchen.',a:'replacement'},{s:'She offered a full ___.',a:'refund'},{s:'The food was not fresh, it was ___.',a:'defective'}]},
+cloze:[{s:'The steak was ___ instead of hot.',a:'warm'},{s:'I ___ , she said calmly.',a:'apologize'},{s:'She sent a ___ to the kitchen.',a:'replacement'},{s:'She offered a full ___.',a:'refund'},{s:'The food was ___, not fresh.',a:'defective'}]},
 fri:{t:'Friends',w:['awkward','polite','offer','tip','weird'],
 d:{awkward:'uncomfortable',polite:'good manners',offer:'give a chance',tip:'helpful advice',weird:'strange'},
 e:{awkward:'So awkward.',polite:'Polite to say thanks.',offer:'He offered help.',tip:'Here is a tip.',weird:'That is weird.'},
-p:'Monica was hosting a dinner for their Japanese business partner. Everything was going well until the greeting. <span class="key">The client bowed when Monica tried to shake his hand.</span> She froze for a moment. It felt awkward. She did not know what to do. Phoebe pulled her aside. "It is cultural," she whispered. "Bowing is polite in Japan."\n\nChandler gave her a tip: "Next time, just bow back. It shows respect." Monica nodded. Later, Rachel offered the client coffee. <span class="key">He said no three times but finally accepted.</span> Phoebe laughed. "In Japan, refusing politely first is good manners. <span class="key">He will accept if you offer again.</span>" Monica smiled. She was learning something new every day. Cross-cultural communication was not easy, but it was interesting. <span class="key">Making an effort to understand others is always polite.</span>',
-pc:'Monica 为日本商务伙伴准备晚餐。客户握手时鞠了个躬，Monica 不知所措。Phoebe 解释说鞠躬在日本是礼貌。Chandler 建议下次也鞠躬回礼。Rachel 请咖啡对方一开始拒绝了三次才接受。Phoebe 解释说在日本第一次拒绝是礼貌。跨文化沟通不容易，但努力去理解别人总是有礼貌的。',
-q:[{q:'Why did the client bow?',o:['Shy','Cultural','Mistake'],a:1},{q:'Monica felt?',o:['Happy','Angry','Awkward'],a:2},{q:'Chandler tip?',o:['Ignore','Bow back','Leave'],a:1}],
+p:'Monica was hosting a dinner for their Japanese business partner and had prepared everything carefully. The table looked perfect. But when the guest arrived, something unexpected happened. <span class="key">The client bowed deeply when Monica tried to shake his hand, and she froze.</span> She did not know what to do. It felt awkward and uncomfortable. Phoebe quickly pulled her aside.\n\n"It is cultural," Phoebe whispered. "Bowing is a very polite greeting in Japan. It shows respect." Chandler gave Monica a practical tip. "Next time, just bow back. It shows you respect their culture too." Monica nodded, relieved to have a simple solution.\n\nLater, Rachel offered the client coffee. <span class="key">He refused politely three times before finally accepting the cup.</span> Phoebe laughed. "In Japan, it is good manners to refuse politely the first time. <span class="key">He will accept if you kindly offer again.</span>" Monica smiled. She was learning something new every day. Cross-cultural communication was not always easy, but it was fascinating. <span class="key">Making an effort to understand others is always a polite and respectful thing to do.</span>',
+pc:'Monica 精心准备了一顿晚餐招待他们的日本商务伙伴。客人来了握手时却鞠了个躬，Monica 愣住了。Phoebe 解释说鞠躬在日本是礼貌的问候方式。Chandler 建议下次也鞠躬回礼。Rachel 请咖啡对方连拒三次才接受。Phoebe 说在日本第一次拒绝是礼貌。跨文化沟通不容易，但努力去理解别人总是有礼貌的。',
+q:[{q:'Why did the client bow?',o:['Shy','Cultural habit','Mistake'],a:1},{q:'How did Monica feel?',o:['Happy','Angry','Awkward'],a:2},{q:'Chandler tip?',o:['Ignore it','Bow back','Leave'],a:1}],
 s:['I will send samples.','He will call back.','They will love it.','We will offer a deal.'],
-cloze:[{s:'Monica felt ___ when he bowed.',a:'awkward'},{s:'Bowing is ___ in Japan.',a:'polite'},{s:'Chandler gave her a ___ .',a:'tip'},{s:'Rachel ___ coffee three times.',a:'offered'},{s:'The situation felt ___ at first.',a:'weird'}]}
+cloze:[{s:'Monica felt ___ when he bowed.',a:'awkward'},{s:'Bowing is ___ in Japan.',a:'polite'},{s:'Chandler gave her a helpful ___.',a:'tip'},{s:'Rachel ___ coffee three times.',a:'offered'},{s:'The situation felt ___ at first.',a:'weird'}]}
 };
-var TUT_PROMPTS=['Step 1: Find the vowels A E I O U. They are the heart of each syllable!','Step 2: VCCV = cut between consonants. VCV = cut before the consonant.','Step 3: Cut at the right spot, then say each syllable. Blend them together!'];
-var cd='mon',rec=null,qd={},ts='',tutIdx=0,spellIdx=0,spellDone={};
+var TP=['Step 1: Find the vowels A E I O U.','Step 2: VCCV=cut consonants. VCV=cut before consonant.','Step 3: Cut at the right spot. Say each syllable. Blend them!'];
+var cd='mon',rec=null,qd={},ts='',tutIdx=0,spellIdx=0;
 
-function updateScene(d){var e=SCENES[d]||['📚'];var s=e.slice();for(var i=s.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=s[i];s[i]=s[j];s[j]=t}var a=document.getElementById('sceneArt');var h='';for(var k=0;k<s.length;k++){h+=s[k];if(k===2||k===5)h+='&nbsp;&nbsp;'}a.innerHTML=h;document.getElementById('sceneLabel').textContent=SCENE_TEXTS[d]||''}
-function updateSplitDemo(w){var p=P[w];if(!p)return;var c='';for(var i=0;i<w.length;i++){var h=w[i];if('aeiou'.indexOf(h.toLowerCase())>=0)c+='<span class="vowel">'+h+'</span>';else c+='<span class="cons">'+h+'</span>'}document.getElementById('sdWord').innerHTML=c;var r=p.s.split('·').map(function(p){return'<span class="syl">'+p+'</span>'}).join('');document.getElementById('sdResult').innerHTML=r;document.getElementById('sdHint').textContent='Rule: '+p.b}
-function showRule(r){var c=document.querySelectorAll('.rule-card');for(var i=0;i<c.length;i++)c[i].classList.remove('active');document.querySelector('.rule-card.'+r).classList.add('active');var x={vccv:{w:'sample',d:'VCCV: cut between m and p'},vcv:{w:'polite',d:'VCV: cut before consonant l'},other:{w:'weird',d:'ei=ear sound - vowel pair.'}};var e=x[r];if(e){displaySplitDemo(e.w,e.d)}}
-function displaySplitDemo(w,h){var p=P[w];if(!p)return;var c='';for(var i=0;i<w.length;i++){var h2=w[i];if('aeiou'.indexOf(h2.toLowerCase())>=0)c+='<span class="vowel">'+h2+'</span>';else c+='<span class="cons">'+h2+'</span>'}document.getElementById('sdWord').innerHTML=c;var r=p.s.split('·').map(function(p){return'<span class="syl">'+p+'</span>'});document.getElementById('sdResult').innerHTML=r.join('');document.getElementById('sdHint').innerHTML=h||'Rule: '+p.b;tutIdx=0;var st=document.querySelectorAll('.tut-step');for(var i=0;i<st.length;i++)st[i].className='tut-step'+(i===0?' active':'');document.getElementById('tutPrompt').innerHTML=TUT_PROMPTS[0]}
-function tutStep(i){tutIdx=i;var s=document.querySelectorAll('.tut-step');for(var j=0;j<s.length;j++){s[j].className='tut-step';if(j<i)s[j].classList.add('done');if(j===i)s[j].classList.add('active')}document.getElementById('tutPrompt').innerHTML=TUT_PROMPTS[i]}
+function updateScene(d){var e=SCENES[d]||['📚'];var s=e.slice();for(var i=s.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=s[i];s[i]=s[j];s[j]=t}var a=document.getElementById('sceneArt');var h='';for(var k=0;k<s.length;k++){h+=s[k];if(k===2||k===5)h+='&nbsp;&nbsp;'}a.innerHTML=h;document.getElementById('sceneLabel').textContent=ST[d]||''}
+function updateSplitDemo(w){var p=P[w];if(!p)return;var c='';for(var i=0;i<w.length;i++){var h=w[i];if('aeiou'.indexOf(h.toLowerCase())>=0)c+='<span class="vowel">'+h+'</span>';else c+='<span class="cons">'+h+'</span>'}document.getElementById('sdWord').innerHTML=c;var r=p.s.split('·').map(function(p){return'<span class="syl">'+p+'</span>'});document.getElementById('sdResult').innerHTML=r.join('');document.getElementById('sdHint').textContent='Rule: '+p.b}
+function showRule(r){var c=document.querySelectorAll('.rule-card');for(var i=0;i<c.length;i++)c[i].classList.remove('active');var el=document.querySelector('.rule-card.'+r);if(el)el.classList.add('active');var x={vccv:{w:'sample',d:'VCCV: cut between m and p'},vcv:{w:'polite',d:'VCV: cut before l'},other:{w:'weird',d:'ei=vowel pair'}};var e=x[r];if(e){displaySplitDemo(e.w,e.d)}}
+function displaySplitDemo(w,h){var p=P[w];if(!p)return;var c='';for(var i=0;i<w.length;i++){var h2=w[i];if('aeiou'.indexOf(h2.toLowerCase())>=0)c+='<span class="vowel">'+h2+'</span>';else c+='<span class="cons">'+h2+'</span>'}document.getElementById('sdWord').innerHTML=c;var r=p.s.split('·').map(function(p){return'<span class="syl">'+p+'</span>'});document.getElementById('sdResult').innerHTML=r.join('');document.getElementById('sdHint').innerHTML=h||'Rule: '+p.b;tutIdx=0;var st=document.querySelectorAll('.tut-step');for(var si=0;si<st.length;si++)st[si].className='tut-step'+(si===0?' active':'');document.getElementById('tutPrompt').innerHTML=TP[0]}
+function tutStep(i){tutIdx=i;var s=document.querySelectorAll('.tut-step');for(var j=0;j<s.length;j++){s[j].className='tut-step';if(j<i)s[j].classList.add('done');if(j===i)s[j].classList.add('active')}document.getElementById('tutPrompt').innerHTML=TP[i]}
 
 function go(d){
 cd=d;var t=document.querySelectorAll('.tab');
@@ -333,32 +322,28 @@ updateScene(d);
 // Words
 var wl=document.getElementById('wordList');wl.innerHTML='';
 for(var wi=0;wi<dt.w.length;wi++){
-var w=dt.w[wi];var ph=P[w]||{s:w,b:'',c:w};
-var col='';for(var j=0;j<w.length;j++){var ch=w[j];if('aeiou'.indexOf(ch.toLowerCase())>=0)col+='<span class="vowel">'+ch+'</span>';else col+='<span class="cons">'+ch+'</span>'}
-var d2=document.createElement('div');d2.className='word-item';
-d2.innerHTML='<div class="w">'+col+'<span class="spk-btn" id="spk'+wi+'"></span></div><div class="sub">'+dt.d[w]+'</div><div class="ph"><div class="ph-split">'+ph.c+'</div><div>'+ph.b+'</div></div>';
-(function(w2,ph2){d2.onclick=function(){this.classList.toggle('open');if(this.classList.contains('open')){updateSplitDemo(w2);tutIdx=0;var st=document.querySelectorAll('.tut-step');for(var si=0;si<st.length;si++)st[si].className='tut-step'+(si===0?' active':'');document.getElementById('tutPrompt').innerHTML=TUT_PROMPTS[0];showRule(ph2.r||'other')}};var sb=d2.querySelector('.spk-btn');if(sb)sb.onclick=function(ev){ev.stopPropagation();speak(w2)}})(w,ph);wl.appendChild(d2)}
-// Passage - use innerHTML to render span.key
+var w=dt.w[wi];var ph=P[w]||{s:w,b:'',c:w};var col='';
+for(var j=0;j<w.length;j++){var ch=w[j];if('aeiou'.indexOf(ch.toLowerCase())>=0)col+='<span class="vowel">'+ch+'</span>';else col+='<span class="cons">'+ch+'</span>'}
+var div=document.createElement('div');div.className='word-item';
+div.innerHTML='<div class="w">'+col+'<span class="spk-btn"></span></div><div class="sub">'+dt.d[w]+'</div><div class="ph"><div class="ph-split">'+ph.c+'</div><div>'+ph.b+'</div></div>';
+(function(w2,ph2,el){el.onclick=function(){this.classList.toggle('open');if(this.classList.contains('open')){updateSplitDemo(w2);tutIdx=0;var st=document.querySelectorAll('.tut-step');for(var si=0;si<st.length;si++)st[si].className='tut-step'+(si===0?' active':'');document.getElementById('tutPrompt').innerHTML=TP[0];showRule(ph2.r||'other')}};var sb=el.querySelector('.spk-btn');if(sb)sb.onclick=function(ev){ev.stopPropagation();speak(w2)}})(w,ph,div);wl.appendChild(div)}
+// Passage
 document.getElementById('passageEN').innerHTML=dt.p;
 document.getElementById('passageCN').textContent=dt.pc;
 // Questions
 qd={};var ql=document.getElementById('qList');ql.innerHTML='';
-for(var qi=0;qi<dt.q.length;qi++){var q=dt.q[qi];var d3=document.createElement('div');d3.className='qbox';var h2='<div class="qt">'+(qi+1)+'. '+q.q+'</div><div class="qopts">';for(var oj=0;oj<q.o.length;oj++)h2+='<div class="qopt" onclick="checkQ('+qi+','+oj+','+q.a+')"><span class="ind">'+String.fromCharCode(65+oj)+'</span>'+q.o[oj]+'</div>';h2+='</div><div class="qfb" id="qfb'+qi+'"></div>';d3.innerHTML=h2;ql.appendChild(d3)}
+for(var qi=0;qi<dt.q.length;qi++){var q=dt.q[qi];var qdiv=document.createElement('div');qdiv.className='qbox';var h2='<div class="qt">'+(qi+1)+'. '+q.q+'</div><div class="qopts">';for(var oj=0;oj<q.o.length;oj++)h2+='<div class="qopt" onclick="checkQ('+qi+','+oj+','+q.a+')"><span class="ind">'+String.fromCharCode(65+oj)+'</span>'+q.o[oj]+'</div>';h2+='</div><div class="qfb" id="qfb'+qi+'"></div>';qdiv.innerHTML=h2;ql.appendChild(qdiv)}
 // Sentences
 var sl=document.getElementById('sentList');sl.innerHTML='';
-for(var si=0;si<dt.s.length;si++){var s=dt.s[si];var c=document.createElement('span');c.className='sent-chip';c.textContent=s;(function(st){c.onclick=function(){ts=st;document.getElementById('targetSentence').textContent=st;document.getElementById('recResult').style.display='none'}})(s);sl.appendChild(c)}
+for(var si=0;si<dt.s.length;si++){var s=dt.s[si];var chip=document.createElement('span');chip.className='sent-chip';chip.textContent=s;(function(st){chip.onclick=function(){ts=st;document.getElementById('targetSentence').textContent=st;document.getElementById('recResult').style.display='none'}})(s);sl.appendChild(chip)}
 if(dt.s.length>0){ts=dt.s[0];document.getElementById('targetSentence').textContent=dt.s[0]}
-// Spelling
-setupSpelling(dt.w);
-// Cloze
-setupCloze(dt);
-// Reset exercise tabs
-switchExercise('spell',0);
+// Spelling + Cloze
+setupSpelling(dt.w);setupCloze(dt);switchExercise('spell',0);
 }
 function checkQ(qi,oi,ans){if(qd[qi])return;qd[qi]=true;var q=document.querySelectorAll('.qbox')[qi];if(!q)return;var o=q.querySelectorAll('.qopt');for(var i=0;i<o.length;i++){if(i===ans)o[i].classList.add('ok');if(i===oi&&oi!==ans)o[i].classList.add('bad')}var fb=document.getElementById('qfb'+qi);if(!fb)return;if(oi===ans){fb.textContent='Correct!';fb.className='qfb show correct'}else{fb.textContent='Answer: '+String.fromCharCode(65+ans);fb.className='qfb show wrong'}}
-function speak(t){if('speechSynthesis'in window){var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}}
-function readAloud(){if('speechSynthesis'in window){var u=new SpeechSynthesisUtterance(document.getElementById('passageEN').textContent.replace(/<[^>]+>/g,''));u.lang='en-US';u.rate=.75;speechSynthesis.cancel();speechSynthesis.speak(u)}}
-function listenTarget(){if('speechSynthesis'in window&&ts){var u=new SpeechSynthesisUtterance(ts);u.lang='en-US';u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}}
+function speak(t){if('speechSynthesis'in window){speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.85;speechSynthesis.speak(u)}}
+function readAloud(){if('speechSynthesis'in window){var t=document.getElementById('passageEN').textContent.replace(/<[^>]+>/g,'');speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.75;speechSynthesis.speak(u)}}
+function listenTarget(){if('speechSynthesis'in window&&ts){speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(ts);u.lang='en-US';u.rate=.85;speechSynthesis.speak(u)}}
 function startRec(){var s=document.getElementById('recStatus'),b=document.getElementById('recBtn');if(!('webkitSpeechRecognition'in window||'SpeechRecognition'in window)){s.textContent='Chrome only.';return}if(rec&&rec.recognizing){rec.stop();b.textContent='Record';s.textContent='';return}var SR=window.SpeechRecognition||window.webkitSpeechRecognition;rec=new SR();rec.lang='en-US';rec.recognizing=true;b.textContent='Stop';s.textContent='Listening...';rec.onresult=function(e){var said=e.results[0][0].transcript,conf=Math.round(e.results[0][0].confidence*100);var tn=ts.toLowerCase().replace(/[^a-z\s]/g,'').trim(),un=said.toLowerCase().replace(/[^a-z\s]/g,'').trim();var tw=tn.split(/\s+/),uw=un.split(/\s+/);var m=0;for(var i=0;i<tw.length;i++){for(var j=0;j<uw.length;j++){if(tw[i]===uw[j]){m++;break}}}var r=Math.round(m/tw.length*100);document.getElementById('recResult').style.display='block';document.getElementById('userSpeech').textContent=said;document.getElementById('matchResult').textContent=(r>=90?'Excellent! '+r+'%':r>=70?'Good '+r+'%':r>=50?'Getting there '+r+'%':'Try again '+r+'%')+' (c:'+conf+'%)';b.textContent='Record';rec.recognizing=false};rec.onerror=function(){s.textContent='Err.';b.textContent='Record';rec.recognizing=false};rec.onend=function(){if(b.textContent==='Stop'){b.textContent='Record';rec.recognizing=false}};try{rec.start()}catch(e){}}
 function resetRec(){document.getElementById('recResult').style.display='none'}
 function saveWorksheet(){var n=new Date();var ds=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];var d2=ds[n.getDay()]+' '+n.getDate()+' '+n.toLocaleString('en-US',{month:'short'});var dt=D[cd];var d=0;for(var k in qd)if(qd.hasOwnProperty(k))d++;var e={id:Date.now(),date:d2,day:cd,title:dt.t,score:d+'/'+dt.q.length,grammar:G[cd].t};var sv=JSON.parse(localStorage.getItem('LW')||'[]');sv.unshift(e);if(sv.length>50)sv=sv.slice(0,50);localStorage.setItem('LW',JSON.stringify(sv));var btn=document.querySelector('.btn-save');btn.textContent='Saved!';setTimeout(function(){btn.textContent='Save Progress'},1200);loadArchive()}
@@ -366,15 +351,12 @@ function toggleArchive(){var a=document.getElementById('archive');a.classList.to
 function loadArchive(){var list=document.getElementById('archiveList');var sv=JSON.parse(localStorage.getItem('LW')||'[]');if(sv.length===0){list.innerHTML='<div style="text-align:center;padding:12px;color:#636e72;font-size:12px">No worksheets saved yet.</div>';return}list.innerHTML='';for(var i=0;i<sv.length;i++){var e=sv[i];var d=document.createElement('div');d.className='arch-item';d.innerHTML='<div><b>'+e.date+'</b> - '+e.title+'<br><span style="font-size:10px;color:#636e72">'+e.score+' - '+e.grammar+'</span></div><button class="del" onclick="deleteEntry('+e.id+')">X</button>';list.appendChild(d)}}
 function deleteEntry(id){var sv=JSON.parse(localStorage.getItem('LW')||'[]');sv=sv.filter(function(e){return e.id!==id});localStorage.setItem('LW',JSON.stringify(sv));loadArchive()}
 function switchExercise(name,idx){var tabs=document.querySelectorAll('.subtab');var panels=document.querySelectorAll('.subtab-panel');for(var i=0;i<tabs.length;i++){tabs[i].classList.toggle('active',i===idx);panels[i].classList.toggle('active',i===idx)}}
-// Spelling
-function setupSpelling(words){spellIdx=0;spellDone={};var nav=document.getElementById('spellNav');nav.innerHTML='';for(var i=0;i<words.length;i++){var d=document.createElement('span');d.className='spell-dot'+(i===0?' active':'');d.textContent=i+1;d.onclick=function(j){return function(){spellIdx=j;showSpellWord(words,spellIdx)}}(i);nav.appendChild(d)}showSpellWord(words,0)}
-function showSpellWord(words,idx){if(idx>=words.length||idx<0)return;var w=words[idx];var ph=P[w]||{b:''};var dt=D[cd];document.getElementById('spellCurrent').textContent=w;document.getElementById('spellHint').textContent=dt.d[w]||'';document.getElementById('spellInput').value='';document.getElementById('spellInput').className='spell-input';document.getElementById('spellStatus').textContent='Type the word';var dots=document.querySelectorAll('.spell-dot');for(var i=0;i<dots.length;i++){dots[i].classList.toggle('active',i===idx)}}
-function checkSpelling(){var words=D[cd].w;var w=words[spellIdx];var input=document.getElementById('spellInput');var v=input.value.trim().toLowerCase();if(v===w.toLowerCase()){input.className='spell-input ok';document.getElementById('spellStatus').textContent='Correct!';spellDone[spellIdx]=true;var dots=document.querySelectorAll('.spell-dot');if(dots[spellIdx])dots[spellIdx].classList.add('done')}else{input.className='spell-input bad';document.getElementById('spellStatus').textContent='Correct: '+w;speak(w)}}
-// Spelling listen on click
+function setupSpelling(words){spellIdx=0;var nav=document.getElementById('spellNav');nav.innerHTML='';for(var i=0;i<words.length;i++){(function(idx){var d=document.createElement('span');d.className='spell-dot'+(idx===0?' active':'');d.textContent=idx+1;d.onclick=function(){spellIdx=idx;showSpellWord(words,idx)};nav.appendChild(d)})(i)}showSpellWord(words,0)}
+function showSpellWord(words,idx){if(idx>=words.length||idx<0)return;var w=words[idx];var dt=D[cd];document.getElementById('spellCurrent').textContent=w;document.getElementById('spellHint').textContent=dt.d[w]||'';document.getElementById('spellInput').value='';document.getElementById('spellInput').className='spell-input';document.getElementById('spellStatus').textContent='Listen and type the word';var dots=document.querySelectorAll('.spell-dot');for(var i=0;i<dots.length;i++)dots[i].classList.toggle('active',i===idx)}
+function checkSpelling(){var words=D[cd].w;var w=words[spellIdx];var input=document.getElementById('spellInput');var v=input.value.trim().toLowerCase();if(v===w.toLowerCase()){input.className='spell-input ok';document.getElementById('spellStatus').textContent='Correct!';var dots=document.querySelectorAll('.spell-dot');if(dots[spellIdx]){dots[spellIdx].classList.add('done')}}else{input.className='spell-input bad';document.getElementById('spellStatus').textContent='Correct spelling: '+w;speak(w)}}
 document.addEventListener('DOMContentLoaded',function(){document.getElementById('spellCurrent').onclick=function(){speak(this.textContent)}});
-// Cloze
-function setupCloze(dt){var c=dt.cloze||[];var box=document.getElementById('clozeContent');box.innerHTML='';for(var i=0;i<c.length;i++){var p=document.createElement('div');p.style.marginBottom='8px';p.style.fontSize='12px';p.style.lineHeight='1.8';var parts=c[i].s.split('___');var html='';for(var j=0;j<parts.length;j++){html+=parts[j];if(j<parts.length-1){html+=' <input class="cloze-input" id="cloze'+i+'" data-answer="'+c[i].a+'" placeholder="..." autocomplete="off"> '}}html+=' <span class="cloze-fb" id="clozeFb'+i+'" style="font-size:10px;color:#636e72"></span>';p.innerHTML=html;box.appendChild(p)}document.getElementById('clozeScore').textContent=''}
-function checkCloze(){var correct=0;var total=document.querySelectorAll('.cloze-input').length;document.querySelectorAll('.cloze-input').forEach(function(inp){var ans=inp.getAttribute('data-answer');var val=inp.value.trim().toLowerCase();var fb=inp.parentElement.querySelector('.cloze-fb');if(val===ans.toLowerCase()){inp.className='cloze-input ok';correct++;if(fb)fb.textContent='';}else{inp.className='cloze-input bad';if(fb)fb.textContent='-> '+ans}});document.getElementById('clozeScore').textContent=correct+'/'+total+' correct'}
+function setupCloze(dt){var c=dt.cloze||[];var box=document.getElementById('clozeContent');box.innerHTML='';for(var i=0;i<c.length;i++){var p=document.createElement('div');p.style.marginBottom='10px';p.style.fontSize='12px';p.style.lineHeight='1.8';var parts=c[i].s.split('___');var html='';for(var j=0;j<parts.length;j++){html+=parts[j];if(j<parts.length-1){html+=' <input class="cloze-input" id="cloze'+i+'" data-answer="'+c[i].a+'" placeholder="..." autocomplete="off"> '}}html+=' <span class="cloze-fb" id="clozeFb'+i+'"></span>';p.innerHTML=html;box.appendChild(p)}document.getElementById('clozeScore').textContent=''}
+function checkCloze(){var correct=0;var inputs=document.querySelectorAll('.cloze-input');var total=inputs.length;inputs.forEach(function(inp){var ans=inp.getAttribute('data-answer');var val=inp.value.trim().toLowerCase();var fb=inp.parentElement.querySelector('.cloze-fb');if(val===ans.toLowerCase()){inp.className='cloze-input ok';correct++;if(fb)fb.textContent=''}else{inp.className='cloze-input bad';if(fb)fb.textContent='-> '+ans}});document.getElementById('clozeScore').textContent=correct+'/'+total+' correct'}
 document.addEventListener('DOMContentLoaded',function(){var m={1:'mon',2:'tue',3:'wed',4:'thu',5:'fri'};var today=m[(new Date()).getDay()]||'mon';go(today);displaySplitDemo('sample','VCCV: cut between m and p')});
 </script>
 </body>
