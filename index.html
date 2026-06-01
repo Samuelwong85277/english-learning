@@ -3,23 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>English Lab ✨</title>
+<title>English Lab</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e0e0e0;padding:12px;min-height:100vh}
-.container{max-width:880px;margin:0 auto}
+.container{max-width:920px;margin:0 auto}
 .header{background:linear-gradient(135deg,#6c5ce7 0%,#a29bfe 50%,#fd79a8 100%);border-radius:14px;padding:14px 18px;color:#fff;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
 .header h1{font-size:20px;letter-spacing:1px}
 .header .sub{font-size:10px;opacity:.7}
-.btn{background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:4px 12px;border-radius:16px;cursor:pointer;font-size:11px;transition:.2s}
+.btn{background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:4px 12px;border-radius:16px;cursor:pointer;font-size:11px;transition:.2s;white-space:nowrap}
 .btn:hover{background:rgba(255,255,255,0.35)}
 .tabs{display:flex;gap:4px;margin-bottom:10px;overflow-x:auto}
-.tab{padding:6px 12px;border-radius:8px 8px 0 0;cursor:pointer;font-size:11px;font-weight:600;background:#1a1a35;color:#636e72;white-space:nowrap;border:1px solid transparent;border-bottom:none;transition:.2s;border-bottom:2px solid transparent}
+.tab{padding:6px 12px;border-radius:8px 8px 0 0;cursor:pointer;font-size:11px;font-weight:600;background:#1a1a35;color:#636e72;white-space:nowrap;border:1px solid transparent;border-bottom:none;transition:.2s}
 .tab:hover{background:#2a2a50;color:#a29bfe}
 .tab.active{background:#2a2a50;color:#fff;border-color:#6c5ce7;border-bottom-color:#6c5ce7;box-shadow:0 -2px 8px rgba(108,92,231,.3)}
-.theme-emoji{font-size:16px;margin-right:4px}
-.grid{display:grid;grid-template-columns:1fr 240px;gap:10px}
-@media(max-width:740px){.grid{display:flex;flex-direction:column}}
+.grid{display:grid;grid-template-columns:1fr 250px;gap:10px}
+@media(max-width:760px){.grid{display:flex;flex-direction:column}}
 
 .scene-box{background:linear-gradient(135deg,#1a1a35,#2a1a40);border-radius:10px;padding:14px;margin-bottom:10px;text-align:center;border:1px solid #2a2a50;overflow:hidden;position:relative}
 .scene-box .scene-art{font-size:2.2em;line-height:1.4;letter-spacing:3px;user-select:none;animation:sceneFloat 4s ease-in-out infinite}
@@ -28,19 +27,18 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 .scene-box .scene-bg{position:absolute;top:-30%;left:-10%;width:120%;height:140%;background:radial-gradient(ellipse at center,rgba(108,92,231,.08) 0%,transparent 70%);pointer-events:none}
 
 .card{background:#1a1a35;border-radius:10px;padding:12px;margin-bottom:10px;border:1px solid #2a2a50}
-.card-title{font-size:14px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.card-title{font-size:14px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .badge{background:#6c5ce7;color:#fff;font-size:10px;padding:1px 8px;border-radius:8px;margin-left:auto;white-space:nowrap}
 .badge.g{background:#00b894}
 .badge.o{background:#e17055}
 .badge.p{background:#fd79a8}
+.badge.y{background:#fdcb6e;color:#1a1a35}
 
 .grammar{border:1px solid #fd79a8;border-radius:8px;padding:10px;margin-bottom:10px;background:rgba(253,121,168,.08);font-size:12px}
 .grammar .t{font-weight:700;color:#fd79a8;margin-bottom:3px}
 
 .ph-panel{background:#1a1a35;border-radius:10px;padding:12px;margin-bottom:10px;border:1px solid #2a2a50}
 .ph-panel .t{font-weight:700;font-size:13px;margin-bottom:8px;display:flex;align-items:center;gap:5px}
-.ph-panel .t .emo{font-size:16px}
-
 .rule-cards{display:flex;flex-direction:column;gap:5px;margin-bottom:8px}
 .rule-card{border-radius:6px;padding:7px 9px;font-size:10px;cursor:pointer;transition:.25s;border:1px solid transparent;position:relative;overflow:hidden}
 .rule-card:hover{transform:translateX(3px)}
@@ -54,15 +52,13 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 .rule-card .rc-title{font-weight:700;font-size:11px;display:flex;align-items:center;gap:4px}
 .rule-card .rc-desc{color:#636e72;margin-top:1px;padding-left:18px}
 .rule-card .rc-example{background:rgba(0,0,0,.2);border-radius:3px;padding:3px 6px;margin-top:3px;display:inline-block;font-family:monospace;font-size:11px}
-
 .split-demo{background:#2a2a50;border-radius:8px;padding:10px;margin:8px 0;position:relative}
 .split-demo .sd-title{font-size:10px;color:#636e72;margin-bottom:4px}
 .split-demo .sd-word{font-size:20px;font-family:monospace;text-align:center;padding:6px 0;letter-spacing:1px;transition:.3s}
 .split-demo .sd-word .vowel{color:#fd79a8;font-weight:700}
 .split-demo .sd-word .cons{color:#81ecec}
 .split-demo .sd-result{text-align:center;margin-top:5px}
-.split-demo .sd-result .syl{display:inline-block;background:#6c5ce7;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;margin:2px;animation:sylPop .3s ease-out}
-@keyframes sylPop{0%{opacity:0;transform:scale(.5)}100%{opacity:1;transform:scale(1)}}
+.split-demo .sd-result .syl{display:inline-block;background:#6c5ce7;color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;margin:2px}
 .split-demo .sd-hint{text-align:center;font-size:10px;color:#636e72;margin-top:4px}
 .tut-steps{display:flex;gap:3px;margin:6px 0}
 .tut-step{flex:1;text-align:center;padding:3px 0;border-radius:4px;font-size:9px;cursor:pointer;transition:.2s;background:#1a1a35;color:#636e72;border:1px solid #2a2a50}
@@ -80,28 +76,29 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 .word-item .w .spk-btn:hover{opacity:1;color:#a29bfe}
 .word-item .sub{color:#636e72;font-size:11px;margin-top:1px}
 .word-item .ph{display:none;margin-top:5px;padding:5px 7px;background:#2a2a50;border-radius:6px;font-size:10px;color:#a29bfe;border-left:2px solid #6c5ce7}
-.word-item .ph .ph-rules{color:#636e72;font-size:9px;margin-top:2px}
 .word-item .ph .ph-split{font-size:13px;font-family:monospace;color:#fff;letter-spacing:.5px}
 .word-item .ph .ph-split .syl{color:#ffeaa7}
 .word-item .ph .ph-split .sep{color:#636e72;margin:0 2px}
 .word-item.open .ph{display:block}
 .word-item.open{border-color:#6c5ce7;background:#222250}
 
+/* Reading passage */
 .rbox{border:1px solid #00b894;border-radius:8px;overflow:hidden}
 .rtb{background:rgba(0,184,148,.12);padding:6px 10px;display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:600;border-bottom:1px solid rgba(0,184,148,.2)}
 .rtb button{background:#00b894;color:#fff;border:none;padding:3px 10px;border-radius:4px;cursor:pointer;font-size:10px;transition:.2s}
 .rtb button:hover{background:#00a381}
-.rbody{padding:10px}
-.rbody .en{font-size:13px;line-height:1.8;margin-bottom:6px;white-space:pre-line;color:#e0e0e0}
+.rbody{padding:10px;max-height:320px;overflow-y:auto}
+.rbody .en{font-size:12px;line-height:1.9;margin-bottom:6px;white-space:pre-line;color:#e0e0e0}
 .rbody .cn{font-size:11px;color:#636e72;border-top:1px dashed #2a2a50;padding-top:5px}
+.key{color:#ff6b6b;font-weight:700;border-bottom:2px solid #ff6b6b;padding:0 2px;cursor:help}
 
 .qbox{background:#2a2a50;border-radius:8px;padding:8px 10px;margin-bottom:6px;border-left:2px solid #6c5ce7}
 .qbox .qt{font-weight:600;font-size:12px;margin-bottom:5px}
 .qopts{display:flex;flex-direction:column;gap:3px}
 .qopt{padding:4px 8px;border-radius:6px;border:1px solid #3a3a60;cursor:pointer;font-size:11px;display:flex;align-items:center;gap:5px;transition:.2s;background:#1a1a35}
 .qopt:hover{border-color:#6c5ce7;background:#2a2a60}
-.qopt.ok{border-color:#00b894;background:rgba(0,184,148,.15)!important}
-.qopt.bad{border-color:#e17055;background:rgba(225,112,85,.12)!important}
+.qopt.ok{border-color:#00b894!important;background:rgba(0,184,148,.15)!important}
+.qopt.bad{border-color:#e17055!important;background:rgba(225,112,85,.12)!important}
 .qopt .ind{width:16px;height:16px;border-radius:50%;border:1px solid #3a3a60;display:inline-flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;transition:.2s}
 .qopt.ok .ind{background:#00b894;color:#fff;border-color:#00b894}
 .qopt.bad .ind{background:#e17055;color:#fff;border-color:#e17055}
@@ -110,6 +107,7 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 .qfb.correct{background:rgba(0,184,148,.1);color:#00b894}
 .qfb.wrong{background:rgba(225,112,85,.1);color:#e17055}
 
+/* Speaking */
 .sbox{border:1px dashed #6c5ce7;border-radius:8px;padding:10px;background:#1a1a35}
 .sbox .t{font-weight:600;font-size:12px;margin-bottom:5px;color:#a29bfe}
 .sbtns{display:flex;gap:5px}
@@ -124,6 +122,39 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 .sent-row{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px}
 .sent-chip{padding:3px 10px;border:1px solid #3a3a60;border-radius:12px;cursor:pointer;font-size:10px;background:#1a1a35;transition:.2s}
 .sent-chip:hover{background:#2a2a50;border-color:#6c5ce7}
+
+/* Spelling */
+.spell-box{padding:8px}
+.spell-word{font-size:24px;text-align:center;padding:8px 0;display:none}
+.spell-word.show{display:block;animation:spellIn .3s ease}
+@keyframes spellIn{0%{opacity:0;transform:scale(.8)}100%{opacity:1;transform:scale(1)}}
+.spell-word .hint-mean{display:block;font-size:11px;color:#636e72;font-weight:400}
+.spell-input-wrap{display:flex;gap:6px;margin-top:8px;justify-content:center}
+.spell-input{border:2px solid #3a3a60;border-radius:6px;padding:6px 10px;font-size:16px;background:#1a1a35;color:#fff;outline:none;width:160px;text-align:center;transition:.2s;font-family:monospace}
+.spell-input:focus{border-color:#6c5ce7}
+.spell-input.ok{border-color:#00b894;background:rgba(0,184,148,.08)}
+.spell-input.bad{border-color:#e17055;background:rgba(225,112,85,.08)}
+.spell-btn{background:#6c5ce7;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px}
+.spell-btn:hover{background:#7c6cf7}
+.spell-status{text-align:center;font-size:11px;margin-top:6px;min-height:20px}
+.spell-nav{display:flex;gap:4px;justify-content:center;margin-top:8px;flex-wrap:wrap}
+.spell-dot{width:22px;height:22px;border-radius:50%;border:1px solid #3a3a60;display:flex;align-items:center;justify-content:center;font-size:9px;cursor:pointer;transition:.2s;background:#1a1a35}
+.spell-dot:hover{border-color:#6c5ce7}
+.spell-dot.active{background:#6c5ce7;border-color:#6c5ce7;color:#fff}
+.spell-dot.done{background:rgba(0,184,148,.2);border-color:#00b894;color:#00b894}
+
+/* Cloze */
+.cloze-box{padding:8px}
+.cloze-sent{font-size:12px;line-height:1.8;margin-bottom:6px;color:#e0e0e0}
+.cloze-blank{display:inline-block;border-bottom:2px solid #6c5ce7;min-width:60px;padding:0 4px;color:#a29bfe;font-weight:700;cursor:pointer}
+.cloze-input{display:inline-block;border:none;border-bottom:2px solid #6c5ce7;background:transparent;color:#fff;font-size:12px;padding:0 4px;min-width:60px;outline:none;font-family:inherit;text-align:center}
+.cloze-input:focus{border-bottom-color:#a29bfe}
+.cloze-input.ok{border-bottom-color:#00b894;color:#00b894}
+.cloze-input.bad{border-bottom-color:#e17055;color:#e17055}
+.cloze-check-btn{display:block;margin:8px auto 0;background:#6c5ce7;color:#fff;border:none;padding:4px 18px;border-radius:6px;cursor:pointer;font-size:11px}
+.cloze-check-btn:hover{background:#7c6cf7}
+.cloze-score{text-align:center;font-size:10px;color:#636e72;margin-top:4px}
+
 .save-area{text-align:center;padding:8px 0}
 .btn-save{background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:#fff;border:none;padding:7px 28px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;transition:.2s;letter-spacing:1px}
 .btn-save:hover{transform:translateY(-1px);box-shadow:0 4px 15px rgba(108,92,231,.4)}
@@ -132,531 +163,219 @@ body{font-family:'Segoe UI','PingFang SC',sans-serif;background:#0f0f23;color:#e
 .archive .t{font-size:14px;font-weight:700;margin-bottom:8px;display:flex;justify-content:space-between;color:#e0e0e0}
 .arch-item{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:#2a2a50;border-radius:6px;border-left:2px solid #6c5ce7;font-size:11px;margin-bottom:3px}
 .arch-item .del{background:none;border:none;color:#e17055;cursor:pointer;font-size:10px}
+
+/* Section tabs for exercises */
+.subtabs{display:flex;gap:2px;margin-bottom:6px}
+.subtab{padding:4px 10px;border-radius:6px 6px 0 0;cursor:pointer;font-size:10px;font-weight:600;background:transparent;color:#636e72;border:1px solid transparent;border-bottom:none;transition:.2s}
+.subtab.active{background:#2a2a50;color:#fff;border-color:#2a2a50}
+.subtab-panel{display:none}
+.subtab-panel.active{display:block}
 </style>
 </head>
 <body>
 <div class="container">
 <div class="header">
-<div><h1>&#10022; English Lab &#10022;</h1><div class="sub">phonics &middot; grammar &middot; speaking &middot; reading</div></div>
-<button class="btn" onclick="toggleArchive()">&#128194; Archive</button>
+<div><h1>English Lab</h1><div class="sub">phonics &middot; grammar &middot; reading &middot; spelling</div></div>
+<button class="btn" onclick="toggleArchive()">Archive</button>
 </div>
 <div class="tabs" id="tabBar">
-<div class="tab active" data-d="mon" onclick="go('mon')">&#128231; Mon</div>
-<div class="tab" data-d="tue" onclick="go('tue')">&#128084; Tue</div>
-<div class="tab" data-d="wed" onclick="go('wed')">&#128187; Wed</div>
-<div class="tab" data-d="thu" onclick="go('thu')">&#128298; Thu</div>
-<div class="tab" data-d="fri" onclick="go('fri')">&#9749; Fri</div>
+<div class="tab active" data-d="mon" onclick="go('mon')">Mon</div>
+<div class="tab" data-d="tue" onclick="go('tue')">Tue</div>
+<div class="tab" data-d="wed" onclick="go('wed')">Wed</div>
+<div class="tab" data-d="thu" onclick="go('thu')">Thu</div>
+<div class="tab" data-d="fri" onclick="go('fri')">Fri</div>
 </div>
 <div class="grid">
 <div>
 <div class="scene-box" id="sceneBox"><div class="scene-bg"></div><div class="scene-art" id="sceneArt"></div><div class="scene-label" id="sceneLabel"></div></div>
-<div class="grammar" id="grammarBox"><div class="t">Grammar: <span id="gTitle">Simple Present</span></div><div id="gRule">Facts, habits, truths.</div><div id="gEx">&quot;I send&quot; / &quot;He sends&quot;</div></div>
-<div class="card"><div class="card-title">&#128214; Words <span class="badge">Tap for split</span></div><div class="word-list" id="wordList"></div></div>
-<div class="card"><div class="card-title">&#128218; Reading <span class="badge g" id="themeBadge">Office</span></div>
-<div class="rbox"><div class="rtb"><span id="themeLabel"></span><button onclick="readAloud()">&#128266; Listen</button></div><div class="rbody"><div class="en" id="passageEN"></div><div class="cn" id="passageCN"></div></div></div></div>
-<div class="card"><div class="card-title">&#10067; Questions <span class="badge o">Test</span></div><div id="qList"></div></div>
+<div class="grammar" id="grammarBox"><div class="t">Grammar: <span id="gTitle">Simple Present</span></div><div id="gRule">Facts, habits, truths.</div><div id="gEx">"I send" / "He sends"</div></div>
+
+<div class="card"><div class="card-title">Words <span class="badge">Tap</span></div><div class="word-list" id="wordList"></div></div>
+
+<div class="card"><div class="card-title">Reading <span class="badge g" id="themeBadge">Office</span> <span class="badge y">Key sentences in red</span></div>
+<div class="rbox"><div class="rtb"><span id="themeLabel"></span><button onclick="readAloud()">Listen</button></div><div class="rbody"><div class="en" id="passageEN"></div><div class="cn" id="passageCN"></div></div></div></div>
+
+<!-- Exercise Tabs -->
+<div class="card">
+<div class="card-title">Exercises <span class="badge o">Practice</span></div>
+<div class="subtabs" id="exerciseTabs">
+<div class="subtab active" onclick="switchExercise('spell',0)">Spelling</div>
+<div class="subtab" onclick="switchExercise('cloze',1)">Fill Blanks</div>
+<div class="subtab" onclick="switchExercise('quiz',2)">Questions</div>
+</div>
+<div class="subtab-panel active" id="panelSpell">
+<div class="spell-box">
+<div class="spell-word show" id="spellWord"><span id="spellCurrent">sample</span><span class="hint-mean" id="spellHint">test piece</span></div>
+<div class="spell-input-wrap"><input class="spell-input" id="spellInput" placeholder="Type the word..." autocomplete="off" autocapitalize="off"><button class="spell-btn" onclick="checkSpelling()">Check</button></div>
+<div class="spell-status" id="spellStatus">Listen to the word, then type it</div>
+<div class="spell-nav" id="spellNav"></div>
+</div>
+</div>
+<div class="subtab-panel" id="panelCloze">
+<div class="cloze-box">
+<div id="clozeContent"></div>
+<button class="cloze-check-btn" onclick="checkCloze()">Check All</button>
+<div class="cloze-score" id="clozeScore"></div>
+</div>
+</div>
+<div class="subtab-panel" id="panelQuiz">
+<div id="qList"></div>
+</div>
+</div>
 </div>
 <div>
 <div class="ph-panel" id="phonicsPanel">
-<div class="t"><span class="emo">&#9986;</span> Syllable Splitter</div>
-<div class="tut-prompt" id="tutPrompt">&#128075; <b>Tap any word</b> below to see how it splits! Then try the rules &rarr;</div>
+<div class="t">Syllable Splitter</div>
+<div class="tut-prompt" id="tutPrompt">Tap any word below to see how it splits!</div>
 <div class="rule-cards" id="ruleCards">
 <div class="rule-card vccv active" onclick="showRule('vccv')">
-<div class="rc-title"><span class="rc-icon">&#9612;</span> VCCV &mdash; Vowel-Consonant-Consonant-Vowel</div>
+<div class="rc-title">VCCV - Vowel-Consonant-Consonant-Vowel</div>
 <div class="rc-desc"><b>Cut between</b> the two consonants</div>
-<div class="rc-example">hap<span style="color:#ffeaa7">|</span>pen &rarr; hap&middot;pen</div>
+<div class="rc-example">hap|pen &rarr; hap&middot;pen</div>
 </div>
 <div class="rule-card vcv" onclick="showRule('vcv')">
-<div class="rc-title"><span class="rc-icon">&#9612;</span> VCV &mdash; Vowel-Consonant-Vowel</div>
+<div class="rc-title">VCV - Vowel-Consonant-Vowel</div>
 <div class="rc-desc">Usually cut <b>before</b> the consonant</div>
-<div class="rc-example">o<span style="color:#ffeaa7">|</span>pen &rarr; o&middot;pen</div>
+<div class="rc-example">o|pen &rarr; o&middot;pen</div>
 </div>
 <div class="rule-card other" onclick="showRule('other')">
-<div class="rc-title"><span class="rc-icon">&#9612;</span> More Rules</div>
-<div class="rc-desc">&#128263; Silent e &middot; &#128107; Vowel pairs &middot; &#128304; R-controlled</div>
-<div class="rc-example">sam<span style="color:#ffeaa7">|</span>ple &middot; boat &middot; farm</div>
+<div class="rc-title">More Rules</div>
+<div class="rc-desc">Silent e &middot; Vowel pairs &middot; R-controlled</div>
+<div class="rc-example">sam|ple &middot; boat &middot; farm</div>
 </div>
 </div>
 <div class="split-demo" id="splitDemo">
-<div class="sd-title">&#9986; Watch it split</div>
-<div class="sd-word" id="sdWord">sam<span style="color:#ffeaa7;">|</span>ple</div>
-<div class="sd-result" id="sdResult">
-<span class="syl">sam</span><span class="syl">ple</span>
-</div>
-<div class="sd-hint" id="sdHint">VCCV: cut between m and p &#9986;</div>
+<div class="sd-title">Watch it split</div>
+<div class="sd-word" id="sdWord">sam<span>|</span>ple</div>
+<div class="sd-result" id="sdResult"><span class="syl">sam</span><span class="syl">ple</span></div>
+<div class="sd-hint" id="sdHint">VCCV: cut between m and p</div>
 </div>
 <div class="tut-steps" id="tutSteps">
-<div class="tut-step active" onclick="tutStep(0)">1. Find Vowels</div>
-<div class="tut-step" onclick="tutStep(1)">2. Find Pattern</div>
-<div class="tut-step" onclick="tutStep(2)">3. Cut &amp; Blend</div>
+<div class="tut-step active" onclick="tutStep(0)">1. Vowels</div>
+<div class="tut-step" onclick="tutStep(1)">2. Pattern</div>
+<div class="tut-step" onclick="tutStep(2)">3. Blend</div>
 </div>
 </div>
-<div class="card"><div class="card-title">&#127908; Speak <span class="badge p">Say it!</span></div>
+<div class="card"><div class="card-title">Speak <span class="badge p">Say it!</span></div>
 <div class="sbox"><div class="t" id="targetSentence">Tap a sentence</div>
-<div class="sbtns"><button onclick="startRec()" id="recBtn">&#128308; Record</button><button onclick="listenTarget()">&#128266; Listen</button></div>
+<div class="sbtns"><button onclick="startRec()" id="recBtn">Record</button><button onclick="listenTarget()">Listen</button></div>
 <div class="sstat" id="recStatus"></div>
-<div class="sres" id="recResult"><div class="l">You said:</div><div class="t" id="userSpeech"></div><div class="l" id="matchResult"></div><button onclick="resetRec()" style="margin-top:3px;background:transparent;border:1px solid #3a3a60;padding:2px 12px;border-radius:4px;cursor:pointer;font-size:10px;color:#636e72">&#8635; Again</button></div></div>
+<div class="sres" id="recResult"><div class="l">You said:</div><div class="t" id="userSpeech"></div><div class="l" id="matchResult"></div><button onclick="resetRec()" style="margin-top:3px;background:transparent;border:1px solid #3a3a60;padding:2px 12px;border-radius:4px;cursor:pointer;font-size:10px;color:#636e72">Again</button></div></div>
 <div class="sent-row" id="sentList"></div>
 </div>
-<div class="save-area"><button class="btn-save" onclick="saveWorksheet()">&#128190; Save Progress</button></div>
+<div class="save-area"><button class="btn-save" onclick="saveWorksheet()">Save Progress</button></div>
 </div>
 </div>
-<div class="archive" id="archive"><div class="t"><span>&#128194; Saved Worksheets</span><button class="btn" onclick="toggleArchive()">&#10005; Close</button></div><div id="archiveList"><div style="text-align:center;padding:12px;color:#636e72;font-size:12px">No worksheets saved yet.</div></div></div>
+<div class="archive" id="archive"><div class="t"><span>Saved Worksheets</span><button class="btn" onclick="toggleArchive()">Close</button></div><div id="archiveList"><div style="text-align:center;padding:12px;color:#636e72;font-size:12px">No worksheets saved yet.</div></div></div>
 </div>
 <script>
-var SCENES = {
-  mon: ['💼','📧','📞','📊','📋','📎','✉️','📬'],
-  tue: ['👔','⚖️','📱','📋','🗂️','🔐','✍️','📑'],
-  wed: ['💻','🌐','📈','🤝','🖥️','🔗','💵','📊'],
-  thu: ['🔪','🍳','🥩','🚚','📦','🔥','💔','🔄'],
-  fri: ['☕','🛋️','😂','🤝','🎸','🍕','💡','🎭']
+var SCENES={mon:['💼','📧','📞','📊','📋','📎','✉️','📬'],tue:['👔','⚖️','📱','📋','🗂️','🔐','✍️','📑'],wed:['💻','🌐','📈','🤝','🖥️','🔗','💵','📊'],thu:['🔪','🍳','🥩','🚚','📦','🔥','💔','🔄'],fri:['☕','🛋️','😂','🤝','🎸','🍕','💡','🎭']};
+var SCENE_TEXTS={mon:'Office - Inquiry to Order',tue:'Suits - The Call',wed:'Social Network - The Deal',thu:'The Bear - Kitchen Crisis',fri:'Friends - Awkward Encounter'};
+var G={mon:{t:'Simple Present',r:'Facts, habits, truths.',e:'"I send" / "He sends"'},tue:{t:'Present Continuous',r:'Actions happening NOW.',e:'"I am calling"'},wed:{t:'Simple Past',r:'Completed action. Add -ed.',e:'"I sent" / "He called"'},thu:{t:'Present Perfect',r:'have/has + past participle.',e:'"I have sent"'},fri:{t:'Future with Will',r:'Decisions, promises, plans.',e:'"I will send"'}};
+var P={inquiry:{s:'in·qui·ry',b:'VCCV cut between n,q',r:'vccv',c:'in|qui|ry'},quotation:{s:'quo·ta·tion',b:'tion=/shun/',r:'vcv',c:'quo|ta|tion'},'lead time':{s:'lead time',b:'ea=long E',r:'other',c:'lead time'},MOQ:{s:'M·O·Q',b:'Say each letter',r:'other',c:'M|O|Q'},sample:{s:'sam·ple',b:'VCCV + silent e',r:'vccv',c:'sam|ple'},'put through':{s:'put through',b:'ough=/oo/',r:'other',c:'put through'},clarify:{s:'clar·i·fy',b:'VCV + -ify=verb',r:'vcv',c:'clar|i|fy'},deadline:{s:'dead·line',b:'VCCV + silent e',r:'vccv',c:'dead|line'},'follow up':{s:'fol·low up',b:'double L=short O',r:'vccv',c:'fol|low up'},'call back':{s:'call back',b:'all=/awl/',r:'other',c:'call back'},negotiate:{s:'ne·go·ti·ate',b:'VCV pattern x3',r:'vcv',c:'ne|go|ti|ate'},margin:{s:'mar·gin',b:'VCCV cut r,g',r:'vccv',c:'mar|gin'},compromise:{s:'com·pro·mise',b:'VCV + silent e',r:'vcv',c:'com|pro|mise'},'win-win':{s:'win-win',b:'short I x2',r:'other',c:'win|win'},flexible:{s:'flex·i·ble',b:'VCCV + -ble',r:'vccv',c:'flex|i|ble'},defective:{s:'de·fec·tive',b:'VCV+VCCV',r:'vcv',c:'de|fec|tive'},refund:{s:'re·fund',b:'VCV: re- prefix',r:'vcv',c:'re|fund'},apologize:{s:'a·pol·o·gize',b:'4 syllables',r:'vcv',c:'a|pol|o|gize'},replacement:{s:'re·place·ment',b:'VCV+sound e+-ment',r:'vcv',c:'re|place|ment'},inspect:{s:'in·spect',b:'VCCV: spect=look',r:'vccv',c:'in|spect'},resolve:{s:'re·solve',b:'VCV + silent e',r:'vcv',c:'re|solve'},awkward:{s:'awk·ward',b:'VCCV: -ward common',r:'vccv',c:'awk|ward'},polite:{s:'po·lite',b:'VCV: silent e=I',r:'vcv',c:'po|lite'},offer:{s:'of·fer',b:'VCCV: double F',r:'vccv',c:'of|fer'},tip:{s:'tip',b:'short I',r:'other',c:'tip'},weird:{s:'weird',b:'ei=/ear/',r:'other',c:'weird'}};
+var D={mon:{t:'Office',w:['inquiry','quotation','lead time','MOQ','sample'],
+d:{inquiry:'a question',quotation:'price offer','lead time':'time to delivery',MOQ:'minimum order',sample:'test piece'},
+e:{inquiry:'Thanks for your inquiry.',quotation:'We sent the quotation.','lead time':'25 days.',MOQ:'500 units.',sample:'Free samples.'},
+p:'The office was busy on Monday morning. <span class="key">Dwight was already ahead of Jim</span> when it came to the new client inquiry. He had sent the quotation before Jim even asked about it. The client was a German company looking for office supplies. They wanted pricing on a bulk order of 2000 units. <span class="key">Jim checked the stock and confirmed they could handle the order.</span>\n\nThe lead time would be 30 days, and the MOQ was 500 units per item. Dwight prepared a sample package to ship the next day. "Quick response builds trust," he said with confidence. Jim agreed and reminded him to follow up next week. <span class="key">Good customer service means regular communication.</span> The client was impressed by their fast reply. Soon, more inquiries came in from other potential buyers. The team worked together smoothly. It was just another busy day at Dunder Mifflin. But for Dwight, every inquiry was a chance to prove himself. <span class="key">He sends the quotation quickly every time.</span> That is how business works.',
+pc:'周一早上办公室很忙。Dwight 在新客户询盘上已经领先了 Jim 一步。客户是一家德国的办公用品采购商，要询价 2000 件的大单。Jim 检查了库存确认可以接单。交货期 30 天，起订量 500件。Dwight 准备样品第二天发货。更多的询盘接着来了，团队配合得很顺畅。对 Dwight 来说，每次询盘都是证明自己的机会。',
+q:[{q:'Who sent the quotation?',o:['Jim','Dwight','Client'],a:1},{q:'What did the client want?',o:['Samples','Invoice','Contract'],a:0},{q:'Lead time?',o:['15d','25d','30d'],a:2}],
+s:['Did you send that email?','Way ahead of you!','Lead time is 30 days.','He sends the quotation.'],
+cloze:[{s:'Dwight was already ___ of Jim.',a:'ahead'},{s:'The ___ time would be 30 days.',a:'lead'},{s:'The ___ was 500 units per item.',a:'MOQ'},{s:'Good customer service means ___ communication.',a:'regular'},{s:'He sends the ___ quickly every time.',a:'quotation'}]},
+tue:{t:'Suits',w:['put through','clarify','deadline','follow up','call back'],
+d:{'put through':'connect call',clarify:'make clear',deadline:'final time','follow up':'check again','call back':'return call'},
+e:{'put through':'Put me through.',clarify:'Clarify terms.',deadline:'Deadline Friday.','follow up':'I will follow up.','call back':'Call back soon.'},
+p:'Harvey Specter walked into the office with a file in his hand. "Call the client," he said to Mike. <span class="key">We need to clarify the payment terms before the deadline.</span> Mike looked at the clock. The deadline was tomorrow at 5 PM. There was no time to waste. He picked up the phone and dialed the number.\n\n"Hello, this is Mike Ross from Pearson Specter. <span class="key">I am calling to follow up on our agreement.</span>" The client listened carefully. Mike explained the payment structure and the next steps. The client had a few questions but Mike answered them all with confidence. After a short pause, the client said, "We agree. Put me through to Harvey." <span class="key">He is building trust with every call.</span> Harvey smiled from his office door. "Good job, Mike. Now call back next week to confirm the signing." Mike nodded. This was how cases were won - one phone call at a time. <span class="key">They are working together as a real team now.</span>',
+pc:'Harvey Specter 拿着文件走进办公室。他说服客户先确认清楚付款条件再签。Mike 看了看时间，截止日是明下午 5 点。他打电话跟进，回答了客户的所有问题。客户最终同意了条款，要求转接 Harvey。Harvey 很满意，让他下周再回电确认签约。',
+q:[{q:'What needs clarifying?',o:['Price','Payment','Delivery'],a:1},{q:'Deadline?',o:['Today','Tomorrow 5PM','Friday'],a:1},{q:'Client says?',o:['No','Agree','Maybe'],a:1}],
+s:['I am calling the client.','He is following up.','Deadline is tomorrow.','They are waiting.'],
+cloze:[{s:'We need to ___ the payment terms.',a:'clarify'},{s:'The ___ was tomorrow at 5 PM.',a:'deadline'},{s:'I am calling to ___ up.',a:'follow'},{s:'Put me ___ to Harvey.',a:'through'},{s:'Call back next week to ___ the signing.',a:'confirm'}]},
+wed:{t:'Social Network',w:['negotiate','margin','compromise','win-win','flexible'],
+d:{negotiate:'discuss a deal',margin:'profit space',compromise:'meet in the middle','win-win':'both benefit',flexible:'can change'},
+e:{negotiate:'We negotiate.',margin:'Thin margin.',compromise:'Let us compromise.','win-win':'Win-win.',flexible:'Flexible price.'},
+p:'In a small conference room, Mark Zuckerberg sat across from Sean Parker. The Facebook office was buzzing with energy. "One million dollars," Mark said. "Take it or leave it." Sean smiled. <span class="key">He knew the margin was tight, but he could be flexible.</span> He leaned forward and countered.\n\n"Ten percent equity," Mark offered. Sean shook his head. "Twelve percent and a board seat. That is a win-win." Mark thought for a moment. The numbers made sense. <span class="key">They negotiated hard but found common ground.</span> "Fine," Mark said. "Twelve percent." They shook hands. <span class="key">A good compromise is better than no deal at all.</span> Sean walked out of the room. It was a fair deal for both sides. Neither got everything they wanted, but both got something valuable. That is the art of negotiation. <span class="key">They agreed on terms that worked for everyone.</span>',
+pc:'在一个小会议室里，Mark Zuckerberg 与 Sean Parker 面对面坐着。Mark 出价 100 万美元。Sean 知道利润空间有限，但他可以灵活处理。Mark 提出 10% 股权，Sean 还价 12% 加一个董事会席位。最终双方握手成交。一个好的妥协比谈崩了强。双方都得到了有价值的回报。',
+q:[{q:'Initial offer?',o:['500k','1M','2M'],a:1},{q:'Final equity?',o:['10%','12%','15%'],a:1},{q:'Win-win means?',o:['One wins','Both benefit','No deal'],a:1}],
+s:['I sent the quotation.','He called the client.','They agreed on price.','We compromised.'],
+cloze:[{s:'The ___ was tight but he could be flexible.',a:'margin'},{s:'They ___ hard but found common ground.',a:'negotiated'},{s:'A good ___ is better than no deal.',a:'compromise'},{s:'It was a ___ for both sides.',a:'win-win'},{s:'They ___ on terms that worked for everyone.',a:'agreed'}]},
+thu:{t:'The Bear',w:['defective','refund','apologize','replacement','inspect'],
+d:{defective:'broken/damaged',refund:'money back',apologize:'say sorry',replacement:'new item',inspect:'check carefully'},
+e:{defective:'Defective items.',refund:'Full refund.',apologize:'I apologize.',replacement:'Send replacement.',inspect:'Inspect goods.'},
+p:'The kitchen was loud and hot. A customer at table four looked upset. <span class="key">Richie noticed the customer was unhappy and went to check.</span> The steak was served warm instead of hot. The customer pushed the plate away. "This is not fresh!" he said loudly.\n\nCarmen rushed over. "I apologize," she said calmly. <span class="key">She immediately sent a replacement to the kitchen.</span> She also offered a full refund. But the customer was not satisfied yet. He wanted compensation. Carmen thought quickly. "Twenty percent off your next order," she offered. The customer finally nodded. "Fine." <span class="key">She has handled the situation professionally.</span> Richie watched and learned. In a busy restaurant, mistakes happen. But how you fix them makes all the difference. <span class="key">Good service means owning your mistakes and making things right.</span>',
+pc:'厨房里又吵又热。4 号桌的客人看起来很不高兴。牛扒是温的不是热的，客人把盘子推开了。Carmen 立刻道歉，让厨房重做，并全额退款。客人还不满意，Carmen 又给了下次 8 折的优惠。客人终于接受了。在繁忙的厨房里出错难免，但怎么补救才是关键。',
+q:[{q:'Why was the customer upset?',o:['Late service','Warm meat','Wrong order'],a:1},{q:'What did Carmen offer first?',o:['Discount','Free drink','Replacement and refund'],a:2},{q:'Extra compensation?',o:['Free delivery','20% off','Gift card'],a:1}],
+s:['I have sent the replacement.','He has already called.','They agreed on the deal.','We offered a refund.'],
+cloze:[{s:'The steak was ___ instead of hot.',a:'warm'},{s:'I ___ , she said calmly.',a:'apologize'},{s:'She sent a ___ to the kitchen.',a:'replacement'},{s:'She offered a full ___.',a:'refund'},{s:'The food was not fresh, it was ___.',a:'defective'}]},
+fri:{t:'Friends',w:['awkward','polite','offer','tip','weird'],
+d:{awkward:'uncomfortable',polite:'good manners',offer:'give a chance',tip:'helpful advice',weird:'strange'},
+e:{awkward:'So awkward.',polite:'Polite to say thanks.',offer:'He offered help.',tip:'Here is a tip.',weird:'That is weird.'},
+p:'Monica was hosting a dinner for their Japanese business partner. Everything was going well until the greeting. <span class="key">The client bowed when Monica tried to shake his hand.</span> She froze for a moment. It felt awkward. She did not know what to do. Phoebe pulled her aside. "It is cultural," she whispered. "Bowing is polite in Japan."\n\nChandler gave her a tip: "Next time, just bow back. It shows respect." Monica nodded. Later, Rachel offered the client coffee. <span class="key">He said no three times but finally accepted.</span> Phoebe laughed. "In Japan, refusing politely first is good manners. <span class="key">He will accept if you offer again.</span>" Monica smiled. She was learning something new every day. Cross-cultural communication was not easy, but it was interesting. <span class="key">Making an effort to understand others is always polite.</span>',
+pc:'Monica 为日本商务伙伴准备晚餐。客户握手时鞠了个躬，Monica 不知所措。Phoebe 解释说鞠躬在日本是礼貌。Chandler 建议下次也鞠躬回礼。Rachel 请咖啡对方一开始拒绝了三次才接受。Phoebe 解释说在日本第一次拒绝是礼貌。跨文化沟通不容易，但努力去理解别人总是有礼貌的。',
+q:[{q:'Why did the client bow?',o:['Shy','Cultural','Mistake'],a:1},{q:'Monica felt?',o:['Happy','Angry','Awkward'],a:2},{q:'Chandler tip?',o:['Ignore','Bow back','Leave'],a:1}],
+s:['I will send samples.','He will call back.','They will love it.','We will offer a deal.'],
+cloze:[{s:'Monica felt ___ when he bowed.',a:'awkward'},{s:'Bowing is ___ in Japan.',a:'polite'},{s:'Chandler gave her a ___ .',a:'tip'},{s:'Rachel ___ coffee three times.',a:'offered'},{s:'The situation felt ___ at first.',a:'weird'}]}
 };
-var SCENE_TEXTS = {
-  mon: 'Office · Inquiry to Order',
-  tue: 'Suits · The Call',
-  wed: 'Social Network · The Deal',
-  thu: 'The Bear · Kitchen Crisis',
-  fri: 'Friends · Awkward Encounter'
-};
-var G = {
-  mon: {t:'Simple Present',r:'Facts, habits, truths.',e:'"I send" / "He sends"'},
-  tue: {t:'Present Continuous',r:'Actions happening NOW.',e:'"I am calling"'},
-  wed: {t:'Simple Past',r:'Completed action. Add -ed.',e:'"I sent" / "He called"'},
-  thu: {t:'Present Perfect',r:'have/has + past participle.',e:'"I have sent"'},
-  fri: {t:'Future with Will',r:'Decisions, promises, plans.',e:'"I will send"'}
-};
-var P = {
-  inquiry:    {s:'in·qui·ry', b:'VCCV cut between n,q', r:'vccv', c:'in|qui|ry'},
-  quotation:  {s:'quo·ta·tion', b:'tion = shun', r:'vcv', c:'quo|ta|tion'},
-  'lead time':{s:'lead time', b:'ea = long E', r:'other', c:'lead time'},
-  MOQ:        {s:'M·O·Q', b:'Say each letter', r:'other', c:'M|O|Q'},
-  sample:     {s:'sam·ple', b:'VCCV + silent e', r:'vccv', c:'sam|ple'},
-  'put through':{s:'put through', b:'ough = oo', r:'other', c:'put through'},
-  clarify:    {s:'clar·i·fy', b:'VCV + -ify = verb', r:'vcv', c:'clar|i|fy'},
-  deadline:   {s:'dead·line', b:'VCCV + silent e', r:'vccv', c:'dead|line'},
-  'follow up':{s:'fol·low up', b:'double L = short O', r:'vccv', c:'fol|low up'},
-  'call back':{s:'call back', b:'all = awl', r:'other', c:'call back'},
-  negotiate:  {s:'ne·go·ti·ate', b:'VCV pattern x3', r:'vcv', c:'ne|go|ti|ate'},
-  margin:     {s:'mar·gin', b:'VCCV cut between r,g', r:'vccv', c:'mar|gin'},
-  compromise: {s:'com·pro·mise', b:'VCV + silent e', r:'vcv', c:'com|pro|mise'},
-  'win-win':  {s:'win-win', b:'short I x2', r:'other', c:'win|win'},
-  flexible:   {s:'flex·i·ble', b:'VCCV + -ble', r:'vccv', c:'flex|i|ble'},
-  defective:  {s:'de·fec·tive', b:'VCV + VCCV', r:'vcv', c:'de|fec|tive'},
-  refund:     {s:'re·fund', b:'VCV: re- prefix', r:'vcv', c:'re|fund'},
-  apologize:  {s:'a·pol·o·gize', b:'4 syllables VCV x3', r:'vcv', c:'a|pol|o|gize'},
-  replacement:{s:'re·place·ment', b:'VCV + silent e + -ment', r:'vcv', c:'re|place|ment'},
-  inspect:    {s:'in·spect', b:'VCCV: spect = look', r:'vccv', c:'in|spect'},
-  resolve:    {s:'re·solve', b:'VCV + silent e', r:'vcv', c:'re|solve'},
-  awkward:    {s:'awk·ward', b:'VCCV: -ward common', r:'vccv', c:'awk|ward'},
-  polite:     {s:'po·lite', b:'VCV: silent e = long I', r:'vcv', c:'po|lite'},
-  offer:      {s:'of·fer', b:'VCCV: double F', r:'vccv', c:'of|fer'},
-  tip:        {s:'tip', b:'short I - one syllable', r:'other', c:'tip'},
-  weird:      {s:'weird', b:'ei = ear sound', r:'other', c:'weird'}
-};
-var D = {
-  mon: {t:'Office', w:['inquiry','quotation','lead time','MOQ','sample'],
-    d:{inquiry:'a question',quotation:'price offer','lead time':'time to delivery',MOQ:'minimum order',sample:'test piece'},
-    e:{inquiry:'Thanks for your inquiry.',quotation:'We sent the quotation.','lead time':'25 days.',MOQ:'500 units.',sample:'Free samples.'},
-    p:'Dwight was already ahead of Jim. He had sent the quotation before Jim even asked. Then an inquiry came in from a client who wanted samples. Dwight was excited because it was a big order of 2000 units. The lead time would be 30 days with a minimum order of 500.',
-    pc:'Dwight 早就抢先了一步，Jim 还没问他就已经把报价发出去了。客户发来询盘想要样品，Dwight 非常兴奋，因为这是一个 2000 件的大订单。交货期需要 30 天，起订量 500 件。',
-    q:[{q:'Who sent the quotation?',o:['Jim','Dwight','Client'],a:1},{q:'Client wants?',o:['Price','Samples','Contract'],a:1},{q:'Lead time?',o:['15d','25d','30d'],a:2}],
-    s:['Did you send that email?','Way ahead of you!','Lead time is 30 days.','He sends the quotation.']},
-  tue: {t:'Suits', w:['put through','clarify','deadline','follow up','call back'],
-    d:{'put through':'connect call',clarify:'make clear',deadline:'final time','follow up':'check again','call back':'return call'},
-    e:{'put through':'Put me through.',clarify:'Clarify terms.',deadline:'Deadline Friday.','follow up':'I will follow up.','call back':'Call back soon.'},
-    p:'Harvey told Mike to call the client and clarify the payment terms. Mike asked about the deadline, and Harvey said it was tomorrow at 5 PM. Mike picked up the phone and called to follow up. The client agreed to the terms right away. "Put me through," the client said, ready to close the deal.',
-    pc:'Harvey 让 Mike 打电话给客户确认付款条件。Mike 问截止时间，Harvey 说是明天下午 5 点。Mike 拿起电话跟进，客户当场就同意了条件。客户说请转接，准备签单。',
-    q:[{q:'What to clarify?',o:['Price','Payment','Address'],a:1},{q:'Deadline?',o:['Today','Tomorrow 5PM','Friday'],a:1},{q:'Client says?',o:['No','Agree','Later'],a:1}],
-    s:['I am calling the client.','He is following up.','Deadline is tomorrow.','They are waiting.']},
-  wed: {t:'Social Network', w:['negotiate','margin','compromise','win-win','flexible'],
-    d:{negotiate:'discuss deal',margin:'profit space',compromise:'meet middle','win-win':'both benefit',flexible:'can change'},
-    e:{negotiate:'We negotiate.',margin:'Thin margin.',compromise:'Let us compromise.','win-win':'Win-win.',flexible:'Flexible price.'},
-    p:'Mark offered Sean one million dollars and said it was take it or leave it. Sean felt the margin was tight, but he could be flexible. When Mark offered 10% equity, Sean pushed back and asked for 12% plus a board seat. Mark saw it as a win-win and agreed. The deal was done at 12%.',
-    pc:'Mark 向 Sean 开价 100 万美元，说不接受就拉倒。Sean 觉得利润很薄，但他可以灵活处理。Mark 提出 10% 股权，Sean 还价要求 12% 加一个董事会席位。Mark 觉得这是双赢，最终以 12% 成交。',
-    q:[{q:'Initial offer?',o:['500k','1M','2M'],a:1},{q:'Final equity?',o:['10%','12%','15%'],a:1},{q:'Win-win?',o:['One wins','Both benefit','No deal'],a:1}],
-    s:['I sent the quotation.','He called the client.','They agreed on price.','We compromised.']},
-  thu: {t:'The Bear', w:['defective','refund','apologize','replacement','inspect'],
-    d:{defective:'broken/damaged',refund:'money back',apologize:'say sorry',replacement:'new one',inspect:'check'},
-    e:{defective:'Defective items.',refund:'Full refund.',apologize:'I apologize.',replacement:'Send replacement.',inspect:'Inspect goods.'},
-    p:'A customer at the restaurant was very unhappy because the meat was warm and not fresh. Carmen immediately apologized and asked the team to inspect the food. She had already sent a replacement dish and offered a full refund. But the customer wanted more, so Carmen gave 20% off the next order as compensation.',
-    pc:'餐厅里一位顾客非常不满，因为肉是温的不新鲜。Carmen 立刻道歉并让团队检查食物。她已安排了换菜并全额退款的方案。但顾客还想要更多补偿，Carmen 于是给了下次订单 8 折的优惠。',
-    q:[{q:'Why upset?',o:['Late','Wrong','Warm meat'],a:2},{q:'Carmen did?',o:['Discounted','Sent replacement','Apologized'],a:1},{q:'Extra offered?',o:['Free delivery','20% off','Gift'],a:1}],
-    s:['I have sent the replacement.','He has already called.','They agreed on the deal.','We offered a refund.']},
-  fri: {t:'Friends', w:['awkward','polite','offer','tip','weird'],
-    d:{awkward:'uncomfortable',polite:'good manners',offer:'give chance',tip:'helpful advice',weird:'strange'},
-    e:{awkward:'So awkward.',polite:'Polite to say thanks.',offer:'He offered help.',tip:'Here is a tip.',weird:'That is weird.'},
-    p:'Monica felt awkward when their Japanese client bowed while shaking hands. Phoebe explained it was a cultural difference and bowing is actually polite. Chandler gave a helpful tip: bow back next time. Rachel offered coffee but the client kept refusing. Phoebe explained that in Japan, refusing politely the first time is considered good manners.',
-    pc:'Monica 跟日本客户握手时对方鞠了个躬，她觉得好尴尬。Phoebe 解释说这是文化差异，鞠躬其实是礼貌的表现。Chandler 建议下次也鞠躬回礼。Rachel 请客户喝咖啡，对方一直拒绝。Phoebe 解释说在日本第一次先拒绝是礼貌的表现。',
-    q:[{q:'Why bow?',o:['Shy','Cultural','Mistake'],a:1},{q:'Monica felt?',o:['Happy','Angry','Awkward'],a:2},{q:'Chandler tip?',o:['Don\'t bow','Bow back','Leave'],a:1}],
-    s:['I will send samples.','He will call back.','They will love it.','We will offer a deal.']}
-};
-var TUT_PROMPTS = [
-  '👀 <b>Step 1:</b> Look at the word. Find the vowels <span style="color:#fd79a8">A E I O U</span>. They\'re the heart of each syllable!',
-  '🔍 <b>Step 2:</b> Look at the letters between vowels. <span style="color:#a29bfe">VCCV</span> = cut between consonants. <span style="color:#00b894">VCV</span> = cut before the consonant.',
-  '✂️ <b>Step 3:</b> Cut at the right spot, then say each syllable one by one. Blend them together fast! 🎯'
-];
-var cd = 'mon';
-var rec = null;
-var qd = {};
-var ts = '';
-var tutIdx = 0;
+var TUT_PROMPTS=['Step 1: Find the vowels A E I O U. They are the heart of each syllable!','Step 2: VCCV = cut between consonants. VCV = cut before the consonant.','Step 3: Cut at the right spot, then say each syllable. Blend them together!'];
+var cd='mon',rec=null,qd={},ts='',tutIdx=0,spellIdx=0,spellDone={};
 
-function updateScene(day) {
-  var emojis = SCENES[day] || ['📚'];
-  var shuffled = emojis.slice();
-  for (var i = shuffled.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var tmp = shuffled[i];
-    shuffled[i] = shuffled[j];
-    shuffled[j] = tmp;
-  }
-  var art = document.getElementById('sceneArt');
-  var html = '';
-  for (var k = 0; k < shuffled.length; k++) {
-    html += shuffled[k];
-    if (k === 2 || k === 5) html += '&nbsp;&nbsp;';
-  }
-  art.innerHTML = html;
-  document.getElementById('sceneLabel').textContent = SCENE_TEXTS[day] || '';
+function updateScene(d){var e=SCENES[d]||['📚'];var s=e.slice();for(var i=s.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=s[i];s[i]=s[j];s[j]=t}var a=document.getElementById('sceneArt');var h='';for(var k=0;k<s.length;k++){h+=s[k];if(k===2||k===5)h+='&nbsp;&nbsp;'}a.innerHTML=h;document.getElementById('sceneLabel').textContent=SCENE_TEXTS[d]||''}
+function updateSplitDemo(w){var p=P[w];if(!p)return;var c='';for(var i=0;i<w.length;i++){var h=w[i];if('aeiou'.indexOf(h.toLowerCase())>=0)c+='<span class="vowel">'+h+'</span>';else c+='<span class="cons">'+h+'</span>'}document.getElementById('sdWord').innerHTML=c;var r=p.s.split('·').map(function(p){return'<span class="syl">'+p+'</span>'}).join('');document.getElementById('sdResult').innerHTML=r;document.getElementById('sdHint').textContent='Rule: '+p.b}
+function showRule(r){var c=document.querySelectorAll('.rule-card');for(var i=0;i<c.length;i++)c[i].classList.remove('active');document.querySelector('.rule-card.'+r).classList.add('active');var x={vccv:{w:'sample',d:'VCCV: cut between m and p'},vcv:{w:'polite',d:'VCV: cut before consonant l'},other:{w:'weird',d:'ei=ear sound - vowel pair.'}};var e=x[r];if(e){displaySplitDemo(e.w,e.d)}}
+function displaySplitDemo(w,h){var p=P[w];if(!p)return;var c='';for(var i=0;i<w.length;i++){var h2=w[i];if('aeiou'.indexOf(h2.toLowerCase())>=0)c+='<span class="vowel">'+h2+'</span>';else c+='<span class="cons">'+h2+'</span>'}document.getElementById('sdWord').innerHTML=c;var r=p.s.split('·').map(function(p){return'<span class="syl">'+p+'</span>'});document.getElementById('sdResult').innerHTML=r.join('');document.getElementById('sdHint').innerHTML=h||'Rule: '+p.b;tutIdx=0;var st=document.querySelectorAll('.tut-step');for(var i=0;i<st.length;i++)st[i].className='tut-step'+(i===0?' active':'');document.getElementById('tutPrompt').innerHTML=TUT_PROMPTS[0]}
+function tutStep(i){tutIdx=i;var s=document.querySelectorAll('.tut-step');for(var j=0;j<s.length;j++){s[j].className='tut-step';if(j<i)s[j].classList.add('done');if(j===i)s[j].classList.add('active')}document.getElementById('tutPrompt').innerHTML=TUT_PROMPTS[i]}
+
+function go(d){
+cd=d;var t=document.querySelectorAll('.tab');
+for(var i=0;i<t.length;i++)t[i].classList.toggle('active',t[i].dataset.d===d);
+var dt=D[d];if(!dt)return;var g=G[d];
+document.getElementById('gTitle').textContent=g.t;document.getElementById('gRule').textContent=g.r;document.getElementById('gEx').textContent=g.e;
+document.getElementById('themeBadge').textContent=dt.t;document.getElementById('themeLabel').textContent=dt.t;
+updateScene(d);
+// Words
+var wl=document.getElementById('wordList');wl.innerHTML='';
+for(var wi=0;wi<dt.w.length;wi++){
+var w=dt.w[wi];var ph=P[w]||{s:w,b:'',c:w};
+var col='';for(var j=0;j<w.length;j++){var ch=w[j];if('aeiou'.indexOf(ch.toLowerCase())>=0)col+='<span class="vowel">'+ch+'</span>';else col+='<span class="cons">'+ch+'</span>'}
+var d2=document.createElement('div');d2.className='word-item';
+d2.innerHTML='<div class="w">'+col+'<span class="spk-btn" id="spk'+wi+'"></span></div><div class="sub">'+dt.d[w]+'</div><div class="ph"><div class="ph-split">'+ph.c+'</div><div>'+ph.b+'</div></div>';
+(function(w2,ph2){d2.onclick=function(){this.classList.toggle('open');if(this.classList.contains('open')){updateSplitDemo(w2);tutIdx=0;var st=document.querySelectorAll('.tut-step');for(var si=0;si<st.length;si++)st[si].className='tut-step'+(si===0?' active':'');document.getElementById('tutPrompt').innerHTML=TUT_PROMPTS[0];showRule(ph2.r||'other')}};var sb=d2.querySelector('.spk-btn');if(sb)sb.onclick=function(ev){ev.stopPropagation();speak(w2)}})(w,ph);wl.appendChild(d2)}
+// Passage - use innerHTML to render span.key
+document.getElementById('passageEN').innerHTML=dt.p;
+document.getElementById('passageCN').textContent=dt.pc;
+// Questions
+qd={};var ql=document.getElementById('qList');ql.innerHTML='';
+for(var qi=0;qi<dt.q.length;qi++){var q=dt.q[qi];var d3=document.createElement('div');d3.className='qbox';var h2='<div class="qt">'+(qi+1)+'. '+q.q+'</div><div class="qopts">';for(var oj=0;oj<q.o.length;oj++)h2+='<div class="qopt" onclick="checkQ('+qi+','+oj+','+q.a+')"><span class="ind">'+String.fromCharCode(65+oj)+'</span>'+q.o[oj]+'</div>';h2+='</div><div class="qfb" id="qfb'+qi+'"></div>';d3.innerHTML=h2;ql.appendChild(d3)}
+// Sentences
+var sl=document.getElementById('sentList');sl.innerHTML='';
+for(var si=0;si<dt.s.length;si++){var s=dt.s[si];var c=document.createElement('span');c.className='sent-chip';c.textContent=s;(function(st){c.onclick=function(){ts=st;document.getElementById('targetSentence').textContent=st;document.getElementById('recResult').style.display='none'}})(s);sl.appendChild(c)}
+if(dt.s.length>0){ts=dt.s[0];document.getElementById('targetSentence').textContent=dt.s[0]}
+// Spelling
+setupSpelling(dt.w);
+// Cloze
+setupCloze(dt);
+// Reset exercise tabs
+switchExercise('spell',0);
 }
-
-function updateSplitDemo(word) {
-  var ph = P[word];
-  if (!ph) return;
-  var w = word;
-  var colored = '';
-  for (var i = 0; i < w.length; i++) {
-    var ch = w[i];
-    if ('aeiou'.indexOf(ch.toLowerCase()) >= 0) {
-      colored += '<span class="vowel">' + ch + '</span>';
-    } else {
-      colored += '<span class="cons">' + ch + '</span>';
-    }
-  }
-  document.getElementById('sdWord').innerHTML = colored;
-  var parts = ph.s.split('·');
-  var resultHtml = parts.map(function(p) { return '<span class="syl">' + p + '</span>'; }).join('');
-  document.getElementById('sdResult').innerHTML = resultHtml;
-  document.getElementById('sdHint').textContent = 'Rule: ' + ph.b;
-}
-
-function showRule(rule) {
-  var cards = document.querySelectorAll('.rule-card');
-  for (var i = 0; i < cards.length; i++) { cards[i].classList.remove('active'); }
-  document.querySelector('.rule-card.' + rule).classList.add('active');
-  var examples = {
-    vccv: {w:'sample', d:'VCCV: cut between <b>m</b> and <b>p</b>'},
-    vcv: {w:'polite', d:'VCV: cut before consonant <b>l</b>'},
-    other: {w:'weird', d:'ei = ear sound - vowel pair, no cut.'}
-  };
-  var ex = examples[rule];
-  if (ex) { displaySplitDemo(ex.w, ex.d); }
-}
-
-function displaySplitDemo(word, hint) {
-  var ph = P[word];
-  if (!ph) return;
-  var w = word;
-  var colored = '';
-  for (var i = 0; i < w.length; i++) {
-    var ch = w[i];
-    if ('aeiou'.indexOf(ch.toLowerCase()) >= 0) {
-      colored += '<span class="vowel">' + ch + '</span>';
-    } else {
-      colored += '<span class="cons">' + ch + '</span>';
-    }
-  }
-  document.getElementById('sdWord').innerHTML = colored;
-  var parts = ph.s.split('·');
-  var resultHtml = parts.map(function(p) { return '<span class="syl">' + p + '</span>'; }).join('');
-  document.getElementById('sdResult').innerHTML = resultHtml;
-  document.getElementById('sdHint').innerHTML = hint || ('Rule: ' + ph.b);
-  tutIdx = 0;
-  var steps = document.querySelectorAll('.tut-step');
-  for (var i = 0; i < steps.length; i++) {
-    steps[i].className = 'tut-step' + (i === 0 ? ' active' : '');
-  }
-  document.getElementById('tutPrompt').innerHTML = TUT_PROMPTS[0];
-}
-
-function tutStep(idx) {
-  tutIdx = idx;
-  var steps = document.querySelectorAll('.tut-step');
-  for (var i = 0; i < steps.length; i++) {
-    steps[i].className = 'tut-step';
-    if (i < idx) { steps[i].classList.add('done'); }
-    if (i === idx) { steps[i].classList.add('active'); }
-  }
-  document.getElementById('tutPrompt').innerHTML = TUT_PROMPTS[idx];
-}
-
-function go(d) {
-  cd = d;
-  var tabs = document.querySelectorAll('.tab');
-  for (var t = 0; t < tabs.length; t++) {
-    tabs[t].classList.toggle('active', tabs[t].dataset.d === d);
-  }
-  var dt = D[d];
-  if (!dt) { return; }
-  var g = G[d];
-  document.getElementById('gTitle').textContent = g.t;
-  document.getElementById('gRule').textContent = g.r;
-  document.getElementById('gEx').textContent = g.e;
-  document.getElementById('themeBadge').textContent = dt.t;
-  document.getElementById('themeLabel').textContent = dt.t;
-  updateScene(d);
-
-  // Word list
-  var wl = document.getElementById('wordList');
-  wl.innerHTML = '';
-  for (var wi = 0; wi < dt.w.length; wi++) {
-    var w = dt.w[wi];
-    var ph = P[w] || {s:w, b:'', c:w};
-    var colored = '';
-    for (var j = 0; j < w.length; j++) {
-      var ch = w[j];
-      if ('aeiou'.indexOf(ch.toLowerCase()) >= 0) {
-        colored += '<span class="vowel">' + ch + '</span>';
-      } else {
-        colored += '<span class="cons">' + ch + '</span>';
-      }
-    }
-    var d2 = document.createElement('div');
-    d2.className = 'word-item';
-    d2.innerHTML = '<div class="w">' + colored + '<span class="spk-btn" id="spk' + wi + '">&#128266;</span></div><div class="sub">' + dt.d[w] + '</div><div class="ph"><div class="ph-split">' + ph.c + '</div><div>' + ph.b + '</div></div>';
-    (function(w2, ph2, wIdx) {
-      d2.onclick = function() {
-        this.classList.toggle('open');
-        if (this.classList.contains('open')) {
-          updateSplitDemo(w2);
-          tutIdx = 0;
-          var st = document.querySelectorAll('.tut-step');
-          for (var si = 0; si < st.length; si++) { st[si].className = 'tut-step' + (si === 0 ? ' active' : ''); }
-          document.getElementById('tutPrompt').innerHTML = TUT_PROMPTS[0];
-          showRule(ph2.r || 'other');
-        }
-      };
-      var spkBtn = d2.querySelector('.spk-btn');
-      if (spkBtn) {
-        spkBtn.onclick = function(ev) {
-          ev.stopPropagation();
-          speak(w2);
-        };
-      }
-    })(w, ph, wi);
-    wl.appendChild(d2);
-  }
-
-  // Passage
-  document.getElementById('passageEN').textContent = dt.p;
-  document.getElementById('passageCN').textContent = dt.pc;
-
-  // Questions
-  qd = {};
-  var ql = document.getElementById('qList');
-  ql.innerHTML = '';
-  for (var qi = 0; qi < dt.q.length; qi++) {
-    var q = dt.q[qi];
-    var d3 = document.createElement('div');
-    d3.className = 'qbox';
-    var h2 = '<div class="qt">' + (qi + 1) + '. ' + q.q + '</div><div class="qopts">';
-    for (var oj = 0; oj < q.o.length; oj++) {
-      h2 += '<div class="qopt" onclick="checkQ(' + qi + ',' + oj + ',' + q.a + ')"><span class="ind">' + String.fromCharCode(65 + oj) + '</span>' + q.o[oj] + '</div>';
-    }
-    h2 += '</div><div class="qfb" id="qfb' + qi + '"></div>';
-    d3.innerHTML = h2;
-    ql.appendChild(d3);
-  }
-
-  // Sentences
-  var sl = document.getElementById('sentList');
-  sl.innerHTML = '';
-  for (var si = 0; si < dt.s.length; si++) {
-    var s = dt.s[si];
-    var c = document.createElement('span');
-    c.className = 'sent-chip';
-    c.textContent = s;
-    (function(sText) {
-      c.onclick = function() {
-        ts = sText;
-        document.getElementById('targetSentence').textContent = sText;
-        document.getElementById('recResult').style.display = 'none';
-      };
-    })(s);
-    sl.appendChild(c);
-  }
-  if (dt.s.length > 0) {
-    ts = dt.s[0];
-    document.getElementById('targetSentence').textContent = dt.s[0];
-  }
-}
-
-function checkQ(qi, oi, ans) {
-  if (qd[qi]) { return; }
-  qd[qi] = true;
-  var qbox = document.querySelectorAll('.qbox')[qi];
-  if (!qbox) { return; }
-  var opts = qbox.querySelectorAll('.qopt');
-  for (var i = 0; i < opts.length; i++) {
-    if (i === ans) { opts[i].classList.add('ok'); }
-    if (i === oi && oi !== ans) { opts[i].classList.add('bad'); }
-  }
-  var fb = document.getElementById('qfb' + qi);
-  if (!fb) { return; }
-  if (oi === ans) {
-    fb.textContent = '✅ Correct!';
-    fb.className = 'qfb show correct';
-  } else {
-    fb.textContent = '❌ Answer: ' + String.fromCharCode(65 + ans);
-    fb.className = 'qfb show wrong';
-  }
-}
-
-function speak(txt) {
-  if ('speechSynthesis' in window) {
-    var u = new SpeechSynthesisUtterance(txt);
-    u.lang = 'en-US';
-    u.rate = 0.85;
-    speechSynthesis.cancel();
-    speechSynthesis.speak(u);
-  }
-}
-
-function readAloud() {
-  if ('speechSynthesis' in window) {
-    var text = document.getElementById('passageEN').textContent;
-    var u = new SpeechSynthesisUtterance(text);
-    u.lang = 'en-US';
-    u.rate = 0.8;
-    speechSynthesis.cancel();
-    speechSynthesis.speak(u);
-  }
-}
-
-function listenTarget() {
-  if ('speechSynthesis' in window && ts) {
-    var u = new SpeechSynthesisUtterance(ts);
-    u.lang = 'en-US';
-    u.rate = 0.85;
-    speechSynthesis.cancel();
-    speechSynthesis.speak(u);
-  }
-}
-
-function startRec() {
-  var statusEl = document.getElementById('recStatus');
-  var btn = document.getElementById('recBtn');
-  if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
-    statusEl.textContent = 'Chrome only.';
-    return;
-  }
-  if (rec && rec.recognizing) {
-    rec.stop();
-    btn.textContent = '🔴 Record';
-    statusEl.textContent = '';
-    return;
-  }
-  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  rec = new SR();
-  rec.lang = 'en-US';
-  rec.recognizing = true;
-  btn.textContent = '⏹ Stop';
-  statusEl.textContent = '🎤 Listening...';
-  rec.onresult = function(e) {
-    var said = e.results[0][0].transcript;
-    var conf = Math.round(e.results[0][0].confidence * 100);
-    var tn = ts.toLowerCase().replace(/[^a-z\s]/g, '').trim();
-    var un = said.toLowerCase().replace(/[^a-z\s]/g, '').trim();
-    var tw = tn.split(/\s+/);
-    var uw = un.split(/\s+/);
-    var m = 0;
-    for (var i2 = 0; i2 < tw.length; i2++) {
-      for (var j2 = 0; j2 < uw.length; j2++) {
-        if (tw[i2] === uw[j2]) { m++; break; }
-      }
-    }
-    var r = Math.round(m / tw.length * 100);
-    document.getElementById('recResult').style.display = 'block';
-    document.getElementById('userSpeech').textContent = said;
-    var fb = r >= 90 ? '🎉 Excellent! ' + r + '%' : r >= 70 ? '👍 Good ' + r + '%' : r >= 50 ? '💪 Getting there ' + r + '%' : '🔄 Try again ' + r + '%';
-    document.getElementById('matchResult').textContent = fb + ' (c:' + conf + '%)';
-    btn.textContent = '🔴 Record';
-    rec.recognizing = false;
-  };
-  rec.onerror = function() {
-    statusEl.textContent = 'Err.';
-    btn.textContent = '🔴 Record';
-    rec.recognizing = false;
-  };
-  rec.onend = function() {
-    if (btn.textContent === '⏹ Stop') {
-      btn.textContent = '🔴 Record';
-      rec.recognizing = false;
-    }
-  };
-  try { rec.start(); } catch(e) {}
-}
-
-function resetRec() {
-  document.getElementById('recResult').style.display = 'none';
-}
-
-function saveWorksheet() {
-  var n = new Date();
-  var ds = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  var d2 = ds[n.getDay()] + ' ' + n.getDate() + ' ' + n.toLocaleString('en-US', {month:'short'});
-  var dt = D[cd];
-  var d = 0;
-  for (var k in qd) {
-    if (qd.hasOwnProperty(k)) { d++; }
-  }
-  var e = {id:Date.now(), date:d2, day:cd, title:dt.t, score:d + '/' + dt.q.length, grammar:G[cd].t};
-  var sv = JSON.parse(localStorage.getItem('LW') || '[]');
-  sv.unshift(e);
-  if (sv.length > 50) { sv = sv.slice(0, 50); }
-  localStorage.setItem('LW', JSON.stringify(sv));
-  var btn = document.querySelector('.btn-save');
-  btn.textContent = '✅ Saved!';
-  setTimeout(function() { btn.textContent = '💾 Save Progress'; }, 1200);
-  loadArchive();
-}
-
-function toggleArchive() {
-  var a = document.getElementById('archive');
-  a.classList.toggle('show');
-  loadArchive();
-}
-
-function loadArchive() {
-  var list = document.getElementById('archiveList');
-  var sv = JSON.parse(localStorage.getItem('LW') || '[]');
-  if (sv.length === 0) {
-    list.innerHTML = '<div style="text-align:center;padding:12px;color:#636e72;font-size:12px">No worksheets saved yet.</div>';
-    return;
-  }
-  list.innerHTML = '';
-  for (var i = 0; i < sv.length; i++) {
-    var entry = sv[i];
-    var d = document.createElement('div');
-    d.className = 'arch-item';
-    d.innerHTML = '<div><b>' + entry.date + '</b> - ' + entry.title + '<br><span style="font-size:10px;color:#636e72">' + entry.score + ' · ' + entry.grammar + '</span></div><button class="del" onclick="deleteEntry(' + entry.id + ')">✕</button>';
-    list.appendChild(d);
-  }
-}
-
-function deleteEntry(id) {
-  var sv = JSON.parse(localStorage.getItem('LW') || '[]');
-  sv = sv.filter(function(e) { return e.id !== id; });
-  localStorage.setItem('LW', JSON.stringify(sv));
-  loadArchive();
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  var m = {1:'mon',2:'tue',3:'wed',4:'thu',5:'fri'};
-  var today = m[(new Date()).getDay()] || 'mon';
-  go(today);
-  displaySplitDemo('sample', 'VCCV: cut between m and p');
-});
+function checkQ(qi,oi,ans){if(qd[qi])return;qd[qi]=true;var q=document.querySelectorAll('.qbox')[qi];if(!q)return;var o=q.querySelectorAll('.qopt');for(var i=0;i<o.length;i++){if(i===ans)o[i].classList.add('ok');if(i===oi&&oi!==ans)o[i].classList.add('bad')}var fb=document.getElementById('qfb'+qi);if(!fb)return;if(oi===ans){fb.textContent='Correct!';fb.className='qfb show correct'}else{fb.textContent='Answer: '+String.fromCharCode(65+ans);fb.className='qfb show wrong'}}
+function speak(t){if('speechSynthesis'in window){var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}}
+function readAloud(){if('speechSynthesis'in window){var u=new SpeechSynthesisUtterance(document.getElementById('passageEN').textContent.replace(/<[^>]+>/g,''));u.lang='en-US';u.rate=.75;speechSynthesis.cancel();speechSynthesis.speak(u)}}
+function listenTarget(){if('speechSynthesis'in window&&ts){var u=new SpeechSynthesisUtterance(ts);u.lang='en-US';u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}}
+function startRec(){var s=document.getElementById('recStatus'),b=document.getElementById('recBtn');if(!('webkitSpeechRecognition'in window||'SpeechRecognition'in window)){s.textContent='Chrome only.';return}if(rec&&rec.recognizing){rec.stop();b.textContent='Record';s.textContent='';return}var SR=window.SpeechRecognition||window.webkitSpeechRecognition;rec=new SR();rec.lang='en-US';rec.recognizing=true;b.textContent='Stop';s.textContent='Listening...';rec.onresult=function(e){var said=e.results[0][0].transcript,conf=Math.round(e.results[0][0].confidence*100);var tn=ts.toLowerCase().replace(/[^a-z\s]/g,'').trim(),un=said.toLowerCase().replace(/[^a-z\s]/g,'').trim();var tw=tn.split(/\s+/),uw=un.split(/\s+/);var m=0;for(var i=0;i<tw.length;i++){for(var j=0;j<uw.length;j++){if(tw[i]===uw[j]){m++;break}}}var r=Math.round(m/tw.length*100);document.getElementById('recResult').style.display='block';document.getElementById('userSpeech').textContent=said;document.getElementById('matchResult').textContent=(r>=90?'Excellent! '+r+'%':r>=70?'Good '+r+'%':r>=50?'Getting there '+r+'%':'Try again '+r+'%')+' (c:'+conf+'%)';b.textContent='Record';rec.recognizing=false};rec.onerror=function(){s.textContent='Err.';b.textContent='Record';rec.recognizing=false};rec.onend=function(){if(b.textContent==='Stop'){b.textContent='Record';rec.recognizing=false}};try{rec.start()}catch(e){}}
+function resetRec(){document.getElementById('recResult').style.display='none'}
+function saveWorksheet(){var n=new Date();var ds=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];var d2=ds[n.getDay()]+' '+n.getDate()+' '+n.toLocaleString('en-US',{month:'short'});var dt=D[cd];var d=0;for(var k in qd)if(qd.hasOwnProperty(k))d++;var e={id:Date.now(),date:d2,day:cd,title:dt.t,score:d+'/'+dt.q.length,grammar:G[cd].t};var sv=JSON.parse(localStorage.getItem('LW')||'[]');sv.unshift(e);if(sv.length>50)sv=sv.slice(0,50);localStorage.setItem('LW',JSON.stringify(sv));var btn=document.querySelector('.btn-save');btn.textContent='Saved!';setTimeout(function(){btn.textContent='Save Progress'},1200);loadArchive()}
+function toggleArchive(){var a=document.getElementById('archive');a.classList.toggle('show');loadArchive()}
+function loadArchive(){var list=document.getElementById('archiveList');var sv=JSON.parse(localStorage.getItem('LW')||'[]');if(sv.length===0){list.innerHTML='<div style="text-align:center;padding:12px;color:#636e72;font-size:12px">No worksheets saved yet.</div>';return}list.innerHTML='';for(var i=0;i<sv.length;i++){var e=sv[i];var d=document.createElement('div');d.className='arch-item';d.innerHTML='<div><b>'+e.date+'</b> - '+e.title+'<br><span style="font-size:10px;color:#636e72">'+e.score+' - '+e.grammar+'</span></div><button class="del" onclick="deleteEntry('+e.id+')">X</button>';list.appendChild(d)}}
+function deleteEntry(id){var sv=JSON.parse(localStorage.getItem('LW')||'[]');sv=sv.filter(function(e){return e.id!==id});localStorage.setItem('LW',JSON.stringify(sv));loadArchive()}
+function switchExercise(name,idx){var tabs=document.querySelectorAll('.subtab');var panels=document.querySelectorAll('.subtab-panel');for(var i=0;i<tabs.length;i++){tabs[i].classList.toggle('active',i===idx);panels[i].classList.toggle('active',i===idx)}}
+// Spelling
+function setupSpelling(words){spellIdx=0;spellDone={};var nav=document.getElementById('spellNav');nav.innerHTML='';for(var i=0;i<words.length;i++){var d=document.createElement('span');d.className='spell-dot'+(i===0?' active':'');d.textContent=i+1;d.onclick=function(j){return function(){spellIdx=j;showSpellWord(words,spellIdx)}}(i);nav.appendChild(d)}showSpellWord(words,0)}
+function showSpellWord(words,idx){if(idx>=words.length||idx<0)return;var w=words[idx];var ph=P[w]||{b:''};var dt=D[cd];document.getElementById('spellCurrent').textContent=w;document.getElementById('spellHint').textContent=dt.d[w]||'';document.getElementById('spellInput').value='';document.getElementById('spellInput').className='spell-input';document.getElementById('spellStatus').textContent='Type the word';var dots=document.querySelectorAll('.spell-dot');for(var i=0;i<dots.length;i++){dots[i].classList.toggle('active',i===idx)}}
+function checkSpelling(){var words=D[cd].w;var w=words[spellIdx];var input=document.getElementById('spellInput');var v=input.value.trim().toLowerCase();if(v===w.toLowerCase()){input.className='spell-input ok';document.getElementById('spellStatus').textContent='Correct!';spellDone[spellIdx]=true;var dots=document.querySelectorAll('.spell-dot');if(dots[spellIdx])dots[spellIdx].classList.add('done')}else{input.className='spell-input bad';document.getElementById('spellStatus').textContent='Correct: '+w;speak(w)}}
+// Spelling listen on click
+document.addEventListener('DOMContentLoaded',function(){document.getElementById('spellCurrent').onclick=function(){speak(this.textContent)}});
+// Cloze
+function setupCloze(dt){var c=dt.cloze||[];var box=document.getElementById('clozeContent');box.innerHTML='';for(var i=0;i<c.length;i++){var p=document.createElement('div');p.style.marginBottom='8px';p.style.fontSize='12px';p.style.lineHeight='1.8';var parts=c[i].s.split('___');var html='';for(var j=0;j<parts.length;j++){html+=parts[j];if(j<parts.length-1){html+=' <input class="cloze-input" id="cloze'+i+'" data-answer="'+c[i].a+'" placeholder="..." autocomplete="off"> '}}html+=' <span class="cloze-fb" id="clozeFb'+i+'" style="font-size:10px;color:#636e72"></span>';p.innerHTML=html;box.appendChild(p)}document.getElementById('clozeScore').textContent=''}
+function checkCloze(){var correct=0;var total=document.querySelectorAll('.cloze-input').length;document.querySelectorAll('.cloze-input').forEach(function(inp){var ans=inp.getAttribute('data-answer');var val=inp.value.trim().toLowerCase();var fb=inp.parentElement.querySelector('.cloze-fb');if(val===ans.toLowerCase()){inp.className='cloze-input ok';correct++;if(fb)fb.textContent='';}else{inp.className='cloze-input bad';if(fb)fb.textContent='-> '+ans}});document.getElementById('clozeScore').textContent=correct+'/'+total+' correct'}
+document.addEventListener('DOMContentLoaded',function(){var m={1:'mon',2:'tue',3:'wed',4:'thu',5:'fri'};var today=m[(new Date()).getDay()]||'mon';go(today);displaySplitDemo('sample','VCCV: cut between m and p')});
 </script>
 </body>
 </html>
