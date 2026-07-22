@@ -3,39 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L的45㎡轻禅意全案 — 汝窑+麻木石绿植</title>
+<title>L的45㎡轻禅意全案 v2 — 汝窑+麻·石·绿植 (石取代木)</title>
 <style>
-:root{--bg:#f8f6f1;--card:#fff;--text:#2d2a26;--green:#5b7a5e;--stone:#888;--linen:#c4a882;--wood:#8b6914;--border:#e0dbd2;--tag:#f0ede5}
+:root{--bg:#f8f6f1;--card:#fff;--text:#2d2a26;--green:#5b7a5e;--ru:#9ba89b;--stone888:888;--linen:#c4a882;--border:#e0dbd2;--tag:#f0ede5}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Georgia,'Noto Serif SC',STSong,serif;background:var(--bg);color:var(--text);line-height:1.8;padding:1.5rem 1rem 3rem}
 .container{max-width:1000px;margin:0 auto}
-header{text-align:center;padding:2.5rem 1rem 1.8rem;border-bottom:1px solid var(--border);margin-bottom:2rem}
-header h1{font-size:2rem;font-weight:400;letter-spacing:.08em}
-.sub{font-size:1rem;color:#9a8c7e;margin-top:.3rem}
+header{text-align:center;padding:2.5rem 1rem 1.5rem;border-bottom:1px solid var(--border);margin-bottom:2rem}
+header h1{font-size:1.9rem;font-weight:400;letter-spacing:.08em}
+.sub{font-size:.95rem;color:#9a8c7e;margin-top:.4rem}
+.badge{display:inline-block;background:#d8d6d3;color:#555;padding:.2rem .7rem;border-radius:12px;font-size:.7rem;margin:0 .2rem}
 .sec{background:var(--card);border-radius:10px;padding:2rem;margin-bottom:1.8rem;border:1px solid var(--border)}
 .sec h2{font-size:1.4rem;font-weight:400;margin-bottom:1rem;letter-spacing:.04em}
 .sec h3{font-size:1.1rem;font-weight:400;margin:1.3rem 0 .7rem}
 .sec p{margin:.5rem 0}
-.sec ul,.sec ol{margin:.5rem 0 .5rem 1.3rem;font-size:.9rem}
-.sec li{margin:.3rem 0}
-.hero{background:linear-gradient(135deg,#e8e3da,#ede7df 40%,#e4e8df);padding:2rem;border-radius:10px;margin-bottom:2rem;text-align:center;border:1px solid var(--border)}
-.swatches{display:flex;gap:1.2rem;margin:1.2rem 0;flex-wrap:wrap;justify-content:center}
-.sw{text-align:center;width:90px}
-.sw .dot{width:60px;height:60px;border-radius:50%;margin:0 auto .3rem;border:2px solid #ddd}
-.sw .n{font-size:.78rem;font-weight:bold}.sw .d{font-size:.68rem;color:#888}
+.sec ul,.sec ol{margin:.5rem 0 .5rem 1.3rem;font-size:.9rem;li{margin:.3rem 0}}
+.hero{background:linear-gradient(135deg,#e8e3da,#ede7df 40%,#e2e6de);padding:2rem;border-radius:10px;margin-bottom:2rem;text-align:center;border:1px solid var(--border)}
+.swatches{display:flex;gap:1rem;margin:1rem 0;flex-wrap:wrap;justify-content:center}
+.sw{text-align:center;width:85px}
+.sw .dot{width:55px;height:55px;border-radius:50%;margin:0 auto .3rem;border:2px solid #ddd}
+.sw .n{font-size:.75rem;font-weight:bold}.sw .d{font-size:.65rem;color:#888}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
 @media(max-width:700px){.g2{grid-template-columns:1fr}}
-.cd{border-radius:8px;padding:1.3rem;border:1px solid var(--border)}
+.cd{border-radius:8px;padding:1.2rem;border:1px solid var(--border)}
 .cd.bl{border-left:3px solid var(--linen);background:#fdfaf5}
-.cd.bw{border-left:3px solid var(--wood);background:#fdf9f1}
-.cd.bs{border-left:3px solid var(--stone);background:#f9f8f7}
+.cd.bs{border-left:3px solid #888;background:#f9f8f7}
 .cd.bg{border-left:3px solid var(--green);background:#f7faf6}
+.cd.bru{border-left:3px solid var(--ru);background:#f7f9f6}
 table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.8rem}
 th,td{padding:.6rem .8rem;border:1px solid var(--border);text-align:left;vertical-align:top}
 th{background:#3d3a35;color:#eee;font-weight:400}
 tr:nth-child(even){background:#faf8f5}
 a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}
 .tip{background:#fef9e7;border-left:3px solid #d4a017;padding:.7rem 1rem;border-radius:0 6px 6px 0;margin:1rem 0;font-size:.82rem}
+.tip.grn{background:#f0f7f0;border-left-color:var(--green)}
 .ceil{background:#f5f2eb;padding:1.5rem;border-radius:8px;margin:1rem 0;font-family:monospace;white-space:pre;line-height:1.3;font-size:.7rem;overflow-x:auto;text-align:center}
 .sb{background:var(--tag);padding:.8rem 1rem;border-radius:6px;margin:.5rem 0}
 .sb h4{margin-bottom:.4rem;font-weight:400;font-size:.9rem}
@@ -49,229 +50,257 @@ a{color:var(--green);text-decoration:none}a:hover{text-decoration:underline}
 .cc .desc{font-size:.72rem;color:#7a7266;margin:.2rem 0}
 .cc .tags{margin-top:.3rem;display:flex;gap:.2rem;flex-wrap:wrap}
 .cc .tags span{background:var(--tag);padding:.1rem .4rem;border-radius:10px;font-size:.62rem}
+.pin-link{display:inline-block;background:#e60023;color:#fff!important;padding:.3rem .8rem;border-radius:15px;font-size:.75rem;margin:.2rem;text-decoration:none!important}
+.pin-link:hover{background:#c5001c}
 footer{text-align:center;margin-top:2rem;padding:1.5rem;border-top:1px solid var(--border);color:#9a8c7e;font-size:.82rem}
-footer a{color:var(--green)}code{background:#f0ede5;padding:.1rem .3rem;border-radius:3px;font-size:.82em}
+code{background:#f0ede5;padding:.1rem .3rem;border-radius:3px;font-size:.82em}
 .ph{display:inline-block;padding:.2rem .7rem;border-radius:15px;font-size:.75rem;font-weight:bold;margin-right:.3rem}
-.ph.p1{background:#e0d5c0;color:#5a4630}.ph.p2{background:#d5dcd0;color:#3d5230}.ph.p3{background:#d8d6d3;color:#4a4540}
+.p1{background:#e0d5c0;color:#5a4630}.p2{background:#d5dcd0;color:#3d5230}.p3{background:#d8d6d3;color:#4a4540}
 </style>
 </head>
 <body>
 <div class="container">
-<header><h1>🏠 L的45㎡ · 轻禅意全案</h1><p class="sub">汝窑墙面 × 褐红木地板 × 麻·木·石·绿植</p></header>
+<header>
+<h1>🏠 L的45㎡ · 轻禅意全案 v2</h1>
+<p class="sub">汝窑墙面 × 褐红木地板 × <strong>麻·石·绿植</strong></p>
+<p style="margin-top:.5rem;"><span class="badge">🪨 石为主</span><span class="badge">🧵 麻为辅</span><span class="badge">🌿 绿点缀</span><span class="badge">🪵 木已在地板</span></p>
+</header>
 
-<!-- 1. TONE -->
+<!-- TONE -->
 <div class="sec">
-<h2>🎨 1. 整体色调</h2>
+<h2>🎨 整体底色 — 汝窑 + 褐红地板</h2>
 <div class="swatches">
 <div class="sw"><div class="dot" style="background:#b0b8aa;"></div><span class="n">墙面·汝窑</span><span class="d">暖灰绿调</span></div>
 <div class="sw"><div class="dot" style="background:#8b5a3c;"></div><span class="n">地面·褐红木</span><span class="d">红棕暖调</span></div>
-<div class="sw"><div class="dot" style="background:#c4a882;"></div><span class="n">软装·燕麦麻</span><span class="d">暖驼串联</span></div>
-<div class="sw"><div class="dot" style="background:#3d3a35;"></div><span class="n">点缀·墨黑</span><span class="d">5%压空间</span></div>
+<div class="sw"><div class="dot" style="background:#aaa8a5;"></div><span class="n">石元素·灰</span><span class="d">石材本色</span></div>
+<div class="sw"><div class="dot" style="background:#c4a882;"></div><span class="n">麻布·燕麦</span><span class="d">暖驼串联</span></div>
 </div>
-<div class="hero"><p style="font-size:1.1rem;">汝窑的<span style="color:#7a8678;">灰绿</span> + 地板的<span style="color:#8b5a3c;">红棕</span> = <strong>宋式禅意的温润底色</strong> — 有温度的素雅</p></div>
+<div class="hero"><p style="font-size:1.05rem;">汝窑(灰绿) + 石材(灰) = <strong>同色系完美叠加</strong> · 褐红地板提供暖度 · 麻布柔性过渡</p></div>
 <div class="g2">
-<div class="cd bl"><h4>配色比例</h4><ul><li><strong>70%</strong> 汝窑灰绿(墙)</li><li><strong>20%</strong> 木色/褐红</li><li><strong>5%</strong> 麻白/燕麦(软)</li><li><strong>5%</strong> 墨黑(灯/铁件)</li></ul></div>
-<div class="cd bl"><h4>避雷</h4><ul><li>❌ 纯白 — 和汝窑冲突</li><li>❌ 亮面烤漆 — 禅=哑光</li><li>❌ 花纹图案 — 素色为王</li><li>❌ 冷白光 — 全屋2700-3000K</li></ul></div>
+<div class="cd bru"><h4>配色比例</h4><ul><li><strong>60%</strong> 汝窑+石材灰(墙)</li><li><strong>25%</strong> 褐红木(地板)</li><li><strong>10%</strong> 麻白/燕麦(软装)</li><li><strong>5%</strong> 墨黑(灯/铁件)</li></ul></div>
+<div class="cd bru"><h4>石替木的逻辑</h4><ul><li>褐红地板=木已到位 不需加</li><li>石材和汝窑灰绿天然同色系</li><li>石=静默永恒 比木更禅</li><li>麻布柔软=中和石的冷硬</li></ul></div>
 </div>
-<div class="tip">💡 汝窑绿调压住地板红=宋代瓷器+老木家具，文雅内敛看不腻</div>
-</div>
-<!-- 2. PAPER LIGHT -->
-<div class="sec">
-<h2>🏮 2. 大纸吊灯 — 空间灵魂</h2>
-<p>纸吊灯是轻禅意的<strong>视觉焦点</strong>。一盏好的和纸灯，光影温暖柔和，白天是雕塑，晚上是月亮。</p>
-<h3>京东/淘宝选购指南</h3>
-<table>
-<tr><th>类型</th><th>搜索关键词</th><th>价格</th><th>推荐</th></tr>
-<tr><td>野口勇Akari风格</td><td><code>野口勇 和纸吊灯 大号</code></td><td>¥300-800</td><td>🔥🔥🔥</td></tr>
-<tr><td>球形宣纸灯</td><td><code>日式宣纸吊灯 圆形 大号</code></td><td>¥150-400</td><td>🔥🔥🔥</td></tr>
-<tr><td>椭圆形和纸灯</td><td><code>日式和纸吊灯 椭圆 餐厅</code></td><td>¥200-500</td><td>🔥🔥</td></tr>
-<tr><td>长条形纸灯</td><td><code>日式长条纸吊灯 茶桌</code></td><td>¥200-500</td><td>🔥🔥</td></tr>
-<tr><td>笼形竹编灯</td><td><code>日式竹编笼形吊灯</code></td><td>¥100-300</td><td>🔥</td></tr>
-</table>
-<h3>选购参数</h3>
-<div class="g2">
-<div class="cd" style="border-left:3px solid #d4a017;"><h4>📐 尺寸</h4><ul><li>45㎡客厅：<strong>直径50-60cm</strong></li><li>太小压不住，太大憋屈</li><li>灯底离地 180-200cm</li></ul></div>
-<div class="cd" style="border-left:3px solid #d4a017;"><h4>💡 光源</h4><ul><li>色温：<strong>2700K-3000K</strong></li><li>灯泡：E27 6-12W LED</li><li>可调光最好</li><li>显色：CRI ≥ 90</li></ul></div>
-</div>
-<div class="cg">
-<div class="cc"><a href="https://www.pinterest.com/search/pins/?q=noguchi+akari+paper+pendant+light+zen+interior" target="_blank"><div class="thumb" style="background:#faf5e8;">🏮</div><div class="info"><h4>野口勇 Akari 纸灯</h4><p class="desc">1951年设计，手工和纸+竹骨，禅意灯具终极标杆</p><div class="tags"><span>野口勇</span><span>和纸</span></div></div></a></div>
-<div class="cc"><a href="https://www.pinterest.com/search/pins/?q=large+round+rice+paper+pendant+light+zen+living+room" target="_blank"><div class="thumb" style="background:#fef9ee;">🔮</div><div class="info"><h4>大号球形宣纸吊灯</h4><p class="desc">60cm圆形—45㎡客厅一盏定乾坤</p><div class="tags"><span>球形</span><span>宣纸</span></div></div></a></div>
-<div class="cc"><a href="https://www.pinterest.com/search/pins/?q=oval+washi+paper+pendant+zen+dining" target="_blank"><div class="thumb" style="background:#fdf6ea;">🥚</div><div class="info"><h4>椭圆和纸吊灯</h4><p class="desc">椭圆更有雕塑感，适合茶桌上方</p><div class="tags"><span>椭圆</span><span>茶桌</span></div></div></a></div>
-<div class="cc"><a href="https://www.pinterest.com/search/pins/?q=japanese+bamboo+cage+light+wabi+sabi" target="_blank"><div class="thumb" style="background:#f8f2e5;">🎋</div><div class="info"><h4>竹编笼形吊灯</h4><p class="desc">竹编换纸面，墙面投出编纹光影</p><div class="tags"><span>竹编</span><span>光影</span></div></div></a></div>
-</div>
-<div class="sb"><h4>🔍 Pinterest搜</h4><code>washi paper pendant light zen</code><code>japanese rice paper lamp</code><code>large paper lantern ceiling</code></div>
+<div class="tip grn">💡 核心：汝窑=宋瓷底色 · 石=宋代赏石传统 · 麻=宋代素衣。三者合起来就是「宋式禅意」。</div>
 </div>
 
-<!-- 3. CEILING -->
+<!-- PAPER LIGHT -->
 <div class="sec">
-<h2>💡 3. 倒金字塔天花 · 三层灯光</h2>
-<p>你户型最精彩的设计！倒金字塔天花天然就是<strong>灯光艺术装置</strong>。</p>
+<h2>🏮 1. 大纸吊灯</h2>
+<table>
+<tr><th>类型</th><th>搜</th><th>价格</th></tr>
+<tr><td>野口勇Akari风格</td><td><code>野口勇 和纸吊灯 大号</code></td><td>¥300-800</td></tr>
+<tr><td>球形宣纸灯</td><td><code>日式宣纸吊灯 圆形 大号</code></td><td>¥150-400</td></tr>
+<tr><td>椭圆形和纸灯</td><td><code>日式和纸吊灯 椭圆</code></td><td>¥200-500</td></tr>
+<tr><td>竹编笼形灯</td><td><code>日式竹编笼形吊灯</code></td><td>¥100-300</td></tr>
+</table>
+<div class="g2">
+<div class="cd" style="border-left:3px solid #d4a017;"><h4>尺寸</h4><ul><li>45㎡→<strong>直径50-60cm</strong></li><li>灯底离地180-200cm</li></ul></div>
+<div class="cd" style="border-left:3px solid #d4a017;"><h4>光源</h4><ul><li><strong>2700K-3000K</strong></li><li>E27 6-12W LED CRI≥90</li></ul></div>
+</div>
+<p>📸 <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=noguchi+akari+paper+pendant+light+zen+living+room" target="_blank">Pinterest: 野口勇纸吊灯案例</a> <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=large+round+rice+paper+pendant+ceiling+zen" target="_blank">Pinterest: 大号球形宣纸灯</a></p>
+</div>
+
+<!-- CEILING -->
+<div class="sec">
+<h2>💡 2. 倒金字塔天花 · 三层灯光</h2>
 <div class="ceil">
 ┌─────────────────────────────┐
-│  外框(最高) · 四角装筒灯     │
+│  外框(最高) · 四角筒灯       │
 │  ╲                         ╱  │
 │   ╲ LED灯带(台阶内 朝上)   ╱   │ ← 3000K洗亮层次
 │    ╲       ↑↑↑           ╱    │
 │     ╲     ┌───┐         ╱     │
-│      ╲    │🏮│        ╱      │ ← 纸吊灯从最高点垂下
+│      ╲    │🏮│        ╱      │ ← 纸吊灯中心垂下
 │       ╲   └───┘       ╱       │
 │        ╲             ╱        │
-│         ╲  中心区    ╱         │
 │          ╲─────────╱          │
-│            最底层              │ ← 不装灯
+│            最底层              │ ← 视觉焦点
 └─────────────────────────────┘
 </div>
 <table>
-<tr><th>层</th><th>灯具</th><th>位置</th><th>色温</th><th>作用</th></tr>
-<tr><td>🥇 <strong>主灯</strong></td><td>大纸吊灯 50-60cm</td><td>中心最高点垂下</td><td><strong>2700K</strong></td><td>氛围核心·暖光笼罩</td></tr>
-<tr><td>🥈 <strong>灯带</strong></td><td>LED 8-12W/m</td><td>台阶内侧朝上</td><td><strong>3000K</strong></td><td>洗亮天花层次·间接光</td></tr>
-<tr><td>🥉 <strong>筒灯</strong></td><td>深杯防眩×4-6</td><td>外框四角</td><td><strong>3000-3500K</strong></td><td>功能补光·打墙不打地</td></tr>
+<tr><th>层</th><th>灯具</th><th>色温</th><th>作用</th></tr>
+<tr><td>🥇 主灯</td><td>大纸吊灯 50-60cm</td><td><strong>2700K</strong></td><td>氛围核心·暖光笼罩</td></tr>
+<tr><td>🥈 灯带</td><td>LED 8-12W/m</td><td><strong>3000K</strong></td><td>洗亮天花层次·朝上</td></tr>
+<tr><td>🥉 筒灯×4-6</td><td>深杯防眩 5-7W</td><td><strong>3000K</strong></td><td>打墙不打地·窄光束</td></tr>
 </table>
 <div class="g2">
-<div class="cd bs"><h4>⚪ 筒灯选购</h4><ul><li>光束角 <strong>15°-24°</strong> 窄角</li><li>深杯≥5cm防眩</li><li>5-7W/个足够</li><li>品牌：雷士/西顿/欧普</li></ul></div>
-<div class="cd bs"><h4>💡 LED灯带</h4><ul><li>3000K CRI≥90</li><li>8-12W/m</li><li>铝槽嵌入+扩散罩</li><li>朝上发光洗天花板</li></ul></div>
+<div class="cd bs"><h4>⚪ 筒灯参数</h4><ul><li><strong>光束角：15°-24°</strong></li><li>深杯防眩≥5cm</li><li>离墙30-40cm安装</li><li>品牌：西顿/雷士</li><li>京东搜<code>西顿防眩筒灯7W 3000K 24°</code></li></ul></div>
+<div class="cd bs"><h4>💡 灯带参数</h4><ul><li>台阶内侧 朝上发光</li><li>铝槽嵌入+扩散罩</li><li>CRI≥90 高显色</li><li>京东搜<code>欧普LED灯带3000K CRI90</code></li></ul></div>
 </div>
-<div class="sb"><h4>🛒 京东搜</h4><code>西顿防眩筒灯7W 3000K 24°</code><code>雷士深杯防眩筒灯5W 3000K</code><code>欧普LED灯带3000K高显色</code><code>飞利浦灯带暖白自粘</code></div>
-<div class="tip">💡 台阶灯带朝上打光，筒灯打墙不打地=看得见光看不见灯</div>
+<p>📸 <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=deep+baffle+recessed+lighting+wall+wash+zen+interior" target="_blank">Pinterest: 深杯防眩筒灯效果</a> <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=cove+ceiling+indirect+LED+lighting+zen+apartment" target="_blank">Pinterest: 天花灯带间接照明</a> <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=recessed+wall+washer+light+narrow+beam+bedroom" target="_blank">Pinterest: 窄光束筒灯洗墙</a></p>
 </div>
 
-<!-- 4. HEADBOARD -->
+<!-- HEADBOARD -->
 <div class="sec">
-<h2>🛏️ 4. 床头麻布软包 — 色调&做法</h2>
-<h3>🎨 色调推荐</h3>
+<h2>🛏️ 3. 麻布床头软包</h2>
 <table>
-<tr><th>优先级</th><th>颜色</th><th>说明</th></tr>
-<tr><td>🥇</td><td><strong>亚麻本色</strong></td><td>未染色天然麻，米灰带黄 — 最质朴，不抢汝窑</td></tr>
-<tr><td>🥈</td><td><strong>燕麦/浅驼</strong></td><td>比汝窑暖2度 — 在墙面和地板间做柔过渡</td></tr>
-<tr><td>🥉</td><td><strong>浅灰麻</strong></td><td>和汝窑同色系浅一度 — 整体和谐层次微妙</td></tr>
-<tr><td>❌</td><td>纯白/花纹/深色</td><td>太跳/太杂/太沉 — 破坏禅意</td></tr>
+<tr><th>优先级</th><th>颜色</th><th>效果</th></tr>
+<tr><td>🥇</td><td><strong>亚麻本色</strong></td><td>未染色天然麻 米灰带黄 — 和汝窑+石墙不抢色 最柔过渡</td></tr>
+<tr><td>🥈</td><td><strong>燕麦/浅驼</strong></td><td>比汝窑暖2度 — 在石墙冷感和地板暖调间做桥梁</td></tr>
+<tr><td>❌</td><td>纯白/花纹/深灰</td><td>破坏禅意 有花纹就俗</td></tr>
 </table>
-<h3>🛠️ 做法</h3>
 <div class="g2">
-<div class="cd bl"><h4>方案A · DIY ¥200-400</h4><ul><li>木工板打底 1.8cm厚</li><li>3-5cm高密度海绵</li><li>亚麻布包覆 背面钉枪</li><li>膨胀螺丝固定上墙</li><li>尺寸：1.8m宽 × 1m高</li></ul></div>
-<div class="cd bl"><h4>方案B · 淘宝订制 ¥300-600</h4><ul><li>搜<code>麻布床头软包定制</code></li><li>报尺寸+选面料+厚度</li><li>成品直接挂墙</li><li>尺寸：1.8m宽 × 1m高</li></ul></div>
+<div class="cd bl"><h4>方案A · DIY ¥200-400</h4><ul><li>木工板打底 1.8cm</li><li>3-5cm高密度海绵</li><li>亚麻布包覆 钉枪固定</li><li>膨胀螺丝上墙</li><li>1.8m宽 × 1m高</li></ul></div>
+<div class="cd bl"><h4>方案B · 淘宝 ¥300-600</h4><ul><li>搜<code>麻布床头软包定制</code></li><li>报尺寸+选面料</li><li>成品收到挂墙</li><li>1.8m宽 × 1m高</li></ul></div>
 </div>
-<div class="cg">
-<div class="cc"><a href="https://www.pinterest.com/search/pins/?q=linen+upholstered+headboard+panel+wabi+sabi+bedroom" target="_blank"><div class="thumb" style="background:#f0e6d5;">🧵</div><div class="info"><h4>整面麻布床头板</h4><p class="desc">1.8m×1m — 汝窑墙上悬浮一块麻</p><div class="tags"><span>整面板</span><span>麻布</span></div></div></a></div>
-<div class="cc"><a href="https://www.pinterest.com/search/pins/?q=oatmeal+linen+bedding+zen+bedroom" target="_blank"><div class="thumb" style="background:#efe5d5;">🛏️</div><div class="info"><h4>燕麦亚麻床品</h4><p class="desc">同色系床品，不熨烫=最佳纹理</p><div class="tags"><span>床品</span><span>燕麦</span></div></div></a></div>
-<div class="cc"><a href="https://www.pinterest.com/search/pins/?q=textured+linen+wall+panel+headboard+neutral" target="_blank"><div class="thumb" style="background:#ede0cc;">🧶</div><div class="info"><h4>粗麻纹理床头</h4><p class="desc">粗麻+汝窑光滑墙=质感对比</p><div class="tags"><span>粗麻</span><span>纹理</span></div></div></a></div>
-<div class="cc"><a href="https://www.pinterest.com/search/pins/?q=linen+headboard+wood+slat+accent+wall+japanese" target="_blank"><div class="thumb" style="background:#e8dcc8;">🎋</div><div class="info"><h4>麻布+木格栅组合</h4><p class="desc">麻软包+两侧窄木格栅=层次</p><div class="tags"><span>组合</span><span>木格栅</span></div></div></a></div>
-</div>
-<div class="tip">💡 L：亚麻本色，整面板1.8m×1m，5cm厚。淘宝定制¥400搞定</div>
+<p>📸 <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=linen+upholstered+headboard+panel+wabi+sabi+bedroom" target="_blank">Pinterest: 麻布床头整面板</a> <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=oatmeal+linen+headboard+neutral+zen+bedroom" target="_blank">Pinterest: 燕麦亚麻床头</a> <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=textured+linen+headboard+stone+wall+bedroom" target="_blank">Pinterest: 麻布+石墙组合</a> <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=DIY+linen+headboard+panel+tutorial" target="_blank">Pinterest: DIY麻布床头教程</a></p>
 </div>
 
-<!-- 5. WALL DECOR -->
+<!-- STONE (NEW - HEAVY FOCUS) -->
 <div class="sec">
-<h2>🖼️ 5. 墙面挂件 — 少即是多</h2>
-<p>汝窑墙面本身就很美，挂件原则：<strong>少、素、手工感</strong>。留白就是最好的装饰。</p>
+<h2>🪨 4. 石元素 — 取代木的核心 ⭐ 重点</h2>
+<p style="font-size:1rem;">褐红木地板已经给你了木元素。墙面和软装<strong>全面转石</strong>，和汝窑灰绿天然同色系，比木更禅。</p>
+
+<h3>🔀 木→石 替换对照表</h3>
 <table>
-<tr><th>优先级</th><th>挂件</th><th>位置</th><th>淘宝搜</th><th>预算</th></tr>
-<tr><td>🥇</td><td><strong>麻绳编织挂毯</strong></td><td>床头麻布板上方or侧面</td><td><code>手工编织挂毯麻绳圆形</code></td><td>¥50-120</td></tr>
-<tr><td>🥈</td><td><strong>壁挂花器+枯枝</strong></td><td>沙发/茶桌上方</td><td><code>壁挂花器禅意陶瓷</code></td><td>¥40-80</td></tr>
-<tr><td>🥉</td><td><strong>日式一字挂轴</strong></td><td>茶桌正对面</td><td><code>日式挂轴禅字茶室</code></td><td>¥80-200</td></tr>
-<tr><td>4</td><td><strong>原木框圆镜</strong></td><td>玄关or走廊</td><td><code>实木圆镜原木色40cm</code></td><td>¥60-150</td></tr>
+<tr><th>原来的(木)</th><th>换成(石)</th><th>效果</th></tr>
+<tr><td>木格栅床头墙</td><td>🥇 <strong>文化石+麻布拼接</strong></td><td>粗犷石面+柔软麻布=绝佳对比</td></tr>
+<tr><td>木搁板</td><td>🥈 <strong>石板/水泥搁板</strong></td><td>窗台用石板放花盆</td></tr>
+<tr><td>树墩茶几</td><td>🥇 <strong>整块原石板茶几</strong></td><td>天然石板=天然雕塑 独一无二</td></tr>
+<tr><td>木托盘</td><td>🥉 <strong>水泥/石板托盘</strong></td><td>收纳遥控器杂物</td></tr>
+<tr><td>枯枝+木罐</td><td>🥉 <strong>枯枝+粗陶/石罐</strong></td><td>石质花器更有禅意</td></tr>
 </table>
-<div class="g2">
-<div class="cd bl"><h4>✅ 心法</h4><ul><li>一面墙最多1件</li><li>位置偏低（视线高度）</li><li>材质：麻/木/陶/纸</li><li>色调：和汝窑同色系</li></ul></div>
-<div class="cd bs"><h4>❌ 不挂</h4><ul><li>玻璃框画/照片墙</li><li>金属装饰/彩色</li><li>任何亮面</li><li>3件是绝对上限</li></ul></div>
-</div>
-<div class="sb"><h4>🔍 Pinterest</h4><code>macrame wall hanging zen bedroom</code><code>wall vase dried branch japanese</code><code>kakejiku hanging scroll tea room</code></div>
-</div>
 
-<!-- 6. CURTAINS -->
-<div class="sec">
-<h2>🪟 6. 麻质窗帘 — 透光的禅意</h2>
+<h3>🪨 新增石元素（不替换 纯加）</h3>
 <table>
-<tr><th>要点</th><th>建议</th><th>原因</th></tr>
-<tr><td><strong>颜色</strong></td><td>和床头同色：燕麦/亚麻本色</td><td>软装色系统一不杂乱</td></tr>
-<tr><td><strong>款式</strong></td><td>落地帘，离地1cm</td><td>拖地邋遢，悬空不禅</td></tr>
-<tr><td><strong>褶皱</strong></td><td>自然挂，不熨烫</td><td>麻的天然褶皱=禅意纹理</td></tr>
-<tr><td><strong>遮光</strong></td><td><strong>半透光！不要全遮</strong></td><td>阳光穿过麻布=禅意灵魂</td></tr>
-<tr><td><strong>双层</strong></td><td>薄麻透光+厚麻隐私</td><td>白天透光，晚上拉厚帘</td></tr>
-<tr><td><strong>杆</strong></td><td>黑色哑光铁杆or原木杆</td><td>越低调越好</td></tr>
+<tr><th>优先级</th><th>石元素</th><th>位置</th><th>做法</th><th>预算</th></tr>
+<tr><td>🥇</td><td><strong>床头文化石墙 3㎡</strong></td><td>床头那面墙</td><td>淘宝买文化石贴片 自己贴 or 工人贴</td><td>¥200-400</td></tr>
+<tr><td>🥇</td><td><strong>整块原石摆件</strong></td><td>客厅角落</td><td>石材市场淘一块好看的原石</td><td>¥100-500</td></tr>
+<tr><td>🥈</td><td><strong>石板/水泥茶几</strong></td><td>客厅中心</td><td>天然石板+铁艺底座 or 淘宝买水泥茶几</td><td>¥300-600</td></tr>
+<tr><td>🥈</td><td><strong>桌面枯山水</strong></td><td>茶几/书桌</td><td>小沙盘+细沙+几块石头+小耙子</td><td>¥60-120</td></tr>
+<tr><td>🥈</td><td><strong>石板窗台</strong></td><td>窗台</td><td>天然石板裁切后铺窗台</td><td>¥150-300</td></tr>
+<tr><td>🥉</td><td><strong>河石摆件×5</strong></td><td>窗台/茶几</td><td>河边捡光滑鹅卵石 😄</td><td>¥0</td></tr>
+<tr><td>🥉</td><td><strong>石灯</strong></td><td>边几/角落</td><td>喜马拉雅盐灯 or 石质台灯</td><td>¥50-150</td></tr>
+<tr><td>🥉</td><td><strong>水泥花盆×3</strong></td><td>绿植容器</td><td>淘宝搜<code>水泥花盆 几何</code></td><td>¥60-100</td></tr>
 </table>
-<div class="sb"><h4>🔍 Pinterest</h4><code>linen curtain light shadow zen</code><code>natural linen curtain soft light</code><code>double layer linen japanese</code></div>
-<div class="tip">💡 阳光穿过亚麻布纹理投到汝窑墙上 — 这是整个房间最美的时刻。买薄麻帘就是为了这个。</div>
+
+<h3>🎯 石元素组合方案（三档）</h3>
+<table>
+<tr><th>档位</th><th>内容</th><th>预算</th></tr>
+<tr><td>🥇 <strong>必做</strong></td><td>床头文化石墙3㎡ + 桌面枯山水 + 河石摆件</td><td>¥260-520</td></tr>
+<tr><td>🥈 <strong>推荐</strong></td><td>必做 + 原石摆件 + 水泥花盆×3 + 石灯</td><td>¥470-1270</td></tr>
+<tr><td>🥉 <strong>极致</strong></td><td>推荐 + 石板茶几 + 石板窗台</td><td>¥920-2170</td></tr>
+</table>
+
+<p>📸 <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=stone+accent+wall+bedroom+zen+wabi+sabi" target="_blank">P: 石墙床头禅意</a> <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=stacked+stone+wall+bedroom+accent+feature" target="_blank">P: 文化石墙卧室</a> <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=microcement+stone+texture+wall+zen+apartment" target="_blank">P: 微水泥仿石墙</a> <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=natural+stone+slab+coffee+table+wabi+sabi" target="_blank">P: 原石板茶几</a> <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=mini+zen+garden+indoor+desk+karesansui" target="_blank">P: 桌面枯山水</a> <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=stone+texture+bedroom+wall+ru+yao+celadon" target="_blank">P: 石墙+灰绿色调</a></p>
+<div class="tip grn">💡 <strong>L的关键决定</strong>：床头那面3㎡文化石墙是你整个空间的视觉锚点。汝窑(灰绿)+文化石(灰)=同色系双灰叠加。麻布床头在石墙前面=软硬对比。这是全屋最精彩的一面墙。</div>
 </div>
 
-<!-- 7. DOWNLIGHTS DETAIL -->
+<!-- WALL DECOR -->
 <div class="sec">
-<h2>💡 7. 筒灯&灯带 · 详细参数</h2>
+<h2>🖼️ 5. 墙面挂件</h2>
+<table>
+<tr><th>优先</th><th>挂件</th><th>位置</th><th>淘宝搜</th><th>¥</th></tr>
+<tr><td>🥇</td><td><strong>麻绳编织挂毯</strong></td><td>麻布床头上方or侧面</td><td><code>手工编织挂毯 麻绳 圆形</code></td><td>50-120</td></tr>
+<tr><td>🥈</td><td><strong>壁挂花器+枯枝</strong></td><td>茶桌上方墙面</td><td><code>壁挂花器 禅意 陶瓷</code></td><td>40-80</td></tr>
+<tr><td>🥉</td><td><strong>日式一字挂轴</strong></td><td>茶桌正对面墙</td><td><code>日式挂轴 禅字 茶室</code></td><td>80-200</td></tr>
+</table>
 <div class="g2">
-<div class="cd bs"><h4>⚪ 筒灯 4-6个</h4><ul><li>位置：外框四角 离墙30-40cm</li><li>光束角：<strong>15°-24°窄角</strong></li><li>防眩深杯≥5cm</li><li>色温：<strong>3000K</strong></li><li>瓦数：5-7W/个</li><li>开孔：φ7.5cm标准</li><li>显色：CRI≥90</li><li>品牌：西顿/雷士/欧普</li></ul></div>
-<div class="cd bs"><h4>💡 LED灯带</h4><ul><li>每个台阶内侧</li><li>朝上发光洗天花板</li><li>色温：<strong>3000K</strong></li><li>功率：8-12W/m</li><li>显色：CRI≥90</li><li>安装：铝槽+扩散罩</li><li>提前量好总长再买</li><li>品牌：欧普/飞利浦</li></ul></div>
+<div class="cd bl"><h4>✅ 挂件心法</h4><ul><li>一面墙最多1件 其余全留白</li><li>材质：麻/陶/纸/石</li><li>色调：灰/驼/米白</li><li>挂位偏低（视线高度）</li></ul></div>
+<div class="cd bs"><h4>❌ 绝对不挂</h4><ul><li>玻璃框画 照片墙 金属</li><li>彩色 亮色 任何反光</li><li>太多—3件是上限</li></ul></div>
 </div>
-<div class="sb"><h4>🛒 京东</h4><code>西顿防眩筒灯7W 3000K 24°</code><code>雷士深杯防眩筒灯5W 3000K</code><code>欧普LED灯带3000K CRI90</code></div>
+<p>📸 <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=macrame+wall+hanging+zen+bedroom+neutral+stone" target="_blank">P: 麻绳挂毯+石墙</a> <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=ceramic+wall+vase+dried+branch+japanese+interior" target="_blank">P: 壁挂花器+枯枝</a> <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=kakejiku+japanese+hanging+scroll+zen+tea" target="_blank">P: 日式挂轴</a></p>
+</div>
+
+<!-- CURTAINS -->
+<div class="sec">
+<h2>🪟 6. 麻质窗帘</h2>
+<table>
+<tr><th>要点</th><th>建议</th></tr>
+<tr><td>颜色</td><td>和床头同色：燕麦/亚麻本色</td></tr>
+<tr><td>款式</td><td>落地帘 离地1cm</td></tr>
+<tr><td>褶皱</td><td>自然挂 不熨烫！</td></tr>
+<tr><td>遮光</td><td><strong>半透光</strong> — 阳光穿麻布=禅意灵魂</td></tr>
+<tr><td>双层</td><td>薄麻透光 + 厚麻隐私</td></tr>
+<tr><td>杆</td><td>黑色哑光铁杆</td></tr>
+</table>
+<p>📸 <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=linen+curtain+soft+light+shadow+zen+interior+stone+wall" target="_blank">P: 麻帘光影+石墙</a></p>
+<div class="tip grn">💡 阳光穿过亚麻纹理投到汝窑和石墙上=全屋最美时刻。买薄麻帘就是为了这个。</div>
+</div>
+
+<!-- 7. PLANTS -->
+<div class="sec">
+<h2>🌿 7. 绿植</h2>
+<table>
+<tr><th>类型</th><th>品种</th><th>容器</th><th>¥</th></tr>
+<tr><td><strong>大型1盆</strong></td><td>琴叶榕/龟背竹 1.2m</td><td>水泥花盆</td><td>80-200</td></tr>
+<tr><td><strong>苔藓球</strong></td><td>Kokedama 日式苔球</td><td>石盘上</td><td>40-80</td></tr>
+<tr><td><strong>枯枝+陶罐</strong></td><td>蒲苇/尤加利干枝</td><td>粗陶罐</td><td>50-100</td></tr>
+<tr><td><strong>多肉×5</strong></td><td>各种多肉组合</td><td>水泥小盆</td><td>30-60</td></tr>
+</table>
+<p>📸 <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=one+large+plant+zen+interior+stone+wall+apartment" target="_blank">P: 大绿植+石墙禅意</a> <a class="pin-link" href="https://www.pinterest.com/search/pins/?q=kokedama+moss+ball+stone+plate+zen" target="_blank">P: 苔藓球+石盘</a></p>
 </div>
 
 <!-- 8. ACCESSORIES -->
 <div class="sec">
 <h2>🍵 8. 摆件 · 茶桌 · 软装清单</h2>
 <table>
-<tr><th>物品</th><th>推荐</th><th>淘宝搜</th><th>预算</th></tr>
-<tr><td><strong>茶桌</strong></td><td>老木板+铁艺腿 70×70cm</td><td><code>老木板茶桌 铁艺腿</code></td><td>¥300-800</td></tr>
-<tr><td><strong>蒲团×2</strong></td><td>麻布面，和床头同色</td><td><code>蒲团坐垫 麻布 禅意</code></td><td>¥60-100/个</td></tr>
-<tr><td><strong>茶具</strong></td><td>粗陶侧把壶+2杯+壶承</td><td><code>粗陶茶具 日式</code></td><td>¥150-300</td></tr>
-<tr><td><strong>枯山水沙盘</strong></td><td>小号桌面 配耙子+石头</td><td><code>桌面枯山水 迷你 禅意</code></td><td>¥60-120</td></tr>
-<tr><td><strong>线香炉</strong></td><td>粗陶/铸铁线香炉</td><td><code>粗陶线香炉 禅意</code></td><td>¥50-100</td></tr>
-<tr><td><strong>木托盘</strong></td><td>老木托盘 收纳杂物</td><td><code>老木托盘 茶盘</code></td><td>¥50-80</td></tr>
-<tr><td><strong>河石摆件</strong></td><td>窗台放几块光滑河石</td><td>河边公园捡 😄</td><td>¥0</td></tr>
-<tr><td><strong>琴叶榕</strong></td><td>1.2m大株 ×1 放角落</td><td><code>琴叶榕 大株 室内</code></td><td>¥80-200</td></tr>
-<tr><td><strong>苔藓球</strong></td><td>日式Kokedama 挂or石盘</td><td><code>苔藓球 日式 悬挂</code></td><td>¥40-80</td></tr>
-<tr><td><strong>枯枝+陶罐</strong></td><td>枯枝插粗陶罐 茶桌or角落</td><td><code>粗陶花瓶 干枝 禅意</code></td><td>¥50-100</td></tr>
+<tr><th>物品</th><th>推荐(石材优先)</th><th>¥</th></tr>
+<tr><td>茶桌</td><td><strong>原石板+铁艺腿</strong> or 水泥茶几 70×70cm</td><td>300-600</td></tr>
+<tr><td>蒲团×2</td><td>麻布面 和床头同色</td><td>60-100/个</td></tr>
+<tr><td>茶具</td><td>粗陶侧把壶+2杯+壶承</td><td>150-300</td></tr>
+<tr><td>枯山水沙盘</td><td>小号 配耙子+几块石头</td><td>60-120</td></tr>
+<tr><td>线香炉</td><td>粗陶/铸铁</td><td>50-100</td></tr>
+<tr><td>石质托盘</td><td>水泥/石板托盘</td><td>50-80</td></tr>
+<tr><td>原石摆件</td><td>天然整块观赏石</td><td>100-500</td></tr>
+<tr><td>石灯</td><td>喜马拉雅盐灯</td><td>50-120</td></tr>
 </table>
-<div class="tip">💡 摆件心法：桌面上只放3样 — 枯山水+香炉+一杯茶。其余全收进木托盘。</div>
 </div>
 
 <!-- BUDGET -->
 <div class="sec">
-<h2>💰 全案预算总表</h2>
+<h2>💰 全案预算</h2>
 <table>
 <tr><th>项目</th><th>内容</th><th>最低</th><th>推荐</th></tr>
-<tr><td>🏮 纸吊灯</td><td>大号和纸吊灯 50-60cm</td><td>¥300</td><td>¥500</td></tr>
-<tr><td>💡 筒灯×6</td><td>深杯防眩 3000K</td><td>¥180</td><td>¥300</td></tr>
-<tr><td>💡 LED灯带</td><td>3000K+铝槽+变压器</td><td>¥150</td><td>¥250</td></tr>
-<tr><td>🛏️ 麻布床头</td><td>亚麻软包 1.8m×1m</td><td>¥200</td><td>¥400</td></tr>
-<tr><td>🖼️ 挂件×2</td><td>麻绳挂毯+壁挂花器</td><td>¥100</td><td>¥200</td></tr>
-<tr><td>🍵 茶桌+蒲团</td><td>老木茶桌+2蒲团</td><td>¥400</td><td>¥900</td></tr>
-<tr><td>🍵 茶具+香炉</td><td>粗陶套装+线香炉</td><td>¥200</td><td>¥400</td></tr>
-<tr><td>🪨 枯山水</td><td>桌面沙盘</td><td>¥60</td><td>¥100</td></tr>
-<tr><td>🌿 绿植×2</td><td>琴叶榕+苔藓球</td><td>¥120</td><td>¥280</td></tr>
-<tr><td>🏺 枯枝+陶罐</td><td>花瓶+干枝</td><td>¥50</td><td>¥100</td></tr>
-<tr style="font-weight:bold;background:#f5f2eb;"><td>📦 合计</td><td>轻禅意软装全案</td><td>¥1,760</td><td>¥3,430</td></tr>
+<tr><td>🏮 纸吊灯</td><td>和纸吊灯 50-60cm</td><td>300</td><td>500</td></tr>
+<tr><td>💡 筒灯×6</td><td>深杯防眩 3000K</td><td>180</td><td>300</td></tr>
+<tr><td>💡 LED灯带</td><td>3000K+铝槽+变压器</td><td>150</td><td>250</td></tr>
+<tr><td>🛏️ 麻布床头</td><td>亚麻软包 1.8m×1m</td><td>200</td><td>400</td></tr>
+<tr><td>🪨 石墙 3㎡</td><td>文化石贴面</td><td>200</td><td>400</td></tr>
+<tr><td>🪨 原石摆件</td><td>天然整块石</td><td>100</td><td>300</td></tr>
+<tr><td>🪨 石板茶几</td><td>石板+铁艺腿</td><td>300</td><td>600</td></tr>
+<tr><td>🖼️ 挂件×2</td><td>麻绳挂毯+壁挂花器</td><td>100</td><td>200</td></tr>
+<tr><td>🍵 茶具+香炉</td><td>粗陶套装+线香</td><td>200</td><td>400</td></tr>
+<tr><td>🪨 枯山水</td><td>桌面沙盘</td><td>60</td><td>100</td></tr>
+<tr><td>🌿 绿植×3</td><td>琴叶榕+苔球+多肉</td><td>150</td><td>340</td></tr>
+<tr><td>🏺 枯枝+陶罐</td><td>花瓶+干枝</td><td>50</td><td>100</td></tr>
+<tr style="font-weight:bold;background:#f5f2eb;"><td>📦 合计</td><td>石禅轻禅意全案</td><td>¥1,990</td><td>¥3,890</td></tr>
 </table>
-<p style="text-align:center;font-size:.85rem;color:#888;">不含涂料(已定汝窑)和地板(已有褐红木)。¥2000出效果，¥3500做到位。</p>
 </div>
 
 <!-- STEPS -->
 <div class="sec">
 <h2>📋 施工顺序</h2>
 <div style="margin:1rem 0;line-height:2.2;">
-<p><span class="ph p1">第一步</span> 刷汝窑 → 铺地板 → 装灯带(藏台阶) → 装筒灯</p>
-<p><span class="ph p2">第二步</span> 装纸吊灯 → 装窗帘杆+挂麻帘 → 装床头麻布软包</p>
-<p><span class="ph p3">第三步</span> 进家具(茶桌+蒲团) → 上墙挂件 → 摆绿植 → 铺地毯 → 摆枯山水</p>
+<p><span class="ph p1">第一步</span> 刷汝窑 → 贴床头文化石墙 → 装灯带(藏台阶) → 装筒灯</p>
+<p><span class="ph p2">第二步</span> 装纸吊灯 → 窗帘杆+麻帘 → 床头麻布软包 → 石板窗台</p>
+<p><span class="ph p3">第三步</span> 进石板茶几+蒲团 → 挂件上墙 → 原石摆件 → 绿植 → 枯山水</p>
 </div>
 </div>
 
 <!-- INTL LINKS -->
 <div class="sec">
-<h2>🌍 国际灵感站 · 一步直达 (需VPN)</h2>
+<h2>🌍 参考图直达 — 一键打开Pinterest (需VPN)</h2>
 <table>
-<tr><th>网站</th><th>搜什么</th><th>直达</th></tr>
-<tr><td><strong>Pinterest</strong> ⭐</td><td><code>japandi small apartment zen linen wood stone</code></td><td><a href="https://www.pinterest.com/search/pins/?q=japandi+small+apartment+zen+linen+wood+stone" target="_blank">→ 打开</a></td></tr>
-<tr><td><strong>Pinterest</strong></td><td><code>wabi sabi bedroom oatmeal linen headboard</code></td><td><a href="https://www.pinterest.com/search/pins/?q=wabi+sabi+bedroom+oatmeal+linen+headboard" target="_blank">→ 打开</a></td></tr>
-<tr><td><strong>Pinterest</strong></td><td><code>noguchi akari paper light zen living room</code></td><td><a href="https://www.pinterest.com/search/pins/?q=noguchi+akari+paper+light+zen+living+room" target="_blank">→ 打开</a></td></tr>
-<tr><td><strong>Houzz</strong></td><td><code>zen small apartment natural materials</code></td><td><a href="https://www.houzz.com/photos/query/zen-small-apartment-natural-materials" target="_blank">→ 打开</a></td></tr>
-<tr><td><strong>Apartment Therapy</strong></td><td><code>small apartment zen style</code></td><td><a href="https://www.apartmenttherapy.com/search?q=zen+small+apartment" target="_blank">→ 打开</a></td></tr>
-<tr><td><strong>Dezeen</strong></td><td><code>zen apartment natural materials</code></td><td><a href="https://www.dezeen.com/search/?q=zen+apartment+natural+materials" target="_blank">→ 打开</a></td></tr>
-<tr><td><strong>dwell</strong></td><td><code>zen apartment natural</code></td><td><a href="https://www.dwell.com/search?q=zen+apartment+natural" target="_blank">→ 打开</a></td></tr>
-<tr><td><strong>Instagram</strong></td><td><code>#wabisabiinterior</code> <code>#zenapartment</code></td><td><a href="https://www.instagram.com/explore/tags/wabisabiinterior/" target="_blank">→ 打开</a></td></tr>
+<tr><th>想看什么</th><th>点击直达</th></tr>
+<tr><td>🪨 石墙床头禅意</td><td><a href="https://www.pinterest.com/search/pins/?q=stone+accent+wall+bedroom+zen+wabi+sabi" target="_blank">→ 打开</a></td></tr>
+<tr><td>🪨 文化石墙卧室</td><td><a href="https://www.pinterest.com/search/pins/?q=stacked+stone+wall+bedroom+accent+feature+zen" target="_blank">→ 打开</a></td></tr>
+<tr><td>🪨 原石茶几</td><td><a href="https://www.pinterest.com/search/pins/?q=natural+stone+slab+coffee+table+wabi+sabi+interior" target="_blank">→ 打开</a></td></tr>
+<tr><td>🪨 微水泥仿石墙</td><td><a href="https://www.pinterest.com/search/pins/?q=microcement+stone+texture+wall+zen+small+apartment" target="_blank">→ 打开</a></td></tr>
+<tr><td>🪨 室内枯山水</td><td><a href="https://www.pinterest.com/search/pins/?q=indoor+zen+garden+stone+apartment+minimal" target="_blank">→ 打开</a></td></tr>
+<tr><td>🛏️ 麻布床头软包</td><td><a href="https://www.pinterest.com/search/pins/?q=linen+upholstered+headboard+panel+wabi+sabi+bedroom" target="_blank">→ 打开</a></td></tr>
+<tr><td>🛏️ 麻布+石墙组合</td><td><a href="https://www.pinterest.com/search/pins/?q=linen+headboard+stone+wall+zen+bedroom" target="_blank">→ 打开</a></td></tr>
+<tr><td>🖼️ 麻绳挂毯墙饰</td><td><a href="https://www.pinterest.com/search/pins/?q=macrame+wall+hanging+zen+bedroom+neutral" target="_blank">→ 打开</a></td></tr>
+<tr><td>💡 深杯防眩筒灯效果</td><td><a href="https://www.pinterest.com/search/pins/?q=deep+baffle+recessed+wall+washer+light+interior" target="_blank">→ 打开</a></td></tr>
+<tr><td>💡 天花灯带间接照明</td><td><a href="https://www.pinterest.com/search/pins/?q=cove+ceiling+indirect+LED+lighting+zen+apartment" target="_blank">→ 打开</a></td></tr>
+<tr><td>🏮 野口勇纸灯</td><td><a href="https://www.pinterest.com/search/pins/?q=noguchi+akari+paper+pendant+zen+living+room" target="_blank">→ 打开</a></td></tr>
+<tr><td>🌿 绿植+石墙禅意</td><td><a href="https://www.pinterest.com/search/pins/?q=large+plant+stone+wall+zen+apartment+minimal" target="_blank">→ 打开</a></td></tr>
 </table>
 </div>
 
 <footer>
-<p>🏠 L的45㎡轻禅意全案 · 汝窑+麻·木·石·绿植</p>
-<p>2026-07-22 | 轻禅意=不改硬装·全软装·¥2000-3500 | 国际链接需VPN</p>
+<p>🏠 L的45㎡轻禅意全案 v2 · 汝窑+麻·石·绿植</p>
+<p>2026-07-22 14:30 | 石替木核心方案 | ¥2000-3900 | 全部Pinterest链接需VPN</p>
 </footer>
 
 </div></body></html>
