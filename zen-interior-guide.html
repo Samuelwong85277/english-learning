@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>禅意风格装修 — 轻度 vs 重度 完整指南</title>
+<style>
+  :root {
+    --bg: #f2efe8;
+    --card: #e8e3da;
+    --text: #2d2a26;
+    --accent: #5b7a5e;
+    --accent2: #8b6f4e;
+    --tag: #b8c5a8;
+    --border: #d4cfc4;
+    --light-bg: #f7f5f0;
+    --heavy-bg: #e8e0d5;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Georgia','Noto Serif SC','STSong',serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height:1.8;
+    padding:2rem 1rem;
+  }
+  .container { max-width:1200px; margin:0 auto; }
+
+  header {
+    text-align:center;
+    padding:3rem 1rem 2rem;
+    border-bottom:2px solid var(--border);
+    margin-bottom:3rem;
+  }
+  header h1 {
+    font-size:2.5rem;
+    font-weight:400;
+    letter-spacing:0.1em;
+    color: var(--accent);
+    margin-bottom:.5rem;
+  }
+  header .sub { font-size:1rem; color:#8a8376; letter-spacing:0.06em; }
+  header .zen-quote {
+    margin-top:1.5rem;
+    font-style:italic;
+    font-size:1.1rem;
+    color: var(--accent2);
+    letter-spacing:0.04em;
+  }
+
+  .intro-box {
+    background: linear-gradient(135deg, #ede7df 0%, #f5f1ea 100%);
+    padding:2rem;
+    border-radius:10px;
+    margin-bottom:3rem;
+    border:1px solid var(--border);
+    text-align:center;
+  }
+  .intro-box p { max-width:800px; margin:0 auto; font-size:1rem; line-height:2; }
+
+  .nav-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.5rem;
+    margin-bottom:3rem;
+  }
+  @media(max-width:700px){ .nav-grid{grid-template-columns:1fr;} }
+  .nav-card {
+    padding:2rem;
+    border-radius:10px;
+    text-align:center;
+    text-decoration:none;
+    color: var(--text);
+    transition:all .3s;
+    cursor:pointer;
+    border:1px solid var(--border);
+  }
+  .nav-card.light { background:var(--light-bg); }
+  .nav-card.heavy { background:var(--heavy-bg); }
+  .nav-card:hover { transform:translateY(-4px); box-shadow:0 12px 30px rgba(0,0,0,.1); }
+  .nav-card .emoji { font-size:3rem; display:block; margin-bottom:.5rem; }
+  .nav-card h3 { font-size:1.4rem; letter-spacing:0.06em; margin:.5rem 0; }
+  .nav-card .desc { font-size:.85rem; color:#7a7266; line-height:1.6; }
+  .nav-card .budget { margin-top:1rem; font-size:.8rem; color: var(--accent2); }
+
+  .section {
+    margin-bottom:3rem;
+    padding:2.5rem;
+    background:#fff;
+    border-radius:10px;
+    border:1px solid var(--border);
+  }
+  .section.light-theme { border-left:4px solid #7ba87e; }
+  .section.heavy-theme { border-left:4px solid #8b6f4e; }
+  .section h2 {
+    font-size:1.8rem;
+    font-weight:400;
+    margin-bottom:1.5rem;
+    letter-spacing:0.05em;
+  }
+  .section.light-theme h2 { color:#4a7c4e; }
+  .section.heavy-theme h2 { color:#8b6f4e; }
+
+  .principles {
+    background:#faf8f5;
+    padding:1.5rem;
+    border-radius:8px;
+    margin:1.5rem 0;
+    font-size:.9rem;
+  }
+  .principles h4 { margin-bottom:.5rem; letter-spacing:0.04em; }
+  .principles ul { margin:.5rem 0 0 1.2rem; }
+  .principles li { margin:.3rem 0; }
+
+  .element-table {
+    width:100%;
+    border-collapse:collapse;
+    margin:1.5rem 0;
+    font-size:.85rem;
+  }
+  .element-table th, .element-table td {
+    padding:.8rem 1rem;
+    border:1px solid var(--border);
+    text-align:left;
+    vertical-align:top;
+  }
+  .element-table th { background: var(--accent); color:#fff; font-weight:400; letter-spacing:0.04em; }
+  .element-table th:nth-child(2) { background:#7ba87e; }
+  .element-table th:nth-child(3) { background:#8b6f4e; }
+  .element-table tr:nth-child(even) { background:#faf8f5; }
+  .element-table .elem { font-weight:600; white-space:nowrap; }
+
+  .case-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));
+    gap:1.5rem;
+    margin-top:1.5rem;
+  }
+  .case-card {
+    background:#faf8f5;
+    border-radius:8px;
+    overflow:hidden;
+    border:1px solid var(--border);
+    transition:transform .2s, box-shadow .2s;
+    cursor:pointer;
+  }
+  .case-card:hover { transform:translateY(-3px); box-shadow:0 8px 25px rgba(0,0,0,.1); }
+  .case-card a { text-decoration:none; color:inherit; display:block; }
+  .case-card .thumb {
+    height:180px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:3.5rem;
+    background:var(--bg);
+  }
+  .case-card .info { padding:1rem 1.2rem; }
+  .case-card .info h3 { font-size:1rem; margin-bottom:.3rem; }
+  .case-card .info .desc { font-size:.8rem; color:#7a7266; line-height:1.5; }
+  .case-card .info .tags { margin-top:.6rem; display:flex; flex-wrap:wrap; gap:.3rem; }
+  .case-card .info .tags span {
+    font-size:.7rem;
+    background:var(--bg);
+    color:var(--accent2);
+    padding:.15rem .5rem;
+    border-radius:3px;
+  }
+
+  .dos-donts {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.5rem;
+    margin:1.5rem 0;
+  }
+  @media(max-width:600px){ .dos-donts{grid-template-columns:1fr;} }
+  .dos, .donts { padding:1.2rem; border-radius:6px; font-size:.85rem; }
+  .dos { background:#eef5ed; border:1px solid #c5dcc3; }
+  .donts { background:#faf0f0; border:1px solid #e8c9c9; }
+  .dos h4 { color:#4a7c46; margin-bottom:.5rem; }
+  .donts h4 { color:#b84545; margin-bottom:.5rem; }
+
+  .kwd-box {
+    background:#faf8f5;
+    padding:1rem 1.5rem;
+    border-radius:6px;
+    margin-top:1.5rem;
+    font-size:.8rem;
+    font-family:'Consolas','Courier New',monospace;
+    color: var(--accent);
+    line-height:2;
+  }
+
+  .action-checklist {
+    list-style:none;
+    padding:0;
+  }
+  .action-checklist li {
+    padding:.7rem 1rem;
+    margin:.4rem 0;
+    background:#faf8f5;
+    border-radius:6px;
+    display:flex;
+    align-items:flex-start;
+    gap:.5rem;
+    font-size:.9rem;
+  }
+  .action-checklist .check { color:var(--accent); font-size:1.2rem; flex-shrink:0; }
+  .action-checklist .price { color:var(--accent2); font-size:.75rem; margin-left:auto; white-space:nowrap; }
+
+  .comparison-box {
+    background: linear-gradient(135deg, #e8e3da 0%, #f5f1ea 100%);
+    padding:2rem;
+    border-radius:10px;
+    margin-bottom:3rem;
+  }
+  .comparison-box h2 { text-align:center; font-weight:400; letter-spacing:0.06em; color: var(--accent2); margin-bottom:1.5rem; }
+  .comparison-grid {
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    gap:1rem;
+    align-items:center;
+  }
+  @media(max-width:700px){ .comparison-grid{grid-template-columns:1fr;} }
+  .comp-col { padding:1.5rem; border-radius:8px; }
+  .comp-col.light { background:var(--light-bg); border:2px solid #7ba87e; }
+  .comp-col.heavy { background:var(--heavy-bg); border:2px solid #8b6f4e; }
+  .comp-col h3 { text-align:center; margin-bottom:1rem; }
+  .comp-divider {
+    text-align:center;
+    font-size:2rem;
+    font-weight:bold;
+    color: var(--accent2);
+  }
+
+  footer {
+    text-align:center;
+    padding:2rem;
+    color:#b0a090;
+    font-size:.8rem;
+    border-top:1px solid var(--border);
+    margin-top:3rem;
+  }
+  footer a { color: var(--accent); text-decoration:none; }
+
+  .highlight { background:linear-gradient(180deg, transparent 60%, #d4e8d0 60%); padding:0 .2rem; }
+  .bamboo-divider {
+    text-align:center;
+    margin:2rem 0;
+    color: var(--accent);
+    font-size:1.5rem;
+    letter-spacing:0.5em;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>🎋 禅意风格装修指南</h1>
+  <p class="sub">Zen Interior Design — 从轻点缀到深沉浸</p>
+  <p class="zen-quote">"庭前柏树子" &mdash; 赵州禅师</p>
+</header>
+
+<div class="intro-box">
+  <p style="font-size:1.1rem;margin-bottom:1rem;"><strong>禅意 ≠ 侘寂</strong></p>
+  <p>侘寂(Wabi-Sabi)讲"不完美的美"——斑驳、风化、旧物<br>
+  禅意(Zen)讲"空与静"——秩序、留白、冥想、刻意减法<br>
+  禅可以"新"、可以"净"、可以"完美"；侘寂必须"旧"、必须"糙"</p>
+</div>
+
+<nav class="nav-grid">
+  <a href="#light" class="nav-card light">
+    <span class="emoji">🌿</span>
+    <h3>轻度禅意</h3>
+    <p class="desc">不改硬装 · 不拆墙 · 7天内完成<br>通过软装/摆件/绿植/灯光<br>让现有空间"禅起来"</p>
+    <p class="budget">💰 预算: ¥2,000 - 15,000</p>
+  </a>
+  <a href="#heavy" class="nav-card heavy">
+    <span class="emoji">🏯</span>
+    <h3>重度禅意</h3>
+    <p class="desc">硬装改动 · 需要施工 · 1-3个月<br>榻榻米/障子门/枯山水<br>沉浸式日式禅居</p>
+    <p class="budget">💰 预算: ¥50,000 - 300,000+</p>
+  </a>
+  <a href="#stone-zen" class="nav-card" style="background:#e8e0d5; grid-column:1/-1;">
+    <span class="emoji">🪨</span>
+    <h3>石禅 Stone Zen 🆕</h3>
+    <p class="desc">国际关键词全集 · Pinterest/Houzz/Dezeen等9站直达<br>中英文双搜指南 · 小户型石禅灵感</p>
+    <p class="budget">🆕 2026-07-22 新增</p>
+  </a>
+</nav>
+
+<!-- ============================================================ -->
+<!-- QUICK COMPARISON -->
+<!-- ============================================================ -->
+<div class="comparison-box" id="compare">
+  <h2>📊 轻度 vs 重度 一图对比</h2>
+  <div class="comparison-grid">
+    <div class="comp-col light">
+      <h3 style="color:#4a7c4e;">🌿 轻度禅意</h3>
+      <div class="principles" style="background:#fff;">
+        <table style="width:100%;font-size:.82rem;">
+          <tr><td style="padding:.3rem 0;"><strong>天花</strong></td><td>不动，保持原样</td></tr>
+          <tr><td style="padding:.3rem 0;"><strong>墙面</strong></td><td>一面墙换色/贴墙纸</td></tr>
+          <tr><td style="padding:.3rem 0;"><strong>地面</strong></td><td>加地毯/榻榻米垫</td></tr>
+          <tr><td style="padding:.3rem 0;"><strong>灯光</strong></td><td>换一盏主灯+辅助</td></tr>
+          <tr><td style="padding:.3rem 0;"><strong>门窗</strong></td><td>加竹帘/亚麻帘</td></tr>
+          <tr><td style="padding:.3rem 0;"><strong>家具</strong></td><td>利用现有+添置2-3件</td></tr>
+          <tr><td style="padding:.3rem 0;"><strong>核心</strong></td><td>造一个禅意角落</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="comp-divider">VS</div>
+    <div class="comp-col heavy">
+      <h3 style="color:#8b6f4e;">🏯 重度禅意</h3>
+      <div class="principles" style="background:#fff;">
+        <table style="width:100%;font-size:.82rem;">
+          <tr><td style="padding:.3rem 0;"><strong>天花</strong></td><td>木格栅吊顶/原木梁</td></tr>
+          <tr><td style="padding:.3rem 0;"><strong>墙面</strong></td><td>硅藻泥/土壁/木饰面</td></tr>
+          <tr><td style="padding:.3rem 0;"><strong>地面</strong></td><td>满铺榻榻米/桧木地板</td></tr>
+          <tr><td style="padding:.3rem 0;"><strong>灯光</strong></td><td>全屋间接照明系统</td></tr>
+          <tr><td style="padding:.3rem 0;"><strong>门窗</strong></td><td>障子(shoji)推拉门</td></tr>
+          <tr><td style="padding:.3rem 0;"><strong>家具</strong></td><td>定制矮桌/坐垫/床之间</td></tr>
+          <tr><td style="padding:.3rem 0;"><strong>核心</strong></td><td>全屋禅意沉浸</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART 1: LIGHT ZEN -->
+<!-- ============================================================ -->
+<div class="section light-theme" id="light">
+  <h2>🌿 第一部分：轻度禅意（不改硬装，7天完成）</h2>
+  <p style="color:#7a7266;margin-bottom:1.5rem;">适用于：已经装修好的房子、租房、不想大动干戈、只想加点"禅味"</p>
+
+  <h3 style="font-weight:400;color:#4a7c4e;margin-bottom:1rem;">🎯 轻度禅意核心思路</h3>
+  <div class="principles">
+    <p><strong>不是"做加法"——而是"做减法后加一样东西"</strong>。先清理掉杂乱物品，然后在一个角落集中营造禅意。</p>
+  </div>
+
+  <!-- Light: Elements Table -->
+  <h3 style="font-weight:400;color:#4a7c4e;margin-top:2rem;">📋 10大元素实操清单</h3>
+  <ul class="action-checklist">
+
+    <li><span class="check">🪴</span> <strong>1. 一个禅意角落（最重要！）</strong> <span class="price">¥200-2000</span></li>
+    <li style="list-style:none;margin-left:2rem;font-size:.82rem;color:#7a7266;margin-bottom:.5rem;">
+      选客厅一角/卧室窗边/阳台。<br>
+      元素：矮桌/榻榻米垫 + 一个花器 + 一枝植物 + 一盏小灯。<br>
+      搜 "Japanese zen corner apartment" 看大量案例。
+    </li>
+
+    <li><span class="check">🪨</span> <strong>2. 枯山水微景观（桌面迷你版）</strong> <span class="price">¥50-500</span></li>
+    <li style="list-style:none;margin-left:2rem;font-size:.82rem;color:#7a7266;margin-bottom:.5rem;">
+      淘宝搜 "枯山水摆件" / "禅意沙盘" —— 一个木盘+白沙+几块石头+一把小耙子。<br>
+      放在茶几/玄关/书桌上，每天用耙子画纹路本身就是冥想。
+    </li>
+
+    <li><span class="check">💡</span> <strong>3. 换一盏禅意吊灯/落地灯</strong> <span class="price">¥200-2000</span></li>
+    <li style="list-style:none;margin-left:2rem;font-size:.82rem;color:#7a7266;margin-bottom:.5rem;">
+      和纸/竹编/麻质灯罩，2700K暖光。<br>
+      <strong>一盏灯改气质</strong>——把客厅大吸顶灯换成和纸吊灯，瞬间禅意。<br>
+      品牌参考：野口勇Akari / 淘宝"日式和纸吊灯"
+    </li>
+
+    <li><span class="check">🎋</span> <strong>4. 竹帘 / 亚麻帘换掉遮光帘</strong> <span class="price">¥100-800</span></li>
+    <li style="list-style:none;margin-left:2rem;font-size:.82rem;color:#7a7266;margin-bottom:.5rem;">
+      扔掉厚重的遮光窗帘！<br>
+      竹帘(Bamboo blinds)透光不透影，光影投射到墙上就是一幅画。<br>
+      淘宝搜 "日式竹卷帘" 或 "亚麻透光窗帘"
+    </li>
+
+    <li><span class="check">🖼️</span> <strong>5. 一面墙换色（禅意色号）</strong> <span class="price">¥200-500</span></li>
+    <li style="list-style:none;margin-left:2rem;font-size:.82rem;color:#7a7266;margin-bottom:.5rem;">
+      只刷一面墙，自己就能做。<br>
+      颜色：鼠尾草绿(Sage Green #9CAF88) / 灰绿(Sage Gray) / 暖灰褐(Warm Taupe)<br>
+      参考：Benjamin Moore "Sage Wisdom" / "October Mist"
+    </li>
+
+    <li><span class="check">🪵</span> <strong>6. 加榻榻米地垫 / 剑麻地毯</strong> <span class="price">¥200-2000</span></li>
+    <li style="list-style:none;margin-left:2rem;font-size:.82rem;color:#7a7266;margin-bottom:.5rem;">
+      不用铺满——2-3块拼接放在沙发前/床前/茶角落。<br>
+      自然色（草绿/米黄），不要染色款。<br>
+      搜 "tatami mat small" / "jute rug zen"
+    </li>
+
+    <li><span class="check">🏺</span> <strong>7. 3个关键摆件（少即是多）</strong> <span class="price">¥100-1000</span></li>
+    <li style="list-style:none;margin-left:2rem;font-size:.82rem;color:#7a7266;margin-bottom:.5rem;">
+      ① 陶罐花瓶 + 一枝枯枝/干花（非对称花道Ikebana）<br>
+      ② 一个手工粗陶香炉/线香座<br>
+      ③ 一块天然石头/鹅卵石<br>
+      ⚠️ 只放3个！不要再多了！留白才是禅。
+    </li>
+
+    <li><span class="check">🌱</span> <strong>8. 植物：竹子 / 苔藓 / 盆景</strong> <span class="price">¥50-800</span></li>
+    <li style="list-style:none;margin-left:2rem;font-size:.82rem;color:#7a7266;margin-bottom:.5rem;">
+      ✅ 室内竹（富贵竹/Dracena）<br>
+      ✅ 苔藓盆景（Kokedama苔玉）<br>
+      ✅ 小型黑松/真柏盆景<br>
+      ❌ 大型散尾葵/天堂鸟（太"热带的丛林"感，不禅）
+    </li>
+
+    <li><span class="check">🕯️</span> <strong>9. 气味：线香/精油</strong> <span class="price">¥50-300</span></li>
+    <li style="list-style:none;margin-left:2rem;font-size:.82rem;color:#7a7266;margin-bottom:.5rem;">
+      白檀(Sandalwood) / 桧木(Hinoki) / 抹茶<br>
+      日本品牌：Nippon Kodo / Shoyeido<br>
+      一个简单的陶瓷香座 + 一根线香 = 嗅觉禅意
+    </li>
+
+    <li><span class="check">📿</span> <strong>10. 声音：水钵/风铃</strong> <span class="price">¥50-500</span></li>
+    <li style="list-style:none;margin-left:2rem;font-size:.82rem;color:#7a7266;margin-bottom:.5rem;">
+      桌面小水钵(Water basin)滴水声 / 日式风铃(Furin)<br>
+      淘宝搜 "日式水琴窟" / "南部铁器风铃"
+    </li>
+
+  </ul>
+
+  <h3 style="font-weight:400;color:#4a7c4e;margin-top:2rem;">📸 6个轻度禅意案例（点击跳转Pinterest）</h3>
+  <div class="case-grid">
+
+    <div class="case-card">
+      <a href="https://www.pinterest.com/search/pins/?q=zen+corner+apartment+minimal+Japanese+meditation+space" target="_blank">
+        <div class="thumb">🧘</div>
+        <div class="info">
+          <h3>公寓禅意冥想角</h3>
+          <p class="desc">客厅一角：榻榻米垫+矮桌+一个花瓶+竹帘。不改任何硬装，纯软装造出禅意。</p>
+          <div class="tags"><span>公寓</span><span>冥想角</span><span>零硬装</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="case-card">
+      <a href="https://www.pinterest.com/search/pins/?q=mini+zen+garden+desktop+indoor+sand+tray" target="_blank">
+        <div class="thumb">🪨</div>
+        <div class="info">
+          <h3>桌面枯山水微景观</h3>
+          <p class="desc">Mini Zen garden on desk/coffee table. A wooden tray + white sand + 3 stones + tiny rake. Pure meditation.</p>
+          <div class="tags"><span>桌面</span><span>枯山水</span><span>¥100内</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="case-card">
+      <a href="https://www.pinterest.com/search/pins/?q=Japanese+paper+lantern+living+room+modern+zen" target="_blank">
+        <div class="thumb">💡</div>
+        <div class="info">
+          <h3>一盏和纸灯改变客厅</h3>
+          <p class="desc">One Akari-style paper lantern replaces the old ceiling light. Instantly zen. The easiest transformation.</p>
+          <div class="tags"><span>和纸灯</span><span>一盏改气质</span><span>最快</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="case-card">
+      <a href="https://www.pinterest.com/search/pins/?q=bamboo+blinds+window+zen+interior+light+shadow" target="_blank">
+        <div class="thumb">🎋</div>
+        <div class="info">
+          <h3>竹帘光影 · 最便宜的禅</h3>
+          <p class="desc">Bamboo blinds filtering afternoon light. The shadow patterns on the wall change throughout the day. Living art.</p>
+          <div class="tags"><span>竹帘</span><span>光影</span><span>¥100</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="case-card">
+      <a href="https://www.pinterest.com/search/pins/?q=modern+zen+living+room+sage+green+wall+minimalist" target="_blank">
+        <div class="thumb">🖼️</div>
+        <div class="info">
+          <h3>一面鼠尾草绿墙 + 极简家具</h3>
+          <p class="desc">One sage green accent wall + low wooden furniture + linen cushions. Modern zen without renovation.</p>
+          <div class="tags"><span>鼠尾草绿</span><span>一面墙</span><span>极简</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="case-card">
+      <a href="https://www.pinterest.com/search/pins/?q=ikebana+simple+single+branch+vase+zen+decor" target="_blank">
+        <div class="thumb">🏺</div>
+        <div class="info">
+          <h3>一枝花道 · 最强装饰</h3>
+          <p class="desc">Ikebana-inspired: one ceramic vase + one bare branch. Asymmetrical. Intentional. The ultimate zen centerpiece.</p>
+          <div class="tags"><span>花道</span><span>一枝</span><span>非对称</span></div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="kwd-box">
+    🔍 搜索词: "zen corner apartment" | "mini zen garden desktop" | "Japanese paper lantern living room" | "bamboo blinds light shadow" | "ikebana single branch"
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PART 2: HEAVY ZEN -->
+<!-- ============================================================ -->
+<div class="section heavy-theme" id="heavy">
+  <h2>🏯 第二部分：重度禅意（需要施工，1-3个月）</h2>
+  <p style="color:#7a7266;margin-bottom:1.5rem;">适用于：新房装修 / 旧房翻新 / 有独立茶室/书房空间 / 追求完整日式禅居体验</p>
+
+  <h3 style="font-weight:400;color:#8b6f4e;margin-bottom:1rem;">🎯 重度禅意核心思路</h3>
+  <div class="principles" style="background:#f5efe6;">
+    <p><strong>按日本传统数寄屋( Sukiya )建筑美学改造空间</strong>——障子门、榻榻米、床之间、枯山水庭院。每个元素都是功能+冥想的统一体。</p>
+  </div>
+
+  <!-- Heavy elements per room -->
+  <h3 style="font-weight:400;color:#8b6f4e;margin-top:2rem;">🏗️ 各空间改造清单</h3>
+
+  <table class="element-table">
+    <tr><th style="width:12%;">空间</th><th style="width:44%;">重度禅意做法</th><th style="width:44%;">关键细节</th></tr>
+
+    <tr>
+      <td class="elem">🪚 天花</td>
+      <td>木格栅吊顶 / 桧木原木梁 / 和纸天花板</td>
+      <td>格栅间距3-5cm，桧木(Hinoki)自带香气。颜色：浅原木色或灰木色。暗槽灯带藏于格栅上方。</td>
+    </tr>
+
+    <tr>
+      <td class="elem">🧱 墙面</td>
+      <td>硅藻泥(Shikkui) / 日式土壁 / 桧木饰面板</td>
+      <td>土壁(Diatomaceous earth wall)：手工批刮，暖米色或浅灰。颜色参考：Sherwin-Williams "Shoji White" / "Natural Linen"</td>
+    </tr>
+
+    <tr>
+      <td class="elem">🪵 地面</td>
+      <td>满铺榻榻米(Tatami) / 桧木/杉木地板</td>
+      <td>榻榻米标准尺寸：90×180cm（中京间）。铺设方向要统一。边缘用黑色布带(Heri)。</td>
+    </tr>
+
+    <tr>
+      <td class="elem">🚪 门窗</td>
+      <td>障子(Shoji)推拉门 + 袄(Fusuma)</td>
+      <td>障子：木格+和纸，透光。袄：木框+布/纸面，分隔空间。下框(Shikii)要嵌入地板，上框(Kamoi)嵌入天花。</td>
+    </tr>
+
+    <tr>
+      <td class="elem">🖼️ 壁龛</td>
+      <td>床之间(Tokonoma) — 禅意灵魂空间</td>
+      <td>一个凹入墙面的壁龛，挂禅宗书法/水墨画 + 下方放花器或香炉。这是茶室/禅室的核心焦点。尺寸：通常宽1.8m×深0.9m。</td>
+    </tr>
+
+    <tr>
+      <td class="elem">💡 照明</td>
+      <td>全屋间接照明 + 和纸灯具</td>
+      <td>① 格栅上方的暗槽灯带(3000K) ② 壁龛内置射灯 ③ 1-2盏和纸落地灯 ④ 庭院石灯。零筒灯原则！</td>
+    </tr>
+
+    <tr>
+      <td class="elem">🛏️ 卧室</td>
+      <td>榻榻米 + 布団(Futon)收纳系统</td>
+      <td>白天布団收起进押入(Oshiire)壁橱，房间变成茶室/冥想室。一室多用。</td>
+    </tr>
+
+    <tr>
+      <td class="elem">🍵 茶室</td>
+      <td>独立茶室(Chashitsu) / 茶角落</td>
+      <td>标准4.5叠(约7.3㎡)。躙口(Nijiriguchi)小入口(高65cm×宽60cm)需要弯腰进入——放下身段，众生平等。</td>
+    </tr>
+
+    <tr>
+      <td class="elem">🌿 庭院</td>
+      <td>枯山水(Karesansui) / 坪庭(Tsuboniwa)</td>
+      <td>白沙+石组+苔藓，不做水景。露地(Roji)茶庭需要飞石(Tobiishi)+石灯笼+蹲踞(Tsukubai洗手钵)。</td>
+    </tr>
+
+    <tr>
+      <td class="elem">🪑 家具</td>
+      <td>定制低矮家具 + 坐垫(Zabuton)</td>
+      <td>矮桌(Chabudai)高度30-40cm。无椅子——坐垫直接放榻榻米上。收纳用桐木(Kiri)箱。</td>
+    </tr>
+
+    <tr>
+      <td class="elem">🎋 装饰</td>
+      <td>挂轴(Kakejiku) + 花入(Hanaire) + 香炉</td>
+      <td>挂轴内容：禅语/山水/一行字。花入：竹筒/粗陶。随季节更换。一次只展示一件！</td>
+    </tr>
+
+  </table>
+
+  <h3 style="font-weight:400;color:#8b6f4e;margin-top:2rem;">📐 关键尺寸标准（日本传统规格）</h3>
+  <div class="principles" style="background:#f5efe6;">
+    <ul>
+      <li><strong>榻榻米</strong>：中京间 90×180cm / 江户间 88×176cm / 京间 95.5×191cm（中国大陆建议中京间）</li>
+      <li><strong>障子门</strong>：高180cm×宽90cm（一片）</li>
+      <li><strong>茶室入口(躙口)</strong>：高65cm×宽60cm</li>
+      <li><strong>床之间壁龛</strong>：宽1.8m×深0.9m×高与天花板平齐</li>
+      <li><strong>矮桌</strong>：高30-35cm</li>
+      <li><strong>天花板高度</strong>：茶室2.1-2.3m（低顶营造亲密感）</li>
+    </ul>
+  </div>
+
+  <h3 style="font-weight:400;color:#8b6f4e;margin-top:2rem;">📸 6个重度禅意案例（点击跳转）</h3>
+  <div class="case-grid">
+
+    <div class="case-card">
+      <a href="https://www.pinterest.com/search/pins/?q=traditional+Japanese+tatami+room+shoji+tokonoma+zen" target="_blank">
+        <div class="thumb">🏯</div>
+        <div class="info">
+          <h3>传统和室 · 榻榻米+障子+床之间</h3>
+          <p class="desc">Classic Japanese washitsu: full tatami flooring, shoji sliding doors, tokonoma alcove with hanging scroll. Pure Zen.</p>
+          <div class="tags"><span>和室</span><span>榻榻米</span><span>障子</span><span>床之间</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="case-card">
+      <a href="https://www.pinterest.com/search/pins/?q=Japanese+tea+house+interior+chashitsu+nijiriguchi" target="_blank">
+        <div class="thumb">🍵</div>
+        <div class="info">
+          <h3>独立茶室 · 躙口+炉+床之间</h3>
+          <p class="desc">A dedicated chashitsu (tea room): tiny crawling entrance (nijiriguchi), sunken hearth (ro), tokonoma. 4.5 tatami mats.</p>
+          <div class="tags"><span>茶室</span><span>躙口</span><span>炉</span><span>4.5叠</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="case-card">
+      <a href="https://www.pinterest.com/search/pins/?q=karesansui+zen+rock+garden+indoor+courtyard+home" target="_blank">
+        <div class="thumb">🌿</div>
+        <div class="info">
+          <h3>室内枯山水庭院</h3>
+          <p class="desc">Indoor zen rock garden — white gravel, moss islands, carefully placed stones. Rain chains and stone lanterns complete it.</p>
+          <div class="tags"><span>枯山水</span><span>室内庭院</span><span>石组</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="case-card">
+      <a href="https://www.pinterest.com/search/pins/?q=modern+Japanese+zen+bedroom+tatami+futon+storage" target="_blank">
+        <div class="thumb">🛏️</div>
+        <div class="info">
+          <h3>榻榻米卧室 · 布団收纳</h3>
+          <p class="desc">Tatami bedroom with futon stored in oshiire closet during the day. Room transforms into a meditation/tea space by morning.</p>
+          <div class="tags"><span>榻榻米卧室</span><span>布団</span><span>一室多用</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="case-card">
+      <a href="https://www.pinterest.com/search/pins/?q=Kengo+Kuma+wood+lattic+ceiling+zen+interior+modern" target="_blank">
+        <div class="thumb">🪚</div>
+        <div class="info">
+          <h3>隈研吾风木格栅天花</h3>
+          <p class="desc">Kengo Kuma-style wood lattice ceiling with hidden ambient lighting. Thin wood slats filter light like trees in a forest.</p>
+          <div class="tags"><span>隈研吾</span><span>木格栅</span><span>间接照明</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="case-card">
+      <a href="https://www.pinterest.com/search/pins/?q=contemporary+zen+house+full+renovation+shoji+sukiya" target="_blank">
+        <div class="thumb">🏠</div>
+        <div class="info">
+          <h3>当代禅居 · 全屋改造</h3>
+          <p class="desc">Full contemporary zen home renovation: sukiya-style architecture meets modern living. Shoji, tatami, but also a modern kitchen.</p>
+          <div class="tags"><span>全屋改造</span><span>数寄屋</span><span>现代禅</span></div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="kwd-box">
+    🔍 搜索词: "Japanese tatami room tokonoma" | "chashitsu tea room interior" | "karesansui indoor garden" | "Kengo Kuma wood lattice" | "sukiya style home"
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- KEY DIFFERENCES */
+<!-- ============================================================ -->
+<div class="section">
+  <h2 style="text-align:center;font-weight:400;color:var(--accent2);">⚡ 禅意 vs 侘寂 vs Japandi 三角对比</h2>
+  <table class="element-table">
+    <tr><th>维度</th><th>禅意 Zen</th><th>侘寂 Wabi-Sabi</th><th>Japandi</th></tr>
+    <tr><td><strong>核心理念</strong></td><td>空、静、冥想</td><td>不完美的美、岁月痕迹</td><td>日式+北欧的完美融合</td></tr>
+    <tr><td><strong>空间感</strong></td><td>大量留白 + 秩序</td><td>随意、斑驳、自然态</td><td>温暖、实用、通透</td></tr>
+    <tr><td><strong>新旧态度</strong></td><td>可以全新、干净</td><td>必须旧、有磨损</td><td>新旧混合</td></tr>
+    <tr><td><strong>代表元素</strong></td><td>枯山水、榻榻米、障子、挂轴</td><td>金缮、旧木、石灰墙、粗陶</td><td>纸灯、橡木、亚麻</td></tr>
+    <tr><td><strong>代表作</strong></td><td>龙安寺石庭</td><td>Axel Vervoordt 住宅</td><td>Norm Architects</td></tr>
+    <tr><td><strong>适合谁</strong></td><td>追求内心安静、有独立空间</td><td>喜欢旧物、手工感、故事性</td><td>喜欢温暖极简、实用主义</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================ -->
+<!-- STONE ZEN — 石禅风格 -->
+<!-- ============================================================ -->
+<div class="section" style="border-left:4px solid #8b6f4e;">
+  <h2 style="color:#7a6b5a;">🪨 石禅 Stone Zen — 关键词 & 国际灵感站</h2>
+
+  <div class="intro-box" style="background:linear-gradient(135deg, #e8e0d5 0%, #f0ebe2 100%);text-align:left;margin-bottom:2rem;">
+    <p><strong>石禅</strong> 是禅意风格中"石"元素最集中的方向 — 强调天然原石的粗犷质感、枯山水的静谧、以及石头带来的永恒感。</p>
+    <p style="margin-top:.5rem;">核心三要素：<strong>🪨 石</strong>（原石/石板/碎石） + <strong>🪵 木</strong>（老木/原木色） + <strong>⬜ 留白</strong>（大量空白）</p>
+  </div>
+
+  <!-- 国际站直达链接 -->
+  <h3 style="font-weight:400;color:var(--accent2);margin-bottom:1rem;">🌍 国际灵感站 — 直达搜索链接</h3>
+  <table class="element-table">
+    <tr><th style="width:15%;">网站</th><th style="width:55%;">直达链接</th><th style="width:30%;">为什么推荐</th></tr>
+    <tr>
+      <td><strong>Pinterest</strong> ⭐</td>
+      <td><a href="https://www.pinterest.com/search/pins/?q=wabi+sabi+stone+interior+zen" target="_blank">pinterest.com → wabi sabi stone interior zen</a></td>
+      <td>全球最大灵感库，图片无限推荐</td>
+    </tr>
+    <tr>
+      <td><strong>Pinterest</strong></td>
+      <td><a href="https://www.pinterest.com/search/pins/?q=zen+stone+wall+bedroom" target="_blank">pinterest.com → zen stone wall bedroom</a></td>
+      <td>专注石墙卧室</td>
+    </tr>
+    <tr>
+      <td><strong>Pinterest</strong></td>
+      <td><a href="https://www.pinterest.com/search/pins/?q=japanese+stone+garden+interior" target="_blank">pinterest.com → japanese stone garden interior</a></td>
+      <td>枯山水室内设计</td>
+    </tr>
+    <tr>
+      <td><strong>Houzz</strong></td>
+      <td><a href="https://www.houzz.com/photos/query/zen-stone-wall-interior" target="_blank">houzz.com → zen stone wall interior</a></td>
+      <td>专业设计师作品，可筛房间/风格</td>
+    </tr>
+    <tr>
+      <td><strong>Dezeen</strong></td>
+      <td><a href="https://www.dezeen.com/search/?q=stone+interior+zen" target="_blank">dezeen.com → stone interior zen</a></td>
+      <td>设计行业标杆，前沿趋势</td>
+    </tr>
+    <tr>
+      <td><strong>ArchDaily</strong></td>
+      <td><a href="https://www.archdaily.com/search/projects?q=zen+stone+interior" target="_blank">archdaily.com → zen stone interior</a></td>
+      <td>建筑级作品，高品质案例</td>
+    </tr>
+    <tr>
+      <td><strong>dwell</strong></td>
+      <td><a href="https://www.dwell.com/search?q=stone+zen+interior" target="_blank">dwell.com → stone zen interior</a></td>
+      <td>现代极简，适合小户型</td>
+    </tr>
+    <tr>
+      <td><strong>Unsplash</strong></td>
+      <td><a href="https://unsplash.com/s/photos/zen-interior-stone" target="_blank">unsplash.com → zen interior stone</a></td>
+      <td>高清免费图库</td>
+    </tr>
+    <tr>
+      <td><strong>Instagram</strong></td>
+      <td><a href="https://www.instagram.com/explore/tags/wabisabiinterior/" target="_blank">instagram.com → #wabisabiinterior</a></td>
+      <td>设计师日常更新最活跃</td>
+    </tr>
+  </table>
+  <p class="note" style="font-size:.8rem;color:#b0a090;margin-top:.5rem;">⚠️ 以上网站大部分需要VPN访问</p>
+
+  <!-- 英文关键词全集 -->
+  <h3 style="font-weight:400;color:var(--accent2);margin:2rem 0 1rem;">🔑 英文关键词全集（国际站搜索用）</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+    <div class="principles" style="margin:0;">
+      <h4>🪨 石禅核心 Stone Zen</h4>
+      <ul>
+        <li><code>wabi sabi stone interior</code></li>
+        <li><code>zen stone wall interior design</code></li>
+        <li><code>japanese stone garden bedroom</code></li>
+        <li><code>meditation room stone wall</code></li>
+        <li><code>rock texture interior wall</code></li>
+        <li><code>zen rock wall bedroom</code></li>
+      </ul>
+    </div>
+    <div class="principles" style="margin:0;">
+      <h4>🎋 侘寂 & Japandi</h4>
+      <ul>
+        <li><code>wabi sabi interior design 2025</code></li>
+        <li><code>japandi stone wall</code></li>
+        <li><code>wabi sabi bedroom stone</code></li>
+        <li><code>japandi zen apartment</code></li>
+        <li><code>wabi sabi stone texture wall</code></li>
+      </ul>
+    </div>
+    <div class="principles" style="margin:0;">
+      <h4>🧘 极简禅意 Zen Minimal</h4>
+      <ul>
+        <li><code>zen minimalist interior</code></li>
+        <li><code>japanese zen apartment</code></li>
+        <li><code>zen interior concrete stone</code></li>
+        <li><code>ash grey stone wall interior</code></li>
+        <li><code>serene zen bedroom design</code></li>
+      </ul>
+    </div>
+    <div class="principles" style="margin:0;">
+      <h4>🏠 小户型（45㎡）</h4>
+      <ul>
+        <li><code>small apartment zen interior</code></li>
+        <li><code>studio apartment wabi sabi</code></li>
+        <li><code>tiny zen bedroom stone wall</code></li>
+        <li><code>small space japanese interior</code></li>
+        <li><code>micro apartment zen design</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 中文关键词 -->
+  <h3 style="font-weight:400;color:var(--accent2);margin:2rem 0 1rem;">🀄 中文关键词（国内站搜索用）</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">
+    <div class="principles" style="margin:0;">
+      <h4>石禅核心</h4>
+      <ul>
+        <li><code>石禅室内设计</code></li>
+        <li><code>禅意石墙</code></li>
+        <li><code>枯山水室内</code></li>
+        <li><code>石头禅意空间</code></li>
+      </ul>
+    </div>
+    <div class="principles" style="margin:0;">
+      <h4>禅意风格</h4>
+      <ul>
+        <li><code>宋式禅意</code></li>
+        <li><code>侘寂风室内</code></li>
+        <li><code>新中式禅意</code></li>
+        <li><code>禅宗设计</code></li>
+      </ul>
+    </div>
+    <div class="principles" style="margin:0;">
+      <h4>材质空间</h4>
+      <ul>
+        <li><code>石材质禅意墙</code></li>
+        <li><code>石板墙室内</code></li>
+        <li><code>原石装修风格</code></li>
+        <li><code>禅意茶室石墙</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 推荐搜索路径 -->
+  <div class="dos-donts" style="margin-top:2rem;">
+    <div class="dos">
+      <h4>🔥 L，最快上手路径</h4>
+      <ol>
+        <li>开VPN → 打开 <strong>Pinterest</strong></li>
+        <li>搜 <code>wabi sabi stone interior</code></li>
+        <li>点开一张喜欢的图 → 往下滚 → 算法无限推同风格</li>
+        <li>把喜欢的图Pin到自己的Board里</li>
+        <li>去 <strong>Houzz</strong> 搜同关键词看专业设计师案例</li>
+        <li>最后去 <strong>小红书</strong> 搜 <code>石禅 装修</code> 看国内落地效果</li>
+      </ol>
+      <p style="margin-top:.5rem;font-size:.8rem;">💡 Pinterest的推荐算法是世界第一，搜一次可以无限刷，效率碾压所有其他方式</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- QUICK START GUIDE -->
+<!-- ============================================================ -->
+<div class="section">
+  <h2 style="text-align:center;font-weight:400;color:var(--accent);">🚀 给L的快速启动建议</h2>
+  <div class="dos-donts">
+    <div class="dos">
+      <h4>🔥 这周末就能做的3件事（轻度）</h4>
+      <ol>
+        <li>淘宝下单：一个桌面枯山水沙盘 ¥80 + 一根线香 ¥50</li>
+        <li>把客厅窗帘换成竹帘 ¥150</li>
+        <li>清理掉一面墙上的所有装饰，只放一个陶罐+一枝枯枝</li>
+      </ol>
+      <p style="margin-top:.5rem;font-size:.8rem;">💰 总花费不到 ¥300 | ⏱️ 2小时搞定</p>
+    </div>
+    <div class="dos" style="background:#f5efe6;border-color:#d4c8b0;">
+      <h4>🔨 如果想做重度，施工顺序建议</h4>
+      <ol>
+        <li>先做天花（木格栅/硅藻泥）</li>
+        <li>再做地面（榻榻米/木地板）</li>
+        <li>墙面上硅藻泥/土壁</li>
+        <li>安装障子门框+推拉门</li>
+        <li>建造床之间壁龛</li>
+        <li>最后做照明系统+软装</li>
+      </ol>
+      <p style="margin-top:.5rem;font-size:.8rem;">⏱️ 工期约6-10周 | 需要找懂日式装修的师傅</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>🎋 禅意风格装修指南 — 为L制作</p>
+  <p>资料来源: JapanObjects · Dezeen · ArchDaily · Pinterest · Houzz · dwell · Unsplash · 日本传统建筑规格</p>
+  <p style="margin-top:.5rem;">🕐 生成: 2026-07-21 | 更新: 2026-07-22 🪨石禅Section | 每个案例卡片均可点击查看海外真实案例图</p>
+</footer>
+
+</div>
+</body>
+</html>
