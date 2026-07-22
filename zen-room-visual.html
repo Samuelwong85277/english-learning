@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L的45㎡ 轻禅意卧室 · 3D视觉图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a18;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:Georgia,serif;overflow-x:hidden}
+.room{position:relative;width:800px;height:600px;perspective:1200px;margin:20px}
+.scene{width:100%;height:100%;position:relative;transform-style:preserve-3d;transform:rotateX(5deg) rotateY(-15deg)}
+
+/* Floor */
+.floor{position:absolute;bottom:0;left:0;width:100%;height:45%;background:linear-gradient(180deg,#7a4e38 0%,#6b3f2a 40%,#5a3220 100%);transform:rotateX(60deg);transform-origin:bottom;border-radius:2px}
+.floor::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(0,0,0,.08) 60px,rgba(0,0,0,.08) 61px),repeating-linear-gradient(0deg,transparent,transparent 8px,rgba(0,0,0,.03) 8px,rgba(0,0,0,.03) 9px)}
+
+/* Back wall */
+.back-wall{position:absolute;top:0;left:0;width:100%;height:55%;background:linear-gradient(180deg,#b0b8aa 0%,#a5ada0 50%,#9ba395 100%);border-radius:2px}
+.back-wall::before{content:'RU YAO';position:absolute;bottom:20px;right:30px;font-size:10px;color:rgba(0,0,0,.1);letter-spacing:.3em}
+
+/* Stone accent wall behind bed */
+.stone-wall{position:absolute;top:15%;left:15%;width:40%;height:45%;background:linear-gradient(135deg,#9e9c98 0%,#8a8884 20%,#95938f 40%,#82807c 60%,#969490 80%,#888682 100%);border-radius:3px;box-shadow:inset 0 0 30px rgba(0,0,0,.1)}
+.stone-wall::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0,transparent 18px,rgba(0,0,0,.06) 18px,rgba(0,0,0,.06) 20px),repeating-linear-gradient(90deg,transparent 0,transparent 35px,rgba(255,255,255,.03) 35px,rgba(255,255,255,.03) 38px,transparent 38px,transparent 50px,rgba(0,0,0,.04) 50px,rgba(0,0,0,.04) 52px)}
+
+/* Left wall */
+.left-wall{position:absolute;top:0;left:0;width:15%;height:55%;background:linear-gradient(180deg,#a5ada0 0%,#9ba395 50%,#909a8e 100%);transform:skewY(0deg);border-right:1px solid rgba(0,0,0,.05)}
+.left-wall::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.04),transparent 60%)}
+
+/* Right wall */
+.right-wall{position:absolute;top:0;right:0;width:15%;height:55%;background:linear-gradient(180deg,#a5ada0 0%,#9ba395 50%,#909a8e 100%);border-left:1px solid rgba(0,0,0,.05)}
+.right-wall::after{content:'';position:absolute;inset:0;background:linear-gradient(270deg,rgba(0,0,0,.04),transparent 60%)}
+
+/* Inverted pyramid ceiling */
+.ceiling-outer{position:absolute;top:0;left:0;width:100%;height:55%;pointer-events:none}
+.ceiling-step1{position:absolute;top:5%;left:12%;width:76%;height:8%;background:linear-gradient(180deg,#c8c4bc,#bbb7af);border-radius:2px;box-shadow:0 2px 8px rgba(0,0,0,.1);display:flex;align-items:center;justify-content:flex-end;padding-right:15px;gap:8px}
+.ceiling-step2{position:absolute;top:13%;left:20%;width:60%;height:8%;background:linear-gradient(180deg,#c0bcb4,#b3afa7);border-radius:2px;box-shadow:0 2px 6px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:flex-end;padding-right:10px;gap:6px}
+.ceiling-step3{position:absolute;top:21%;left:28%;width:44%;height:6%;background:linear-gradient(180deg,#b8b4ac,#aba79f);border-radius:2px;box-shadow:0 2px 4px rgba(0,0,0,.06)}
+.ceiling-center{position:absolute;top:27%;left:32%;width:36%;height:10%;background:linear-gradient(180deg,#b0aca4,#a39f97);border-radius:2px}
+
+/* LED glow */
+.led-glow1{position:absolute;top:5%;left:12%;width:76%;height:3px;background:linear-gradient(180deg,rgba(255,220,150,.6),transparent);border-radius:2px}
+.led-glow2{position:absolute;top:13%;left:20%;width:60%;height:2px;background:linear-gradient(180deg,rgba(255,210,140,.5),transparent);border-radius:2px}
+
+/* Paper pendant light */
+.pendant{position:absolute;top:12%;left:42%;z-index:10}
+.pendant-cord{width:1px;height:60px;background:rgba(0,0,0,.2);margin:0 auto}
+.pendant-light{width:70px;height:85px;background:radial-gradient(ellipse at 50% 40%,#fffef5 0%,#f5eed8 30%,#e8dca8 60%,#d4c890 100%);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;box-shadow:0 0 60px rgba(255,220,140,.4),0 0 120px rgba(255,200,100,.15),0 0 200px rgba(255,180,80,.08);animation:glow 3s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 50px rgba(255,220,140,.35),0 0 100px rgba(255,200,100,.12)}50%{box-shadow:0 0 70px rgba(255,230,150,.5),0 0 130px rgba(255,210,110,.2)}}
+.pendant-light::after{content:'';position:absolute;top:10%;left:15%;width:70%;height:60%;background:radial-gradient(ellipse,rgba(255,255,255,.3),transparent 70%);border-radius:50%}
+
+/* Bed - low platform */
+.bed{position:absolute;bottom:8%;left:22%;width:42%;height:12%;z-index:5}
+.bed-frame{position:absolute;bottom:0;left:0;width:100%;height:35%;background:linear-gradient(180deg,#c4a070,#a08050);border-radius:3px;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+.bed-mattress{position:absolute;bottom:35%;left:2%;width:96%;height:40%;background:linear-gradient(180deg,#e8dfd0,#d5cbb5);border-radius:2px}
+.bed-cover{position:absolute;bottom:35%;left:2%;width:96%;height:65%;background:linear-gradient(180deg,#d4c8b0,#c8b898);border-radius:2px;box-shadow:inset 0 2px 8px rgba(0,0,0,.05)}
+.bed-pillow1{position:absolute;bottom:70%;left:6%;width:22%;height:18%;background:linear-gradient(180deg,#e5dcc8,#d8ceb8);border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+.bed-pillow2{position:absolute;bottom:70%;left:30%;width:22%;height:18%;background:linear-gradient(180deg,#e5dcc8,#d8ceb8);border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+
+/* Linen headboard on stone wall */
+.headboard{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:38%;height:30%;z-index:4;bottom:8%}
+.headboard-panel{position:absolute;inset:0;background:linear-gradient(180deg,#d4c5a8,#c4b590);border-radius:4px;box-shadow:0 4px 15px rgba(0,0,0,.15)}
+.headboard-panel::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 10px,rgba(0,0,0,.02) 10px,rgba(0,0,0,.02) 11px);border-radius:4px}
+
+/* Window + curtain */
+.window{position:absolute;top:8%;right:18%;width:18%;height:28%;z-index:3}
+.window-frame{position:absolute;inset:0;background:linear-gradient(180deg,#8899aa,#778899);border-radius:2px;border:3px solid #555;box-shadow:inset 0 0 20px rgba(200,220,255,.15)}
+.window-cross-h{position:absolute;top:48%;left:0;width:100%;height:3px;background:#555}
+.window-cross-v{position:absolute;left:48%;top:0;height:100%;width:3px;background:#555}
+.curtain-left{position:absolute;top:-3px;left:-8px;width:55%;height:calc(100%+6px);background:linear-gradient(90deg,#d4c8b0,#ccc0a5 50%,#c8ba9a 100%);border-radius:2px;opacity:.9;animation:curtain-sway 8s ease-in-out infinite;transform-origin:top left}
+.curtain-right{position:absolute;top:-3px;right:-8px;width:55%;height:calc(100%+6px);background:linear-gradient(270deg,#d4c8b0,#ccc0a5 50%,#c8ba9a 100%);border-radius:2px;opacity:.9;animation:curtain-sway 8s ease-in-out 4s infinite;transform-origin:top right}
+@keyframes curtain-sway{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.03)}}
+.curtain-fold{position:absolute;top:10%;left:20%;width:1px;height:70%;background:rgba(0,0,0,.06);box-shadow:15px 0 0 rgba(0,0,0,.04),30px 0 0 rgba(0,0,0,.03)}
+
+/* Plant - fiddle leaf fig */
+.plant{position:absolute;bottom:5%;left:4%;z-index:6}
+.plant-pot{width:28px;height:30px;background:linear-gradient(180deg,#9e9e9c,#838381);border-radius:20% 20% 35% 35% / 30% 30% 70% 70%;margin:0 auto}
+.plant-stem{width:2px;height:25px;background:#5a7a40;margin:0 auto}
+.plant-leaf1{position:absolute;top:0;left:50%;width:18px;height:28px;background:#5b8a3e;border-radius:50% 5% 50% 5%;transform:rotate(-15deg) translateX(-10px);box-shadow:0 2px 4px rgba(0,0,0,.15)}
+.plant-leaf2{position:absolute;top:5px;left:55%;width:16px;height:25px;background:#4d7a34;border-radius:5% 50% 5% 50%;transform:rotate(20deg);box-shadow:0 2px 4px rgba(0,0,0,.12)}
+.plant-leaf3{position:absolute;top:0;left:40%;width:15px;height:22px;background:#6a9848;border-radius:50% 50% 5% 5%;transform:rotate(-30deg) translateX(-5px)}
+
+/* Stone decor on floor */
+.stone-decor1{position:absolute;bottom:3%;left:12%;width:20px;height:12px;background:radial-gradient(ellipse,#a8a6a2,#888682);border-radius:50%;z-index:6;box-shadow:0 3px 6px rgba(0,0,0,.2)}
+.stone-decor2{position:absolute;bottom:3%;left:14%;width:14px;height:9px;background:radial-gradient(ellipse,#9a9894,#7e7c78);border-radius:50%;z-index:6}
+
+/* Door */
+.door{position:absolute;top:8%;left:0;width:10%;height:35%;background:linear-gradient(180deg,#99a395,#909a8c);border-radius:2px 0 0 2px;z-index:2;border-right:2px solid rgba(0,0,0,.08)}
+.door-frame{position:absolute;inset:-3px -2px -3px -3px;border:1px solid rgba(0,0,0,.1);border-radius:3px 0 0 3px}
+.door-handle{position:absolute;top:50%;right:8px;width:2px;height:12px;background:rgba(0,0,0,.2);border-radius:1px}
+
+/* Wardrobe */
+.wardrobe{position:absolute;top:8%;right:0;width:15%;height:35%;background:linear-gradient(180deg,#99a395,#909a8c);border-radius:0 2px 2px 0;z-index:2;border-left:2px solid rgba(0,0,0,.08)}
+.wardrobe::after{content:'';position:absolute;top:0;left:50%;width:1px;height:100%;background:rgba(0,0,0,.04)}
+
+/* Macrame wall hanging */
+.macrame{position:absolute;top:10%;left:20%;z-index:5}
+.macrame-top{width:30px;height:3px;background:rgba(0,0,0,.15);border-radius:2px}
+.macrame-body{width:18px;height:30px;margin:0 auto;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(0,0,0,.08) 4px,rgba(0,0,0,.08) 5px);border-radius:0 0 5px 5px}
+.macrame-fringe{width:20px;height:12px;margin:0 auto;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(180,160,120,.2) 2px,rgba(180,160,120,.2) 3px)}
+
+/* Labels */
+.label{position:absolute;color:rgba(255,255,255,.7);font-size:10px;letter-spacing:.05em;pointer-events:none;z-index:20;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.label-line{position:absolute;width:30px;height:1px;background:rgba(255,255,255,.3);pointer-events:none;z-index:19}
+
+/* Legend */
+.legend{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:20px;background:rgba(0,0,0,.7);padding:12px 24px;border-radius:30px;z-index:100;flex-wrap:wrap;justify-content:center}
+.legend-item{display:flex;align-items:center;gap:6px;color:#ccc;font-size:11px;letter-spacing:.03em}
+.legend-dot{width:10px;height:10px;border-radius:50%}
+.title{position:fixed;top:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.85);font-size:16px;letter-spacing:.1em;z-index:100;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.subtitle{position:fixed;top:50px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.5);font-size:10px;letter-spacing:.15em;z-index:100}
+
+/* Ambient light rays */
+.light-rays{position:absolute;top:8%;right:27%;width:80px;height:200px;background:linear-gradient(180deg,rgba(255,240,200,.08),transparent 80%);transform:rotate(-5deg);pointer-events:none;z-index:1}
+
+/* Desk/tea table */
+.teatable{position:absolute;bottom:5%;left:40%;width:20%;z-index:6}
+.teatable-top{width:100%;height:8px;background:linear-gradient(180deg,#9e9c98,#8a8884);border-radius:3px;box-shadow:0 3px 8px rgba(0,0,0,.2)}
+.teatable-leg1{position:absolute;bottom:-15px;left:8px;width:2px;height:15px;background:rgba(0,0,0,.2)}
+.teatable-leg2{position:absolute;bottom:-15px;right:8px;width:2px;height:15px;background:rgba(0,0,0,.2)}
+.teatable-item{position:absolute;top:-6px;left:30%;width:12px;height:8px;background:radial-gradient(ellipse,#c8c4b8,#a8a498);border-radius:40%}
+.incense{position:absolute;top:-3px;left:55%;width:1px;height:6px;background:rgba(200,180,150,.4)}
+.incense-smoke{position:absolute;top:-8px;left:53%;width:3px;height:8px;background:radial-gradient(ellipse,rgba(255,255,255,.1),transparent);border-radius:50%;animation:smoke 2s ease-out infinite}
+@keyframes smoke{0%{opacity:.4;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-10px) scale(2)}}
+
+/* Downlights */
+.downlight1{position:absolute;top:3%;left:14%;width:4px;height:4px;background:#fff;border-radius:50%;box-shadow:0 0 6px rgba(255,240,200,.6);z-index:2}
+.downlight2{position:absolute;top:3%;right:14%;width:4px;height:4px;background:#fff;border-radius:50%;box-shadow:0 0 6px rgba(255,240,200,.6);z-index:2}
+.downlight-beam1{position:absolute;top:3%;left:14%;width:15px;height:80px;background:linear-gradient(180deg,rgba(255,240,200,.06),transparent);z-index:1}
+.downlight-beam2{position:absolute;top:3%;right:14%;width:15px;height:80px;background:linear-gradient(180deg,rgba(255,240,200,.06),transparent);z-index:1}
+
+/* Light pool on floor */
+.light-pool{position:absolute;bottom:0;left:35%;width:30%;height:30px;background:radial-gradient(ellipse,rgba(255,220,150,.08),transparent 70%);z-index:1;pointer-events:none}
+</style>
+</head>
+<body>
+<div class="title">L 的 45平米 轻禅意卧室</div>
+<div class="subtitle">汝窑墙面 . 褐红地板 . 麻布床头 . 石墙 . 纸吊灯</div>
+
+<div class="room">
+<div class="scene">
+  <div class="back-wall"></div>
+  <div class="left-wall"></div>
+  <div class="right-wall"></div>
+  <div class="stone-wall"></div>
+  <div class="floor"></div>
+
+  <!-- Ceiling steps -->
+  <div class="ceiling-outer">
+    <div class="ceiling-step1"></div>
+    <div class="ceiling-step2"></div>
+    <div class="ceiling-step3"></div>
+    <div class="ceiling-center"></div>
+    <div class="led-glow1"></div>
+    <div class="led-glow2"></div>
+  </div>
+
+  <!-- Downlights -->
+  <div class="downlight1"></div>
+  <div class="downlight2"></div>
+  <div class="downlight-beam1"></div>
+  <div class="downlight-beam2"></div>
+
+  <!-- Pendant light -->
+  <div class="pendant"><div class="pendant-cord"></div><div class="pendant-light"></div></div>
+
+  <!-- Light rays -->
+  <div class="light-rays"></div>
+  <div class="light-pool"></div>
+
+  <!-- Door -->
+  <div class="door"><div class="door-frame"></div><div class="door-handle"></div></div>
+
+  <!-- Wardrobe -->
+  <div class="wardrobe"></div>
+
+  <!-- Window + Curtains -->
+  <div class="window">
+    <div class="window-frame"></div>
+    <div class="window-cross-h"></div>
+    <div class="window-cross-v"></div>
+    <div class="curtain-left"><div class="curtain-fold"></div></div>
+    <div class="curtain-right"></div>
+  </div>
+
+  <!-- Macrame -->
+  <div class="macrame"><div class="macrame-top"></div><div class="macrame-body"></div><div class="macrame-fringe"></div></div>
+
+  <!-- Stone accent wall + Headboard -->
+  <div class="headboard"><div class="headboard-panel"></div></div>
+
+  <!-- Bed -->
+  <div class="bed">
+    <div class="bed-frame"></div>
+    <div class="bed-mattress"></div>
+    <div class="bed-cover"></div>
+    <div class="bed-pillow1"></div>
+    <div class="bed-pillow2"></div>
+  </div>
+
+  <!-- Plant -->
+  <div class="plant">
+    <div class="plant-leaf1"></div>
+    <div class="plant-leaf2"></div>
+    <div class="plant-leaf3"></div>
+    <div class="plant-stem"></div>
+    <div class="plant-pot"></div>
+  </div>
+
+  <!-- Stone decor -->
+  <div class="stone-decor1"></div>
+  <div class="stone-decor2"></div>
+
+  <!-- Tea table -->
+  <div class="teatable">
+    <div class="teatable-top"></div>
+    <div class="teatable-leg1"></div>
+    <div class="teatable-leg2"></div>
+    <div class="teatable-item"></div>
+    <div class="incense"></div>
+    <div class="incense-smoke"></div>
+  </div>
+</div>
+</div>
+
+<div class="legend">
+<div class="legend-item"><div class="legend-dot" style="background:#b0b8aa;"></div>墙面 汝窑</div>
+<div class="legend-item"><div class="legend-dot" style="background:#7a4e38;"></div>地板 褐红木</div>
+<div class="legend-item"><div class="legend-dot" style="background:#999;"></div>床头石墙</div>
+<div class="legend-item"><div class="legend-dot" style="background:#d4c8b0;"></div>麻布+窗帘</div>
+<div class="legend-item"><div class="legend-dot" style="background:#e8dca8;"></div>纸吊灯</div>
+<div class="legend-item"><div class="legend-dot" style="background:#99a395;"></div>门/柜</div>
+<div class="legend-item"><div class="legend-dot" style="background:#5b8a3e;"></div>绿植</div>
+<div class="legend-item"><div class="legend-dot" style="background:#888;"></div>石板茶几</div>
+</div>
+
+</body>
+</html>
